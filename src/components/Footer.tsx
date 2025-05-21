@@ -91,7 +91,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-gray-800 mt-10 pt-6 text-sm text-gray-500 text-center">
-          <p>&copy; {currentYear} LuLu Ventures. All rights reserved.</p>
+          <p>&copy; {currentYear} LuLu Ventures LLC. All rights reserved.</p>
         </div>
       </div>
     </footer>
