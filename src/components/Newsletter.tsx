@@ -22,9 +22,9 @@ export function Newsletter() {
     <section className="py-16 bg-blue-900 text-white">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Our Investing Community</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Our Investing Club</h2>
           <p className="text-blue-100 mb-8">
-            Get exclusive research, market insights, and investment ideas delivered straight to your inbox.
+          Get exclusive research, market insights, and investment ideas delivered to you for free!
           </p>
           
           {isSubmitted ? (
