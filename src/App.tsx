@@ -39,8 +39,8 @@ function App() {
         <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
         <main className="pt-16">
           <Hero />
-          <YouTubeSection />
           <PodcastSection />
+          <YouTubeSection />
           <AppsSection />
           <ResearchSection />
           <Newsletter />

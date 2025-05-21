@@ -38,19 +38,13 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900">
-            <span className="text-blue-900">LuLu</span> Ventures
+          <h1 className="text-xl md:text-2xl font-bold">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">LuLu Ventures</span>
           </h1>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <button 
-            onClick={() => scrollToSection('youtube')}
-            className="text-gray-700 hover:text-blue-900 transition-colors"
-          >
-            YouTube
-          </button>
           <button 
             onClick={() => scrollToSection('podcast')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
@@ -58,10 +52,16 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
             Podcast
           </button>
           <button 
+            onClick={() => scrollToSection('youtube')}
+            className="text-gray-700 hover:text-blue-900 transition-colors"
+          >
+            YouTube
+          </button>
+          <button 
             onClick={() => scrollToSection('apps')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
-            iOS Apps
+            App Tools
           </button>
           <button 
             onClick={() => scrollToSection('research')}
@@ -79,7 +79,7 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
           ) : (
             <button 
               onClick={() => setIsSignInModalOpen(true)}
-              className="px-4 py-2 rounded-lg bg-blue-900 text-white hover:bg-blue-800 transition-colors"
+              className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white hover:shadow-lg transition-all"
             >
               Sign In
             </button>
@@ -101,22 +101,22 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
         <div className="md:hidden bg-white shadow-md">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             <button 
-              onClick={() => scrollToSection('youtube')}
-              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
-            >
-              YouTube
-            </button>
-            <button 
               onClick={() => scrollToSection('podcast')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
               Podcast
             </button>
             <button 
+              onClick={() => scrollToSection('youtube')}
+              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
+            >
+              YouTube
+            </button>
+            <button 
               onClick={() => scrollToSection('apps')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
-              iOS Apps
+              App Tools
             </button>
             <button 
               onClick={() => scrollToSection('research')}
@@ -134,7 +134,7 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
             ) : (
               <button 
                 onClick={() => setIsSignInModalOpen(true)}
-                className="px-4 py-2 rounded-lg bg-blue-900 text-white hover:bg-blue-800 transition-colors"
+                className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white hover:shadow-lg transition-all"
               >
                 Sign In
               </button>
