@@ -126,10 +126,13 @@ export function ResearchSection() {
             <div className="bg-blue-100 p-4 rounded-full inline-block mb-4">
               <Lock className="text-blue-900" size={24} />
             </div>
-            <h6 className="text-xl font-semibold mb-2"></h6>
-            {/* <p className="text-gray-700 mb-6 max-w-md mx-auto">
+            <h6 className="text-xl font-semibold mb-2 flex items-center justify-center">
+              Premium Access 
+              <span className="ml-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">FREE NOW</span>
+            </h6>
+            <p className="text-gray-700 mb-6 max-w-md mx-auto">
               Sign in to access our collection of in-depth research and analysis.
-            </p> */}
+            </p>
             <button
               onClick={() => setIsSignInModalOpen(true)}
               className="px-6 py-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-800 transition-colors"
