@@ -2,7 +2,7 @@ import { ExternalLink } from 'lucide-react';
 
 export function PodcastSection() {
   return (
-    <section id="podcast" className="py-20 bg-white">
+    <section id="podcast" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="flex justify-center">
           <div className="max-w-2xl">

@@ -61,10 +61,41 @@ npm run lint
 
 ```
 Lulu-web-app/
-├── src/              # Source code directory
-├── public/           # Static assets
-├── index.html        # HTML entry file
-├── vite.config.ts    # Vite configuration
-├── tsconfig.json     # TypeScript configuration
-└── package.json      # Project dependencies and scripts
+├── public/                    # Static assets
+│   └── images/                # Image assets
+│       ├── business-first-principles.jpeg
+│       ├── company-analysis.jpeg
+│       ├── modern-philosopher.jpeg
+│       └── The Buffet Way_3000x3000.jpeg
+├── src/                       # Source code
+│   ├── components/            # React components
+│   │   ├── AppsSection.tsx    # Applications section
+│   │   ├── Footer.tsx         # Site footer
+│   │   ├── Header.tsx         # Site header
+│   │   ├── Hero.tsx           # Hero section
+│   │   ├── LoginForm.tsx      # User login form
+│   │   ├── Newsletter.tsx     # Newsletter subscription
+│   │   ├── PodcastSection.tsx # Podcast section
+│   │   ├── ResearchSection.tsx# Research content
+│   │   ├── SignInModal.tsx    # Sign in modal
+│   │   ├── TestPage.tsx       # Test page component
+│   │   └── YouTubeSection.tsx # YouTube content section
+│   ├── context/               # React context providers
+│   │   └── AuthContext.tsx    # Authentication context
+│   ├── App.tsx                # Main application component
+│   ├── index.css              # Global styles
+│   ├── main.tsx               # Application entry point
+│   └── vite-env.d.ts          # Vite environment types
+├── .github/                   # GitHub configuration
+├── .gitignore                 # Git ignore rules
+├── eslint.config.js           # ESLint configuration
+├── index.html                 # HTML entry file
+├── package.json               # Project dependencies and scripts
+├── package-lock.json          # Locked dependencies
+├── postcss.config.js          # PostCSS configuration
+├── tailwind.config.js         # Tailwind CSS configuration
+├── tsconfig.app.json          # TypeScript app configuration
+├── tsconfig.json              # TypeScript base configuration
+├── tsconfig.node.json         # TypeScript Node.js configuration
+└── vite.config.ts             # Vite configuration
 ```
