@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { ExternalLink, Headphones } from 'lucide-react';
+import { ExternalLink, Headphones, Play } from 'lucide-react';
 
 type Video = {
   id: string;
-  title: string;
   thumbnail: string;
   playlistUrl: string;
   episodeCount: number;
@@ -13,29 +12,29 @@ export function YouTubeSection() {
   const [featuredVideos] = useState<Video[]>([
     {
       id: 'playlist1',
-      title: 'The Buffett Way',
-      thumbnail: 'https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      // title: 'The Buffett Way',
+      thumbnail: '/images/The Buffet Way_3000x3000.jpeg',
       playlistUrl: 'https://www.youtube.com/watch?v=4QC92OWkDvc&list=PLKC11J8aIwXRinHFFK_OODlTpthX8L5Qt',
       episodeCount: 52
     },
     {
       id: 'playlist2',
-      title: 'Company Analysis',
-      thumbnail: 'https://images.pexels.com/photos/7567444/pexels-photo-7567444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      // title: 'Company Analysis',
+      thumbnail: '/images/company-analysis.jpeg',
       playlistUrl: 'https://www.youtube.com/watch?v=4QC92OWkDvc&list=PLKC11J8aIwXSLxVwF-zaxYEFaYNXwnB4O',
       episodeCount: 38
     },
     {
       id: 'playlist3',
-      title: 'Everything Economics',
-      thumbnail: 'https://images.pexels.com/photos/7567448/pexels-photo-7567448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      // title: 'Business First Principles',
+      thumbnail: '/images/business-first-principles.jpeg',
       playlistUrl: 'http://youtube.com/watch?v=UisvRx8VflI&list=PLKC11J8aIwXQkh57dq3rUwXN2R8LT3PVR',
       episodeCount: 24
     },
     {
       id: 'playlist4',
-      title: 'Modern Capitalism Philosophers',
-      thumbnail: 'https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      // title: 'Modern Philosopher',
+      thumbnail: '/images/modern-philosopher.jpeg',
       playlistUrl: 'https://www.youtube.com/watch?v=GJJG-dClvpI&list=PLKC11J8aIwXQZVX0GjwpzO-afv8wn4Xa2',
       episodeCount: 16
     }
@@ -59,30 +58,27 @@ export function YouTubeSection() {
           </p> */}
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-10">
           {featuredVideos.map((video) => (
             <a 
               key={video.id} 
               href={video.playlistUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="group bg-white rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2"
+              style={{
+                boxShadow: '0 5px 15px rgba(0,0,0,0.3), 8px 8px 0 rgba(0,0,0,0.2), 12px 12px 0 rgba(0,0,0,0.1)'
+              }}
             >
               <div className="relative">
                 <img 
                   src={video.thumbnail} 
-                  alt={video.title} 
-                  className="w-full aspect-square object-cover"
+                  alt="" 
+                  className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
-                  <h3 className="text-xl font-bold text-white mb-1">{video.title}</h3>
-                  <div className="flex items-center text-white/90">
-                    <Headphones size={16} className="mr-2" />
-                    <span>{video.episodeCount} episodes</span>
-                  </div>
-                </div>
-                <div className="absolute top-3 right-3 bg-red-600 text-white text-xs font-semibold py-1 px-2 rounded-full">
-                  PLAYLIST
+                <div className="absolute bottom-4 right-4 bg-red-600 text-white text-sm py-1 px-3 rounded-md flex items-center shadow-md">
+                  <Play size={16} className="mr-2" fill="white" />
+                  <span>{video.episodeCount} videos</span>
                 </div>
               </div>
             </a>
