@@ -27,7 +27,7 @@ export function YouTubeSection() {
     {
       id: 'playlist3',
       // title: 'Business First Principles',
-      thumbnail: '/images/business-first-principles.jpeg',
+      thumbnail: '/images/business-first-principles.png',
       playlistUrl: 'http://youtube.com/watch?v=UisvRx8VflI&list=PLKC11J8aIwXQkh57dq3rUwXN2R8LT3PVR',
       episodeCount: 24
     },

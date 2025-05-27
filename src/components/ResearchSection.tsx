@@ -128,7 +128,7 @@ export function ResearchSection() {
             </div>
             <h6 className="text-xl font-semibold mb-2 flex items-center justify-center">
               Premium Access 
-              <span className="ml-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">FREE NOW</span>
+              <span className="ml-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">Temporarily Free</span>
             </h6>
             <p className="text-gray-700 mb-6 max-w-md mx-auto">
               Sign in to access our collection of in-depth research and analysis.
