@@ -1,43 +1,34 @@
 import { useState } from 'react';
-import { ExternalLink, Headphones, Play } from 'lucide-react';
-
-type Video = {
-  id: string;
-  thumbnail: string;
-  playlistUrl: string;
-  episodeCount: number;
-};
+import { ExternalLink, Play } from 'lucide-react';
+import { YOUTUBE_PLAYLISTS, EXTERNAL_LINKS } from '../utils/constants';
+import { Video } from '../types';
 
 export function YouTubeSection() {
   const [featuredVideos] = useState<Video[]>([
     {
-      id: 'playlist1',
-      // title: 'The Buffett Way',
-      thumbnail: '/images/The Buffet Way_3000x3000.jpeg',
-      playlistUrl: 'https://www.youtube.com/watch?v=4QC92OWkDvc&list=PLKC11J8aIwXRinHFFK_OODlTpthX8L5Qt',
-      episodeCount: 52
+      id: YOUTUBE_PLAYLISTS.BUFFETT_WAY.id,
+      thumbnail: YOUTUBE_PLAYLISTS.BUFFETT_WAY.thumbnail,
+      playlistUrl: YOUTUBE_PLAYLISTS.BUFFETT_WAY.url,
+      episodeCount: YOUTUBE_PLAYLISTS.BUFFETT_WAY.episodeCount,
     },
     {
-      id: 'playlist2',
-      // title: 'Company Analysis',
-      thumbnail: '/images/company-analysis.jpeg',
-      playlistUrl: 'https://www.youtube.com/watch?v=4QC92OWkDvc&list=PLKC11J8aIwXSLxVwF-zaxYEFaYNXwnB4O',
-      episodeCount: 38
+      id: YOUTUBE_PLAYLISTS.COMPANY_ANALYSIS.id,
+      thumbnail: YOUTUBE_PLAYLISTS.COMPANY_ANALYSIS.thumbnail,
+      playlistUrl: YOUTUBE_PLAYLISTS.COMPANY_ANALYSIS.url,
+      episodeCount: YOUTUBE_PLAYLISTS.COMPANY_ANALYSIS.episodeCount,
     },
     {
-      id: 'playlist3',
-      // title: 'Business First Principles',
-      thumbnail: '/images/business-first-principles.png',
-      playlistUrl: 'http://youtube.com/watch?v=UisvRx8VflI&list=PLKC11J8aIwXQkh57dq3rUwXN2R8LT3PVR',
-      episodeCount: 24
+      id: YOUTUBE_PLAYLISTS.BUSINESS_PRINCIPLES.id,
+      thumbnail: YOUTUBE_PLAYLISTS.BUSINESS_PRINCIPLES.thumbnail,
+      playlistUrl: YOUTUBE_PLAYLISTS.BUSINESS_PRINCIPLES.url,
+      episodeCount: YOUTUBE_PLAYLISTS.BUSINESS_PRINCIPLES.episodeCount,
     },
     {
-      id: 'playlist4',
-      // title: 'Modern Philosopher',
-      thumbnail: '/images/modern-philosopher.jpeg',
-      playlistUrl: 'https://www.youtube.com/watch?v=GJJG-dClvpI&list=PLKC11J8aIwXQZVX0GjwpzO-afv8wn4Xa2',
-      episodeCount: 16
-    }
+      id: YOUTUBE_PLAYLISTS.MODERN_PHILOSOPHER.id,
+      thumbnail: YOUTUBE_PLAYLISTS.MODERN_PHILOSOPHER.thumbnail,
+      playlistUrl: YOUTUBE_PLAYLISTS.MODERN_PHILOSOPHER.url,
+      episodeCount: YOUTUBE_PLAYLISTS.MODERN_PHILOSOPHER.episodeCount,
+    },
   ]);
 
   return (
@@ -46,7 +37,7 @@ export function YouTubeSection() {
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold mb-4 text-blue-900">Deep Value Investing on YouTube</h2>
           <a 
-            href="https://www.youtube.com/@TheDeepValue" 
+            href={EXTERNAL_LINKS.YOUTUBE_CHANNEL} 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors shadow-md"

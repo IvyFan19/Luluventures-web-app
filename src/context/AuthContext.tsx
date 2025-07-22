@@ -1,10 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
-
-type AuthContextType = {
-  isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<boolean>;
-  logout: () => void;
-};
+import { AuthContextType } from '../types';
+import { VALIDATION_RULES } from '../utils/constants';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -17,7 +13,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return new Promise<boolean>((resolve) => {
       setTimeout(() => {
         // Simple validation - in a real app this would verify with a server
-        if (email && password.length >= 6) {
+        if (email && password.length >= VALIDATION_RULES.PASSWORD_MIN_LENGTH) {
           setIsAuthenticated(true);
           resolve(true);
         } else {

@@ -1,13 +1,9 @@
 import { useRef, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { LoginForm } from './LoginForm';
+import { ModalProps } from '../types';
 
-type SignInModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-};
-
-export function SignInModal({ isOpen, onClose }: SignInModalProps) {
+export function SignInModal({ isOpen, onClose }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

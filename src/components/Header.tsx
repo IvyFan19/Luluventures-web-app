@@ -2,11 +2,8 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { SignInModal } from './SignInModal';
-
-type HeaderProps = {
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
-};
+import { HeaderProps } from '../types';
+import { UI_CONFIG } from '../utils/constants';
 
 export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +12,7 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > UI_CONFIG.SCROLL_THRESHOLD);
     };
 
     window.addEventListener('scroll', handleScroll);
