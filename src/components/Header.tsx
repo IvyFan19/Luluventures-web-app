@@ -66,6 +66,12 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
           >
             Research
           </button>
+          <button 
+            onClick={() => scrollToSection('blog')}
+            className="text-gray-700 hover:text-blue-900 transition-colors"
+          >
+            Blog
+          </button>
           {isAuthenticated ? (
             <button 
               onClick={logout}

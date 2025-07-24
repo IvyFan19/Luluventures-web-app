@@ -59,6 +59,7 @@ export const NAVIGATION_SECTIONS = [
   { id: 'youtube', label: 'YouTube' },
   { id: 'apps', label: 'App Tools' },
   { id: 'research', label: 'Research' },
+  { id: 'blog', label: 'Blog' },
 ] as const;
 
 // Form Validation

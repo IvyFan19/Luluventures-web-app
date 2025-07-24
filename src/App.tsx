@@ -5,6 +5,7 @@ import { YouTubeSection } from './components/YouTubeSection';
 import { PodcastSection } from './components/PodcastSection';
 import { AppsSection } from './components/AppsSection';
 import { ResearchSection } from './components/ResearchSection';
+import { BlogSection } from './components/BlogSection';
 import { Newsletter } from './components/Newsletter';
 import { Footer } from './components/Footer';
 import { AuthProvider } from './context/AuthContext';
@@ -26,6 +27,7 @@ function App() {
           <YouTubeSection />
           <AppsSection />
           <ResearchSection />
+          <BlogSection />
           <Newsletter />
         </main>
         <Footer />
