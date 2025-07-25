@@ -1,20 +1,3 @@
-// User and Authentication Types
-export interface User {
-  id: string;
-  email: string;
-  isAuthenticated: boolean;
-}
-
-export interface AuthContextType {
-  isAuthenticated: boolean;
-  user: any;
-  login: (email: string, password: string) => Promise<boolean>;
-  loginWithGoogle: () => Promise<void>;
-  loginWithApple: () => Promise<void>;
-  logout: () => Promise<void>;
-  signup: (email: string, password: string) => Promise<boolean>;
-}
-
 // Content and Media Types
 export interface Video {
   id: string;

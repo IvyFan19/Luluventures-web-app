@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useAuth } from '../context/AuthContext';
-import { SignInModal } from './SignInModal';
 import { HeaderProps } from '../types';
 import { UI_CONFIG } from '../utils/constants';
 
 export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
-  const { isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,21 +68,6 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
           >
             Blog
           </button>
-          {isAuthenticated ? (
-            <button 
-              onClick={logout}
-              className="px-4 py-2 rounded-lg bg-blue-900 text-white hover:bg-blue-800 transition-colors"
-            >
-              Sign Out
-            </button>
-          ) : (
-            <button 
-              onClick={() => setIsSignInModalOpen(true)}
-              className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white hover:shadow-lg transition-all"
-            >
-              Sign In
-            </button>
-          )}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -127,29 +108,9 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
             >
               Research
             </button>
-            {isAuthenticated ? (
-              <button 
-                onClick={logout}
-                className="px-4 py-2 rounded-lg bg-blue-900 text-white hover:bg-blue-800 transition-colors"
-              >
-                Sign Out
-              </button>
-            ) : (
-              <button 
-                onClick={() => setIsSignInModalOpen(true)}
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white hover:shadow-lg transition-all"
-              >
-                Sign In
-              </button>
-            )}
           </div>
         </div>
       )}
-
-      <SignInModal
-        isOpen={isSignInModalOpen}
-        onClose={() => setIsSignInModalOpen(false)}
-      />
     </header>
   );
 }

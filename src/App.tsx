@@ -8,7 +8,6 @@ import { ResearchSection } from './components/ResearchSection';
 import { BlogSection } from './components/BlogSection';
 import { Newsletter } from './components/Newsletter';
 import { Footer } from './components/Footer';
-import { AuthProvider } from './context/AuthContext';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,21 +17,19 @@ function App() {
   };
 
   return (
-    <AuthProvider>
-      <div className="min-h-screen bg-white text-gray-900">
-        <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-        <main className="pt-16">
-          <Hero />
-          <PodcastSection />
-          <YouTubeSection />
-          <AppsSection />
-          <ResearchSection />
-          <BlogSection />
-          <Newsletter />
-        </main>
-        <Footer />
-      </div>
-    </AuthProvider>
+    <div className="min-h-screen bg-white text-gray-900">
+      <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <main className="pt-16">
+        <Hero />
+        <PodcastSection />
+        <YouTubeSection />
+        <AppsSection />
+        <ResearchSection />
+        <BlogSection />
+        <Newsletter />
+      </main>
+      <Footer />
+    </div>
   );
 }
 

@@ -1,16 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Header } from '../components/Header'
-import { AuthProvider } from '../context/AuthContext'
-
-const HeaderWithProvider = (props: any) => (
-  <AuthProvider>
-    <Header isMenuOpen={false} toggleMenu={() => {}} {...props} />
-  </AuthProvider>
-)
 
 describe('Header', () => {
   test('renders navigation elements', () => {
-    render(<HeaderWithProvider />)
+    render(<Header isMenuOpen={false} toggleMenu={() => {}} />)
     
     expect(screen.getByText('LuLu Ventures')).toBeInTheDocument()
     expect(screen.getByText('YouTube')).toBeInTheDocument()
@@ -19,15 +12,9 @@ describe('Header', () => {
     expect(screen.getByText('Podcast')).toBeInTheDocument()
   })
 
-  test('shows sign in button when not authenticated', () => {
-    render(<HeaderWithProvider />)
-    
-    expect(screen.getByText('Sign In')).toBeInTheDocument()
-  })
-
   test('mobile menu toggle functionality', () => {
     const mockToggleMenu = vi.fn()
-    render(<HeaderWithProvider toggleMenu={mockToggleMenu} />)
+    render(<Header isMenuOpen={false} toggleMenu={mockToggleMenu} />)
     
     const menuButton = screen.getByLabelText(/toggle menu/i)
     fireEvent.click(menuButton)
@@ -44,7 +31,7 @@ describe('Header', () => {
       writable: true
     })
 
-    render(<HeaderWithProvider />)
+    render(<Header isMenuOpen={false} toggleMenu={() => {}} />)
     
     const youtubeLink = screen.getByText('YouTube')
     fireEvent.click(youtubeLink)
