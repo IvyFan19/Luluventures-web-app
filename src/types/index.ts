@@ -7,8 +7,12 @@ export interface User {
 
 export interface AuthContextType {
   isAuthenticated: boolean;
+  user: any;
   login: (email: string, password: string) => Promise<boolean>;
-  logout: () => void;
+  loginWithGoogle: () => Promise<void>;
+  loginWithApple: () => Promise<void>;
+  logout: () => Promise<void>;
+  signup: (email: string, password: string) => Promise<boolean>;
 }
 
 // Content and Media Types
