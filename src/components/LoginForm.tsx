@@ -7,13 +7,50 @@ export function LoginForm() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
   
   const { login, signup, loginWithGoogle, loginWithApple } = useAuth();
+
+  const validatePassword = (password: string): string => {
+    if (password.length < 8) {
+      return 'Password must be at least 8 characters long';
+    }
+    if (password !== password.trim()) {
+      return 'Password cannot start or end with spaces';
+    }
+    if (!/[A-Z]/.test(password)) {
+      return 'Password must contain at least one uppercase letter';
+    }
+    if (!/[a-z]/.test(password)) {
+      return 'Password must contain at least one lowercase letter';
+    }
+    if (!/\d/.test(password)) {
+      return 'Password must contain at least one number';
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      return 'Password must contain at least one special character';
+    }
+    return '';
+  };
+
+  const handlePasswordChange = (value: string) => {
+    setPassword(value);
+    if (isSignUp) {
+      const error = validatePassword(value);
+      setPasswordError(error);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);
+    
+    if (isSignUp && passwordError) {
+      setError('Please fix the password requirements above.');
+      setIsLoading(false);
+      return;
+    }
     
     try {
       const success = isSignUp 
@@ -23,8 +60,25 @@ export function LoginForm() {
       if (!success) {
         setError(isSignUp ? 'Signup failed. Please try again.' : 'Invalid credentials. Please try again.');
       }
-    } catch {
-      setError('An error occurred. Please try again.');
+    } catch (error: any) {
+      console.error('Auth error:', error);
+      if (error.name === 'InvalidPasswordException') {
+        setError('Password does not meet the requirements. Please check the password policy above.');
+      } else if (error.name === 'InvalidParameterException') {
+        if (error.message.includes('password')) {
+          setError('Password format is invalid. Please ensure it doesn\'t start or end with spaces.');
+        } else {
+          setError('Invalid input format. Please check your entries.');
+        }
+      } else if (error.name === 'UsernameExistsException') {
+        setError('An account with this email already exists. Please try signing in instead.');
+      } else if (error.name === 'UserNotFoundException') {
+        setError('No account found with this email. Please check your email or sign up.');
+      } else if (error.name === 'NotAuthorizedException') {
+        setError('Incorrect email or password. Please try again.');
+      } else {
+        setError(error.message || 'An error occurred. Please try again.');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -117,12 +171,46 @@ export function LoginForm() {
             id="password"
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => handlePasswordChange(e.target.value)}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+              isSignUp && passwordError 
+                ? 'border-red-300 focus:ring-red-500' 
+                : 'border-gray-300 focus:ring-blue-500'
+            }`}
             placeholder="••••••••"
-            minLength={6}
+            minLength={8}
           />
+          {isSignUp && passwordError && (
+            <p className="mt-1 text-sm text-red-600">{passwordError}</p>
+          )}
+          {isSignUp && !passwordError && password && (
+            <div className="mt-2 text-xs text-gray-600 space-y-1">
+              <p className="font-medium">Password must contain:</p>
+              <ul className="space-y-1 pl-2">
+                <li className={`flex items-center ${password.length >= 8 ? 'text-green-600' : 'text-gray-400'}`}>
+                  <span className="mr-1">{password.length >= 8 ? '✓' : '○'}</span>
+                  At least 8 characters
+                </li>
+                <li className={`flex items-center ${/[A-Z]/.test(password) ? 'text-green-600' : 'text-gray-400'}`}>
+                  <span className="mr-1">{/[A-Z]/.test(password) ? '✓' : '○'}</span>
+                  One uppercase letter
+                </li>
+                <li className={`flex items-center ${/[a-z]/.test(password) ? 'text-green-600' : 'text-gray-400'}`}>
+                  <span className="mr-1">{/[a-z]/.test(password) ? '✓' : '○'}</span>
+                  One lowercase letter
+                </li>
+                <li className={`flex items-center ${/\d/.test(password) ? 'text-green-600' : 'text-gray-400'}`}>
+                  <span className="mr-1">{/\d/.test(password) ? '✓' : '○'}</span>
+                  One number
+                </li>
+                <li className={`flex items-center ${/[!@#$%^&*(),.?":{}|<>]/.test(password) ? 'text-green-600' : 'text-gray-400'}`}>
+                  <span className="mr-1">{/[!@#$%^&*(),.?":{}|<>]/.test(password) ? '✓' : '○'}</span>
+                  One special character
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
         
         {!isSignUp && (

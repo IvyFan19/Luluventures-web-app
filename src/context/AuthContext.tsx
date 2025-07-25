@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { signIn, signOut, signUp, getCurrentUser, AuthUser } from 'aws-amplify/auth';
 import { Hub } from 'aws-amplify/utils';
-// import '../aws-config';
+import '../aws-config';
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -101,9 +101,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         },
       });
       return true;
-    } catch (error) {
+    } catch (error: any) {
       console.error('Signup error:', error);
-      return false;
+      throw error;
     }
   };
 
