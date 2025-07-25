@@ -1,35 +1,66 @@
-import { useState } from 'react';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { YouTubeSection } from './components/YouTubeSection';
-import { PodcastSection } from './components/PodcastSection';
-import { AppsSection } from './components/AppsSection';
-import { ResearchSection } from './components/ResearchSection';
-import { BlogSection } from './components/BlogSection';
-import { Newsletter } from './components/Newsletter';
-import { Footer } from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { getCurrentUser, signOut } from 'aws-amplify/auth';
+import { useEffect, useState } from 'react';
+import { HomePage } from './components/HomePage';
+import { LoginPage } from './components/LoginPage';
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  useEffect(() => {
+    checkUser();
+  }, []);
+
+  const checkUser = async () => {
+    try {
+      const currentUser = await getCurrentUser();
+      setUser(currentUser);
+    } catch (error) {
+      console.log('User not authenticated');
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
   };
 
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      setUser(null);
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
+  const handleLoginSuccess = () => {
+    checkUser();
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-      <main className="pt-16">
-        <Hero />
-        <PodcastSection />
-        <YouTubeSection />
-        <AppsSection />
-        <ResearchSection />
-        <BlogSection />
-        <Newsletter />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route 
+          path="/" 
+          element={<HomePage user={user} signOut={handleSignOut} />} 
+        />
+        <Route 
+          path="/login" 
+          element={<LoginPage onLoginSuccess={handleLoginSuccess} />} 
+        />
+      </Routes>
+    </Router>
   );
 }
 
