@@ -57,7 +57,10 @@ export function LoginPage({ onLoginSuccess }: LoginPageProps) {
           </p>
         </div>
         
-        <Authenticator>
+        <Authenticator
+          socialProviders={['google']}
+          loginMechanisms={['email']}
+        >
           {({ signOut, user }) => (
             <AuthenticatedContent signOut={signOut} user={user} onLoginSuccess={onLoginSuccess} />
           )}

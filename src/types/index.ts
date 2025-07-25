@@ -18,6 +18,11 @@ export interface Podcast {
 export interface HeaderProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
+  signOut?: () => void;
+  user?: {
+    username: string;
+    [key: string]: any;
+  };
 }
 
 export interface ModalProps {

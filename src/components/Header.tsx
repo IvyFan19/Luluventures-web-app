@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { HeaderProps } from '../types';
 import { UI_CONFIG } from '../utils/constants';
 
-export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
+export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,6 +70,24 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
           >
             Blog
           </button>
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <span className="text-gray-700">Hello, {user.username}</span>
+              <button
+                onClick={signOut}
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => navigate('/login')}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
+            >
+              Login
+            </button>
+          )}
         </nav>
 
         {/* Mobile Menu Button */}
@@ -108,6 +128,32 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
             >
               Research
             </button>
+            <button 
+              onClick={() => scrollToSection('blog')}
+              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
+            >
+              Blog
+            </button>
+            {user ? (
+              <>
+                <div className="py-2 border-t border-gray-200">
+                  <span className="text-gray-700">Hello, {user.username}</span>
+                </div>
+                <button
+                  onClick={signOut}
+                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors"
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => navigate('/login')}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4"
+              >
+                Login
+              </button>
+            )}
           </div>
         </div>
       )}

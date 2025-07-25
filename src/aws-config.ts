@@ -1,5 +1,11 @@
 import { Amplify } from 'aws-amplify';
 
+console.log('Environment variables:', {
+  userPoolId: import.meta.env.VITE_AWS_USER_POOL_ID,
+  clientId: import.meta.env.VITE_AWS_USER_POOL_CLIENT_ID,
+  domain: import.meta.env.VITE_AWS_COGNITO_DOMAIN,
+});
+
 const awsConfig = {
   Auth: {
     Cognito: {
@@ -13,6 +19,7 @@ const awsConfig = {
           redirectSignIn: [import.meta.env.VITE_REDIRECT_SIGN_IN || 'http://localhost:5173/'],
           redirectSignOut: [import.meta.env.VITE_REDIRECT_SIGN_OUT || 'http://localhost:5173/'],
           responseType: 'code',
+          providers: ['Google'],
         },
         email: true,
       },
