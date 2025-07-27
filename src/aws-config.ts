@@ -4,14 +4,26 @@ console.log('Environment variables:', {
   userPoolId: import.meta.env.VITE_AWS_USER_POOL_ID,
   clientId: import.meta.env.VITE_AWS_USER_POOL_CLIENT_ID,
   domain: import.meta.env.VITE_AWS_COGNITO_DOMAIN,
+  redirectSignIn: import.meta.env.VITE_REDIRECT_SIGN_IN,
+  redirectSignOut: import.meta.env.VITE_REDIRECT_SIGN_OUT,
 });
+
+// 检查必需的环境变量
+if (!import.meta.env.VITE_AWS_USER_POOL_ID) {
+  console.error('VITE_AWS_USER_POOL_ID is not defined');
+}
+if (!import.meta.env.VITE_AWS_USER_POOL_CLIENT_ID) {
+  console.error('VITE_AWS_USER_POOL_CLIENT_ID is not defined');
+}
+if (!import.meta.env.VITE_AWS_COGNITO_DOMAIN) {
+  console.error('VITE_AWS_COGNITO_DOMAIN is not defined');
+}
 
 const awsConfig = {
   Auth: {
     Cognito: {
       userPoolId: import.meta.env.VITE_AWS_USER_POOL_ID || '',
       userPoolClientId: import.meta.env.VITE_AWS_USER_POOL_CLIENT_ID || '',
-      identityPoolId: import.meta.env.VITE_AWS_IDENTITY_POOL_ID || '',
       loginWith: {
         oauth: {
           domain: import.meta.env.VITE_AWS_COGNITO_DOMAIN || '',
@@ -19,7 +31,7 @@ const awsConfig = {
           redirectSignIn: [import.meta.env.VITE_REDIRECT_SIGN_IN || 'http://localhost:5173/'],
           redirectSignOut: [import.meta.env.VITE_REDIRECT_SIGN_OUT || 'http://localhost:5173/'],
           responseType: 'code' as const,
-          providers: ['Google'],
+          providers: ['Google' as const],
         },
         email: true,
       },
