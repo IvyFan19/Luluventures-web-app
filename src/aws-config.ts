@@ -18,7 +18,7 @@ const awsConfig = {
           scopes: ['openid', 'email', 'profile'],
           redirectSignIn: [import.meta.env.VITE_REDIRECT_SIGN_IN || 'http://localhost:5173/'],
           redirectSignOut: [import.meta.env.VITE_REDIRECT_SIGN_OUT || 'http://localhost:5173/'],
-          responseType: 'code',
+          responseType: 'code' as const,
           providers: ['Google'],
         },
         email: true,
