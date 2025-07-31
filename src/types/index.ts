@@ -15,14 +15,16 @@ export interface Podcast {
 }
 
 // Component Props Types
+export interface User {
+  username: string;
+  [key: string]: unknown;
+}
+
 export interface HeaderProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
   signOut?: () => void;
-  user?: {
-    username: string;
-    [key: string]: any;
-  };
+  user?: User;
 }
 
 export interface ModalProps {

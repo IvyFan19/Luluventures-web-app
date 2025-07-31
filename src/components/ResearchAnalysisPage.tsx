@@ -1,95 +1,41 @@
 import { useState } from 'react';
-import { Calendar, User, ArrowRight } from 'lucide-react';
+import { Calendar, User, ArrowRight, RefreshCw, AlertCircle } from 'lucide-react';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { useResearchArticles } from '../hooks/useResearchArticles';
+import { ArticleService } from '../services/articleService';
 
-type ResearchDocument = {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-  thumbnail?: string;
-};
+interface User {
+  username: string;
+  [key: string]: unknown;
+}
 
 interface ResearchAnalysisPageProps {
-  user?: {
-    username: string;
-    [key: string]: any;
-  };
+  user?: User;
   signOut?: () => void;
 }
 
 export function ResearchAnalysisPage({ user, signOut }: ResearchAnalysisPageProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeTag, setActiveTag] = useState<string>('all');
+  
+  const { articles, loading, error, availableTags, refetch } = useResearchArticles();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const researchDocuments: ResearchDocument[] = [
-    {
-      id: 'doc1',
-      title: 'S&P 500 Valuation Analysis: Q2 2025',
-      description: 'A comprehensive analysis of S&P 500 valuations with insights on current market trends and identifying undervalued opportunities in the current market environment.',
-      date: 'June 15, 2025',
-      category: 'market',
-      thumbnail: '/images/sp500-analysis.jpg'
-    },
-    {
-      id: 'doc2',
-      title: 'Deep Dive: Apple Inc. Intrinsic Value',
-      description: 'Detailed breakdown of Apple\'s business model, competitive advantages, and intrinsic value calculation using discounted cash flow methodology.',
-      date: 'June 1, 2025',
-      category: 'company',
-      thumbnail: '/images/apple-analysis.jpg'
-    },
-    {
-      id: 'doc3',
-      title: 'Interest Rates and Equity Valuations Correlation',
-      description: 'Research on how interest rate changes historically impact equity valuations across different sectors and asset classes.',
-      date: 'May 15, 2025',
-      category: 'economics',
-      thumbnail: '/images/interest-rates.jpg'
-    },
-    {
-      id: 'doc4',
-      title: 'Value Investing in High Inflation Environments',
-      description: 'Strategies for value investors during periods of elevated inflation based on historical data and portfolio optimization techniques.',
-      date: 'May 1, 2025',
-      category: 'strategy',
-      thumbnail: '/images/inflation-strategy.jpg'
-    },
-    {
-      id: 'doc5',
-      title: 'Microsoft Corporation: Competitive Advantage Analysis',
-      description: 'Analysis of Microsoft\'s economic moat and competitive positioning in cloud computing, productivity software, and emerging technologies.',
-      date: 'April 15, 2025',
-      category: 'company',
-      thumbnail: '/images/microsoft-analysis.jpg'
-    },
-    {
-      id: 'doc6',
-      title: 'ESG Integration in Value Investing Framework',
-      description: 'How environmental, social, and governance factors can be incorporated into traditional value investing methodologies.',
-      date: 'April 1, 2025',
-      category: 'strategy',
-      thumbnail: '/images/esg-investing.jpg'
-    }
-  ];
 
   const categories = [
     { id: 'all', name: 'All Research' },
-    { id: 'company', name: 'Company Analysis' },
-    { id: 'market', name: 'Market Reports' },
-    { id: 'economics', name: 'Economic Research' },
-    { id: 'strategy', name: 'Investment Strategy' }
+    ...availableTags
+      .filter(tag => typeof tag === 'string' && tag.length > 0)
+      .map(tag => ({ id: tag, name: tag.charAt(0).toUpperCase() + tag.slice(1) }))
   ];
 
-  const filteredDocuments = activeCategory === 'all'
-    ? researchDocuments
-    : researchDocuments.filter(doc => doc.category === activeCategory);
+  const filteredDocuments = activeTag === 'all'
+    ? articles
+    : articles.filter(doc => doc.tags.includes(activeTag));
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -119,9 +65,9 @@ export function ResearchAnalysisPage({ user, signOut }: ResearchAnalysisPageProp
               {categories.map((category) => (
                 <button
                   key={category.id}
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => setActiveTag(category.id)}
                   className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
-                    activeCategory === category.id
+                    activeTag === category.id
                       ? 'bg-blue-600 text-white shadow-lg'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
@@ -129,84 +75,141 @@ export function ResearchAnalysisPage({ user, signOut }: ResearchAnalysisPageProp
                   {category.name}
                 </button>
               ))}
+              
+              {/* Refresh Button */}
+              <button
+                onClick={refetch}
+                disabled={loading}
+                className="px-4 py-3 rounded-full font-medium transition-all duration-200 bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              >
+                <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
+                Refresh
+              </button>
             </div>
           </div>
 
+          {/* Loading State */}
+          {loading && (
+            <div className="flex justify-center items-center py-16">
+              <div className="flex items-center gap-3 text-gray-600">
+                <RefreshCw size={24} className="animate-spin" />
+                <span className="text-lg">Loading articles...</span>
+              </div>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+              <div className="flex items-center gap-3 text-red-700">
+                <AlertCircle size={24} />
+                <div>
+                  <h3 className="font-semibold">Error Loading Articles</h3>
+                  <p className="text-sm mt-1">{error}</p>
+                  <button
+                    onClick={refetch}
+                    className="mt-3 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                  >
+                    Try Again
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Research Articles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredDocuments.map((doc) => (
-              <article 
-                key={doc.id}
-                className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
-              >
-                {/* Thumbnail */}
-                <div className="aspect-video bg-gray-100 overflow-hidden">
-                  {doc.thumbnail ? (
-                    <img
-                      src={doc.thumbnail}
-                      alt={doc.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                      <div className="text-blue-400">
-                        <ArrowRight size={32} />
+          {!loading && !error && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredDocuments.map((doc) => (
+                <article 
+                  key={doc.articleId}
+                  className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                >
+                  {/* Thumbnail */}
+                  <div className="aspect-video bg-gray-100 overflow-hidden">
+                    {doc.coverImageUrl ? (
+                      <img
+                        src={doc.coverImageUrl}
+                        alt={doc.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
+                        <div className="text-blue-400">
+                          <ArrowRight size={32} />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Tags */}
+                    <div className="mb-3 flex flex-wrap gap-2">
+                      {doc.tags.slice(0, 3).map((tag, index) => (
+                        <span key={index} className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                      {doc.tags.length > 3 && (
+                        <span className="inline-block px-3 py-1 bg-gray-50 text-gray-500 text-sm font-medium rounded-full">
+                          +{doc.tags.length - 3}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      {doc.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+                      {doc.summary}
+                    </p>
+
+                    {/* Meta Information */}
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center">
+                        <Calendar size={14} className="mr-2" />
+                        <span>{ArticleService.formatDate(doc.createdAt)}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <User size={14} className="mr-2" />
+                        <span>LuLu Team</span>
                       </div>
                     </div>
-                  )}
-                </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  {/* Category Badge */}
-                  <div className="mb-3">
-                    <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
-                      {categories.find(cat => cat.id === doc.category)?.name}
-                    </span>
-                  </div>
+                    {/* Premium Badge */}
+                    {doc.isPremium && (
+                      <div className="mt-3">
+                        <span className="inline-block px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">
+                          Premium
+                        </span>
+                      </div>
+                    )}
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                    {doc.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
-                    {doc.description}
-                  </p>
-
-                  {/* Meta Information */}
-                  <div className="flex items-center justify-between text-sm text-gray-500">
-                    <div className="flex items-center">
-                      <Calendar size={14} className="mr-2" />
-                      <span>{doc.date}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <User size={14} className="mr-2" />
-                      <span>LuLu Team</span>
+                    {/* Read More Arrow */}
+                    <div className="mt-4 flex justify-end">
+                      <ArrowRight 
+                        size={20} 
+                        className="text-blue-600 group-hover:translate-x-1 transition-transform duration-200" 
+                      />
                     </div>
                   </div>
-
-                  {/* Read More Arrow */}
-                  <div className="mt-4 flex justify-end">
-                    <ArrowRight 
-                      size={20} 
-                      className="text-blue-600 group-hover:translate-x-1 transition-transform duration-200" 
-                    />
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          )}
 
           {/* Empty State */}
-          {filteredDocuments.length === 0 && (
+          {!loading && !error && filteredDocuments.length === 0 && (
             <div className="text-center py-16">
               <p className="text-gray-500 text-lg">
-                No research documents found in this category.
+                No research documents found{activeTag !== 'all' ? ` for "${activeTag}" tag` : ''}.
               </p>
             </div>
           )}

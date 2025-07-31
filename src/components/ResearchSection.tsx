@@ -1,66 +1,6 @@
-import { useState } from 'react';
-import { Lock, File, ChevronRight } from 'lucide-react';
-
-type ResearchDocument = {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-};
+import { Lock } from 'lucide-react';
 
 export function ResearchSection() {
-  const [activeTab, setActiveTab] = useState<string>('all');
-
-  const researchDocuments: ResearchDocument[] = [
-    {
-      id: 'doc1',
-      title: 'S&P 500 Valuation Analysis: Q2 2025',
-      description: 'A comprehensive analysis of S&P 500 valuations with insights on current market trends.',
-      date: 'June 15, 2025',
-      category: 'market'
-    },
-    {
-      id: 'doc2',
-      title: 'Deep Dive: Apple Inc. Intrinsic Value',
-      description: 'Detailed breakdown of Apple\'s business model, competitive advantages, and intrinsic value.',
-      date: 'June 1, 2025',
-      category: 'company'
-    },
-    {
-      id: 'doc3',
-      title: 'Interest Rates and Equity Valuations Correlation',
-      description: 'Research on how interest rate changes historically impact equity valuations across different sectors.',
-      date: 'May 15, 2025',
-      category: 'economics'
-    },
-    {
-      id: 'doc4',
-      title: 'Value Investing in High Inflation Environments',
-      description: 'Strategies for value investors during periods of elevated inflation based on historical data.',
-      date: 'May 1, 2025',
-      category: 'strategy'
-    },
-    {
-      id: 'doc5',
-      title: 'Microsoft Corporation: Competitive Advantage Analysis',
-      description: 'Analysis of Microsoft\'s economic moat and competitive positioning in key markets.',
-      date: 'April 15, 2025',
-      category: 'company'
-    }
-  ];
-
-  const categories = [
-    { id: 'all', name: 'All Documents' },
-    { id: 'company', name: 'Company Analysis' },
-    { id: 'market', name: 'Market Reports' },
-    { id: 'economics', name: 'Economic Research' },
-    { id: 'strategy', name: 'Investment Strategy' }
-  ];
-
-  const filteredDocuments = activeTab === 'all'
-    ? researchDocuments
-    : researchDocuments.filter(doc => doc.category === activeTab);
 
   return (
     <section id="research" className="py-20 bg-white">

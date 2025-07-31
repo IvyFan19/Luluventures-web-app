@@ -3,9 +3,14 @@ import '@aws-amplify/ui-react/styles.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
+interface User {
+  username: string;
+  [key: string]: unknown;
+}
+
 interface AuthenticatedContentProps {
   signOut: () => void;
-  user: any;
+  user: User;
   onLoginSuccess: () => void;
 }
 

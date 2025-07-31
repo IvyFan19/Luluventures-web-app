@@ -9,11 +9,13 @@ import { BlogSection } from './BlogSection';
 import { Newsletter } from './Newsletter';
 import { Footer } from './Footer';
 
+interface User {
+  username: string;
+  [key: string]: unknown;
+}
+
 interface HomePageProps {
-  user?: {
-    username: string;
-    [key: string]: any;
-  };
+  user?: User;
   signOut?: () => void;
 }
 

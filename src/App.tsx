@@ -5,8 +5,13 @@ import { HomePage } from './components/HomePage';
 import { LoginPage } from './components/LoginPage';
 import { ResearchAnalysisPage } from './components/ResearchAnalysisPage';
 
+interface AuthUser {
+  username: string;
+  [key: string]: unknown;
+}
+
 function App() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,8 +21,8 @@ function App() {
   const checkUser = async () => {
     try {
       const currentUser = await getCurrentUser();
-      setUser(currentUser);
-    } catch (error) {
+      setUser(currentUser as AuthUser);
+    } catch {
       console.log('User not authenticated');
       setUser(null);
     } finally {
