@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Calendar, User, ArrowRight, RefreshCw, AlertCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Calendar, User, ArrowRight, RefreshCw, AlertCircle, Lock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { useResearchArticles } from '../hooks/useResearchArticles';
@@ -18,8 +19,26 @@ interface ResearchAnalysisPageProps {
 export function ResearchAnalysisPage({ user, signOut }: ResearchAnalysisPageProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTag, setActiveTag] = useState<string>('all');
+  const [countdown, setCountdown] = useState(10);
+  const navigate = useNavigate();
   
   const { articles, loading, error, availableTags, refetch } = useResearchArticles();
+
+  useEffect(() => {
+    if (!user) {
+      const timer = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            navigate('/login');
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [user, navigate]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -36,6 +55,90 @@ export function ResearchAnalysisPage({ user, signOut }: ResearchAnalysisPageProp
   const filteredDocuments = activeTag === 'all'
     ? articles
     : articles.filter(doc => doc.tags.includes(activeTag));
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-white text-gray-900">
+        <Header 
+          isMenuOpen={isMenuOpen} 
+          toggleMenu={toggleMenu} 
+          signOut={signOut} 
+          user={user} 
+        />
+        
+        <main className="pt-24 pb-16">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center py-20">
+              <div className="mb-8">
+                <Lock size={64} className="mx-auto text-gray-400 mb-4" />
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                  Login Required
+                </h1>
+                <p className="text-xl text-gray-600 mb-8">
+                  You need to log in to access our exclusive research and analysis content.
+                </p>
+              </div>
+              
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8 max-w-md mx-auto">
+                <p className="text-blue-800 mb-4">
+                  Redirecting to login page in {countdown} seconds...
+                </p>
+                <div className="w-full bg-blue-200 rounded-full h-2">
+                  <div 
+                    className="bg-blue-600 h-2 rounded-full transition-all duration-1000" 
+                    style={{width: `${(countdown / 10) * 100}%`}}
+                  ></div>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <button
+                  onClick={() => navigate('/login')}
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors mr-4"
+                >
+                  <Lock size={20} className="mr-2" />
+                  Login Now
+                </button>
+                <button
+                  onClick={() => navigate('/')}
+                  className="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors"
+                >
+                  <ArrowRight size={20} className="mr-2 rotate-180" />
+                  Back to Homepage
+                </button>
+              </div>
+              
+              <div className="mt-12 text-left max-w-2xl mx-auto">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  What you'll get with login:
+                </h3>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start">
+                    <ArrowRight size={20} className="text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Access to exclusive research reports and market analysis</span>
+                  </li>
+                  <li className="flex items-start">
+                    <ArrowRight size={20} className="text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>In-depth company valuations and investment insights</span>
+                  </li>
+                  <li className="flex items-start">
+                    <ArrowRight size={20} className="text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Premium content from the LuLu investment team</span>
+                  </li>
+                  <li className="flex items-start">
+                    <ArrowRight size={20} className="text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <span>Personalized content recommendations</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
