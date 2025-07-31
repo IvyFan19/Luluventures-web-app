@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { HomePage } from './components/HomePage';
 import { LoginPage } from './components/LoginPage';
 import { ResearchAnalysisPage } from './components/ResearchAnalysisPage';
+import { ArticleDetailPage } from './components/ArticleDetailPage';
 
 interface AuthUser {
   username: string;
@@ -68,6 +69,10 @@ function App() {
         <Route 
           path="/research-analysis" 
           element={<ResearchAnalysisPage user={user} signOut={handleSignOut} />} 
+        />
+        <Route 
+          path="/research-analysis/:slug" 
+          element={<ArticleDetailPage user={user} signOut={handleSignOut} />} 
         />
       </Routes>
     </Router>

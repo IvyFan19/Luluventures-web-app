@@ -226,6 +226,7 @@ export function ResearchAnalysisPage({ user, signOut }: ResearchAnalysisPageProp
               {filteredDocuments.map((doc) => (
                 <article 
                   key={doc.articleId}
+                  onClick={() => navigate(`/research-analysis/${doc.articleId}`)}
                   className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
                 >
                   {/* Thumbnail */}
