@@ -5,7 +5,6 @@ import { YouTubeSection } from './YouTubeSection';
 import { PodcastSection } from './PodcastSection';
 import { AppsSection } from './AppsSection';
 import { ResearchSection } from './ResearchSection';
-import { BlogSection } from './BlogSection';
 import { Newsletter } from './Newsletter';
 import { Footer } from './Footer';
 
@@ -40,7 +39,6 @@ export function HomePage({ user, signOut }: HomePageProps) {
         <YouTubeSection />
         <AppsSection />
         <ResearchSection />
-        <BlogSection />
         <Newsletter />
       </main>
       <Footer />

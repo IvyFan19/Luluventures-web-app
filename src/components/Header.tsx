@@ -64,12 +64,6 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
           >
             Research
           </button>
-          <button 
-            onClick={() => scrollToSection('blog')}
-            className="text-gray-700 hover:text-blue-900 transition-colors"
-          >
-            Blog
-          </button>
           {user ? (
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">Hello, {user.username}</span>
@@ -127,12 +121,6 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
               Research
-            </button>
-            <button 
-              onClick={() => scrollToSection('blog')}
-              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
-            >
-              Blog
             </button>
             {user ? (
               <>
