@@ -3,6 +3,7 @@ import { getCurrentUser, signOut } from 'aws-amplify/auth';
 import { useEffect, useState } from 'react';
 import { HomePage } from './components/HomePage';
 import { LoginPage } from './components/LoginPage';
+import { ResearchAnalysisPage } from './components/ResearchAnalysisPage';
 
 function App() {
   const [user, setUser] = useState<any>(null);
@@ -58,6 +59,10 @@ function App() {
         <Route 
           path="/login" 
           element={<LoginPage onLoginSuccess={handleLoginSuccess} />} 
+        />
+        <Route 
+          path="/research-analysis" 
+          element={<ResearchAnalysisPage user={user} signOut={handleSignOut} />} 
         />
       </Routes>
     </Router>

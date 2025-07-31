@@ -59,7 +59,7 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
             App Tools
           </button>
           <button 
-            onClick={() => scrollToSection('research')}
+            onClick={() => navigate('/research-analysis')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
             Research
@@ -123,7 +123,7 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
               App Tools
             </button>
             <button 
-              onClick={() => scrollToSection('research')}
+              onClick={() => navigate('/research-analysis')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
               Research
