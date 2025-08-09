@@ -39,3 +39,24 @@
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out;
 }
+
+/* Template specific styles */
+.article-heading {
+  @apply text-2xl font-light text-white mb-8;
+}
+
+.article-text {
+  @apply text-gray-300 leading-relaxed;
+}
+
+.article-text p {
+  @apply mb-4;
+}
+
+.sidebar-item {
+  @apply text-gray-400 text-sm py-2 px-3 rounded-md hover:text-white hover:bg-gray-800 cursor-pointer transition-colors;
+}
+
+.sidebar-item.active {
+  @apply text-white bg-gray-800;
+}
