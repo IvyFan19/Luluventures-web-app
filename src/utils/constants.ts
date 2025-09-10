@@ -11,25 +11,25 @@ export const YOUTUBE_PLAYLISTS = {
     id: 'playlist1',
     url: 'https://www.youtube.com/watch?v=4QC92OWkDvc&list=PLKC11J8aIwXRinHFFK_OODlTpthX8L5Qt',
     thumbnail: '/images/The Buffet Way_3000x3000.jpeg',
-    episodeCount: 52,
+    episodeCount: 204,
   },
   COMPANY_ANALYSIS: {
     id: 'playlist2', 
     url: 'https://www.youtube.com/watch?v=4QC92OWkDvc&list=PLKC11J8aIwXSLxVwF-zaxYEFaYNXwnB4O',
     thumbnail: '/images/company-analysis.jpeg',
-    episodeCount: 38,
+    episodeCount: 163,
   },
   BUSINESS_PRINCIPLES: {
     id: 'playlist3',
     url: 'http://youtube.com/watch?v=UisvRx8VflI&list=PLKC11J8aIwXQkh57dq3rUwXN2R8LT3PVR',
     thumbnail: '/images/business-first-principles.png', 
-    episodeCount: 24,
+    episodeCount: 60,
   },
   MODERN_PHILOSOPHER: {
     id: 'playlist4',
     url: 'https://www.youtube.com/watch?v=GJJG-dClvpI&list=PLKC11J8aIwXQZVX0GjwpzO-afv8wn4Xa2',
     thumbnail: '/images/modern-philosopher.jpeg',
-    episodeCount: 16,
+    episodeCount: 58,
   },
 } as const;
 

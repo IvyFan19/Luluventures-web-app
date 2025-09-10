@@ -28,8 +28,9 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? 'shadow-md py-2' : 'bg-transparent py-4'
       }`}
+      style={{ backgroundColor: isScrolled ? '#f3f4f6' : 'transparent' }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
@@ -41,12 +42,6 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <button 
-            onClick={() => scrollToSection('podcast')}
-            className="text-gray-700 hover:text-blue-900 transition-colors"
-          >
-            Podcast
-          </button>
-          <button 
             onClick={() => scrollToSection('youtube')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
@@ -57,6 +52,12 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
             App Tools
+          </button>
+          <button 
+            onClick={() => scrollToSection('podcast')}
+            className="text-gray-700 hover:text-blue-900 transition-colors"
+          >
+            Podcast
           </button>
           {/* Temporarily hidden Research button - keep logic for future use
           <button 
@@ -100,14 +101,8 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-md">
+        <div className="md:hidden shadow-md" style={{ backgroundColor: '#f3f4f6' }}>
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <button 
-              onClick={() => scrollToSection('podcast')}
-              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
-            >
-              Podcast
-            </button>
             <button 
               onClick={() => scrollToSection('youtube')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
@@ -119,6 +114,12 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
               App Tools
+            </button>
+            <button 
+              onClick={() => scrollToSection('podcast')}
+              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
+            >
+              Podcast
             </button>
             {/* Temporarily hidden mobile Research button - keep logic for future use
             <button 
