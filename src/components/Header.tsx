@@ -58,12 +58,14 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
           >
             App Tools
           </button>
+          {/* Temporarily hidden Research button - keep logic for future use
           <button 
             onClick={() => navigate('/research-analysis')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
             Research
           </button>
+          */}
           {user ? (
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">Hello, {user.username}</span>
@@ -75,12 +77,14 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
               </button>
             </div>
           ) : (
-            <button
-              onClick={() => navigate('/login')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
-            >
-              Login
-            </button>
+            // Temporarily hidden login button - keep logic for future use
+            null
+            // <button
+            //   onClick={() => navigate('/login')}
+            //   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
+            // >
+            //   Login
+            // </button>
           )}
         </nav>
 
@@ -116,12 +120,14 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
             >
               App Tools
             </button>
+            {/* Temporarily hidden mobile Research button - keep logic for future use
             <button 
               onClick={() => navigate('/research-analysis')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
               Research
             </button>
+            */}
             {user ? (
               <>
                 <div className="py-2 border-t border-gray-200">
@@ -135,12 +141,14 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
                 </button>
               </>
             ) : (
-              <button
-                onClick={() => navigate('/login')}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4"
-              >
-                Login
-              </button>
+              // Temporarily hidden mobile login button - keep logic for future use
+              null
+              // <button
+              //   onClick={() => navigate('/login')}
+              //   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4"
+              // >
+              //   Login
+              // </button>
             )}
           </div>
         </div>

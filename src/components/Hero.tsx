@@ -59,14 +59,13 @@ export function Hero() {
     >
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
       
-      <div className="container mx-auto px-4 py-16 z-10 text-center">
+      <div className="container mx-auto px-4 py-8 z-10 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Master Buffett-Style Value Investing with <br />
-          The Deep Value Intelligence
+          Deep Value Intelligence
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-          Your Gateway to S&P500 Analysis, Macro Economics, and Timeless Principles.
+        <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto mt-10">
+          Empowering value investors with AI tools rooted in Buffett’s enduring principles
         </p>
         
         {/* <p className="text-base md:text-lg mb-12 max-w-2xl mx-auto">
