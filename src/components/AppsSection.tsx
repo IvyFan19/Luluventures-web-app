@@ -19,8 +19,9 @@ export function AppsSection() {
       id: 'stocks-value',
       name: 'Buffett Values',
       description: 'Find undervalued companies using Buffett\'s investing principles.',
-      icon: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      appStoreUrl: 'https://apps.apple.com',
+      icon: 'dist/images/Buffett-values-icon.png',
+      appStoreUrl: null,
+      comingSoon: true,
       features: [
         'Intrinsic value calculator',
         'Margin of safety check',
@@ -50,18 +51,24 @@ export function AppsSection() {
                     alt={app.name} 
                     className="w-32 h-32 object-cover rounded-2xl shadow-lg mb-4"
                   />
-                  <a 
-                    href={app.appStoreUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-block hover:opacity-80 transition-opacity"
-                  >
-                    <img 
-                      src="dist/images/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" 
-                      alt="Download on the App Store" 
-                      className="w-32"
-                    />
-                  </a>
+                  {app.comingSoon ? (
+                    <div className="w-32 h-12 bg-white text-black rounded-lg flex items-center justify-center border-2 border-black">
+                      <span className="text-sm font-semibold">Coming Soon</span>
+                    </div>
+                  ) : (
+                    <a 
+                      href={app.appStoreUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block hover:opacity-80 transition-opacity"
+                    >
+                      <img 
+                        src="dist/images/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" 
+                        alt="Download on the App Store" 
+                        className="w-32"
+                      />
+                    </a>
+                  )}
                 </div>
                 
                 <div className="md:w-3/5 p-6">

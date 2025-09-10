@@ -1,4 +1,4 @@
-import { Youtube, Podcast, Mail, Twitter, Linkedin, FileText } from 'lucide-react';
+import { Youtube, Podcast, Mail, Twitter, Linkedin } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold text-white mb-4">LuLu Ventures</h3>
             <p className="mb-4">
@@ -20,34 +20,13 @@ export function Footer() {
               <a href="https://podcasts.apple.com/us/podcast/deep-value-investing/id1811057697" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Podcast">
                 <Podcast size={20} />
               </a>
-              <a href="#" className="hover:text-white transition-colors" aria-label="Twitter">
+              {/* <a href="#" className="hover:text-white transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
               <a href="#" className="hover:text-white transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
-              </a>
+              </a> */}
             </div>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-white transition-colors">Home</a>
-              </li>
-              <li>
-                <a href="#research" className="hover:text-white transition-colors">Research</a>
-              </li>
-              <li>
-                <a href="#youtube" className="hover:text-white transition-colors">YouTube</a>
-              </li>
-              <li>
-                <a href="#podcast" className="hover:text-white transition-colors">Podcast</a>
-              </li>
-              <li>
-                <a href="#apps" className="hover:text-white transition-colors">iOS Apps</a>
-              </li>
-            </ul>
           </div>
           
           <div>
@@ -78,12 +57,6 @@ export function Footer() {
                 <Mail size={18} className="mr-2 mt-1 flex-shrink-0" />
                 <a href="mailto:contact@luluventures.com" className="hover:text-white transition-colors">
                   contact@luluventures.com
-                </a>
-              </li>
-              <li className="flex items-start">
-                <FileText size={18} className="mr-2 mt-1 flex-shrink-0" />
-                <a href="#" className="hover:text-white transition-colors">
-                  Media Inquiries
                 </a>
               </li>
             </ul>
