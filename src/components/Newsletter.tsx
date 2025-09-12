@@ -1,21 +1,53 @@
 import { useState } from 'react';
 import { Send, Check } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 
 export function Newsletter() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      // Current date for admin notification
+      const subscriptionDate = new Date().toISOString();
+      
+      // Send notification to admin
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATES.ADMIN_NOTIFICATION,
+        {
+          user_email: email,
+          subscription_date: subscriptionDate
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+      
+      // Send welcome email to user
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATES.USER_WELCOME,
+        {
+          email: email,
+          to_name: 'Valued Investor'
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+      
       setIsSubmitted(true);
       setEmail('');
-    }, 1000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setError('Failed to subscribe. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -34,13 +66,20 @@ export function Newsletter() {
                   <Check className="text-white" size={20} />
                 </div>
               </div>
-              <p className="font-medium">Thank you for subscribing!</p>
+              <p className="font-medium">Welcome to Deep Value Club (Beta)!</p>
               <p className="text-sm text-green-200 mt-1">
-                We've sent a confirmation to your email.
+                Check your email for a welcome message.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+            <>
+              {error && (
+                <div className="bg-red-800 rounded-lg p-4 mb-4 text-center">
+                  <p className="text-red-100">{error}</p>
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 value={email}
@@ -72,7 +111,8 @@ export function Newsletter() {
                   </span>
                 )}
               </button>
-            </form>
+              </form>
+            </>
           )}
           
           <p className="text-sm text-blue-300 mt-4">
