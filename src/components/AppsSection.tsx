@@ -6,7 +6,7 @@ export function AppsSection() {
       id: 'buffett-indicator',
       name: 'Buffett Indicator',
       description: 'Track market valuation using one of Buffett\'s favorite metric.',
-      icon: 'dist/images/icon-20-compressed.png',
+      icon: 'dist/images/icon-20.png',
       appStoreUrl: 'https://apps.apple.com/us/app/buffett-indicator/id6747404614',
       features: [
         'Real-time metric value',
