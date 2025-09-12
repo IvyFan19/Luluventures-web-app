@@ -6,7 +6,7 @@ export function AppsSection() {
       id: 'buffett-indicator',
       name: 'Buffett Indicator',
       description: 'Track market valuation using one of Buffett\'s favorite metric.',
-      icon: 'dist/images/icon-20.png',
+      icon: '/images/icon-20.png',
       appStoreUrl: 'https://apps.apple.com/us/app/buffett-indicator/id6747404614',
       features: [
         'Real-time metric value',
@@ -19,7 +19,7 @@ export function AppsSection() {
       id: 'stocks-value',
       name: 'Buffett Values',
       description: 'Find undervalued companies using Buffett\'s investing principles.',
-      icon: 'dist/images/Buffett-values-icon.png',
+      icon: '/images/Buffett-values-icon.png',
       appStoreUrl: null,
       comingSoon: true,
       features: [
@@ -63,7 +63,7 @@ export function AppsSection() {
                       className="inline-block hover:opacity-80 transition-opacity"
                     >
                       <img 
-                        src="dist/images/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" 
+                        src="/images/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" 
                         alt="Download on the App Store" 
                         className="w-32"
                       />

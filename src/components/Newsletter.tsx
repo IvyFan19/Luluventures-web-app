@@ -51,11 +51,11 @@ export function Newsletter() {
   };
 
   return (
-    <section className="py-16 bg-blue-900 text-white">
+    <section className="py-16 bg-white text-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Join Our Investing Club</h2>
-          <p className="text-blue-100 mb-8">
+          <p className="text-gray-600 mb-8">
           Get exclusive research, market insights, and investment ideas delivered to you for free!
           </p>
           
@@ -86,7 +86,7 @@ export function Newsletter() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 required
-                className="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="flex-grow px-4 py-3 rounded-lg text-gray-900 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               />
               <button
                 type="submit"
@@ -115,7 +115,7 @@ export function Newsletter() {
             </>
           )}
           
-          <p className="text-sm text-blue-300 mt-4">
+          <p className="text-sm text-gray-500 mt-4">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>

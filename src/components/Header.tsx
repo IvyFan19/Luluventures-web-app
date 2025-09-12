@@ -35,7 +35,7 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <h1 className="text-xl md:text-2xl font-bold">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">LuLu Ventures</span>
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Deep Value Club</span>
           </h1>
         </div>
 
