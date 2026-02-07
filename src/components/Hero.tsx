@@ -61,7 +61,7 @@ export function Hero() {
       
       <div className="container mx-auto px-4 py-8 z-10 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Deep Value Intelligence
+          Deep Values Intelligence
         </h1>
         
         <p className="text-2xl md:text-3xl text-gray-200 mb-8 max-w-3xl mx-auto mt-10">
