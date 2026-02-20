@@ -32,10 +32,10 @@ export function AppsSection() {
   ];
 
   return (
-    <section id="apps" className="py-20 bg-white">
+    <section id="apps" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-blue-900">Value Investing Apps</h2>
+          <h2 className="text-3xl font-bold mb-4 text-blue-900">Reaserch Agents & Tools</h2>
           {/* <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Access powerful investing tools based on Warren Buffett's principles right from your iOS device.
           </p> */}
@@ -43,9 +43,9 @@ export function AppsSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {apps.map((app) => (
-            <div key={app.id} className="bg-white rounded-xl overflow-hidden shadow-lg">
+            <div key={app.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
               <div className="flex flex-col md:flex-row h-full">
-                <div className="md:w-2/5 p-6 flex flex-col justify-center items-center bg-gradient-to-br from-gray-100 to-gray-200 h-full">
+                <div className="md:w-2/5 p-6 flex flex-col justify-center items-center bg-gray-300 h-full">
                   <img 
                     src={app.icon} 
                     alt={app.name} 
@@ -57,7 +57,7 @@ export function AppsSection() {
                     </div>
                   ) : (
                     <a 
-                      href={app.appStoreUrl} 
+                      href={app.appStoreUrl ?? undefined}
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-block hover:opacity-80 transition-opacity"

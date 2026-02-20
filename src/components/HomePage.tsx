@@ -35,8 +35,8 @@ export function HomePage({ user, signOut }: HomePageProps) {
       />
       <main className="pt-16">
         <Hero />
-        <YouTubeSection />
         <AppsSection />
+        <YouTubeSection />
         <PodcastSection />
         <ResearchSection />
         <Newsletter />

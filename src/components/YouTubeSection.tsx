@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Play, BellRing } from 'lucide-react';
+import { Play, BellRing } from 'lucide-react';
 import { YOUTUBE_PLAYLISTS, EXTERNAL_LINKS } from '../utils/constants';
 import { Video } from '../types';
 
@@ -32,7 +32,7 @@ export function YouTubeSection() {
   ]);
 
   return (
-    <section id="youtube" className="py-12 md:py-20 bg-gray-100">
+    <section id="youtube" className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="mb-8 md:mb-12 text-center">
           <h2 className="text-3xl font-bold mb-4 text-blue-900">Youtube Channel</h2>
@@ -48,16 +48,22 @@ export function YouTubeSection() {
               href={video.playlistUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-white rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white rounded-lg overflow-hidden transition-all duration-300 transform hover:-translate-y-2"
               style={{
                 boxShadow: '0 5px 15px rgba(0,0,0,0.3), 8px 8px 0 rgba(0,0,0,0.2), 12px 12px 0 rgba(0,0,0,0.1)'
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = '0 20px 40px rgba(0,0,0,0.4), 8px 8px 0 rgba(0,0,0,0.2), 12px 12px 0 rgba(0,0,0,0.1)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow = '0 5px 15px rgba(0,0,0,0.3), 8px 8px 0 rgba(0,0,0,0.2), 12px 12px 0 rgba(0,0,0,0.1)';
               }}
             >
               <div className="relative">
                 <img 
                   src={video.thumbnail} 
                   alt="" 
-                  className="w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full aspect-video object-cover"
                 />
                 <div className="absolute bottom-4 right-4 bg-red-600 text-white text-sm py-1 px-3 rounded-full flex items-center shadow-md">
                   <Play size={16} className="mr-2" fill="white" />
