@@ -35,7 +35,7 @@ export function AppsSection() {
     <section id="apps" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-blue-900">Reaserch Agents & Tools</h2>
+          <h2 className="text-4xl font-bold mb-4 text-blue-900">Reaserch Agents & Tools</h2>
           {/* <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Access powerful investing tools based on Warren Buffett's principles right from your iOS device.
           </p> */}

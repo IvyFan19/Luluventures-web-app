@@ -35,7 +35,7 @@ export function YouTubeSection() {
     <section id="youtube" className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="mb-8 md:mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-blue-900">Youtube Channel</h2>
+          <h2 className="text-4xl font-bold mb-4 text-blue-900">Youtube</h2>
           {/* <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Dive deep into S&P500 companies, macro economics, and investing philosophies through our detailed video analyses.
           </p> */}
