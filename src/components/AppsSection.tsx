@@ -8,7 +8,7 @@ export function AppsSection() {
       description: 'Multi-agent mirroring institutional trading teams',
       icon: '/images/deep_value_intelligence.png',
       appStoreUrl: null,
-      githubUrl: 'https://github.com/luluventures-research/DeepValueIntelligence',
+      githubUrl: 'https://drive.google.com/drive/folders/1NPaPNUMEr9g7iXyEzYWzIA6ktH2219wU',
       topImage: true,
       features: [
         '6 specialized analysts/agents (Fundamental, Value, Growth, Market, Social, News)',
@@ -18,31 +18,31 @@ export function AppsSection() {
     },
     {
       id: 'buffett-indicator',
-      name: 'Buffett Indicator',
-      description: 'Track market valuation using one of Buffett\'s favorite metric.',
+      name: 'Buffett Indicator iOS',
+      description: 'Track market valuation using one of Buffett\'s favorite metric',
       icon: '/images/icon-20.png',
       appStoreUrl: 'https://apps.apple.com/us/app/buffett-indicator/id6747404614',
+      topImage: true,
       features: [
         'Real-time metric value',
         'Historical trends',
         'Customizable alerts',
-        'Market analysis'
       ]
     },
-    {
-      id: 'stocks-value',
-      name: 'Buffett Values',
-      description: 'Find undervalued companies using Buffett\'s investing principles.',
-      icon: '/images/Buffett-values-icon.png',
-      appStoreUrl: null,
-      comingSoon: true,
-      features: [
-        'Intrinsic value calculator',
-        'Margin of safety check',
-        'Financial analysis',
-        'Competitive metrics'
-      ]
-    }
+    // {
+    //   id: 'stocks-value',
+    //   name: 'Buffett Values',
+    //   description: 'Find undervalued companies using Buffett\'s investing principles.',
+    //   icon: '/images/Buffett-values-icon.png',
+    //   appStoreUrl: null,
+    //   comingSoon: true,
+    //   features: [
+    //     'Intrinsic value calculator',
+    //     'Margin of safety check',
+    //     'Financial analysis',
+    //     'Competitive metrics'
+    //   ]
+    // }
   ];
 
   return (
@@ -94,7 +94,7 @@ export function AppsSection() {
                 )}
 
                 {/* Right panel: content */}
-                <div className="md:w-3/5 p-6 flex flex-col">
+                <div className="md:w-3/5 p-4 flex flex-col">
                   <h3 className="text-2xl font-bold mb-2 text-blue-900">{app.name}</h3>
                   <p className={'topImage' in app && app.topImage ? "text-gray-700 mb-4 text-base font-semibold" : "text-gray-700 mb-4"}>{app.description}</p>
                   <ul className="mb-6 space-y-2 flex-1">
@@ -110,10 +110,21 @@ export function AppsSection() {
                       href={app.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-4 text-white text-lg font-semibold rounded-lg hover:opacity-90 transition-opacity" style={{backgroundColor: '#096efd'}}
+                      className="flex items-center justify-center gap-2 w-full py-2 text-white text-lg font-semibold rounded-lg hover:opacity-90 transition-opacity" style={{backgroundColor: '#096efd'}}
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
                       Download
+                    </a>
+                  )}
+                  {'topImage' in app && app.topImage && !('githubUrl' in app && app.githubUrl) && app.appStoreUrl && (
+                    <a
+                      href={app.appStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full py-2 text-white text-lg font-semibold rounded-lg hover:opacity-90 transition-opacity" style={{backgroundColor: '#096efd'}}
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+                      Download on App Store
                     </a>
                   )}
                 </div>

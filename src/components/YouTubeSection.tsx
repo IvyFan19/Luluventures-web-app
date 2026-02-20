@@ -36,15 +36,21 @@ export function YouTubeSection() {
       <div className="container mx-auto px-4">
         <div className="mb-8 md:mb-12 text-center">
           <h2 className="text-4xl font-bold mb-4 text-blue-900">Youtube</h2>
-          {/* <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Dive deep into S&P500 companies, macro economics, and investing philosophies through our detailed video analyses.
-          </p> */}
+          <a
+            href={EXTERNAL_LINKS.YOUTUBE_CHANNEL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 bg-red-600 text-white rounded-full font-bold text-lg hover:bg-red-700 transition-colors shadow-lg"
+          >
+            Subscribe
+            <BellRing className="w-6 h-6 ml-3" />
+          </a>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-12 mb-10">
           {featuredVideos.map((video) => (
-            <a 
-              key={video.id} 
+            <a
+              key={video.id}
               href={video.playlistUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -60,9 +66,9 @@ export function YouTubeSection() {
               }}
             >
               <div className="relative">
-                <img 
-                  src={video.thumbnail} 
-                  alt="" 
+                <img
+                  src={video.thumbnail}
+                  alt=""
                   className="w-full aspect-video object-cover"
                 />
                 <div className="absolute bottom-4 right-4 bg-red-600 text-white text-sm py-1 px-3 rounded-full flex items-center shadow-md">
@@ -72,18 +78,6 @@ export function YouTubeSection() {
               </div>
             </a>
           ))}
-        </div>
-        
-        <div className="text-center">
-          <a 
-            href={EXTERNAL_LINKS.YOUTUBE_CHANNEL} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-red-600 text-white rounded-full font-bold text-lg hover:bg-red-700 transition-colors shadow-lg"
-          >
-            Subscribe
-            <BellRing className="w-6 h-6 ml-3" />
-          </a>
         </div>
       </div>
     </section>
