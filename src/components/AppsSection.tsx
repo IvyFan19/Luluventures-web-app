@@ -72,7 +72,7 @@ export function AppsSection() {
                       alt={app.name}
                       className="w-32 h-32 object-cover rounded-2xl shadow-lg mb-4"
                     />
-                    {app.comingSoon ? (
+                    {'comingSoon' in app && app.comingSoon ? (
                       <div className="w-32 h-12 bg-white text-black rounded-lg flex items-center justify-center border-2 border-black">
                         <span className="text-sm font-semibold">Coming Soon</span>
                       </div>
