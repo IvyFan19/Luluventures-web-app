@@ -6,7 +6,7 @@ export function PodcastSection() {
       <div className="container mx-auto px-4">
         <div className="flex justify-center">
           <div className="max-w-2xl">
-            <h2 className="text-4xl font-bold mb-4 text-blue-900 text-center">Podcast</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900 text-center">Podcast</h2>
             {/* <p className="text-lg text-gray-700 mb-6 text-center">
               Listen to our deep analysis of S&P500 companies, macro economic trends, and value investing principles wherever you go.
             </p> */}

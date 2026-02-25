@@ -95,12 +95,12 @@ const channels = [
   {
     name: 'Deep Values',
     url: 'https://www.youtube.com/@DeepValues',
-    avatar: '/images/youtube-deep-values.jpg',
+    avatar: '/images/youtube-deep-values.png',
   },
   {
     name: '深度价值',
     url: 'https://www.youtube.com/@%E6%B7%B1%E5%BA%A6%E4%BB%B7%E5%80%BC',
-    avatar: '/images/youtube-deep-values.jpg',
+    avatar: '/images/youtube-deep-values.png',
   },
 ];
 
@@ -109,7 +109,7 @@ export function YouTubeSection() {
     <section id="youtube" className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="mb-10 md:mb-14 text-center">
-          <h2 className="text-4xl font-bold text-blue-900">YouTube Channels</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900">YouTube Channels</h2>
         </div>
 
         <div className="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-36">
