@@ -10,7 +10,7 @@ export function PodcastSection() {
             {/* <p className="text-lg text-gray-700 mb-6 text-center">
               Listen to our deep analysis of S&P500 companies, macro economic trends, and value investing principles wherever you go.
             </p> */}
-            
+
             <div className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-2xl shadow-xl p-6 text-white mb-6">
               <div className="flex items-center mb-4">
                 <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center mr-4">
@@ -18,17 +18,17 @@ export function PodcastSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-xl">Deep Value Investing</h3>
-                  <p className="text-purple-200">with LuLu Ventures</p>
+                  <p className="text-purple-200">with DeepValues.ai</p>
                 </div>
               </div>
               <p className="mb-6">
-                Discover investment insights based on Warren Buffett's principles, focusing on fundamentals, 
+                Discover investment insights based on Warren Buffett's principles, focusing on fundamentals,
                 intrinsic value, and long-term growth.
               </p>
               <div className="flex justify-center">
-                <a 
-                  href="https://podcasts.apple.com/us/podcast/deep-value-investing/id1811057697" 
-                  target="_blank" 
+                <a
+                  href="https://podcasts.apple.com/us/podcast/deep-value-investing/id1811057697"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-5 py-2 bg-white text-blue-500 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >

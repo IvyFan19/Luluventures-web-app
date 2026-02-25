@@ -38,7 +38,7 @@ You're now registered to receive:
 We'll keep you posted!
 
 Best regards,
-LuLu Ventures Team
+DeepValues.ai Team
 ```
 
 ---

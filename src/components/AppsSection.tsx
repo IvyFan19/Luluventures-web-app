@@ -11,7 +11,7 @@ export function AppsSection() {
       githubUrl: 'https://research.deepvalues.ai/',
       topImage: true,
       features: [
-        'Analyze stocks like an institutional trading team—across Fundamentals, Value, Growth, Market, Social, and News.',
+        'Research companies with personal investing team, including fundamentals, value, growth, market, trend, and risk analysts.',
         // 'Bull/Bear researcher debate',
         // 'Portfolio-level risk management'
       ]
@@ -50,7 +50,7 @@ export function AppsSection() {
     <section id="apps" className="py-20 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900">Reaserch Agents & Tools</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900">Apps & Tools</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -120,7 +120,7 @@ export function AppsSection() {
                         <MousePointerClick className="w-5 h-5" />
                         Try It Now
                       </a>
-                      <span className="text-sm text-gray-500 mt-2 font-medium">No credit card</span>
+                      {/* <span className="text-sm text-gray-500 mt-2 font-medium">No credit card</span> */}
                     </div>
                   )}
                   {'topImage' in app && app.topImage && !('githubUrl' in app && app.githubUrl) && app.appStoreUrl && (
@@ -134,7 +134,7 @@ export function AppsSection() {
                         <Download className="w-4 h-4" />
                         Download on App Store
                       </a>
-                      <span className="text-sm text-gray-500 mt-2 font-medium invisible">No credit card</span>
+                      {/* <span className="text-sm text-gray-500 mt-2 font-medium invisible">No credit card</span> */}
                     </div>
                   )}
                 </div>

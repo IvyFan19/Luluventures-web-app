@@ -1,6 +1,6 @@
 // Application Constants
 export const APP_CONFIG = {
-  TITLE: 'LuLu Ventures',
+  TITLE: 'DeepValues.ai',
   DESCRIPTION: 'Deep Value Investing Platform',
   VERSION: '1.0.0',
 } as const;
@@ -14,7 +14,7 @@ export const YOUTUBE_PLAYLISTS = {
     episodeCount: 204,
   },
   COMPANY_ANALYSIS: {
-    id: 'playlist2', 
+    id: 'playlist2',
     url: 'https://www.youtube.com/watch?v=4QC92OWkDvc&list=PLKC11J8aIwXSLxVwF-zaxYEFaYNXwnB4O',
     thumbnail: '/images/company-analysis.jpeg',
     episodeCount: 163,
@@ -22,7 +22,7 @@ export const YOUTUBE_PLAYLISTS = {
   BUSINESS_PRINCIPLES: {
     id: 'playlist3',
     url: 'http://youtube.com/watch?v=UisvRx8VflI&list=PLKC11J8aIwXQkh57dq3rUwXN2R8LT3PVR',
-    thumbnail: '/images/business-first-principles.png', 
+    thumbnail: '/images/business-first-principles.png',
     episodeCount: 60,
   },
   MODERN_PHILOSOPHER: {

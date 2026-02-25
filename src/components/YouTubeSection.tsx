@@ -131,7 +131,7 @@ export function YouTubeSection() {
                   />
                 </div>
               </div>
-              <span className="text-2xl font-semibold text-gray-900 group-hover:text-blue-900 transition-colors duration-300 whitespace-nowrap">
+              <span className="text-xl font-semibold text-gray-900 group-hover:text-blue-900 transition-colors duration-300 whitespace-nowrap">
                 {channel.name}
               </span>
             </a>

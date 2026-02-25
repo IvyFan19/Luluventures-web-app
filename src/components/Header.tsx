@@ -26,10 +26,9 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'shadow-md py-2' : 'bg-transparent py-4'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'bg-transparent py-4'
+        }`}
       style={{ backgroundColor: isScrolled ? '#f3f4f6' : 'transparent' }}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -41,19 +40,19 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <button 
+          <button
             onClick={() => scrollToSection('youtube')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
             YouTube
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('apps')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
             App Tools
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('podcast')}
             className="text-gray-700 hover:text-blue-900 transition-colors"
           >
@@ -90,8 +89,8 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-gray-700" 
+        <button
+          className="md:hidden text-gray-700"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -103,19 +102,19 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
       {isMenuOpen && (
         <div className="md:hidden shadow-md" style={{ backgroundColor: '#f3f4f6' }}>
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <button 
+            <button
               onClick={() => scrollToSection('youtube')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
               YouTube
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('apps')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >
               App Tools
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('podcast')}
               className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
             >

@@ -3,9 +3,9 @@ import { Header } from '../components/Header'
 
 describe('Header', () => {
   test('renders navigation elements', () => {
-    render(<Header isMenuOpen={false} toggleMenu={() => {}} />)
-    
-    expect(screen.getByText('LuLu Ventures')).toBeInTheDocument()
+    render(<Header isMenuOpen={false} toggleMenu={() => { }} />)
+
+    expect(screen.getByText('DeepValues.ai')).toBeInTheDocument()
     expect(screen.getByText('YouTube')).toBeInTheDocument()
     expect(screen.getByText('Research')).toBeInTheDocument()
     expect(screen.getByText('App Tools')).toBeInTheDocument()
@@ -15,10 +15,10 @@ describe('Header', () => {
   test('mobile menu toggle functionality', () => {
     const mockToggleMenu = vi.fn()
     render(<Header isMenuOpen={false} toggleMenu={mockToggleMenu} />)
-    
+
     const menuButton = screen.getByLabelText(/toggle menu/i)
     fireEvent.click(menuButton)
-    
+
     expect(mockToggleMenu).toHaveBeenCalledTimes(1)
   })
 
@@ -31,11 +31,11 @@ describe('Header', () => {
       writable: true
     })
 
-    render(<Header isMenuOpen={false} toggleMenu={() => {}} />)
-    
+    render(<Header isMenuOpen={false} toggleMenu={() => { }} />)
+
     const youtubeLink = screen.getByText('YouTube')
     fireEvent.click(youtubeLink)
-    
+
     expect(mockGetElementById).toHaveBeenCalledWith('youtube')
     expect(mockElement.scrollIntoView).toHaveBeenCalledWith({
       behavior: 'smooth'
