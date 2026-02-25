@@ -1,4 +1,4 @@
-// import { ArrowUpRight } from 'lucide-react';
+import { MousePointerClick, Download } from 'lucide-react';
 
 export function AppsSection() {
   const apps = [
@@ -8,7 +8,7 @@ export function AppsSection() {
       // description: 'Multi-agent mirroring institutional trading teams',
       icon: '/images/deep_value_intelligence.png',
       appStoreUrl: null,
-      githubUrl: 'https://drive.google.com/drive/folders/1NPaPNUMEr9g7iXyEzYWzIA6ktH2219wU',
+      githubUrl: 'https://research.deepvalues.ai/',
       topImage: true,
       features: [
         'Analyze stocks like an institutional trading team—across Fundamentals, Value, Growth, Market, Social, and News.',
@@ -117,7 +117,7 @@ export function AppsSection() {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-2 text-white text-lg font-semibold rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#096efd' }}
                       >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        <MousePointerClick className="w-5 h-5" />
                         Try It Now
                       </a>
                       <span className="text-sm text-gray-500 mt-2 font-medium">No credit card</span>
@@ -131,7 +131,7 @@ export function AppsSection() {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-2 text-white text-lg font-semibold rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#096efd' }}
                       >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" /></svg>
+                        <Download className="w-4 h-4" />
                         Download on App Store
                       </a>
                       <span className="text-sm text-gray-500 mt-2 font-medium invisible">No credit card</span>

@@ -112,22 +112,24 @@ export function YouTubeSection() {
           <h2 className="text-2xl md:text-3xl font-bold text-blue-900">YouTube Channels</h2>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center items-start gap-10 md:gap-36">
+        <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-10 md:gap-36">
           {channels.map((channel) => (
             <a
               key={channel.name}
               href={channel.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 group w-44"
+              className="flex flex-col items-center gap-3 group w-44 transition-all duration-300 hover:-translate-y-2"
               style={{ outline: 'none', WebkitTapHighlightColor: 'transparent', textDecoration: 'none' }}
             >
-              <div className="w-40 h-40 rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 group-hover:scale-105" style={{ transform: 'translateZ(0)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}>
-                <img
-                  src={channel.avatar}
-                  alt={channel.name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-40 h-40 rounded-full flex-shrink-0 transition-shadow duration-300 group-hover:shadow-xl shadow-md bg-white">
+                <div className="w-full h-full rounded-full overflow-hidden" style={{ transform: 'translateZ(0)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}>
+                  <img
+                    src={channel.avatar}
+                    alt={channel.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               <span className="text-2xl font-semibold text-gray-900 group-hover:text-blue-900 transition-colors duration-300 whitespace-nowrap">
                 {channel.name}
