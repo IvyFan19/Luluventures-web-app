@@ -53,7 +53,7 @@ export function AppsSection() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-blue-900">Reaserch Agents & Tools</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {apps.map((app) => (
             <div key={app.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
               <div className="flex flex-col md:flex-row h-full">
