@@ -63,9 +63,9 @@ export function Footer() {
           </div>
         </div>
 
-        {/* <div className="border-t border-gray-800 mt-10 pt-6 text-sm text-gray-500 text-center">
-          <p>&copy; {currentYear} DeepValues.ai LLC. All rights reserved.</p>
-        </div> */}
+        <div className="border-t border-gray-800 mt-10 pt-6 text-sm text-gray-500 text-center">
+          <p>&copy; {currentYear} Lulu Ventures LLC. Built for modern intelligent investors.</p>
+        </div>
       </div>
     </footer>
   );

@@ -5,6 +5,7 @@ import { HomePage } from './components/HomePage';
 import { LoginPage } from './components/LoginPage';
 import { ResearchAnalysisPage } from './components/ResearchAnalysisPage';
 import { ArticleDetailPage } from './components/ArticleDetailPage';
+import { AboutPage } from './components/AboutPage';
 
 interface AuthUser {
   username: string;
@@ -62,9 +63,13 @@ function App() {
           path="/" 
           element={<HomePage user={user} signOut={handleSignOut} />} 
         />
-        <Route 
-          path="/login" 
-          element={<LoginPage onLoginSuccess={handleLoginSuccess} />} 
+        <Route
+          path="/about"
+          element={<AboutPage />}
+        />
+        <Route
+          path="/login"
+          element={<LoginPage onLoginSuccess={handleLoginSuccess} />}
         />
         <Route 
           path="/research-analysis" 

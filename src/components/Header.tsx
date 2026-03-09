@@ -27,66 +27,95 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'bg-transparent py-4'
-        }`}
-      style={{ backgroundColor: isScrolled ? '#f3f4f6' : 'transparent' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'shadow-sm py-3' : 'bg-transparent py-5'
+      }`}
+      style={{ backgroundColor: isScrolled ? '#ffffff' : 'transparent' }}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <h1 className="text-xl md:text-2xl font-bold">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">Deep Values</span>
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        {/* Left - Logo */}
+        <div className="flex items-center min-w-[160px]">
+          <h1
+            className="text-xl md:text-2xl font-bold cursor-pointer"
+            onClick={() => {
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+              DeepValues.AI
+            </span>
           </h1>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        {/* Center - Navigation Links */}
+        <nav className="hidden md:flex items-center space-x-10">
           <button
             onClick={() => scrollToSection('youtube')}
-            className="text-gray-700 hover:text-blue-900 transition-colors"
+            className="text-gray-600 hover:text-black transition-colors text-[15px]"
           >
             YouTube
           </button>
           <button
             onClick={() => scrollToSection('apps')}
-            className="text-gray-700 hover:text-blue-900 transition-colors"
+            className="text-gray-600 hover:text-black transition-colors text-[15px]"
           >
             App Tools
           </button>
           <button
             onClick={() => scrollToSection('podcast')}
-            className="text-gray-700 hover:text-blue-900 transition-colors"
+            className="text-gray-600 hover:text-black transition-colors text-[15px]"
           >
             Podcast
           </button>
+          <button
+            onClick={() => navigate('/about')}
+            className="text-gray-600 hover:text-black transition-colors text-[15px]"
+          >
+            About
+          </button>
           {/* Temporarily hidden Research button - keep logic for future use
-          <button 
+          <button
             onClick={() => navigate('/research-analysis')}
-            className="text-gray-700 hover:text-blue-900 transition-colors"
+            className="text-gray-600 hover:text-black transition-colors text-[15px]"
           >
             Research
           </button>
           */}
+        </nav>
+
+        {/* Right - Auth Buttons */}
+        <div className="hidden md:flex items-center space-x-4 min-w-[160px] justify-end">
           {user ? (
-            <div className="flex items-center space-x-4">
-              <span className="text-gray-700">Hello, {user.username}</span>
+            <>
+              <span className="text-gray-600 text-[15px]">Hello, {user.username}</span>
               <button
                 onClick={signOut}
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors"
+                className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full text-[15px] transition-colors"
               >
                 Sign Out
               </button>
-            </div>
+            </>
           ) : (
-            // Temporarily hidden login button - keep logic for future use
-            null
-            // <button
-            //   onClick={() => navigate('/login')}
-            //   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
-            // >
-            //   Login
-            // </button>
+            <>
+              {/* Temporarily hidden login/signup buttons - keep logic for future use */}
+              {/*
+              <button
+                onClick={() => navigate('/login')}
+                className="text-gray-600 hover:text-black transition-colors text-[15px]"
+              >
+                Log in
+              </button>
+              <button
+                onClick={() => navigate('/login')}
+                className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full text-[15px] transition-colors"
+              >
+                Sign Up
+              </button>
+              */}
+            </>
           )}
-        </nav>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -100,30 +129,36 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden shadow-md" style={{ backgroundColor: '#f3f4f6' }}>
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <div className="md:hidden shadow-md" style={{ backgroundColor: '#ffffff' }}>
+          <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
             <button
               onClick={() => scrollToSection('youtube')}
-              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
+              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
             >
               YouTube
             </button>
             <button
               onClick={() => scrollToSection('apps')}
-              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
+              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
             >
               App Tools
             </button>
             <button
               onClick={() => scrollToSection('podcast')}
-              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
+              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
             >
               Podcast
             </button>
+            <button
+              onClick={() => { navigate('/about'); toggleMenu(); }}
+              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
+            >
+              About
+            </button>
             {/* Temporarily hidden mobile Research button - keep logic for future use
-            <button 
+            <button
               onClick={() => navigate('/research-analysis')}
-              className="text-gray-700 hover:text-blue-900 py-2 transition-colors"
+              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
             >
               Research
             </button>
@@ -131,11 +166,11 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
             {user ? (
               <>
                 <div className="py-2 border-t border-gray-200">
-                  <span className="text-gray-700">Hello, {user.username}</span>
+                  <span className="text-gray-600">Hello, {user.username}</span>
                 </div>
                 <button
                   onClick={signOut}
-                  className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors"
+                  className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full transition-colors"
                 >
                   Sign Out
                 </button>
@@ -143,12 +178,20 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
             ) : (
               // Temporarily hidden mobile login button - keep logic for future use
               null
-              // <button
-              //   onClick={() => navigate('/login')}
-              //   className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors mt-4"
-              // >
-              //   Login
-              // </button>
+              // <div className="flex flex-col space-y-3 pt-2 border-t border-gray-200">
+              //   <button
+              //     onClick={() => { navigate('/login'); toggleMenu(); }}
+              //     className="text-gray-600 hover:text-black py-2 transition-colors text-left"
+              //   >
+              //     Log in
+              //   </button>
+              //   <button
+              //     onClick={() => { navigate('/login'); toggleMenu(); }}
+              //     className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full transition-colors"
+              //   >
+              //     Sign Up
+              //   </button>
+              // </div>
             )}
           </div>
         </div>
