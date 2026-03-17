@@ -7,20 +7,24 @@ interface TeamMember {
   initials: string;
   role: string;
   bio: string;
+  linkedin?: string;
+  hideAvatar?: boolean;
 }
 
 const teamMembers: TeamMember[] = [
+  // {
+  //   name: 'Fang Lin',
+  //   initials: 'FL',
+  //   role: 'Co-Founder & CEO',
+  //   bio: 'Fang brings a deep passion for value investing and a sharp eye for market opportunities. With a background in business strategy and finance, he leads the company\'s vision of making institutional-grade investment research accessible to everyday investors. He believes that disciplined, fundamentals-driven investing should not be reserved for Wall Street.',
+  // },
   {
-    name: 'Fang Lin',
-    initials: 'FL',
-    role: 'Co-Founder & CEO',
-    bio: 'Fang brings a deep passion for value investing and a sharp eye for market opportunities. With a background in business strategy and finance, he leads the company\'s vision of making institutional-grade investment research accessible to everyday investors. He believes that disciplined, fundamentals-driven investing should not be reserved for Wall Street.',
-  },
-  {
-    name: 'Ivy Fan',
-    initials: 'IF',
+    name: 'Xinwei Fan',
+    initials: 'XF',
     role: 'Co-Founder & CTO',
-    bio: 'Ivy is the technical force behind DeepValues.AI\'s multi-agent research platform. With expertise in AI/ML engineering and full-stack development, she architects the systems that power intelligent stock analysis at scale. Her goal is to harness cutting-edge AI to replicate the rigor of a professional investment research team — available to anyone, anytime.',
+    bio: 'Xinwei is the technical force behind DeepValues.AI\'s multi-agent research platform. With expertise in AI/ML engineering and full-stack development, she architects the systems that power intelligent stock analysis at scale. Her goal is to harness cutting-edge AI to replicate the rigor of a professional investment research team — available to anyone, anytime.',
+    linkedin: 'https://www.linkedin.com/in/xinwei-fan/',
+    hideAvatar: true,
   },
 ];
 
@@ -56,20 +60,13 @@ export function AboutPage() {
             </h2>
             <div className="space-y-5 text-lg text-gray-700 leading-relaxed">
               <p>
-                We started DeepValues.AI because we saw a gap that frustrated us as individual investors.
-                The best investment research — the kind that institutional funds rely on — was locked behind
-                expensive terminals and exclusive networks. Meanwhile, retail investors were left with surface-level
-                data and hype-driven noise.
+                Institutional-grade investment research has long been locked behind expensive terminals
+                and exclusive networks. We built DeepValues.AI to change that.
               </p>
               <p>
-                We asked ourselves: what if AI could level the playing field? What if every investor could
-                have access to a team of specialized analysts — covering fundamentals, valuation, growth,
-                risk, and market trends — powered by intelligent agents that work around the clock?
-              </p>
-              <p>
-                That question became DeepValues.AI. Rooted in Warren Buffett's timeless principles of
-                value investing, we're building tools that help investors cut through the noise, focus on
-                what matters, and make decisions grounded in real data and sound reasoning.
+                Rooted in Warren Buffett's principles of value investing, we use AI-powered agents to
+                deliver the depth of a professional research team — fundamentals, valuation, risk, and
+                market trends — to every investor.
               </p>
             </div>
           </div>
@@ -104,18 +101,33 @@ export function AboutPage() {
                   } items-center gap-8 md:gap-12`}
                 >
                   {/* Avatar */}
-                  <div className="flex-shrink-0">
-                    <div className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
-                      <span className="text-4xl md:text-5xl font-bold text-white">
-                        {member.initials}
-                      </span>
+                  {!member.hideAvatar && (
+                    <div className="flex-shrink-0">
+                      <div className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
+                        <span className="text-4xl md:text-5xl font-bold text-white">
+                          {member.initials}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Info */}
                   <div className={`text-center ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1 flex items-center gap-2 justify-center md:justify-start">
                       {member.name}
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 transition-colors"
+                          aria-label={`${member.name} LinkedIn`}
+                        >
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                          </svg>
+                        </a>
+                      )}
                     </h3>
                     <p className="text-lg font-semibold text-purple-600 mb-4">
                       {member.role}
