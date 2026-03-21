@@ -1,112 +1,30 @@
-import { useEffect, useRef } from 'react';
-
-// Declare global variables for CDN libraries
-declare global {
-  interface Window {
-    THREE: any;
-    VANTA: any;
-  }
-}
-
 export function Hero() {
-  const vantaRef = useRef<HTMLDivElement>(null);
-  const vantaEffect = useRef<any>(null);
-
-  useEffect(() => {
-    if (!vantaEffect.current && vantaRef.current && window.VANTA && window.THREE) {
-      vantaEffect.current = window.VANTA.FOG({
-        el: vantaRef.current,
-        THREE: window.THREE,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          highlightColor: 0xd9aa14,
-          midtoneColor: 0x892f59,
-          lowlightColor: 0x413c64,
-          baseColor: 0x363698,
-          blurFactor: 0.82,
-          speed: 1.30,
-          zoom: 0.40
-
-          // THREE: THREE,
-          // mouseControls: true,
-          // touchControls: true,
-          // gyroControls: false,
-          // minHeight: 200.00,
-          // minWidth: 200.00,
-          // highlightColor: 0x304575,
-          // midtoneColor: 0x304574,
-          // lowlightColor: 0x314575,
-          // baseColor:0x4f3264 ,
-          // speed: 1.0
-        });
-    }
-
-    return () => {
-      if (vantaEffect.current) {
-        vantaEffect.current.destroy();
-        vantaEffect.current = null;
-      }
-    };
-  }, []);
-
   return (
-    <section 
-      ref={vantaRef}
-      className="min-h-screen flex items-center justify-center text-white relative overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-      
-      <div className="container mx-auto px-4 py-8 z-10 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <p className="text-xs font-bold uppercase tracking-[5px] text-emerald-400/80 mb-7 flex items-center justify-center gap-2.5">
+          <span className="w-8 h-px bg-gradient-to-r from-emerald-500 to-transparent"></span>
           Deep Values Intelligence
+          <span className="w-8 h-px bg-gradient-to-l from-emerald-500 to-transparent"></span>
+        </p>
+
+        <h1 className="text-5xl md:text-7xl lg:text-[130px] font-black tracking-tighter leading-[0.9] aurora-grad">
+          Deep Values
         </h1>
 
-        <p className="text-2xl md:text-3xl text-gray-200 mb-8 max-w-3xl mx-auto mt-10">
-          Empowering value investors with AI tools rooted in Buffett’s enduring principles
+        <p className="text-lg md:text-2xl text-white/50 mt-7 max-w-[700px] mx-auto leading-relaxed">
+          Your own institutional-grade research team —<br className="hidden md:block" />
+          one that actually works in your best interest.
         </p>
-        
-        {/* <p className="text-base md:text-lg mb-12 max-w-2xl mx-auto">
-          We break down company financials based on the Warren Buffett way: focusing on strong fundamentals, 
-          intrinsic value, durable competitive advantages, and long-term growth.
-        </p> */}
-        
-        {/* <div className="flex flex-wrap justify-center gap-4">
 
-        <button 
-            onClick={() => document.getElementById('podcast')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors"
-          >
-            Podcast
-          </button>
-          
-          <button 
-            onClick={() => document.getElementById('youtube')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors"
-          >
-            YouTube
-          </button>
-          
-
-          
-          <button 
-            onClick={() => document.getElementById('apps')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors"
-          >
-            App Tools
-          </button>
-
-
-          <button 
-            onClick={() => document.getElementById('research')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors"
-          >
-            Research
-          </button>
-
-        </div> */}
+        <a
+          href="https://research.deepvalues.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-11 text-emerald-500 text-2xl md:text-[30px] font-extrabold tracking-tight hover:text-emerald-400 transition-colors"
+        >
+          Try it free →
+        </a>
       </div>
     </section>
   );

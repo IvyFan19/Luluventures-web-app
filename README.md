@@ -36,7 +36,7 @@ Start the development server:
 ```bash
 npm run dev
 ```
-The development server will start at http://localhost:5173.
+The development server will start at http://localhost:53210.
 
 ### Production Environment
 

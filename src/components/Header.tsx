@@ -28,9 +28,8 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'shadow-sm py-3' : 'bg-transparent py-5'
+        isScrolled ? 'shadow-sm py-3 backdrop-blur-xl bg-black/60' : 'bg-transparent py-5'
       }`}
-      style={{ backgroundColor: isScrolled ? '#ffffff' : 'transparent' }}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Left - Logo */}
@@ -42,84 +41,59 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">
-              DeepValues.AI
-            </span>
+            <span className="aurora-grad">DeepValues.AI</span>
           </h1>
         </div>
 
         {/* Center - Navigation Links */}
         <nav className="hidden md:flex items-center space-x-10">
           <button
-            onClick={() => scrollToSection('youtube')}
-            className="text-gray-600 hover:text-black transition-colors text-[15px]"
-          >
-            YouTube
-          </button>
-          <button
             onClick={() => scrollToSection('apps')}
-            className="text-gray-600 hover:text-black transition-colors text-[15px]"
+            className="text-white/50 hover:text-white transition-colors text-[15px]"
           >
-            App Tools
+            How It Works
           </button>
           <button
-            onClick={() => scrollToSection('podcast')}
-            className="text-gray-600 hover:text-black transition-colors text-[15px]"
+            onClick={() => scrollToSection('learn')}
+            className="text-white/50 hover:text-white transition-colors text-[15px]"
           >
-            Podcast
+            Learn
           </button>
           <button
             onClick={() => navigate('/about')}
-            className="text-gray-600 hover:text-black transition-colors text-[15px]"
+            className="text-white/50 hover:text-white transition-colors text-[15px]"
           >
             About
           </button>
-          {/* Temporarily hidden Research button - keep logic for future use
-          <button
-            onClick={() => navigate('/research-analysis')}
-            className="text-gray-600 hover:text-black transition-colors text-[15px]"
-          >
-            Research
-          </button>
-          */}
         </nav>
 
-        {/* Right - Auth Buttons */}
+        {/* Right - Auth / CTA */}
         <div className="hidden md:flex items-center space-x-4 min-w-[160px] justify-end">
           {user ? (
             <>
-              <span className="text-gray-600 text-[15px]">Hello, {user.username}</span>
+              <span className="text-white/50 text-[15px]">Hello, {user.username}</span>
               <button
                 onClick={signOut}
-                className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full text-[15px] transition-colors"
+                className="bg-white/10 hover:bg-white/15 text-white px-5 py-2 rounded-full text-[15px] transition-colors border border-white/10"
               >
                 Sign Out
               </button>
             </>
           ) : (
-            <>
-              {/* Temporarily hidden login/signup buttons - keep logic for future use */}
-              {/*
-              <button
-                onClick={() => navigate('/login')}
-                className="text-gray-600 hover:text-black transition-colors text-[15px]"
-              >
-                Log in
-              </button>
-              <button
-                onClick={() => navigate('/login')}
-                className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full text-[15px] transition-colors"
-              >
-                Sign Up
-              </button>
-              */}
-            </>
+            <a
+              href="https://research.deepvalues.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 px-5 py-2 rounded-full text-[15px] font-medium transition-colors border border-emerald-500/20"
+            >
+              Try It Free
+            </a>
           )}
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700"
+          className="md:hidden text-white/70"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -129,70 +103,47 @@ export function Header({ isMenuOpen, toggleMenu, signOut, user }: HeaderProps) {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden shadow-md" style={{ backgroundColor: '#ffffff' }}>
+        <div className="md:hidden backdrop-blur-xl bg-black/80 border-t border-white/[.06]">
           <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
             <button
-              onClick={() => scrollToSection('youtube')}
-              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
-            >
-              YouTube
-            </button>
-            <button
               onClick={() => scrollToSection('apps')}
-              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
+              className="text-white/50 hover:text-white py-2 transition-colors text-left"
             >
-              App Tools
+              How It Works
             </button>
             <button
-              onClick={() => scrollToSection('podcast')}
-              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
+              onClick={() => scrollToSection('learn')}
+              className="text-white/50 hover:text-white py-2 transition-colors text-left"
             >
-              Podcast
+              Learn
             </button>
             <button
               onClick={() => { navigate('/about'); toggleMenu(); }}
-              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
+              className="text-white/50 hover:text-white py-2 transition-colors text-left"
             >
               About
             </button>
-            {/* Temporarily hidden mobile Research button - keep logic for future use
-            <button
-              onClick={() => navigate('/research-analysis')}
-              className="text-gray-600 hover:text-black py-2 transition-colors text-left"
+            <a
+              href="https://research.deepvalues.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 py-2 font-medium"
             >
-              Research
-            </button>
-            */}
+              Try It Free →
+            </a>
             {user ? (
               <>
-                <div className="py-2 border-t border-gray-200">
-                  <span className="text-gray-600">Hello, {user.username}</span>
+                <div className="py-2 border-t border-white/[.06]">
+                  <span className="text-white/50">Hello, {user.username}</span>
                 </div>
                 <button
                   onClick={signOut}
-                  className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full transition-colors"
+                  className="bg-white/10 text-white px-5 py-2 rounded-full transition-colors"
                 >
                   Sign Out
                 </button>
               </>
-            ) : (
-              // Temporarily hidden mobile login button - keep logic for future use
-              null
-              // <div className="flex flex-col space-y-3 pt-2 border-t border-gray-200">
-              //   <button
-              //     onClick={() => { navigate('/login'); toggleMenu(); }}
-              //     className="text-gray-600 hover:text-black py-2 transition-colors text-left"
-              //   >
-              //     Log in
-              //   </button>
-              //   <button
-              //     onClick={() => { navigate('/login'); toggleMenu(); }}
-              //     className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-full transition-colors"
-              //   >
-              //     Sign Up
-              //   </button>
-              // </div>
-            )}
+            ) : null}
           </div>
         </div>
       )}
