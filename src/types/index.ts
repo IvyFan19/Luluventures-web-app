@@ -25,6 +25,11 @@ export interface HeaderProps {
   toggleMenu: () => void;
   signOut?: () => void;
   user?: User;
+  theme?: 'dark' | 'light';
+  onToggleTheme?: () => void;
+  goToScene?: (index: number) => void;
+  lang?: 'en' | 'zh';
+  onToggleLang?: () => void;
 }
 
 export interface ModalProps {

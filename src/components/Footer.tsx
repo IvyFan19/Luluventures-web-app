@@ -14,7 +14,7 @@ export function Footer() {
               Warren Buffett's timeless principles for long-term wealth creation.
             </p>
             <div className="flex space-x-4">
-              <a href="https://youtube.com/@TheDeepValue" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors" aria-label="YouTube">
+              <a href="https://youtube.com/@TheDeepValues" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors" aria-label="YouTube">
                 <Youtube size={18} />
               </a>
               <a href="https://podcasts.apple.com/us/podcast/deep-value-investing/id1811057697" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white/60 transition-colors" aria-label="Podcast">

@@ -89,7 +89,7 @@
 const channels = [
   {
     name: 'Deep Value Investing',
-    url: 'https://www.youtube.com/@TheDeepValue',
+    url: 'https://www.youtube.com/@TheDeepValues',
     avatar: '/images/youtube-Deep-Value-Investing .jpg',
   },
   {

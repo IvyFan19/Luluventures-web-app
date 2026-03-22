@@ -35,7 +35,7 @@ export const YOUTUBE_PLAYLISTS = {
 
 // External Links
 export const EXTERNAL_LINKS = {
-  YOUTUBE_CHANNEL: 'https://www.youtube.com/@TheDeepValue',
+  YOUTUBE_CHANNEL: 'https://www.youtube.com/@TheDeepValues',
   COMPANY_EMAIL: 'info@luluventures.com',
 } as const;
 

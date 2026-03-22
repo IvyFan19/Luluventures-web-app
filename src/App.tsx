@@ -5,7 +5,7 @@ import { HomePage } from './components/HomePage';
 import { LoginPage } from './components/LoginPage';
 import { ResearchAnalysisPage } from './components/ResearchAnalysisPage';
 import { ArticleDetailPage } from './components/ArticleDetailPage';
-import { AboutPage } from './components/AboutPage';
+import { usePrefersDark } from './hooks/usePrefersDark';
 
 interface AuthUser {
   username: string;
@@ -15,6 +15,12 @@ interface AuthUser {
 function App() {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
+  const prefersDark = usePrefersDark();
+  const [themeOverride, setThemeOverride] = useState<'dark' | 'light' | null>(null);
+  const theme = themeOverride ?? (prefersDark ? 'dark' : 'light');
+  const toggleTheme = () => setThemeOverride(theme === 'dark' ? 'light' : 'dark');
+  const [lang, setLang] = useState<'en' | 'zh'>('en');
+  const toggleLang = () => setLang(l => l === 'en' ? 'zh' : 'en');
 
   useEffect(() => {
     checkUser();
@@ -59,15 +65,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route 
-          path="/" 
-          element={<HomePage user={user} signOut={handleSignOut} />} 
-        />
         <Route
-          path="/about"
-          element={<AboutPage />}
+          path="/"
+          element={<HomePage user={user} signOut={handleSignOut} theme={theme} onToggleTheme={toggleTheme} lang={lang} onToggleLang={toggleLang} />}
         />
-        <Route
+<Route
           path="/login"
           element={<LoginPage onLoginSuccess={handleLoginSuccess} />}
         />

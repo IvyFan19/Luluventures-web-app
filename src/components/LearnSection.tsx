@@ -5,7 +5,7 @@ const channels = [
   {
     name: 'Deep Value Investing',
     label: 'English',
-    url: 'https://www.youtube.com/@TheDeepValue',
+    url: 'https://www.youtube.com/@TheDeepValues',
     avatar: '/images/youtube-Deep-Value-Investing .jpg',
     type: 'youtube' as const,
   },
