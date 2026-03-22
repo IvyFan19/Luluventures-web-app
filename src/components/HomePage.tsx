@@ -37,16 +37,16 @@ function SceneProblem() {
         {g('problem.eyebrow')}
         <span className={`w-8 h-px bg-gradient-to-l ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
       </p>
-      <h2 className={`text-4xl md:text-6xl lg:text-[80px] font-extrabold tracking-tight leading-[1.05]`}>
+      <h2 className={`text-3xl sm:text-4xl md:text-6xl lg:text-[80px] font-extrabold tracking-tight leading-[1.05]`}>
         <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('problem.h1a')}</span>{' '}
         <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('problem.h1b')}</span>
         <br />
         <span className="text-red-500">{g('problem.h1c')}</span>
       </h2>
-      <p className={`text-lg md:text-[22px] mt-8 max-w-[600px] mx-auto leading-relaxed whitespace-pre-line ${isDark ? 'text-white/45' : 'text-gray-700'}`}>
+      <p className={`text-base md:text-[22px] mt-6 md:mt-8 max-w-[600px] mx-auto leading-relaxed whitespace-pre-line ${isDark ? 'text-white/45' : 'text-gray-700'}`}>
         {g('problem.sub')}
       </p>
-      <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-12 justify-center">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-12 mt-8 md:mt-12 justify-center">
         {(['problem.p1', 'problem.p2', 'problem.p3'] as const).map((k, i) => (
           <p key={i} className={`text-sm md:text-[15px] leading-relaxed border-l-2 pl-5 text-left max-w-[240px] whitespace-pre-line ${isDark ? 'text-white/30 border-red-500/30' : 'text-gray-500 border-red-400/30'}`}>
             {g(k)}
@@ -76,21 +76,21 @@ function SceneLegends() {
         {g('legends.eyebrow')}
         <span className={`w-8 h-px bg-gradient-to-l ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
       </p>
-      <h2 className={`text-3xl md:text-5xl lg:text-[60px] font-extrabold tracking-tight leading-tight`}>
+      <h2 className={`text-2xl sm:text-3xl md:text-5xl lg:text-[60px] font-extrabold tracking-tight leading-tight`}>
         <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('legends.h1a')}</span>
         <br />
         <span className="aurora-grad">{g('legends.h1b')}</span>
       </h2>
-      <div className="flex flex-wrap justify-center gap-3 mt-14">
+      <div className="flex flex-wrap justify-center gap-2.5 md:gap-3 mt-8 md:mt-14">
         {legends.map((lg) => (
-          <div key={lg.name} className={`relative flex-1 min-w-[150px] max-w-[200px] p-6 text-center rounded-3xl overflow-hidden ${isDark ? 'border border-white/[.06] bg-white/[.04] backdrop-blur-[30px]' : 'apple-card'}`}>
+          <div key={lg.name} className={`relative flex-1 min-w-[110px] sm:min-w-[150px] max-w-[200px] p-4 md:p-6 text-center rounded-2xl md:rounded-3xl overflow-hidden ${isDark ? 'border border-white/[.06] bg-white/[.04] backdrop-blur-[30px]' : 'apple-card'}`}>
             <div className={`absolute top-0 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent ${isDark ? 'via-emerald-500/25' : 'via-emerald-500/15'} to-transparent`} />
-            <p className={`text-xl font-extrabold tracking-tight mb-2 ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>{lg.name}</p>
-            <p className={`text-[13px] leading-snug italic whitespace-pre-line ${isDark ? 'text-white/45' : 'text-gray-700'}`}>{g(lg.key)}</p>
+            <p className={`text-base md:text-xl font-extrabold tracking-tight mb-1 md:mb-2 ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>{lg.name}</p>
+            <p className={`text-[11px] md:text-[13px] leading-snug italic whitespace-pre-line ${isDark ? 'text-white/45' : 'text-gray-700'}`}>{g(lg.key)}</p>
           </div>
         ))}
       </div>
-      <p className={`text-xl md:text-2xl mt-12 leading-relaxed ${isDark ? 'text-white/60' : 'text-gray-700'}`}>
+      <p className={`text-base md:text-2xl mt-8 md:mt-12 leading-relaxed ${isDark ? 'text-white/60' : 'text-gray-700'}`}>
         {g('legends.pivot')}<span className="aurora-grad font-semibold">{g('legends.pivot2')}</span>{g('legends.pivot3')}
       </p>
     </div>
@@ -108,7 +108,7 @@ function SceneBrand() {
         {g('brand.eyebrow')}
         <span className="w-8 h-px bg-gradient-to-l from-emerald-500 to-transparent" />
       </p>
-      <h1 className="text-5xl md:text-7xl lg:text-[140px] font-black tracking-tighter leading-[0.9] aurora-grad">
+      <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[140px] font-black tracking-tighter leading-[0.9] aurora-grad">
         Deep Values
       </h1>
       <p className="text-lg md:text-2xl text-white/50 mt-7 max-w-[700px] mx-auto leading-relaxed">
@@ -136,26 +136,26 @@ function SceneHowItWorks() {
 
   return (
     <div className="st max-w-6xl mx-auto w-full">
-      <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-24">
         <div className="flex-1">
-          <p className={`text-xs font-bold uppercase tracking-[5px] mb-7 flex items-center gap-2.5 ${isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'}`}>
+          <p className={`text-xs font-bold uppercase tracking-[5px] mb-4 md:mb-7 flex items-center gap-2.5 ${isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'}`}>
             <span className={`w-8 h-px bg-gradient-to-r ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
             {g('how.eyebrow')}
           </p>
-          <h2 className={`text-4xl md:text-5xl lg:text-[68px] font-extrabold tracking-tight leading-[1.02]`}>
+          <h2 className={`text-2xl sm:text-3xl md:text-5xl lg:text-[68px] font-extrabold tracking-tight leading-[1.02]`}>
             <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('how.h1a')}</span><br />
             <span className="aurora-grad">{g('how.h1b')}</span><br />
             <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('how.h1c')}</span>
           </h2>
-          <p className={`text-lg md:text-xl mt-6 max-w-[500px] leading-relaxed ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
+          <p className={`text-base md:text-xl mt-4 md:mt-6 max-w-[500px] leading-relaxed ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
             {g('how.sub')}
           </p>
         </div>
-        <div className="flex-1 w-full max-w-[520px] flex flex-col gap-3">
+        <div className="flex-1 w-full max-w-[520px] flex flex-col gap-2.5 md:gap-3">
           {benefits.map((b) => (
-            <div key={g(b.titleKey)} className={`relative flex items-center gap-5 py-5 px-6 rounded-2xl ${isDark ? `border bg-white/[.03] backdrop-blur-[20px] ${b.highlight ? 'border-emerald-500/15 shadow-[0_0_30px_rgba(16,185,129,.05)]' : 'border-white/[.05]'}` : `apple-card ${b.highlight ? 'shadow-[0_4px_24px_rgba(16,185,129,.1)]' : ''}`}`}>
+            <div key={g(b.titleKey)} className={`relative flex items-center gap-4 md:gap-5 py-4 md:py-5 px-5 md:px-6 rounded-xl md:rounded-2xl ${isDark ? `border bg-white/[.03] backdrop-blur-[20px] ${b.highlight ? 'border-emerald-500/15 shadow-[0_0_30px_rgba(16,185,129,.05)]' : 'border-white/[.05]'}` : `apple-card ${b.highlight ? 'shadow-[0_4px_24px_rgba(16,185,129,.1)]' : ''}`}`}>
               <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-sm bg-gradient-to-b from-emerald-500 to-cyan-500" />
-              <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-lg flex-shrink-0 ${b.highlight ? 'bg-gradient-to-br from-emerald-500 to-cyan-500' : 'bg-emerald-500/10'}`}>
+              <div className={`w-9 h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl flex items-center justify-center text-lg flex-shrink-0 ${b.highlight ? 'bg-gradient-to-br from-emerald-500 to-cyan-500' : 'bg-emerald-500/10'}`}>
                 <span className={b.highlight ? 'text-white' : isDark ? 'text-emerald-400' : 'text-emerald-600'}>{b.icon}</span>
               </div>
               <div>
@@ -188,13 +188,13 @@ function SceneDeliverables() {
         {g('del.eyebrow')}
         <span className={`w-8 h-px bg-gradient-to-l ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
       </p>
-      <h2 className={`text-3xl md:text-4xl lg:text-[56px] font-extrabold tracking-tight`}>
+      <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-[56px] font-extrabold tracking-tight`}>
         <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('del.h1a')}</span>{' '}
         <span className="aurora-grad">{g('del.h1b')}</span>
       </h2>
-      <div className="flex flex-wrap justify-center gap-5 mt-14">
+      <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-3 md:gap-5 mt-8 md:mt-14">
         {deliverables.map((d) => (
-          <div key={g(d.nameKey)} className={`p-7 min-w-[170px] text-center rounded-2xl ${isDark ? 'border border-white/[.05] bg-white/[.03] backdrop-blur-[30px]' : 'apple-card'}`}>
+          <div key={g(d.nameKey)} className={`p-5 md:p-7 md:min-w-[170px] text-center rounded-xl md:rounded-2xl ${isDark ? 'border border-white/[.05] bg-white/[.03] backdrop-blur-[30px]' : 'apple-card'}`}>
             <div className={`mb-4 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>{d.icon}</div>
             <p className={`text-[15px] font-semibold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>{g(d.nameKey)}</p>
             <p className={`text-[12px] mt-1.5 leading-snug whitespace-pre-line ${isDark ? 'text-white/35' : 'text-gray-700'}`}>{g(d.subKey)}</p>
@@ -224,17 +224,17 @@ function SceneWhy() {
         {g('why.eyebrow')}
         <span className={`w-8 h-px bg-gradient-to-l ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
       </p>
-      <h2 className={`text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tight`}>
+      <h2 className={`text-2xl sm:text-3xl md:text-5xl lg:text-[64px] font-bold tracking-tight`}>
         <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('why.h1a')}</span>{' '}
         <span className="aurora-grad">{g('why.h1b')}</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-14">
         {props.map((p) => (
-          <div key={g(p.labelKey)} className={`relative p-8 rounded-2xl text-left overflow-hidden ${isDark ? 'border border-white/[.05] bg-white/[.03] backdrop-blur-[30px]' : 'apple-card p-9'}`}>
+          <div key={g(p.labelKey)} className={`relative p-5 md:p-8 rounded-xl md:rounded-2xl text-left overflow-hidden ${isDark ? 'border border-white/[.05] bg-white/[.03] backdrop-blur-[30px]' : 'apple-card md:p-9'}`}>
             <div className={`absolute top-0 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent ${isDark ? 'via-emerald-500/25' : 'via-emerald-500/10'} to-transparent`} />
             <p className={`text-[11px] font-bold uppercase tracking-[2px] mb-3 ${isDark ? 'text-emerald-400/60' : 'text-emerald-600/60'}`}>{g(p.labelKey)}</p>
-            <p className={`text-2xl font-extrabold tracking-tight leading-tight whitespace-pre-line ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>{g(p.titleKey)}</p>
-            <p className={`text-[13px] mt-3 leading-snug ${isDark ? 'text-white/35' : 'text-gray-700'}`}>{g(p.bodyKey)}</p>
+            <p className={`text-lg md:text-2xl font-extrabold tracking-tight leading-tight whitespace-pre-line ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>{g(p.titleKey)}</p>
+            <p className={`text-[11px] md:text-[13px] mt-2 md:mt-3 leading-snug ${isDark ? 'text-white/35' : 'text-gray-700'}`}>{g(p.bodyKey)}</p>
           </div>
         ))}
       </div>
@@ -281,15 +281,15 @@ function SceneCommunity() {
           <span className={`w-8 h-px bg-gradient-to-r ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
           {g('community.eyebrow')}
         </p>
-        <h2 className={`text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.02] ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+        <h2 className={`text-2xl sm:text-3xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.02] ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
           {g('community.h1a')}<span className="aurora-grad">{g('community.h1b')}</span>
         </h2>
       </div>
 
-      <div className="flex justify-center gap-10 md:gap-16 mb-12">
+      <div className="flex justify-center gap-6 md:gap-16 mb-8 md:mb-12">
         {channels.map((ch) => (
           <a key={ch.name} href={ch.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-3 group">
-            <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden transition-all duration-300 group-hover:scale-105 ${isDark ? 'ring-2 ring-white/10 group-hover:ring-emerald-500/30' : 'ring-2 ring-gray-200 group-hover:ring-emerald-500/40 shadow-md'}`}>
+            <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden transition-all duration-300 group-hover:scale-105 ${isDark ? 'ring-2 ring-white/10 group-hover:ring-emerald-500/30' : 'ring-2 ring-gray-200 group-hover:ring-emerald-500/40 shadow-md'}`}>
               <img src={ch.avatar} alt={ch.name} className="w-full h-full object-cover" />
             </div>
             <span className={`text-sm font-medium transition-colors ${isDark ? 'text-white/60 group-hover:text-white' : 'text-gray-500 group-hover:text-gray-900'}`}>{ch.name}</span>
@@ -331,11 +331,11 @@ function SceneStory() {
         <span className={`w-8 h-px bg-gradient-to-r ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
         Our Story
       </p>
-      <h2 className="text-4xl md:text-5xl lg:text-[68px] font-extrabold tracking-tight leading-[1.02] mb-10">
+      <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-[68px] font-extrabold tracking-tight leading-[1.02] mb-6 md:mb-10">
         <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>Research that </span>
         <span className="aurora-grad">serves you.</span>
       </h2>
-      <div className={`space-y-5 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
+      <div className={`space-y-4 md:space-y-5 text-base md:text-xl leading-relaxed max-w-2xl mx-auto ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
         <p>
           Institutional-grade investment research has long been locked behind expensive terminals
           and exclusive networks. We built DeepValues.AI to challenge that.
@@ -364,16 +364,16 @@ function SceneMission() {
         <span className={`w-8 h-px bg-gradient-to-r ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
         {g('mission.eyebrow')}
       </p>
-      <h2 className="text-4xl md:text-5xl lg:text-[68px] font-extrabold tracking-tight leading-[1.02] mb-6">
+      <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-[68px] font-extrabold tracking-tight leading-[1.02] mb-4 md:mb-6">
         <span className="aurora-grad">{g('mission.h1a')}</span><br />
         <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('mission.h1b')}</span>
       </h2>
-      <p className={`text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10 ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
+      <p className={`text-base md:text-xl leading-relaxed max-w-2xl mx-auto mb-6 md:mb-10 ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
         {g('mission.sub')}
       </p>
-      <div className="max-w-3xl mx-auto grid md:grid-cols-3 gap-5">
+      <div className="max-w-3xl mx-auto grid grid-cols-3 gap-3 md:gap-5">
         {cards.map((item) => (
-          <div key={g(item.titleKey)} className={`p-6 rounded-2xl text-center ${isDark ? 'bg-white/[.04] border border-white/[.06] backdrop-blur-[20px]' : 'apple-card'}`}>
+          <div key={g(item.titleKey)} className={`p-4 md:p-6 rounded-xl md:rounded-2xl text-center ${isDark ? 'bg-white/[.04] border border-white/[.06] backdrop-blur-[20px]' : 'apple-card'}`}>
             <div className={`mb-3 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>{item.icon}</div>
             <p className={`font-semibold text-[17px] mb-1 ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>{g(item.titleKey)}</p>
             <p className={`text-[13px] ${isDark ? 'text-white/40' : 'text-gray-700'}`}>{g(item.descKey)}</p>
@@ -394,11 +394,11 @@ function SceneTeam() {
         <span className={`w-8 h-px bg-gradient-to-r ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
         {g('team.eyebrow')}
       </p>
-      <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.02] mb-10">
+      <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.02] mb-6 md:mb-10">
         <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('team.h1a')}</span>
         <span className="aurora-grad">{g('team.h1b')}</span>
       </h2>
-      <div className={`max-w-2xl mx-auto rounded-2xl p-8 md:p-10 text-left ${isDark ? 'bg-white/[.04] border border-white/[.06] backdrop-blur-[20px]' : 'apple-card'}`}>
+      <div className={`max-w-2xl mx-auto rounded-xl md:rounded-2xl p-6 md:p-10 text-left ${isDark ? 'bg-white/[.04] border border-white/[.06] backdrop-blur-[20px]' : 'apple-card'}`}>
         <div className="flex items-center gap-3 mb-5">
           <div>
             <h3 className={`text-xl font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
@@ -427,7 +427,7 @@ function SceneCTA() {
   const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
   return (
     <div className="st text-center max-w-4xl mx-auto">
-      <h1 className="text-5xl md:text-7xl lg:text-[140px] font-black tracking-tighter leading-[0.9] aurora-grad">
+      <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[140px] font-black tracking-tighter leading-[0.9] aurora-grad">
         Deep Values
       </h1>
       <p className="text-xl md:text-2xl text-white/50 mt-7 max-w-[700px] mx-auto leading-relaxed">

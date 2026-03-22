@@ -162,7 +162,24 @@
   opacity: 0;
   pointer-events: none;
   z-index: 10;
-  padding: 60px 24px;
+  padding: 80px 24px 60px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile: tighter padding, allow scroll for tall content */
+@media (max-width: 768px) {
+  .scene {
+    padding: 72px 16px 56px;
+    justify-content: flex-start;
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 380px) {
+  .scene {
+    padding: 68px 12px 52px;
+  }
 }
 
 .scene.active {
@@ -213,6 +230,13 @@
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .scene-nav {
+    bottom: 20px;
+    gap: 7px;
+  }
 }
 
 .scene-dot {
