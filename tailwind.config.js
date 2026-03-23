@@ -1,10 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './index.html',
+    './src/main.tsx',
+    './src/App.tsx',
+    './src/components/{ArticleDetailPage,Footer,Header,HomePage,LoginPage,MarkdownRenderer,ResearchAnalysisPage}.tsx',
+  ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'sans-serif'],
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'SF Pro Display', 'Segoe UI', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         blue: {

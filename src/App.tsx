@@ -1,46 +1,93 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { getCurrentUser, signOut } from 'aws-amplify/auth';
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useCallback, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
-import { LoginPage } from './components/LoginPage';
-import { ResearchAnalysisPage } from './components/ResearchAnalysisPage';
-import { ArticleDetailPage } from './components/ArticleDetailPage';
 import { usePrefersDark } from './hooks/usePrefersDark';
+import { ensureAmplifyConfigured, loadAmplifyAuth } from './utils/loadAmplifyAuth';
 
 interface AuthUser {
   username: string;
   [key: string]: unknown;
 }
 
-function App() {
+const LoginPage = lazy(async () => {
+  await ensureAmplifyConfigured();
+  const module = await import('./components/LoginPage');
+
+  return { default: module.LoginPage };
+});
+
+const ResearchAnalysisPage = lazy(async () => {
+  const module = await import('./components/ResearchAnalysisPage');
+
+  return { default: module.ResearchAnalysisPage };
+});
+
+const ArticleDetailPage = lazy(async () => {
+  const module = await import('./components/ArticleDetailPage');
+
+  return { default: module.ArticleDetailPage };
+});
+
+function RouteLoader({ theme }: { theme: 'dark' | 'light' }) {
+  const isDark = theme === 'dark';
+
+  return (
+    <div className={`flex min-h-screen items-center justify-center ${isDark ? 'bg-black text-white' : 'bg-white text-[#1d1d1f]'}`}>
+      <div className="text-center">
+        <div className={`mx-auto h-12 w-12 animate-spin rounded-full border-b-2 ${isDark ? 'border-emerald-400' : 'border-blue-600'}`} />
+        <p className={isDark ? 'mt-4 text-white/60' : 'mt-4 text-gray-600'}>Loading...</p>
+      </div>
+    </div>
+  );
+}
+
+function AppRoutes() {
+  const location = useLocation();
   const [user, setUser] = useState<AuthUser | null>(null);
-  const [loading, setLoading] = useState(true);
   const prefersDark = usePrefersDark();
   const [themeOverride, setThemeOverride] = useState<'dark' | 'light' | null>(null);
   const theme = themeOverride ?? (prefersDark ? 'dark' : 'light');
   const toggleTheme = () => setThemeOverride(theme === 'dark' ? 'light' : 'dark');
   const [lang, setLang] = useState<'en' | 'zh'>('en');
-  const toggleLang = () => setLang(l => l === 'en' ? 'zh' : 'en');
+  const toggleLang = () => setLang((value) => (value === 'en' ? 'zh' : 'en'));
+  const [loading, setLoading] = useState(location.pathname !== '/');
 
-  useEffect(() => {
-    checkUser();
-  }, []);
+  const refreshUser = useCallback(async (blockUi = false) => {
+    if (blockUi) {
+      setLoading(true);
+    }
 
-  const checkUser = async () => {
     try {
-      const currentUser = await getCurrentUser();
+      const auth = await loadAmplifyAuth();
+      const currentUser = await auth.getCurrentUser();
       setUser(currentUser as AuthUser);
     } catch {
-      console.log('User not authenticated');
       setUser(null);
     } finally {
-      setLoading(false);
+      if (blockUi) {
+        setLoading(false);
+      }
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setLoading(false);
+
+      const timer = window.setTimeout(() => {
+        void refreshUser(false);
+      }, 1200);
+
+      return () => window.clearTimeout(timer);
+    }
+
+    void refreshUser(true);
+  }, [location.pathname, refreshUser]);
 
   const handleSignOut = async () => {
     try {
-      await signOut();
+      const auth = await loadAmplifyAuth();
+      await auth.signOut();
       setUser(null);
     } catch (error) {
       console.error('Error signing out:', error);
@@ -48,40 +95,41 @@ function App() {
   };
 
   const handleLoginSuccess = () => {
-    checkUser();
+    void refreshUser(false);
   };
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
+    return <RouteLoader theme={theme} />;
   }
 
   return (
-    <Router>
+    <Suspense fallback={<RouteLoader theme={theme} />}>
       <Routes>
         <Route
           path="/"
           element={<HomePage user={user} signOut={handleSignOut} theme={theme} onToggleTheme={toggleTheme} lang={lang} onToggleLang={toggleLang} />}
         />
-<Route
+        <Route
           path="/login"
           element={<LoginPage onLoginSuccess={handleLoginSuccess} />}
         />
-        <Route 
-          path="/research-analysis" 
-          element={<ResearchAnalysisPage user={user} signOut={handleSignOut} />} 
+        <Route
+          path="/research-analysis"
+          element={<ResearchAnalysisPage user={user} signOut={handleSignOut} />}
         />
-        <Route 
-          path="/research-analysis/:slug" 
-          element={<ArticleDetailPage user={user} signOut={handleSignOut} />} 
+        <Route
+          path="/research-analysis/:slug"
+          element={<ArticleDetailPage user={user} signOut={handleSignOut} />}
         />
       </Routes>
+    </Suspense>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppRoutes />
     </Router>
   );
 }

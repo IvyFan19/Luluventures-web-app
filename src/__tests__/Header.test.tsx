@@ -9,7 +9,8 @@ describe('Header', () => {
     expect(screen.getByRole('button', { name: 'How It Works' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Learn' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Community' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'About' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Mission' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Team' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /explore now/i })).toBeInTheDocument();
   });
 
@@ -29,7 +30,9 @@ describe('Header', () => {
     render(<Header isMenuOpen={false} toggleMenu={() => {}} goToScene={mockGoToScene} />);
 
     fireEvent.click(screen.getByRole('button', { name: 'How It Works' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Team' }));
 
     expect(mockGoToScene).toHaveBeenCalledWith(3);
+    expect(mockGoToScene).toHaveBeenCalledWith(8);
   });
 });

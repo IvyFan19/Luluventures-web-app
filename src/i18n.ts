@@ -3,7 +3,8 @@ const translations = {
   'nav.howItWorks': { en: 'How It Works', zh: '工作原理' },
   'nav.learn': { en: 'Learn', zh: '了解更多' },
   'nav.community': { en: 'Community', zh: '社区' },
-  'nav.about': { en: 'About', zh: '关于' },
+  'nav.about': { en: 'Mission', zh: '使命' },
+  'nav.team': { en: 'Team', zh: '团队' },
   'nav.explore': { en: 'Explore Now', zh: '立即体验' },
   'nav.signOut': { en: 'Sign Out', zh: '退出' },
 

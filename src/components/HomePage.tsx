@@ -554,7 +554,17 @@ function SceneCommunity() {
                   : 'shadow-md ring-2 ring-gray-200 group-hover:ring-emerald-500/40'
               }`}
             >
-              <img src={channel.avatar} alt={channel.name} className="h-full w-full object-cover" />
+              <img
+                src={channel.avatar}
+                alt={channel.name}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
+                width="96"
+                height="96"
+                sizes="(max-width: 768px) 80px, 96px"
+              />
             </div>
             <span className={`text-sm font-medium transition-colors ${isDark ? 'text-white/60 group-hover:text-white' : 'text-gray-500 group-hover:text-gray-900'}`}>
               {channel.name}
@@ -776,6 +786,54 @@ function SceneCTA() {
   );
 }
 
+function MobileExploreDock({
+  isDark,
+  lang,
+  isVisible,
+}: {
+  isDark: boolean;
+  lang: 'en' | 'zh';
+  isVisible: boolean;
+}) {
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, lang);
+
+  if (!isVisible) {
+    return null;
+  }
+
+  return (
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] md:hidden">
+      <div
+        className={`pointer-events-auto mx-auto flex max-w-md items-center gap-3 rounded-[22px] border px-3 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.18)] backdrop-blur-xl ${
+          isDark ? 'border-white/10 bg-black/70' : 'border-black/10 bg-white/88'
+        }`}
+      >
+        <div className="min-w-0 flex-1 pl-2">
+          <p className={`text-[11px] font-semibold uppercase tracking-[0.22em] ${isDark ? 'text-white/35' : 'text-gray-500'}`}>
+            Deep Values
+          </p>
+          <p className={`truncate text-[13px] ${isDark ? 'text-white/65' : 'text-gray-600'}`}>
+            {g('cta.sub')}
+          </p>
+        </div>
+        <a
+          href="https://research.deepvalues.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`shrink-0 rounded-full px-5 py-3 text-[14px] font-semibold transition-colors ${
+            isDark
+              ? 'bg-emerald-500 text-black hover:bg-emerald-400'
+              : 'bg-[#1d1d1f] text-white hover:bg-black'
+          }`}
+          aria-label={g('nav.explore')}
+        >
+          {g('nav.explore')}
+        </a>
+      </div>
+    </div>
+  );
+}
+
 const PAGE_SECTIONS = [
   { id: 'problem', component: SceneProblem },
   { id: 'legends', component: SceneLegends },
@@ -795,6 +853,7 @@ const SECTION_INDEX_TO_ID: Record<number, string> = {
   4: 'deliverables',
   6: 'community',
   7: 'mission',
+  8: 'team',
 };
 
 function PageSection({
@@ -817,6 +876,8 @@ function PageSection({
     <section
       id={id}
       className={`relative scroll-mt-28 overflow-hidden ${
+        isFirst ? '' : 'page-section-deferred'
+      } ${
         isFirst ? '' : isDarkSection ? 'border-t border-white/[0.05]' : 'border-t border-black/[0.06]'
       } ${isDarkSection ? 'scene-dark-insert' : 'page-section-light'}`}
     >
@@ -842,6 +903,7 @@ export function HomePage({
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const isDark = theme === 'dark';
   const headerTheme = getSectionTheme(activeSectionIndex, theme);
+  const showMobileExploreDock = !isMenuOpen && activeSectionIndex < PAGE_SECTIONS.length - 1;
 
   const toggleMenu = () => setIsMenuOpen((open) => !open);
 
@@ -920,7 +982,7 @@ export function HomePage({
           onToggleLang={onToggleLang}
         />
 
-        <main id="page-top" className="relative z-10">
+        <main id="page-top" className="relative z-10 pb-28 md:pb-0">
           {PAGE_SECTIONS.map((section, index) => {
             const Component = section.component;
 
@@ -937,6 +999,12 @@ export function HomePage({
             );
           })}
         </main>
+
+        <MobileExploreDock
+          isDark={headerTheme === 'dark'}
+          lang={lang}
+          isVisible={showMobileExploreDock}
+        />
       </div>
     </LangContext.Provider>
   );
