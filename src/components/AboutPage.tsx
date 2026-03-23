@@ -89,7 +89,7 @@ function SceneTeam() {
         <div className="flex items-center gap-3 mb-5">
           <div>
             <h3 className={`text-xl font-bold flex items-center gap-2 ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
-              Xinwei Fan
+              Xinwei (Ivy) Fan
               <a
                 href="https://www.linkedin.com/in/xinwei-fan/"
                 target="_blank"
@@ -101,14 +101,15 @@ function SceneTeam() {
                 </svg>
               </a>
             </h3>
-            <p className="text-emerald-500 font-semibold text-[15px]">Founder & CTO</p>
+            <p className="text-emerald-500 font-semibold text-[15px]">Founder & Creator</p>
           </div>
         </div>
         <p className={`leading-relaxed ${isDark ? 'text-white/50' : 'text-gray-600'}`}>
           Xinwei is the technical force behind DeepValues.AI's multi-agent research platform.
           With expertise in AI/ML engineering and full-stack development, she architects the systems
-          that power intelligent stock analysis at scale. Her goal is to harness cutting-edge AI to
-          replicate the rigor of a professional investment research team — available to anyone, anytime.
+          that power intelligent stock analysis at scale. Her goal is to use modern technologies to
+          bring the rigor of a professional investment research team, grounded in Buffett's enduring
+          principles, to every individual investor.
         </p>
       </div>
     </div>

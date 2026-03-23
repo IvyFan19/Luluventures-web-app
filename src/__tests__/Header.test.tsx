@@ -1,44 +1,35 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { Header } from '../components/Header'
+import { fireEvent, render, screen } from '@testing-library/react';
+import { Header } from '../components/Header';
 
 describe('Header', () => {
-  test('renders navigation elements', () => {
-    render(<Header isMenuOpen={false} toggleMenu={() => { }} />)
+  test('renders the marketing navigation elements', () => {
+    render(<Header isMenuOpen={false} toggleMenu={() => {}} goToScene={() => {}} />);
 
-    expect(screen.getByText('DeepValues.ai')).toBeInTheDocument()
-    expect(screen.getByText('YouTube')).toBeInTheDocument()
-    expect(screen.getByText('Research')).toBeInTheDocument()
-    expect(screen.getByText('App Tools')).toBeInTheDocument()
-    expect(screen.getByText('Podcast')).toBeInTheDocument()
-  })
+    expect(screen.getByText('DeepValues.ai')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'How It Works' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Learn' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Community' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'About' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /explore now/i })).toBeInTheDocument();
+  });
 
-  test('mobile menu toggle functionality', () => {
-    const mockToggleMenu = vi.fn()
-    render(<Header isMenuOpen={false} toggleMenu={mockToggleMenu} />)
+  test('mobile menu toggle button is accessible', () => {
+    const mockToggleMenu = vi.fn();
 
-    const menuButton = screen.getByLabelText(/toggle menu/i)
-    fireEvent.click(menuButton)
+    render(<Header isMenuOpen={false} toggleMenu={mockToggleMenu} />);
 
-    expect(mockToggleMenu).toHaveBeenCalledTimes(1)
-  })
+    fireEvent.click(screen.getByLabelText(/toggle menu/i));
 
-  test('smooth scroll navigation', () => {
-    // Mock getElementById and scrollIntoView
-    const mockElement = { scrollIntoView: vi.fn() }
-    const mockGetElementById = vi.fn(() => mockElement)
-    Object.defineProperty(document, 'getElementById', {
-      value: mockGetElementById,
-      writable: true
-    })
+    expect(mockToggleMenu).toHaveBeenCalledTimes(1);
+  });
 
-    render(<Header isMenuOpen={false} toggleMenu={() => { }} />)
+  test('navigation triggers the homepage section callback', () => {
+    const mockGoToScene = vi.fn();
 
-    const youtubeLink = screen.getByText('YouTube')
-    fireEvent.click(youtubeLink)
+    render(<Header isMenuOpen={false} toggleMenu={() => {}} goToScene={mockGoToScene} />);
 
-    expect(mockGetElementById).toHaveBeenCalledWith('youtube')
-    expect(mockElement.scrollIntoView).toHaveBeenCalledWith({
-      behavior: 'smooth'
-    })
-  })
-})
+    fireEvent.click(screen.getByRole('button', { name: 'How It Works' }));
+
+    expect(mockGoToScene).toHaveBeenCalledWith(3);
+  });
+});

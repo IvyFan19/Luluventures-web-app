@@ -1,23 +1,16 @@
-import { useEffect, type ReactNode } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import type { LucideIcon } from 'lucide-react';
-import {
-  ArrowRight,
-  AudioLines,
-  Check,
-  FileText,
-  ScanSearch,
-  Scale,
-  ShieldCheck,
-  Waves,
-} from 'lucide-react';
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
+import { Header } from './Header';
+import { getText } from '../i18n';
 
-type ConceptId =
-  | 'quiet-conviction'
-  | 'signal-grid'
-  | 'founder-letter'
-  | 'objective-lens'
-  | 'atlas-noir';
+const ThemeContext = createContext<'dark' | 'light'>('dark');
+function useTheme() {
+  return useContext(ThemeContext);
+}
+
+const LangContext = createContext<'en' | 'zh'>('en');
+function useLang() {
+  return useContext(LangContext);
+}
 
 interface User {
   username: string;
@@ -33,1182 +26,918 @@ interface HomePageProps {
   onToggleLang?: () => void;
 }
 
-interface ConceptMeta {
-  id: ConceptId;
-  name: string;
-  palette: string;
-  summary: string;
+function getSectionTheme(index: number, baseTheme: 'dark' | 'light') {
+  if (index % 2 === 0) return baseTheme;
+  return baseTheme === 'dark' ? 'light' : 'dark';
 }
 
-interface ProductPillar {
-  title: string;
-  body: string;
-  icon: LucideIcon;
+function SceneProblem() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+
+  return (
+    <div className="st text-center max-w-4xl mx-auto">
+      <p
+        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+        }`}
+      >
+        <span
+          className={`h-px w-8 bg-gradient-to-r ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+        {g('problem.eyebrow')}
+        <span
+          className={`h-px w-8 bg-gradient-to-l ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+      </p>
+      <h2 className="text-4xl font-extrabold tracking-tight leading-[1.05] md:text-6xl lg:text-[80px]">
+        <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('problem.h1a')}</span>{' '}
+        <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('problem.h1b')}</span>
+        <br />
+        <span className="text-red-500">{g('problem.h1c')}</span>
+      </h2>
+      <p
+        className={`mx-auto mt-8 max-w-[600px] whitespace-pre-line text-lg leading-relaxed md:text-[22px] ${
+          isDark ? 'text-white/45' : 'text-gray-700'
+        }`}
+      >
+        {g('problem.sub')}
+      </p>
+      <div className="mt-12 flex flex-col justify-center gap-6 md:flex-row md:gap-12">
+        {(['problem.p1', 'problem.p2', 'problem.p3'] as const).map((k, i) => (
+          <p
+            key={i}
+            className={`max-w-[240px] border-l-2 pl-5 text-left text-sm leading-relaxed whitespace-pre-line md:text-[15px] ${
+              isDark ? 'border-red-500/30 text-white/30' : 'border-red-400/30 text-gray-500'
+            }`}
+          >
+            {g(k)}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-interface ValuePillar {
-  title: string;
-  body: string;
+function SceneLegends() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+  const legends = [
+    { name: 'Buffett', key: 'legends.buffett' as const },
+    { name: 'Munger', key: 'legends.munger' as const },
+    { name: 'Lynch', key: 'legends.lynch' as const },
+    { name: 'Druckenmiller', key: 'legends.druckenmiller' as const },
+    { name: 'Marks', key: 'legends.marks' as const },
+  ];
+
+  return (
+    <div className="st text-center max-w-[1060px] mx-auto">
+      <p
+        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+        }`}
+      >
+        <span
+          className={`h-px w-8 bg-gradient-to-r ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+        {g('legends.eyebrow')}
+        <span
+          className={`h-px w-8 bg-gradient-to-l ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+      </p>
+      <h2 className="text-3xl font-extrabold tracking-tight leading-tight md:text-5xl lg:text-[60px]">
+        <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('legends.h1a')}</span>
+        <br />
+        <span className="aurora-grad">{g('legends.h1b')}</span>
+      </h2>
+      <div className="mt-14 flex flex-wrap justify-center gap-3">
+        {legends.map((legend) => (
+          <div
+            key={legend.name}
+            className={`relative min-w-[150px] max-w-[200px] flex-1 overflow-hidden rounded-3xl p-6 text-center ${
+              isDark ? 'border border-white/[.06] bg-white/[.04] backdrop-blur-[30px]' : 'apple-card'
+            }`}
+          >
+            <div
+              className={`absolute left-[15%] right-[15%] top-0 h-px bg-gradient-to-r from-transparent ${
+                isDark ? 'via-emerald-500/25' : 'via-emerald-500/15'
+              } to-transparent`}
+            />
+            <p className={`mb-2 text-xl font-extrabold tracking-tight ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+              {legend.name}
+            </p>
+            <p
+              className={`whitespace-pre-line text-[13px] leading-snug italic ${
+                isDark ? 'text-white/45' : 'text-gray-700'
+              }`}
+            >
+              {g(legend.key)}
+            </p>
+          </div>
+        ))}
+      </div>
+      <p className={`mt-12 text-xl leading-relaxed md:text-2xl ${isDark ? 'text-white/60' : 'text-gray-700'}`}>
+        {g('legends.pivot')}
+        <span className="aurora-grad font-semibold">{g('legends.pivot2')}</span>
+        {g('legends.pivot3')}
+      </p>
+    </div>
+  );
 }
 
-const CONCEPTS: ConceptMeta[] = [
-  {
-    id: 'quiet-conviction',
-    name: 'Quiet Conviction',
-    palette: 'Ivory, graphite, antique gold',
-    summary: 'A calm editorial direction with a premium and trustworthy feel.',
-  },
-  {
-    id: 'signal-grid',
-    name: 'Signal Grid',
-    palette: 'Midnight, mint, electric blue',
-    summary: 'A sharper systems-led direction built around process and clarity.',
-  },
-  {
-    id: 'founder-letter',
-    name: 'Founder Letter',
-    palette: 'Parchment, forest, ink',
-    summary: 'A warmer founder-led direction centered on trust, mission, and craft.',
-  },
-  {
-    id: 'objective-lens',
-    name: 'Objective Lens',
-    palette: 'White, cobalt, slate',
-    summary: 'A minimal product-first direction focused on precision and restraint.',
-  },
-  {
-    id: 'atlas-noir',
-    name: 'Atlas Noir',
-    palette: 'Black, champagne, ember',
-    summary: 'A cinematic luxury direction with stronger emotion and contrast.',
-  },
-];
+function SceneBrand() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
 
-const SECTION_LINKS = [
-  { id: 'problem', label: 'Problem' },
-  { id: 'solution', label: 'Solution' },
-  { id: 'mission', label: 'Mission' },
-  { id: 'creator', label: 'Creator' },
+  return (
+    <div className="st text-center max-w-4xl mx-auto">
+      <p
+        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+        }`}
+      >
+        <span
+          className={`h-px w-8 bg-gradient-to-r ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+        {g('brand.eyebrow')}
+        <span
+          className={`h-px w-8 bg-gradient-to-l ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+      </p>
+      <h1 className="aurora-grad text-5xl font-black tracking-tighter leading-[0.9] md:text-7xl lg:text-[140px]">
+        Deep Values
+      </h1>
+      <p
+        className={`mx-auto mt-7 max-w-[700px] text-lg leading-relaxed md:text-2xl ${
+          isDark ? 'text-white/50' : 'text-gray-700'
+        }`}
+      >
+        {g('brand.sub')}
+        <br className="hidden md:block" />
+        {g('brand.sub2')}
+      </p>
+      <a
+        href="https://research.deepvalues.ai/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`mt-11 inline-block text-2xl font-extrabold tracking-tight transition-colors md:text-[30px] ${
+          isDark ? 'text-emerald-500 hover:text-emerald-400' : 'text-emerald-600 hover:text-emerald-500'
+        }`}
+      >
+        {g('brand.cta')}
+      </a>
+    </div>
+  );
+}
+
+function SceneHowItWorks() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+  const benefits = [
+    {
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+      ),
+      titleKey: 'how.b1.title' as const,
+      descKey: 'how.b1.desc' as const,
+    },
+    {
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M8 3H2v15h7c1.7 0 3 1.3 3 3V7c0-2.2-1.8-4-4-4z" />
+          <path d="M16 3h6v15h-7c-1.7 0-3 1.3-3 3V7c0-2.2 1.8-4 4-4z" />
+        </svg>
+      ),
+      titleKey: 'how.b2.title' as const,
+      descKey: 'how.b2.desc' as const,
+    },
+    {
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      ),
+      titleKey: 'how.b3.title' as const,
+      descKey: 'how.b3.desc' as const,
+    },
+    {
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      ),
+      titleKey: 'how.b4.title' as const,
+      descKey: 'how.b4.desc' as const,
+      highlight: true,
+    },
+  ];
+
+  return (
+    <div className="st max-w-6xl mx-auto w-full">
+      <div className="flex flex-col items-center gap-12 md:flex-row md:gap-24">
+        <div className="flex-1">
+          <p
+            className={`mb-7 flex items-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+              isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+            }`}
+          >
+            <span
+              className={`h-px w-8 bg-gradient-to-r ${
+                isDark ? 'from-emerald-500' : 'from-emerald-600'
+              } to-transparent`}
+            />
+            {g('how.eyebrow')}
+          </p>
+          <h2 className="text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[68px]">
+            <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('how.h1a')}</span>
+            <br />
+            <span className="aurora-grad">{g('how.h1b')}</span>
+            <br />
+            <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('how.h1c')}</span>
+          </h2>
+          <p className={`mt-6 max-w-[500px] text-lg leading-relaxed md:text-xl ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
+            {g('how.sub')}
+          </p>
+        </div>
+        <div className="flex-1 w-full max-w-[520px] flex-col gap-3 flex">
+          {benefits.map((benefit) => (
+            <div
+              key={g(benefit.titleKey)}
+              className={`relative flex items-center gap-5 rounded-2xl px-6 py-5 ${
+                isDark
+                  ? `border bg-white/[.03] backdrop-blur-[20px] ${
+                      benefit.highlight
+                        ? 'border-emerald-500/15 shadow-[0_0_30px_rgba(16,185,129,.05)]'
+                        : 'border-white/[.05]'
+                    }`
+                  : `apple-card ${benefit.highlight ? 'shadow-[0_4px_24px_rgba(16,185,129,.1)]' : ''}`
+              }`}
+            >
+              <div className="absolute bottom-0 left-0 top-0 w-[3px] rounded-sm bg-gradient-to-b from-emerald-500 to-cyan-500" />
+              <div
+                className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl text-lg ${
+                  benefit.highlight ? 'bg-gradient-to-br from-emerald-500 to-cyan-500' : 'bg-emerald-500/10'
+                }`}
+              >
+                <span className={benefit.highlight ? 'text-white' : isDark ? 'text-emerald-400' : 'text-emerald-600'}>
+                  {benefit.icon}
+                </span>
+              </div>
+              <div>
+                <p className={`text-[17px] font-semibold ${benefit.highlight ? 'text-emerald-600' : isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+                  {g(benefit.titleKey)}
+                </p>
+                <p className={`mt-0.5 text-[13px] ${isDark ? 'text-white/40' : 'text-gray-700'}`}>
+                  {g(benefit.descKey)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SceneDeliverables() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+  const deliverables = [
+    {
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M3 3v18h18" />
+          <path d="m19 9-5 5-4-4-3 3" />
+        </svg>
+      ),
+      nameKey: 'del.d1.name' as const,
+      subKey: 'del.d1.sub' as const,
+    },
+    {
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+          <line x1="12" y1="19" x2="12" y2="22" />
+        </svg>
+      ),
+      nameKey: 'del.d2.name' as const,
+      subKey: 'del.d2.sub' as const,
+    },
+    {
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <path d="m10 9 5 3-5 3V9z" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+      ),
+      nameKey: 'del.d3.name' as const,
+      subKey: 'del.d3.sub' as const,
+    },
+    {
+      icon: (
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+      ),
+      nameKey: 'del.d4.name' as const,
+      subKey: 'del.d4.sub' as const,
+    },
+  ];
+
+  return (
+    <div className="st text-center max-w-5xl mx-auto">
+      <p
+        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+        }`}
+      >
+        <span
+          className={`h-px w-8 bg-gradient-to-r ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+        {g('del.eyebrow')}
+        <span
+          className={`h-px w-8 bg-gradient-to-l ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+      </p>
+      <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl lg:text-[56px]">
+        <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('del.h1a')}</span>{' '}
+        <span className="aurora-grad">{g('del.h1b')}</span>
+      </h2>
+      <div className="mt-14 flex flex-wrap justify-center gap-5">
+        {deliverables.map((deliverable) => (
+          <div
+            key={g(deliverable.nameKey)}
+            className={`min-w-[170px] rounded-2xl p-7 text-center ${
+              isDark ? 'border border-white/[.05] bg-white/[.03] backdrop-blur-[30px]' : 'apple-card'
+            }`}
+          >
+            <div className={`mb-4 flex items-center justify-center ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+              {deliverable.icon}
+            </div>
+            <p className={`text-[15px] font-semibold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+              {g(deliverable.nameKey)}
+            </p>
+            <p
+              className={`mt-1.5 whitespace-pre-line text-[12px] leading-snug ${
+                isDark ? 'text-white/35' : 'text-gray-700'
+              }`}
+            >
+              {g(deliverable.subKey)}
+            </p>
+          </div>
+        ))}
+      </div>
+      <p className={`mt-10 text-sm ${isDark ? 'text-white/35' : 'text-gray-400'}`}>{g('del.footer')}</p>
+    </div>
+  );
+}
+
+function SceneWhy() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+  const props = [
+    { labelKey: 'why.p1.label' as const, titleKey: 'why.p1.title' as const, bodyKey: 'why.p1.body' as const },
+    { labelKey: 'why.p2.label' as const, titleKey: 'why.p2.title' as const, bodyKey: 'why.p2.body' as const },
+    { labelKey: 'why.p3.label' as const, titleKey: 'why.p3.title' as const, bodyKey: 'why.p3.body' as const },
+    { labelKey: 'why.p4.label' as const, titleKey: 'why.p4.title' as const, bodyKey: 'why.p4.body' as const },
+  ];
+
+  return (
+    <div className="st text-center max-w-6xl mx-auto">
+      <p
+        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+        }`}
+      >
+        <span
+          className={`h-px w-8 bg-gradient-to-r ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+        {g('why.eyebrow')}
+        <span
+          className={`h-px w-8 bg-gradient-to-l ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+      </p>
+      <h2 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-[64px]">
+        <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('why.h1a')}</span>{' '}
+        <span className="aurora-grad">{g('why.h1b')}</span>
+      </h2>
+      <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {props.map((prop) => (
+          <div
+            key={g(prop.labelKey)}
+            className={`relative overflow-hidden rounded-2xl p-8 text-left ${
+              isDark ? 'border border-white/[.05] bg-white/[.03] backdrop-blur-[30px]' : 'apple-card p-9'
+            }`}
+          >
+            <div
+              className={`absolute left-[20%] right-[20%] top-0 h-px bg-gradient-to-r from-transparent ${
+                isDark ? 'via-emerald-500/25' : 'via-emerald-500/10'
+              } to-transparent`}
+            />
+            <p className={`mb-3 text-[11px] font-bold uppercase tracking-[2px] ${isDark ? 'text-emerald-400/60' : 'text-emerald-600/60'}`}>
+              {g(prop.labelKey)}
+            </p>
+            <p className={`whitespace-pre-line text-2xl font-extrabold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+              {g(prop.titleKey)}
+            </p>
+            <p className={`mt-3 text-[13px] leading-snug ${isDark ? 'text-white/35' : 'text-gray-700'}`}>
+              {g(prop.bodyKey)}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SceneCommunity() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+  const podcastUrl =
+    l === 'zh'
+      ? 'https://podcasts.apple.com/us/podcast/%E6%B7%B1%E5%BA%A6%E4%BB%B7%E5%80%BC/id1813017485'
+      : 'https://podcasts.apple.com/us/podcast/deep-value-investing/id1811057697';
+  const channels =
+    l === 'zh'
+      ? [
+          {
+            name: '深度价值投资',
+            url: 'https://www.youtube.com/@TheDeepValues',
+            avatar: '/images/youtube-Deep-Value-Investing .jpg',
+          },
+          {
+            name: '深度价值',
+            url: 'https://www.youtube.com/@%E6%B7%B1%E5%BA%A6%E4%BB%B7%E5%80%BC',
+            avatar: '/images/youtube-deep-values.png',
+          },
+        ]
+      : [
+          {
+            name: 'Deep Value Investing',
+            url: 'https://www.youtube.com/@TheDeepValues',
+            avatar: '/images/youtube-Deep-Value-Investing .jpg',
+          },
+          {
+            name: 'Deep Values',
+            url: 'https://www.youtube.com/@DeepValues',
+            avatar: '/images/youtube-deep-values.png',
+          },
+        ];
+
+  return (
+    <div className="st max-w-5xl mx-auto w-full">
+      <div className="mb-10 text-center">
+        <p
+          className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+            isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+          }`}
+        >
+          <span
+            className={`h-px w-8 bg-gradient-to-r ${
+              isDark ? 'from-emerald-500' : 'from-emerald-600'
+            } to-transparent`}
+          />
+          {g('community.eyebrow')}
+        </p>
+        <h2 className={`text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[56px] ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+          {g('community.h1a')}
+          <span className="aurora-grad">{g('community.h1b')}</span>
+        </h2>
+      </div>
+
+      <div className="mb-12 flex justify-center gap-10 md:gap-16">
+        {channels.map((channel) => (
+          <a
+            key={channel.name}
+            href={channel.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-3"
+          >
+            <div
+              className={`h-20 w-20 overflow-hidden rounded-full transition-all duration-300 group-hover:scale-105 md:h-24 md:w-24 ${
+                isDark
+                  ? 'ring-2 ring-white/10 group-hover:ring-emerald-500/30'
+                  : 'shadow-md ring-2 ring-gray-200 group-hover:ring-emerald-500/40'
+              }`}
+            >
+              <img src={channel.avatar} alt={channel.name} className="h-full w-full object-cover" />
+            </div>
+            <span className={`text-sm font-medium transition-colors ${isDark ? 'text-white/60 group-hover:text-white' : 'text-gray-500 group-hover:text-gray-900'}`}>
+              {channel.name}
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <div className="mx-auto grid max-w-3xl gap-5 md:grid-cols-2">
+        <a
+          href={podcastUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex items-center gap-5 rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] ${
+            isDark ? 'border border-white/[.06] bg-white/[.04] hover:border-emerald-500/20' : 'apple-card hover:shadow-lg'
+          }`}
+        >
+          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+            </svg>
+          </div>
+          <div>
+            <p className={`text-[17px] font-semibold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+              {g('community.podcast')}
+            </p>
+            <p className={`mt-0.5 text-[13px] ${isDark ? 'text-white/40' : 'text-gray-700'}`}>
+              {g('community.podcast.sub')}
+            </p>
+          </div>
+        </a>
+
+        <div className={`flex items-center gap-5 rounded-2xl p-6 ${isDark ? 'border border-white/[.06] bg-white/[.04]' : 'apple-card'}`}>
+          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+          </div>
+          <div>
+            <p className={`text-[17px] font-semibold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+              {g('community.newsletter')}
+            </p>
+            <p className={`mt-0.5 text-[13px] ${isDark ? 'text-white/40' : 'text-gray-700'}`}>
+              {g('community.newsletter.sub')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SceneMission() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+  const cards = [
+    {
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 2a4 4 0 0 1 4 4v1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2V6a4 4 0 0 1 4-4z" />
+          <path d="M9 18h6" />
+          <path d="M10 22h4" />
+          <path d="M12 12v6" />
+        </svg>
+      ),
+      titleKey: 'mission.c1.title' as const,
+      descKey: 'mission.c1.desc' as const,
+    },
+    {
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M3 3v18h18" />
+          <path d="m19 9-5 5-4-4-3 3" />
+        </svg>
+      ),
+      titleKey: 'mission.c2.title' as const,
+      descKey: 'mission.c2.desc' as const,
+    },
+    {
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M2 12h20" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+      ),
+      titleKey: 'mission.c3.title' as const,
+      descKey: 'mission.c3.desc' as const,
+    },
+  ];
+
+  return (
+    <div className="st max-w-4xl mx-auto w-full text-center">
+      <p
+        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+        }`}
+      >
+        <span
+          className={`h-px w-8 bg-gradient-to-r ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+        {g('mission.eyebrow')}
+      </p>
+      <h2 className="mb-6 text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[68px]">
+        <span className="aurora-grad">{g('mission.h1a')}</span>
+        <br />
+        <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('mission.h1b')}</span>
+      </h2>
+      <p className={`mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
+        {g('mission.sub')}
+      </p>
+      <div className="mx-auto grid max-w-3xl gap-5 md:grid-cols-3">
+        {cards.map((card) => (
+          <div
+            key={g(card.titleKey)}
+            className={`rounded-2xl p-6 text-center ${
+              isDark ? 'border border-white/[.06] bg-white/[.04] backdrop-blur-[20px]' : 'apple-card'
+            }`}
+          >
+            <div className={`mb-3 flex items-center justify-center ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+              {card.icon}
+            </div>
+            <p className={`mb-1 text-[17px] font-semibold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+              {g(card.titleKey)}
+            </p>
+            <p className={`text-[13px] ${isDark ? 'text-white/40' : 'text-gray-700'}`}>{g(card.descKey)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SceneTeam() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+
+  return (
+    <div className="st max-w-4xl mx-auto w-full text-center">
+      <p
+        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+        }`}
+      >
+        <span
+          className={`h-px w-8 bg-gradient-to-r ${
+            isDark ? 'from-emerald-500' : 'from-emerald-600'
+          } to-transparent`}
+        />
+        {g('team.eyebrow')}
+      </p>
+      <h2 className="mb-10 text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[56px]">
+        <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('team.h1a')}</span>
+        <span className="aurora-grad">{g('team.h1b')}</span>
+      </h2>
+      <div
+        className={`mx-auto max-w-2xl rounded-2xl p-8 text-left md:p-10 ${
+          isDark ? 'border border-white/[.06] bg-white/[.04] backdrop-blur-[20px]' : 'apple-card'
+        }`}
+      >
+        <div className="mb-5 flex items-center gap-3">
+          <div>
+            <h3 className={`flex items-center gap-2 text-xl font-bold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+              Xinwei (Ivy) Fan
+              <a
+                href="https://www.linkedin.com/in/xinwei-fan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`transition-colors ${
+                  isDark ? 'text-white/30 hover:text-emerald-400' : 'text-gray-400 hover:text-emerald-600'
+                }`}
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+            </h3>
+            <p className="text-[15px] font-semibold text-emerald-500">{g('team.role')}</p>
+          </div>
+        </div>
+        <p className={`leading-relaxed ${isDark ? 'text-white/50' : 'text-gray-700'}`}>{g('team.bio')}</p>
+      </div>
+    </div>
+  );
+}
+
+function SceneCTA() {
+  const isDark = useTheme() === 'dark';
+  const l = useLang();
+  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
+
+  return (
+    <div className="st text-center max-w-4xl mx-auto">
+      <h1 className="aurora-grad text-5xl font-black tracking-tighter leading-[0.9] md:text-7xl lg:text-[140px]">
+        Deep Values
+      </h1>
+      <p
+        className={`mx-auto mt-7 max-w-[700px] text-xl leading-relaxed md:text-2xl ${
+          isDark ? 'text-white/50' : 'text-gray-700'
+        }`}
+      >
+        {g('cta.sub')}
+      </p>
+      <a
+        href="https://research.deepvalues.ai/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`mt-11 inline-block text-2xl font-extrabold tracking-tight transition-colors md:text-[30px] ${
+          isDark ? 'text-emerald-500 hover:text-emerald-400' : 'text-emerald-600 hover:text-emerald-500'
+        }`}
+      >
+        deepvalues.ai →
+      </a>
+    </div>
+  );
+}
+
+const PAGE_SECTIONS = [
+  { id: 'problem', component: SceneProblem },
+  { id: 'legends', component: SceneLegends },
+  { id: 'brand', component: SceneBrand },
+  { id: 'how', component: SceneHowItWorks },
+  { id: 'deliverables', component: SceneDeliverables },
+  { id: 'why', component: SceneWhy },
+  { id: 'community', component: SceneCommunity },
+  { id: 'mission', component: SceneMission },
+  { id: 'team', component: SceneTeam },
+  { id: 'cta', component: SceneCTA },
 ] as const;
 
-const PROBLEM_POINTS = [
-  'Too much research is still shaped by sell-side incentives, consensus, or access.',
-  'Individual investors often receive conclusions without the reasoning behind them.',
-  'Serious business research remains too fragmented, too expensive, or too opaque.',
-];
-
-const PRODUCT_PILLARS: ProductPillar[] = [
-  {
-    title: 'Multi-angle analysis',
-    body: 'One business studied through fundamentals, value, market structure, news, and context.',
-    icon: ScanSearch,
-  },
-  {
-    title: 'Adversarial debate',
-    body: 'Bull and bear cases challenge the thesis before it reaches the investor.',
-    icon: Scale,
-  },
-  {
-    title: 'Risk review',
-    body: 'A dedicated risk layer pushes against weak conviction and hidden downside.',
-    icon: ShieldCheck,
-  },
-  {
-    title: 'Investor-ready outputs',
-    body: 'Research report, audio briefing, visual summary, and a clearer final stance.',
-    icon: FileText,
-  },
-];
-
-const OUTPUTS = [
-  { title: 'Research report', icon: FileText },
-  { title: 'Audio briefing', icon: AudioLines },
-  { title: 'Visual summary', icon: Waves },
-];
-
-const VALUES: ValuePillar[] = [
-  {
-    title: 'Objective',
-    body: 'Aligned with the user, not Wall Street analysts or financial institutions.',
-  },
-  {
-    title: 'Transparent',
-    body: 'Reasoning stays visible so conclusions can be inspected and challenged.',
-  },
-  {
-    title: 'Accessible',
-    body: 'High-quality business research should not be reserved for institutions.',
-  },
-];
-
-const CREATOR = {
-  name: 'Xinwei Fan',
-  role: 'Founder & CTO',
-  body:
-    'Xinwei is building Deep Values at the intersection of investing, AI systems, and product design, with a focus on making rigorous business research understandable, objective, and usable for individual investors.',
-  quote: 'Research should answer to the investor.',
+const SECTION_INDEX_TO_ID: Record<number, string> = {
+  0: 'page-top',
+  3: 'how',
+  4: 'deliverables',
+  6: 'community',
+  7: 'mission',
 };
 
-function isConceptId(value: string | null): value is ConceptId {
-  return CONCEPTS.some((concept) => concept.id === value);
-}
-
-function ReviewToolbar({
-  activeConcept,
-  onSelectConcept,
-  researchHref,
-  researchTarget,
-  researchRel,
-  user,
-  signOut,
-}: {
-  activeConcept: ConceptMeta;
-  onSelectConcept: (id: ConceptId) => void;
-  researchHref: string;
-  researchTarget?: string;
-  researchRel?: string;
-  user?: User;
-  signOut?: () => void;
-}) {
-  return (
-    <div className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
-      <div className="mx-auto max-w-7xl rounded-[30px] border border-white/12 bg-black/72 p-3 text-white shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-        <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
-          <div className="min-w-0 xl:w-[18rem]">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/48">
-              Homepage Review Lab
-            </p>
-            <p className="mt-2 text-sm text-white/72">{activeConcept.summary}</p>
-          </div>
-
-          <div className="min-w-0 flex-1 overflow-x-auto pb-1">
-            <div className="flex min-w-max gap-2">
-              {CONCEPTS.map((concept) => (
-                <button
-                  key={concept.id}
-                  type="button"
-                  onClick={() => onSelectConcept(concept.id)}
-                  className={`rounded-full border px-4 py-2.5 text-left transition-colors ${
-                    concept.id === activeConcept.id
-                      ? 'border-white/22 bg-white text-black'
-                      : 'border-white/10 bg-white/[0.04] text-white/78 hover:border-white/20 hover:bg-white/[0.08] hover:text-white'
-                  }`}
-                >
-                  <span className="block text-sm font-semibold">{concept.name}</span>
-                  <span
-                    className={`mt-0.5 block text-[11px] uppercase tracking-[0.18em] ${
-                      concept.id === activeConcept.id ? 'text-black/60' : 'text-white/38'
-                    }`}
-                  >
-                    {concept.palette}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 self-start xl:self-center">
-            {user && signOut && (
-              <button
-                type="button"
-                onClick={signOut}
-                className="rounded-full border border-white/10 px-4 py-2.5 text-sm font-medium text-white/74 transition-colors hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
-              >
-                Sign Out
-              </button>
-            )}
-            <a
-              href={researchHref}
-              target={researchTarget}
-              rel={researchRel}
-              className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-black transition-transform hover:-translate-y-0.5"
-            >
-              Open Research
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function SectionNav({ className = '' }: { className?: string }) {
-  return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
-      {SECTION_LINKS.map((link) => (
-        <a
-          key={link.id}
-          href={`#${link.id}`}
-          className="rounded-full border border-current/10 px-4 py-2 text-sm font-medium text-current opacity-70 transition-opacity hover:opacity-100"
-        >
-          {link.label}
-        </a>
-      ))}
-    </div>
-  );
-}
-
-function PrimaryAction({
-  href,
-  target,
-  rel,
-  className = '',
+function PageSection({
+  id,
+  index,
+  isDark,
+  isFirst,
   children,
 }: {
-  href: string;
-  target?: string;
-  rel?: string;
-  className?: string;
+  id: string;
+  index: number;
+  isDark: boolean;
+  isFirst: boolean;
   children: ReactNode;
 }) {
+  const sectionTheme = getSectionTheme(index, isDark ? 'dark' : 'light');
+  const isDarkSection = sectionTheme === 'dark';
+
   return (
-    <a
-      href={href}
-      target={target}
-      rel={rel}
-      className={`inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:-translate-y-0.5 ${className}`}
+    <section
+      id={id}
+      className={`relative scroll-mt-28 overflow-hidden ${
+        isFirst ? '' : isDarkSection ? 'border-t border-white/[0.05]' : 'border-t border-black/[0.06]'
+      } ${isDarkSection ? 'scene-dark-insert' : 'page-section-light'}`}
     >
-      {children}
-      <ArrowRight className="h-4 w-4" />
-    </a>
-  );
-}
-
-function ProblemList({ className = '' }: { className?: string }) {
-  return (
-    <div className={`grid gap-4 ${className}`}>
-      {PROBLEM_POINTS.map((item) => (
-        <div key={item} className="flex gap-3">
-          <div className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-current/10 text-current">
-            <Check className="h-3.5 w-3.5" />
-          </div>
-          <p className="text-sm leading-7 text-current/72 sm:text-base">{item}</p>
+      {isDarkSection ? <div className="aurora-insert" /> : <div className="page-section-light-wash" />}
+      <div className="relative z-10 flex min-h-[82vh] items-center px-6 py-24 md:min-h-screen md:px-10 md:py-28">
+        <div className="mx-auto w-full max-w-7xl">
+          <ThemeContext.Provider value={sectionTheme}>{children}</ThemeContext.Provider>
         </div>
-      ))}
-    </div>
-  );
-}
-
-function ProductGrid({
-  cardClassName,
-  titleClassName,
-  bodyClassName,
-  iconWrapClassName,
-}: {
-  cardClassName: string;
-  titleClassName: string;
-  bodyClassName: string;
-  iconWrapClassName: string;
-}) {
-  return (
-    <div className="grid gap-4 md:grid-cols-2">
-      {PRODUCT_PILLARS.map((pillar) => {
-        const Icon = pillar.icon;
-
-        return (
-          <article key={pillar.title} className={`${cardClassName} flex flex-col items-center text-center`}>
-            <div className={iconWrapClassName}>
-              <Icon className="h-5 w-5" />
-            </div>
-            <h3 className={titleClassName}>{pillar.title}</h3>
-            <p className={bodyClassName}>{pillar.body}</p>
-          </article>
-        );
-      })}
-    </div>
-  );
-}
-
-function ValuesGrid({
-  cardClassName,
-  titleClassName,
-  bodyClassName,
-}: {
-  cardClassName: string;
-  titleClassName: string;
-  bodyClassName: string;
-}) {
-  return (
-    <div className="grid gap-4 md:grid-cols-3">
-      {VALUES.map((value) => (
-        <article key={value.title} className={`${cardClassName} flex flex-col items-center text-center`}>
-          <p className={titleClassName}>{value.title}</p>
-          <p className={bodyClassName}>{value.body}</p>
-        </article>
-      ))}
-    </div>
-  );
-}
-
-function CreatorPanel({
-  className,
-  badgeClassName,
-  nameClassName,
-  roleClassName,
-  bodyClassName,
-  quoteClassName,
-}: {
-  className: string;
-  badgeClassName: string;
-  nameClassName: string;
-  roleClassName: string;
-  bodyClassName: string;
-  quoteClassName: string;
-}) {
-  return (
-    <article id="creator" className={`scroll-mt-36 ${className}`}>
-      <div className={badgeClassName}>XF</div>
-      <div className="mt-6">
-        <p className={nameClassName}>{CREATOR.name}</p>
-        <p className={roleClassName}>{CREATOR.role}</p>
       </div>
-      <p className={bodyClassName}>{CREATOR.body}</p>
-      <p className={quoteClassName}>"{CREATOR.quote}"</p>
-    </article>
+    </section>
   );
 }
 
-function QuietConviction({
-  researchHref,
-  researchTarget,
-  researchRel,
-}: {
-  researchHref: string;
-  researchTarget?: string;
-  researchRel?: string;
-}) {
-  return (
-    <div className="min-h-screen bg-[#f5efe5] text-[#151515]">
-      <div className="mx-auto max-w-7xl px-5 pb-24 pt-32 sm:px-8">
-        <section className="grid items-center gap-10 pb-20 lg:grid-cols-[1.08fr_0.92fr]">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-black/58">
-              Quiet Conviction
-              <span className="h-1 w-1 rounded-full bg-black/25" />
-              Deep Values
-            </div>
-            <h1 className="font-newsreader mt-6 max-w-4xl text-6xl font-semibold leading-[0.92] tracking-[-0.05em] text-[#161514] sm:text-7xl lg:text-[5.5rem]">
-              Research that answers to the investor.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-black/68 sm:text-xl">
-              Deep Values gives individual investors a clearer way to study a business, without
-              the incentives, opacity, or institutional bias that shape too much of traditional
-              research.
-            </p>
-
-            <SectionNav className="mt-8" />
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <PrimaryAction
-                href={researchHref}
-                target={researchTarget}
-                rel={researchRel}
-                className="bg-[#171717] text-white"
-              >
-                Open Research
-              </PrimaryAction>
-              <a
-                href="#mission"
-                className="inline-flex items-center justify-center rounded-full border border-black/10 px-5 py-3 text-sm font-semibold text-black/70 transition-colors hover:text-black"
-              >
-                See the mission
-              </a>
-            </div>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {[
-                { value: '6', label: 'specialist views' },
-                { value: '1', label: 'user-aligned thesis' },
-                { value: '0', label: 'institutional incentives' },
-              ].map((item) => (
-                <div key={item.label} className="rounded-[28px] border border-black/8 bg-white/75 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
-                  <p className="font-newsreader text-4xl font-semibold tracking-[-0.05em]">{item.value}</p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.24em] text-black/52">{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[36px] border border-black/8 bg-white/88 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.08)] sm:p-8">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-black/42">
-                  Product Engine
-                </p>
-                <p className="mt-3 text-3xl font-semibold tracking-[-0.05em]">DeepValueIntelligence</p>
-              </div>
-              <img
-                src="/images/icon-20.png"
-                alt="Deep Values mark"
-                className="h-12 w-12 rounded-2xl object-cover shadow-[0_12px_20px_rgba(0,0,0,0.08)]"
-              />
-            </div>
-
-            <div className="mt-8 rounded-[30px] border border-black/8 bg-[#f7f2eb] p-5">
-              <p className="text-xs uppercase tracking-[0.24em] text-black/44">What the product does</p>
-              <div className="mt-5 grid gap-3">
-                {[
-                  'Reads a business from multiple perspectives.',
-                  'Forces disagreement before conviction.',
-                  'Returns a final view you can inspect.',
-                ].map((item) => (
-                  <div key={item} className="rounded-[20px] border border-black/8 bg-white/80 px-4 py-3 text-sm text-black/72">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {OUTPUTS.map((output) => {
-                const Icon = output.icon;
-
-                return (
-                  <div key={output.title} className="rounded-[24px] border border-black/8 bg-[#171717] px-4 py-5 text-white flex flex-col items-center text-center">
-                    <Icon className="h-5 w-5 text-[#d9b15c]" />
-                    <p className="mt-4 text-sm font-semibold">{output.title}</p>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="mt-6 rounded-[26px] border border-[#d6b56d]/30 bg-[#f6e6be] p-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-black/42">Final stance</p>
-              <p className="mt-3 font-newsreader text-4xl font-semibold tracking-[-0.05em] text-[#181512]">
-                Clearer than a rating.
-              </p>
-              <p className="mt-3 max-w-lg text-sm leading-7 text-black/66">
-                The goal is not to decorate a stock with a label. The goal is to help an individual
-                investor understand a business with more objectivity.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="problem" className="scroll-mt-36 grid gap-5 border-t border-black/8 py-16 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-black/44">Problem</p>
-            <h2 className="font-newsreader mt-5 text-5xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-6xl">
-              Business research still works too hard for institutions.
-            </h2>
-          </div>
-          <div className="rounded-[32px] border border-black/8 bg-white/80 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.05)] sm:p-8">
-            <ProblemList />
-          </div>
-        </section>
-
-        <section id="solution" className="scroll-mt-36 border-t border-black/8 py-16">
-          <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-black/44">Solution</p>
-            <h2 className="font-newsreader mt-5 text-5xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-6xl">
-              A personal research system with a better point of view.
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-black/68">
-              Deep Values turns one company into a structured research workflow designed to act more
-              objectively on behalf of the individual investor.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <ProductGrid
-              cardClassName="rounded-[30px] border border-black/8 bg-white/80 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.05)]"
-              iconWrapClassName="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#171717] text-[#d9b15c]"
-              titleClassName="mt-5 text-2xl font-semibold tracking-[-0.04em]"
-              bodyClassName="mt-3 text-sm leading-7 text-black/66 sm:text-base"
-            />
-          </div>
-        </section>
-
-        <section id="mission" className="scroll-mt-36 border-t border-black/8 py-16">
-          <div className="rounded-[36px] border border-black/8 bg-[#171717] p-8 text-white sm:p-10">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/46">Mission</p>
-            <h2 className="font-newsreader mt-5 max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-6xl">
-              Democratize financial research on businesses for everyone.
-            </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
-              The long-term goal is a personal financial assistant that acts objectively on behalf of
-              the user&apos;s interests only, not the incentives of Wall Street analysts or financial
-              institutions.
-            </p>
-            <div className="mt-10">
-              <ValuesGrid
-                cardClassName="rounded-[28px] border border-white/10 bg-white/[0.05] p-5"
-                titleClassName="text-lg font-semibold"
-                bodyClassName="mt-3 text-sm leading-7 text-white/66"
-              />
-            </div>
-          </div>
-        </section>
-
-        <CreatorPanel
-          className="border-t border-black/8 py-16"
-          badgeClassName="flex h-16 w-16 items-center justify-center rounded-[22px] bg-[#171717] text-lg font-semibold text-[#f5efe5]"
-          nameClassName="font-newsreader text-5xl font-semibold tracking-[-0.05em]"
-          roleClassName="mt-2 text-sm uppercase tracking-[0.24em] text-black/48"
-          bodyClassName="mt-6 max-w-3xl text-base leading-8 text-black/68 sm:text-lg"
-          quoteClassName="font-newsreader mt-8 text-3xl italic tracking-[-0.04em] text-black/70"
-        />
-      </div>
-    </div>
-  );
-}
-
-function SignalGrid({
-  researchHref,
-  researchTarget,
-  researchRel,
-}: {
-  researchHref: string;
-  researchTarget?: string;
-  researchRel?: string;
-}) {
-  return (
-    <div className="concept-grid-bg concept-noise min-h-screen overflow-hidden bg-[#081120] text-[#ebf6ff]">
-      <div className="mx-auto max-w-7xl px-5 pb-24 pt-32 sm:px-8">
-        <section className="pb-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.05] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/56">
-            Signal Grid
-            <span className="h-1 w-1 rounded-full bg-[#74f0d0]" />
-            Deep Values
-          </div>
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <h1 className="font-space-grotesk max-w-4xl text-6xl font-bold leading-[0.92] tracking-[-0.06em] text-white sm:text-7xl lg:text-[5.7rem]">
-                Built for the individual. Not the institution.
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#9fb7c8] sm:text-xl">
-                Deep Values brings objective business research into a modern product experience that
-                is easier to trust, easier to understand, and easier to use.
-              </p>
-
-              <SectionNav className="mt-8 text-white" />
-
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <PrimaryAction
-                  href={researchHref}
-                  target={researchTarget}
-                  rel={researchRel}
-                  className="bg-[#74f0d0] text-[#06111f]"
-                >
-                  Open Research
-                </PrimaryAction>
-                <a
-                  href="#solution"
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 px-5 py-3 text-sm font-semibold text-white/72 transition-colors hover:text-white"
-                >
-                  Explore the system
-                </a>
-              </div>
-            </div>
-
-            <div className="rounded-[34px] border border-[#142942] bg-[#091a2d]/90 p-6 shadow-[0_28px_80px_rgba(0,0,0,0.35)]">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.28em] text-[#6d899d]">System overview</p>
-                  <p className="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white">
-                    DeepValueIntelligence
-                  </p>
-                </div>
-                <img src="/images/icon-20.png" alt="Deep Values mark" className="h-12 w-12 rounded-2xl" />
-              </div>
-
-              <div className="mt-8 grid gap-3">
-                {[
-                  '01  Specialist analysis',
-                  '02  Bull vs bear debate',
-                  '03  Risk committee review',
-                  '04  Final user-aligned stance',
-                ].map((step) => (
-                  <div key={step} className="rounded-[22px] border border-white/8 bg-white/[0.03] px-4 py-4 font-plex-mono text-sm text-[#c5d8e3]">
-                    {step}
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                {['ADVOCATE', 'WATCH', 'AVOID'].map((stance, index) => (
-                  <div
-                    key={stance}
-                    className={`rounded-[22px] px-4 py-4 text-center text-sm font-semibold tracking-[0.22em] ${
-                      index === 0
-                        ? 'bg-[#143829] text-[#74f0d0]'
-                        : index === 1
-                          ? 'bg-[#3a2d13] text-[#ffd36f]'
-                          : 'bg-[#401c20] text-[#ff8f9e]'
-                    }`}
-                  >
-                    {stance}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="problem" className="scroll-mt-36 grid gap-5 border-t border-white/10 py-16 lg:grid-cols-2">
-          <article className="rounded-[32px] border border-white/10 bg-white/[0.03] p-6 sm:p-8">
-            <p className="font-plex-mono text-[11px] uppercase tracking-[0.28em] text-[#6d899d]">Problem</p>
-            <h2 className="font-space-grotesk mt-5 text-4xl font-bold leading-tight tracking-[-0.05em] text-white sm:text-5xl">
-              Traditional research often hides incentives and skips reasoning.
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-[#9fb7c8]">
-              That makes individual investors depend on institutions they do not control and tools
-              they cannot fully inspect.
-            </p>
-          </article>
-
-          <article className="rounded-[32px] border border-white/10 bg-[#0b1f36]/90 p-6 sm:p-8">
-            <ProblemList />
-          </article>
-        </section>
-
-        <section id="solution" className="scroll-mt-36 border-t border-white/10 py-16">
-          <div className="max-w-3xl">
-            <p className="font-plex-mono text-[11px] uppercase tracking-[0.28em] text-[#6d899d]">Solution</p>
-            <h2 className="font-space-grotesk mt-5 text-4xl font-bold leading-tight tracking-[-0.05em] text-white sm:text-5xl">
-              A cleaner system for studying a business.
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-[#9fb7c8] sm:text-lg">
-              Deep Values structures company research as a process instead of a guess, so each view
-              is stress-tested before it becomes a recommendation.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <ProductGrid
-              cardClassName="rounded-[28px] border border-white/10 bg-white/[0.03] p-6"
-              iconWrapClassName="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#74f0d0]/10 text-[#74f0d0]"
-              titleClassName="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white"
-              bodyClassName="mt-3 text-sm leading-7 text-[#9fb7c8] sm:text-base"
-            />
-          </div>
-        </section>
-
-        <section id="mission" className="scroll-mt-36 border-t border-white/10 py-16">
-          <div className="rounded-[36px] border border-[#74f0d0]/16 bg-[linear-gradient(135deg,rgba(116,240,208,0.12),rgba(116,240,208,0.02))] p-8 sm:p-10">
-            <p className="font-plex-mono text-[11px] uppercase tracking-[0.28em] text-[#74f0d0]">Mission</p>
-            <h2 className="font-space-grotesk mt-5 max-w-4xl text-5xl font-bold leading-[0.94] tracking-[-0.06em] text-white sm:text-6xl">
-              Democratize financial research on businesses for everyone.
-            </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[#cae1ee] sm:text-lg">
-              The end state is a personal financial assistant that acts objectively on behalf of the
-              user&apos;s interests only, not the incentive system surrounding institutional finance.
-            </p>
-            <div className="mt-10">
-              <ValuesGrid
-                cardClassName="rounded-[26px] border border-white/10 bg-[#081120]/72 p-5"
-                titleClassName="text-lg font-semibold text-white"
-                bodyClassName="mt-3 text-sm leading-7 text-[#9fb7c8]"
-              />
-            </div>
-          </div>
-        </section>
-
-        <CreatorPanel
-          className="border-t border-white/10 py-16"
-          badgeClassName="flex h-16 w-16 items-center justify-center rounded-[20px] border border-[#74f0d0]/22 bg-[#74f0d0]/10 text-lg font-semibold text-[#74f0d0]"
-          nameClassName="font-space-grotesk text-5xl font-bold tracking-[-0.05em] text-white"
-          roleClassName="mt-2 font-plex-mono text-sm uppercase tracking-[0.24em] text-[#6d899d]"
-          bodyClassName="mt-6 max-w-3xl text-base leading-8 text-[#9fb7c8] sm:text-lg"
-          quoteClassName="font-space-grotesk mt-8 text-2xl font-semibold tracking-[-0.04em] text-white"
-        />
-      </div>
-    </div>
-  );
-}
-
-function FounderLetter({
-  researchHref,
-  researchTarget,
-  researchRel,
-}: {
-  researchHref: string;
-  researchTarget?: string;
-  researchRel?: string;
-}) {
-  return (
-    <div className="concept-paper-bg min-h-screen bg-[#f4ecdd] text-[#213126]">
-      <div className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
-        <section className="rounded-[36px] border border-[#264331]/16 bg-[#fbf7ee]/90 p-8 shadow-[0_25px_80px_rgba(44,53,38,0.08)] sm:p-10">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#557260]">Founder Letter</p>
-              <h1 className="font-display-serif mt-4 max-w-4xl text-6xl font-normal leading-[0.9] tracking-[-0.05em] text-[#1e2d23] sm:text-7xl lg:text-[5.6rem]">
-                A more honest way to do financial research.
-              </h1>
-            </div>
-            <div className="rounded-[28px] border border-[#264331]/12 bg-[#f2ebdc] px-5 py-4 text-sm leading-7 text-[#4d6154] lg:max-w-sm">
-              Deep Values exists because individual investors deserve the same rigor as institutions,
-              without inheriting the same incentives.
-            </div>
-          </div>
-
-          <p className="mt-8 max-w-3xl text-lg leading-9 text-[#44564a] sm:text-xl">
-            We are building objective business research for everyone, then extending it into a
-            personal financial assistant that works only for the user. Not for a bank. Not for a
-            fund. Not for the sell-side machine around the market.
-          </p>
-
-          <SectionNav className="mt-8 text-[#213126]" />
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <PrimaryAction
-              href={researchHref}
-              target={researchTarget}
-              rel={researchRel}
-              className="bg-[#213126] text-[#fbf7ee]"
-            >
-              Open Research
-            </PrimaryAction>
-            <a
-              href="#creator"
-              className="inline-flex items-center justify-center rounded-full border border-[#213126]/12 px-5 py-3 text-sm font-semibold text-[#213126]/72 transition-colors hover:text-[#213126]"
-            >
-              Meet the creator
-            </a>
-          </div>
-        </section>
-
-        <section id="problem" className="scroll-mt-36 grid gap-5 py-16 lg:grid-cols-[0.92fr_1.08fr]">
-          <article className="rounded-[32px] border border-[#264331]/12 bg-[#fbf7ee]/86 p-6 sm:p-8">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#557260]">Problem</p>
-            <h2 className="font-display-serif mt-5 text-5xl leading-[0.94] tracking-[-0.05em] sm:text-6xl">
-              Too much of the market speaks with someone else&apos;s incentives.
-            </h2>
-          </article>
-
-          <article className="rounded-[32px] border border-[#264331]/12 bg-[#f6f0e3]/86 p-6 sm:p-8">
-            <ProblemList />
-          </article>
-        </section>
-
-        <section id="solution" className="scroll-mt-36 rounded-[36px] border border-[#264331]/12 bg-[#fbf7ee]/88 p-8 sm:p-10">
-          <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#557260]">Solution</p>
-            <h2 className="font-display-serif mt-5 text-5xl leading-[0.94] tracking-[-0.05em] sm:text-6xl">
-              Deep Values treats company research like a craft, not a talking point.
-            </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#44564a]">
-              The product uses DeepValueIntelligence to read a business from multiple sides, force
-              disagreement, and produce a clearer final view for the individual investor.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <ProductGrid
-              cardClassName="rounded-[28px] border border-[#264331]/10 bg-[#f3ede0] p-6"
-              iconWrapClassName="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#213126] text-[#f4ecdd]"
-              titleClassName="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[#213126]"
-              bodyClassName="mt-3 text-sm leading-7 text-[#4d6154] sm:text-base"
-            />
-          </div>
-        </section>
-
-        <section id="mission" className="scroll-mt-36 py-16">
-          <div className="rounded-[36px] border border-[#264331]/12 bg-[#213126] p-8 text-[#f4ecdd] sm:p-10">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#b7c8bc]">Mission</p>
-            <h2 className="font-display-serif mt-5 max-w-4xl text-5xl leading-[0.94] tracking-[-0.05em] sm:text-6xl">
-              Democratize financial research on businesses for everyone.
-            </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[#d4dfd7] sm:text-lg">
-              We want the end product to feel like a personal financial assistant with integrity:
-              objective, transparent, and aligned only with the user.
-            </p>
-            <div className="mt-10">
-              <ValuesGrid
-                cardClassName="rounded-[26px] border border-white/10 bg-white/[0.06] p-5"
-                titleClassName="text-lg font-semibold text-[#f4ecdd]"
-                bodyClassName="mt-3 text-sm leading-7 text-[#d4dfd7]"
-              />
-            </div>
-          </div>
-        </section>
-
-        <CreatorPanel
-          className="rounded-[36px] border border-[#264331]/12 bg-[#fbf7ee]/88 p-8 sm:p-10"
-          badgeClassName="flex h-16 w-16 items-center justify-center rounded-[20px] bg-[#213126] text-lg font-semibold text-[#f4ecdd]"
-          nameClassName="font-display-serif text-5xl tracking-[-0.05em] text-[#1f2d23]"
-          roleClassName="mt-2 text-sm uppercase tracking-[0.24em] text-[#557260]"
-          bodyClassName="mt-6 max-w-3xl text-base leading-8 text-[#44564a] sm:text-lg"
-          quoteClassName="font-display-serif mt-8 text-3xl italic tracking-[-0.04em] text-[#2c4033]"
-        />
-      </div>
-    </div>
-  );
-}
-
-function ObjectiveLens({
-  researchHref,
-  researchTarget,
-  researchRel,
-}: {
-  researchHref: string;
-  researchTarget?: string;
-  researchRel?: string;
-}) {
-  return (
-    <div className="min-h-screen overflow-hidden bg-white text-[#0d1628]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(67,108,255,0.12),transparent_28%),radial-gradient(circle_at_85%_12%,rgba(72,186,255,0.1),transparent_26%)]" />
-      <div className="relative mx-auto max-w-7xl px-5 pb-24 pt-32 sm:px-8">
-        <section className="grid gap-10 pb-20 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#4c6fe2]">Objective Lens</p>
-            <h1 className="mt-6 max-w-4xl text-6xl font-semibold leading-[0.9] tracking-[-0.07em] sm:text-7xl lg:text-[5.7rem]">
-              A clearer way to study a company.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#556070] sm:text-xl">
-              Deep Values makes business research more objective for individual investors by
-              combining structured analysis, transparent reasoning, and a user-aligned product
-              experience.
-            </p>
-
-            <SectionNav className="mt-8" />
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <PrimaryAction
-                href={researchHref}
-                target={researchTarget}
-                rel={researchRel}
-                className="bg-[#0d1628] text-white"
-              >
-                Open Research
-              </PrimaryAction>
-              <a
-                href="#solution"
-                className="inline-flex items-center justify-center rounded-full border border-[#0d1628]/10 px-5 py-3 text-sm font-semibold text-[#0d1628]/70 transition-colors hover:text-[#0d1628]"
-              >
-                See the product
-              </a>
-            </div>
-          </div>
-
-          <div className="grid gap-4">
-            <div className="rounded-[32px] border border-[#0d1628]/8 bg-[#f7f9ff] p-6 shadow-[0_22px_60px_rgba(13,22,40,0.08)] sm:p-8">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6d7b92]">Core engine</p>
-                  <p className="mt-3 text-2xl font-semibold tracking-[-0.04em]">DeepValueIntelligence</p>
-                </div>
-                <img src="/images/icon-20.png" alt="Deep Values mark" className="h-12 w-12 rounded-2xl" />
-              </div>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                {[
-                  { value: 'Problem', body: 'Research is still too biased, fragmented, or institutional.' },
-                  { value: 'System', body: 'Deep Values challenges a business before it reaches the user.' },
-                  { value: 'Goal', body: 'A personal assistant aligned only with the investor.' },
-                ].map((item) => (
-                  <div key={item.value} className="rounded-[24px] border border-[#0d1628]/8 bg-white p-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#4c6fe2]">{item.value}</p>
-                    <p className="mt-3 text-sm leading-7 text-[#566173]">{item.body}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-[32px] border border-[#0d1628]/8 bg-[#0d1628] p-6 text-white shadow-[0_22px_60px_rgba(13,22,40,0.18)] sm:p-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/48">Outputs</p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                {OUTPUTS.map((output) => {
-                  const Icon = output.icon;
-
-                  return (
-                    <div key={output.title} className="rounded-[22px] border border-white/10 bg-white/[0.05] px-4 py-5 flex flex-col items-center text-center">
-                      <Icon className="h-5 w-5 text-[#77a8ff]" />
-                      <p className="mt-4 text-sm font-semibold">{output.title}</p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="problem" className="scroll-mt-36 grid gap-5 border-t border-[#0d1628]/8 py-16 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#4c6fe2]">Problem</p>
-            <h2 className="mt-5 max-w-xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] sm:text-6xl">
-              Investors deserve clearer research than the market usually provides.
-            </h2>
-          </div>
-          <div className="rounded-[32px] border border-[#0d1628]/8 bg-[#f7f9ff] p-6 sm:p-8">
-            <ProblemList />
-          </div>
-        </section>
-
-        <section id="solution" className="scroll-mt-36 border-t border-[#0d1628]/8 py-16">
-          <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#4c6fe2]">Solution</p>
-            <h2 className="mt-5 text-5xl font-semibold leading-[0.94] tracking-[-0.06em] sm:text-6xl">
-              Deep Values is a product layer for more objective research.
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-[#566173]">
-              The system separates analysis, challenge, and risk so a single opinion does not get to
-              dominate the outcome.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <ProductGrid
-              cardClassName="rounded-[30px] border border-[#0d1628]/8 bg-white p-6 shadow-[0_20px_45px_rgba(13,22,40,0.05)]"
-              iconWrapClassName="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#edf2ff] text-[#4c6fe2]"
-              titleClassName="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[#0d1628]"
-              bodyClassName="mt-3 text-sm leading-7 text-[#566173] sm:text-base"
-            />
-          </div>
-        </section>
-
-        <section id="mission" className="scroll-mt-36 border-t border-[#0d1628]/8 py-16">
-          <div className="rounded-[36px] border border-[#0d1628]/8 bg-[#0d1628] p-8 text-white sm:p-10">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/48">Mission</p>
-            <h2 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.07em] sm:text-6xl">
-              Democratize financial research on businesses for everyone.
-            </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
-              The end goal is a personal financial assistant that is objective by design and loyal to
-              the user&apos;s interests only.
-            </p>
-            <div className="mt-10">
-              <ValuesGrid
-                cardClassName="rounded-[26px] border border-white/10 bg-white/[0.04] p-5"
-                titleClassName="text-lg font-semibold text-white"
-                bodyClassName="mt-3 text-sm leading-7 text-white/68"
-              />
-            </div>
-          </div>
-        </section>
-
-        <CreatorPanel
-          className="border-t border-[#0d1628]/8 py-16"
-          badgeClassName="flex h-16 w-16 items-center justify-center rounded-[22px] bg-[#0d1628] text-lg font-semibold text-white"
-          nameClassName="text-5xl font-semibold tracking-[-0.06em] text-[#0d1628]"
-          roleClassName="mt-2 text-sm uppercase tracking-[0.24em] text-[#6d7b92]"
-          bodyClassName="mt-6 max-w-3xl text-base leading-8 text-[#566173] sm:text-lg"
-          quoteClassName="mt-8 text-2xl font-semibold tracking-[-0.05em] text-[#0d1628]"
-        />
-      </div>
-    </div>
-  );
-}
-
-function AtlasNoir({
-  researchHref,
-  researchTarget,
-  researchRel,
-}: {
-  researchHref: string;
-  researchTarget?: string;
-  researchRel?: string;
-}) {
-  return (
-    <div className="concept-noise min-h-screen overflow-hidden bg-[#090909] text-[#f7efe4]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_16%,rgba(255,113,67,0.18),transparent_22%),radial-gradient(circle_at_18%_20%,rgba(170,122,255,0.14),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.03),transparent_22%)]" />
-      <div className="relative mx-auto max-w-7xl px-5 pb-24 pt-32 sm:px-8">
-        <section className="grid gap-10 pb-20 lg:grid-cols-[1.08fr_0.92fr]">
-          <div>
-            <p className="font-plex-mono text-[11px] uppercase tracking-[0.3em] text-[#ffb48f]">Atlas Noir</p>
-            <h1 className="font-display-serif mt-6 max-w-4xl text-6xl leading-[0.88] tracking-[-0.06em] text-[#f9f2e8] sm:text-7xl lg:text-[5.7rem]">
-              Your interests.
-              <br />
-              First and only.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#c5b8a8] sm:text-xl">
-              Deep Values is designed for individual investors who want objective business research,
-              visible reasoning, and a product experience that feels worthy of serious decisions.
-            </p>
-
-            <SectionNav className="mt-8 text-[#f7efe4]" />
-
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <PrimaryAction
-                href={researchHref}
-                target={researchTarget}
-                rel={researchRel}
-                className="bg-[#f7efe4] text-[#111111]"
-              >
-                Open Research
-              </PrimaryAction>
-              <a
-                href="#problem"
-                className="inline-flex items-center justify-center rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-[#f7efe4]/74 transition-colors hover:text-[#f7efe4]"
-              >
-                Read the thesis
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-[36px] border border-white/10 bg-white/[0.03] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.32)] sm:p-8">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="font-plex-mono text-[11px] uppercase tracking-[0.28em] text-[#b49f90]">Product stack</p>
-                <p className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-[#f9f2e8]">Deep Values</p>
-              </div>
-              <img src="/images/icon-20.png" alt="Deep Values mark" className="h-12 w-12 rounded-2xl" />
-            </div>
-
-            <div className="mt-8 grid gap-3">
-              {[
-                { title: 'Problem', body: 'Institutional research often serves institutional incentives.' },
-                { title: 'Response', body: 'Deep Values builds a cleaner research layer for the individual.' },
-                { title: 'Direction', body: 'A personal assistant that works only for the user.' },
-              ].map((item, index) => (
-                <div
-                  key={item.title}
-                  className={`rounded-[24px] border px-5 py-5 ${
-                    index === 1
-                      ? 'border-[#ff8a66]/22 bg-[#1b1412]'
-                      : 'border-white/8 bg-white/[0.03]'
-                  }`}
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#ffb48f]">{item.title}</p>
-                  <p className="mt-3 text-sm leading-7 text-[#cfbfb0]">{item.body}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              {OUTPUTS.map((output) => {
-                const Icon = output.icon;
-
-                return (
-                  <div key={output.title} className="rounded-[22px] border border-white/8 bg-black/30 px-4 py-5 flex flex-col items-center text-center">
-                    <Icon className="h-5 w-5 text-[#ff8a66]" />
-                    <p className="mt-4 text-sm font-semibold text-[#f7efe4]">{output.title}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section id="problem" className="scroll-mt-36 grid gap-5 border-t border-white/10 py-16 lg:grid-cols-[0.84fr_1.16fr]">
-          <div>
-            <p className="font-plex-mono text-[11px] uppercase tracking-[0.28em] text-[#b49f90]">Problem</p>
-            <h2 className="font-display-serif mt-5 text-5xl leading-[0.92] tracking-[-0.06em] text-[#f9f2e8] sm:text-6xl">
-              Investors should not need institutional access to get serious research.
-            </h2>
-          </div>
-          <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-6 sm:p-8">
-            <ProblemList />
-          </div>
-        </section>
-
-        <section id="solution" className="scroll-mt-36 border-t border-white/10 py-16">
-          <div className="max-w-3xl">
-            <p className="font-plex-mono text-[11px] uppercase tracking-[0.28em] text-[#b49f90]">Solution</p>
-            <h2 className="font-display-serif mt-5 text-5xl leading-[0.92] tracking-[-0.06em] text-[#f9f2e8] sm:text-6xl">
-              Deep Values turns company research into a product with discipline.
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-[#c5b8a8]">
-              The system studies a business, forces disagreement, checks risk, and returns a view
-              the investor can actually understand.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <ProductGrid
-              cardClassName="rounded-[30px] border border-white/10 bg-white/[0.03] p-6"
-              iconWrapClassName="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#ff8a66]/14 text-[#ff8a66]"
-              titleClassName="mt-5 text-2xl font-semibold tracking-[-0.04em] text-[#f9f2e8]"
-              bodyClassName="mt-3 text-sm leading-7 text-[#c5b8a8] sm:text-base"
-            />
-          </div>
-        </section>
-
-        <section id="mission" className="scroll-mt-36 border-t border-white/10 py-16">
-          <div className="rounded-[36px] border border-[#ff8a66]/18 bg-[linear-gradient(135deg,rgba(255,138,102,0.14),rgba(255,255,255,0.02))] p-8 sm:p-10">
-            <p className="font-plex-mono text-[11px] uppercase tracking-[0.28em] text-[#ffb48f]">Mission</p>
-            <h2 className="font-display-serif mt-5 max-w-4xl text-5xl leading-[0.9] tracking-[-0.06em] text-[#f9f2e8] sm:text-6xl">
-              Democratize financial research on businesses for everyone.
-            </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[#d7cabc] sm:text-lg">
-              The destination is a personal financial assistant that acts objectively on behalf of
-              the user&apos;s interests only and refuses the incentive structure of institutional
-              finance.
-            </p>
-            <div className="mt-10">
-              <ValuesGrid
-                cardClassName="rounded-[26px] border border-white/10 bg-black/20 p-5"
-                titleClassName="text-lg font-semibold text-[#f9f2e8]"
-                bodyClassName="mt-3 text-sm leading-7 text-[#d0c0b1]"
-              />
-            </div>
-          </div>
-        </section>
-
-        <CreatorPanel
-          className="border-t border-white/10 py-16"
-          badgeClassName="flex h-16 w-16 items-center justify-center rounded-[20px] border border-[#ff8a66]/22 bg-[#ff8a66]/10 text-lg font-semibold text-[#ffb48f]"
-          nameClassName="font-display-serif text-5xl tracking-[-0.05em] text-[#f9f2e8]"
-          roleClassName="mt-2 font-plex-mono text-sm uppercase tracking-[0.24em] text-[#b49f90]"
-          bodyClassName="mt-6 max-w-3xl text-base leading-8 text-[#c5b8a8] sm:text-lg"
-          quoteClassName="font-display-serif mt-8 text-3xl italic tracking-[-0.04em] text-[#f4d1bc]"
-        />
-      </div>
-    </div>
-  );
-}
-
-function renderConcept(
-  activeConcept: ConceptId,
-  researchHref: string,
-  researchTarget?: string,
-  researchRel?: string,
-) {
-  const sharedProps = { researchHref, researchTarget, researchRel };
-
-  switch (activeConcept) {
-    case 'quiet-conviction':
-      return <QuietConviction {...sharedProps} />;
-    case 'signal-grid':
-      return <SignalGrid {...sharedProps} />;
-    case 'founder-letter':
-      return <FounderLetter {...sharedProps} />;
-    case 'objective-lens':
-      return <ObjectiveLens {...sharedProps} />;
-    case 'atlas-noir':
-      return <AtlasNoir {...sharedProps} />;
-    default:
-      return <QuietConviction {...sharedProps} />;
-  }
-}
-
-export function HomePage({ user, signOut }: HomePageProps) {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const conceptParam = searchParams.get('concept');
-  const activeConceptId = isConceptId(conceptParam) ? conceptParam : CONCEPTS[0].id;
-  const activeConcept = CONCEPTS.find((concept) => concept.id === activeConceptId) ?? CONCEPTS[0];
-
-  const researchHref = user ? '/research-analysis' : 'https://research.deepvalues.ai/';
-  const researchTarget = user ? undefined : '_blank';
-  const researchRel = user ? undefined : 'noopener noreferrer';
+export function HomePage({
+  user,
+  signOut,
+  theme = 'dark',
+  onToggleTheme,
+  lang = 'en',
+  onToggleLang,
+}: HomePageProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const isDark = theme === 'dark';
+  const headerTheme = getSectionTheme(activeSectionIndex, theme);
+
+  const toggleMenu = () => setIsMenuOpen((open) => !open);
+
+  const scrollToSection = useCallback((index: number) => {
+    const id = SECTION_INDEX_TO_ID[index] ?? 'page-top';
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    if (window.location.hash !== `#${id}`) {
+      window.history.replaceState(null, '', id === 'page-top' ? window.location.pathname : `#${id}`);
+    }
+
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setIsMenuOpen(false);
+  }, []);
 
   useEffect(() => {
-    if (!isConceptId(conceptParam)) {
-      setSearchParams({ concept: CONCEPTS[0].id }, { replace: true });
-    }
-  }, [conceptParam, setSearchParams]);
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
 
-  const handleSelectConcept = (conceptId: ConceptId) => {
-    setSearchParams({ concept: conceptId }, { replace: true });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    const target = document.getElementById(hash);
+    if (!target) return;
+
+    const timer = window.setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const sections = PAGE_SECTIONS.map((section, index) => {
+      const element = document.getElementById(section.id);
+      if (!element) return null;
+      element.dataset.sectionIndex = String(index);
+      return element;
+    }).filter((element): element is HTMLElement => element !== null);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (!visibleEntries.length) return;
+
+        const visibleIndex = Number(visibleEntries[0].target.getAttribute('data-section-index') ?? '0');
+        setActiveSectionIndex(visibleIndex);
+      },
+      {
+        threshold: [0.2, 0.35, 0.5, 0.7],
+        rootMargin: '-18% 0px -28% 0px',
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <>
-      <ReviewToolbar
-        activeConcept={activeConcept}
-        onSelectConcept={handleSelectConcept}
-        researchHref={researchHref}
-        researchTarget={researchTarget}
-        researchRel={researchRel}
-        user={user}
-        signOut={signOut}
-      />
+    <LangContext.Provider value={lang}>
+      <div className={`min-h-screen ${isDark ? 'bg-black text-white' : 'bg-white text-[#1d1d1f]'}`}>
 
-      {renderConcept(activeConceptId, researchHref, researchTarget, researchRel)}
-    </>
+        <Header
+          isMenuOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          signOut={signOut}
+          user={user}
+          theme={headerTheme}
+          onToggleTheme={onToggleTheme}
+          goToScene={scrollToSection}
+          lang={lang}
+          onToggleLang={onToggleLang}
+        />
+
+        <main id="page-top" className="relative z-10">
+          {PAGE_SECTIONS.map((section, index) => {
+            const Component = section.component;
+
+            return (
+              <PageSection
+                key={section.id}
+                id={section.id}
+                index={index}
+                isDark={isDark}
+                isFirst={index === 0}
+              >
+                <Component />
+              </PageSection>
+            );
+          })}
+        </main>
+      </div>
+    </LangContext.Provider>
   );
 }

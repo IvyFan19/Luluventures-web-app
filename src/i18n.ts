@@ -107,8 +107,8 @@ const translations = {
   'team.eyebrow': { en: 'The Team', zh: '团队' },
   'team.h1a': { en: 'Built by ', zh: '由投资者打造，' },
   'team.h1b': { en: 'investors, for investors.', zh: '为投资者服务。' },
-  'team.role': { en: 'Founder & CTO', zh: '创始人 & CTO' },
-  'team.bio': { en: 'Xinwei is the technical force behind DeepValues.AI\'s multi-agent research platform. With expertise in AI/ML engineering and full-stack development, she architects the systems that power intelligent stock analysis at scale. Her goal is to harness cutting-edge AI to deliver the rigor of a professional investment research team — available to anyone, anytime.', zh: 'Xinwei 是 DeepValues.AI 多智能体研究平台背后的技术推动力。凭借在AI/ML工程和全栈开发方面的专业知识，她架构了驱动大规模智能股票分析的系统。她的目标是利用前沿AI技术，提供专业投资研究团队的严谨性——随时随地，人人可用。' },
+  'team.role': { en: 'Founder & Creator', zh: '创始人 & 创作者' },
+  'team.bio': { en: 'Xinwei is the technical force behind DeepValues.AI\'s multi-agent research platform. With expertise in AI/ML engineering and full-stack development, she architects the systems that power intelligent stock analysis at scale. Her goal is to use modern technologies to bring the rigor of a professional investment research team, grounded in Buffett\'s enduring principles, to every individual investor.', zh: 'Xinwei 是 DeepValues.AI 多智能体研究平台背后的技术推动力。凭借在 AI/ML 工程和全栈开发方面的专业知识，她架构了驱动大规模智能股票分析的系统。她的目标是利用现代技术，将植根于巴菲特长期原则的专业投资研究团队的严谨性带给每一位个人投资者。' },
 
   // Scene: CTA
   'cta.sub': { en: 'Built for Modern Intelligent Investors.', zh: '为现代智慧投资者而生。' },
