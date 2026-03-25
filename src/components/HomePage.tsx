@@ -155,56 +155,6 @@ function SceneLegends() {
   );
 }
 
-function SceneBrand() {
-  const isDark = useTheme() === 'dark';
-  const l = useLang();
-  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
-
-  return (
-    <div className="st text-center max-w-4xl mx-auto">
-      <p
-        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-        }`}
-      >
-        <span
-          className={`h-px w-8 bg-gradient-to-r ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
-        {g('brand.eyebrow')}
-        <span
-          className={`h-px w-8 bg-gradient-to-l ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
-      </p>
-      <h1 className="aurora-grad text-5xl font-black tracking-tighter leading-[0.9] md:text-7xl lg:text-[140px]">
-        Deep Values
-      </h1>
-      <p
-        className={`mx-auto mt-7 max-w-[700px] text-lg leading-relaxed md:text-2xl ${
-          isDark ? 'text-white/50' : 'text-gray-700'
-        }`}
-      >
-        {g('brand.sub')}
-        <br className="hidden md:block" />
-        {g('brand.sub2')}
-      </p>
-      <a
-        href="https://research.deepvalues.ai/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`mt-11 inline-block text-2xl font-extrabold tracking-tight transition-colors md:text-[30px] ${
-          isDark ? 'text-emerald-500 hover:text-emerald-400' : 'text-emerald-600 hover:text-emerald-500'
-        }`}
-      >
-        {g('brand.cta')}
-      </a>
-    </div>
-  );
-}
-
 function SceneHowItWorks() {
   const isDark = useTheme() === 'dark';
   const l = useLang();
@@ -213,41 +163,52 @@ function SceneHowItWorks() {
     {
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="11" cy="11" r="8" />
-          <path d="m21 21-4.3-4.3" />
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 8v8" />
+          <path d="M8 12h8" />
         </svg>
       ),
-      titleKey: 'how.b1.title' as const,
-      descKey: 'how.b1.desc' as const,
-    },
-    {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M8 3H2v15h7c1.7 0 3 1.3 3 3V7c0-2.2-1.8-4-4-4z" />
-          <path d="M16 3h6v15h-7c-1.7 0-3 1.3-3 3V7c0-2.2 1.8-4 4-4z" />
-        </svg>
-      ),
-      titleKey: 'how.b2.title' as const,
-      descKey: 'how.b2.desc' as const,
-    },
-    {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        </svg>
-      ),
-      titleKey: 'how.b3.title' as const,
-      descKey: 'how.b3.desc' as const,
-    },
-    {
-      icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="20 6 9 17 4 12" />
-        </svg>
-      ),
-      titleKey: 'how.b4.title' as const,
-      descKey: 'how.b4.desc' as const,
+      labelKey: 'why.p1.label' as const,
+      titleKey: 'why.p1.title' as const,
+      descKey: 'why.p1.body' as const,
       highlight: true,
+    },
+    {
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M4 7h6" />
+          <path d="M14 7h6" />
+          <path d="M8 7l4 4 4-4" />
+          <path d="M8 17l4-4 4 4" />
+        </svg>
+      ),
+      labelKey: 'why.p2.label' as const,
+      titleKey: 'why.p2.title' as const,
+      descKey: 'why.p2.body' as const,
+    },
+    {
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      ),
+      labelKey: 'why.p3.label' as const,
+      titleKey: 'why.p3.title' as const,
+      descKey: 'why.p3.body' as const,
+    },
+    {
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M3 21h18" />
+          <path d="M6 21V9" />
+          <path d="M12 21V3" />
+          <path d="M18 21v-6" />
+        </svg>
+      ),
+      labelKey: 'why.p4.label' as const,
+      titleKey: 'why.p4.title' as const,
+      descKey: 'why.p4.body' as const,
     },
   ];
 
@@ -268,14 +229,11 @@ function SceneHowItWorks() {
             {g('how.eyebrow')}
           </p>
           <h2 className="text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[68px]">
-            <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('how.h1a')}</span>
-            <br />
-            <span className="aurora-grad">{g('how.h1b')}</span>
-            <br />
-            <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('how.h1c')}</span>
+            <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('why.h1a')}</span>{' '}
+            <span className="aurora-grad">{g('why.h1b')}</span>
           </h2>
           <p className={`mt-6 max-w-[500px] text-lg leading-relaxed md:text-xl ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
-            {g('how.sub')}
+            {g('why.sub')}
           </p>
         </div>
         <div className="flex-1 w-full max-w-[520px] flex-col gap-3 flex">
@@ -303,10 +261,13 @@ function SceneHowItWorks() {
                 </span>
               </div>
               <div>
+                <p className={`mb-1 text-[11px] font-bold uppercase tracking-[2px] ${isDark ? 'text-emerald-400/60' : 'text-emerald-600/60'}`}>
+                  {g(benefit.labelKey)}
+                </p>
                 <p className={`text-[17px] font-semibold ${benefit.highlight ? 'text-emerald-600' : isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
                   {g(benefit.titleKey)}
                 </p>
-                <p className={`mt-0.5 text-[13px] ${isDark ? 'text-white/40' : 'text-gray-700'}`}>
+                <p className={`mt-1 text-[13px] leading-snug ${isDark ? 'text-white/40' : 'text-gray-700'}`}>
                   {g(benefit.descKey)}
                 </p>
               </div>
@@ -415,69 +376,6 @@ function SceneDeliverables() {
         ))}
       </div>
       <p className={`mt-10 text-sm ${isDark ? 'text-white/35' : 'text-gray-400'}`}>{g('del.footer')}</p>
-    </div>
-  );
-}
-
-function SceneWhy() {
-  const isDark = useTheme() === 'dark';
-  const l = useLang();
-  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
-  const props = [
-    { labelKey: 'why.p1.label' as const, titleKey: 'why.p1.title' as const, bodyKey: 'why.p1.body' as const },
-    { labelKey: 'why.p2.label' as const, titleKey: 'why.p2.title' as const, bodyKey: 'why.p2.body' as const },
-    { labelKey: 'why.p3.label' as const, titleKey: 'why.p3.title' as const, bodyKey: 'why.p3.body' as const },
-    { labelKey: 'why.p4.label' as const, titleKey: 'why.p4.title' as const, bodyKey: 'why.p4.body' as const },
-  ];
-
-  return (
-    <div className="st text-center max-w-6xl mx-auto">
-      <p
-        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-        }`}
-      >
-        <span
-          className={`h-px w-8 bg-gradient-to-r ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
-        {g('why.eyebrow')}
-        <span
-          className={`h-px w-8 bg-gradient-to-l ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
-      </p>
-      <h2 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-[64px]">
-        <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('why.h1a')}</span>{' '}
-        <span className="aurora-grad">{g('why.h1b')}</span>
-      </h2>
-      <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {props.map((prop) => (
-          <div
-            key={g(prop.labelKey)}
-            className={`relative overflow-hidden rounded-2xl p-8 text-left ${
-              isDark ? 'border border-white/[.05] bg-white/[.03] backdrop-blur-[30px]' : 'apple-card p-9'
-            }`}
-          >
-            <div
-              className={`absolute left-[20%] right-[20%] top-0 h-px bg-gradient-to-r from-transparent ${
-                isDark ? 'via-emerald-500/25' : 'via-emerald-500/10'
-              } to-transparent`}
-            />
-            <p className={`mb-3 text-[11px] font-bold uppercase tracking-[2px] ${isDark ? 'text-emerald-400/60' : 'text-emerald-600/60'}`}>
-              {g(prop.labelKey)}
-            </p>
-            <p className={`whitespace-pre-line text-2xl font-extrabold tracking-tight leading-tight ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
-              {g(prop.titleKey)}
-            </p>
-            <p className={`mt-3 text-[13px] leading-snug ${isDark ? 'text-white/35' : 'text-gray-700'}`}>
-              {g(prop.bodyKey)}
-            </p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
@@ -621,135 +519,55 @@ function SceneMission() {
   const isDark = useTheme() === 'dark';
   const l = useLang();
   const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
-  const cards = [
-    {
-      icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M12 2a4 4 0 0 1 4 4v1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2V6a4 4 0 0 1 4-4z" />
-          <path d="M9 18h6" />
-          <path d="M10 22h4" />
-          <path d="M12 12v6" />
-        </svg>
-      ),
-      titleKey: 'mission.c1.title' as const,
-      descKey: 'mission.c1.desc' as const,
-    },
-    {
-      icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M3 3v18h18" />
-          <path d="m19 9-5 5-4-4-3 3" />
-        </svg>
-      ),
-      titleKey: 'mission.c2.title' as const,
-      descKey: 'mission.c2.desc' as const,
-    },
-    {
-      icon: (
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M2 12h20" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        </svg>
-      ),
-      titleKey: 'mission.c3.title' as const,
-      descKey: 'mission.c3.desc' as const,
-    },
-  ];
 
   return (
     <div className="st max-w-4xl mx-auto w-full text-center">
-      <p
-        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-        }`}
-      >
-        <span
-          className={`h-px w-8 bg-gradient-to-r ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
-        {g('mission.eyebrow')}
-      </p>
-      <h2 className="mb-6 text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[68px]">
-        <span className="aurora-grad">{g('mission.h1a')}</span>
-        <br />
-        <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('mission.h1b')}</span>
-      </h2>
-      <p className={`mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl ${isDark ? 'text-white/50' : 'text-gray-700'}`}>
-        {g('mission.sub')}
-      </p>
-      <div className="mx-auto grid max-w-3xl gap-5 md:grid-cols-3">
-        {cards.map((card) => (
+      <div className="mx-auto max-w-3xl">
+        <p
+          className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
+            isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
+          }`}
+        >
+          <span
+            className={`h-px w-8 bg-gradient-to-r ${
+              isDark ? 'from-emerald-500' : 'from-emerald-600'
+            } to-transparent`}
+          />
+          {g('team.eyebrow')}
+        </p>
+        <h2 className="mb-10 text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[56px]">
+          <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('team.h1a')}</span>
+          <span className="aurora-grad">{g('team.h1b')}</span>
+        </h2>
+        <div id="team" className="scroll-mt-28">
           <div
-            key={g(card.titleKey)}
-            className={`rounded-2xl p-6 text-center ${
+            className={`mx-auto max-w-2xl rounded-2xl p-8 text-left md:p-10 ${
               isDark ? 'border border-white/[.06] bg-white/[.04] backdrop-blur-[20px]' : 'apple-card'
             }`}
           >
-            <div className={`mb-3 flex items-center justify-center ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
-              {card.icon}
+            <div className="mb-5 flex items-center gap-3">
+              <div>
+                <h3 className={`flex items-center gap-2 text-xl font-bold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
+                  Xinwei (Ivy) Fan
+                  <a
+                    href="https://www.linkedin.com/in/xinwei-fan/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`transition-colors ${
+                      isDark ? 'text-white/30 hover:text-emerald-400' : 'text-gray-400 hover:text-emerald-600'
+                    }`}
+                  >
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </a>
+                </h3>
+                <p className="text-[15px] font-semibold text-emerald-500">{g('team.role')}</p>
+              </div>
             </div>
-            <p className={`mb-1 text-[17px] font-semibold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
-              {g(card.titleKey)}
-            </p>
-            <p className={`text-[13px] ${isDark ? 'text-white/40' : 'text-gray-700'}`}>{g(card.descKey)}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function SceneTeam() {
-  const isDark = useTheme() === 'dark';
-  const l = useLang();
-  const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
-
-  return (
-    <div className="st max-w-4xl mx-auto w-full text-center">
-      <p
-        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-        }`}
-      >
-        <span
-          className={`h-px w-8 bg-gradient-to-r ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
-        {g('team.eyebrow')}
-      </p>
-      <h2 className="mb-10 text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[56px]">
-        <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('team.h1a')}</span>
-        <span className="aurora-grad">{g('team.h1b')}</span>
-      </h2>
-      <div
-        className={`mx-auto max-w-2xl rounded-2xl p-8 text-left md:p-10 ${
-          isDark ? 'border border-white/[.06] bg-white/[.04] backdrop-blur-[20px]' : 'apple-card'
-        }`}
-      >
-        <div className="mb-5 flex items-center gap-3">
-          <div>
-            <h3 className={`flex items-center gap-2 text-xl font-bold ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
-              Xinwei (Ivy) Fan
-              <a
-                href="https://www.linkedin.com/in/xinwei-fan/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`transition-colors ${
-                  isDark ? 'text-white/30 hover:text-emerald-400' : 'text-gray-400 hover:text-emerald-600'
-                }`}
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-            </h3>
-            <p className="text-[15px] font-semibold text-emerald-500">{g('team.role')}</p>
+            <p className={`leading-relaxed ${isDark ? 'text-white/50' : 'text-gray-700'}`}>{g('team.bio')}</p>
           </div>
         </div>
-        <p className={`leading-relaxed ${isDark ? 'text-white/50' : 'text-gray-700'}`}>{g('team.bio')}</p>
       </div>
     </div>
   );
@@ -837,23 +655,20 @@ function MobileExploreDock({
 const PAGE_SECTIONS = [
   { id: 'problem', component: SceneProblem },
   { id: 'legends', component: SceneLegends },
-  { id: 'brand', component: SceneBrand },
+  { id: 'brand', component: SceneCTA },
   { id: 'how', component: SceneHowItWorks },
   { id: 'deliverables', component: SceneDeliverables },
-  { id: 'why', component: SceneWhy },
   { id: 'community', component: SceneCommunity },
   { id: 'mission', component: SceneMission },
-  { id: 'team', component: SceneTeam },
-  { id: 'cta', component: SceneCTA },
 ] as const;
 
 const SECTION_INDEX_TO_ID: Record<number, string> = {
   0: 'page-top',
   3: 'how',
   4: 'deliverables',
-  6: 'community',
-  7: 'mission',
-  8: 'team',
+  5: 'community',
+  6: 'mission',
+  7: 'team',
 };
 
 function PageSection({

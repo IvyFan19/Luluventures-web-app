@@ -79,7 +79,7 @@ function SceneTeam() {
     <div className="st max-w-4xl mx-auto w-full text-center">
       <p className={`text-xs font-bold uppercase tracking-[5px] mb-7 flex items-center justify-center gap-2.5 ${isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'}`}>
         <span className={`w-8 h-px bg-gradient-to-r ${isDark ? 'from-emerald-500' : 'from-emerald-600'} to-transparent`} />
-        The Team
+        Creator Note
       </p>
       <h2 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.02] mb-10">
         <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>Built by </span>
@@ -105,11 +105,11 @@ function SceneTeam() {
           </div>
         </div>
         <p className={`leading-relaxed ${isDark ? 'text-white/50' : 'text-gray-600'}`}>
-          Xinwei is the technical force behind DeepValues.AI's multi-agent research platform.
-          With expertise in AI/ML engineering and full-stack development, she architects the systems
-          that power intelligent stock analysis at scale. Her goal is to use modern technologies to
-          bring the rigor of a professional investment research team, grounded in Buffett's enduring
-          principles, to every individual investor.
+          Xinwei is the founder and creator of DeepValues.AI. With expertise in AI/ML, full-stack
+          engineering, and a deep passion for value investing, she is building a platform that
+          brings institutional-grade business research to individual investors. Her broader mission
+          is to democratize objective financial research and build a personal financial assistant
+          that works only in the interest of intelligent investors.
         </p>
       </div>
     </div>

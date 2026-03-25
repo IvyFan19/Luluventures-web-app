@@ -6,9 +6,8 @@ import { getText } from '../i18n';
 
 const SCENE_HOW_IT_WORKS = 3;
 const SCENE_DELIVERABLES = 4;
-const SCENE_COMMUNITY = 6;
-const SCENE_MISSION = 7;
-const SCENE_TEAM = 8;
+const SCENE_COMMUNITY = 5;
+const SCENE_TEAM = 7;
 
 export function Header({
   isMenuOpen,
@@ -76,9 +75,6 @@ export function Header({
             </button>
             <button onClick={() => handleNavClick(SCENE_COMMUNITY)} className={navTextClass}>
               {g('nav.community')}
-            </button>
-            <button onClick={() => handleNavClick(SCENE_MISSION)} className={navTextClass}>
-              {g('nav.about')}
             </button>
             <button onClick={() => handleNavClick(SCENE_TEAM)} className={navTextClass}>
               {g('nav.team')}
@@ -196,12 +192,6 @@ export function Header({
                   className={isLight ? 'py-2 text-left text-gray-700 transition-colors hover:text-gray-900' : 'py-2 text-left text-white/50 transition-colors hover:text-white'}
                 >
                   {g('nav.community')}
-                </button>
-                <button
-                  onClick={() => handleNavClick(SCENE_MISSION)}
-                  className={isLight ? 'py-2 text-left text-gray-700 transition-colors hover:text-gray-900' : 'py-2 text-left text-white/50 transition-colors hover:text-white'}
-                >
-                  {g('nav.about')}
                 </button>
                 <button
                   onClick={() => handleNavClick(SCENE_TEAM)}
