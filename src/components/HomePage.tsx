@@ -653,9 +653,9 @@ function MobileExploreDock({
 }
 
 const PAGE_SECTIONS = [
+  { id: 'brand', component: SceneCTA },
   { id: 'problem', component: SceneProblem },
   { id: 'legends', component: SceneLegends },
-  { id: 'brand', component: SceneCTA },
   { id: 'how', component: SceneHowItWorks },
   { id: 'deliverables', component: SceneDeliverables },
   { id: 'community', component: SceneCommunity },
