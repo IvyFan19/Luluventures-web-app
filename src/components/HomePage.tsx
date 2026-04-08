@@ -591,7 +591,7 @@ function SceneCTA() {
         {g('cta.sub')}
       </p>
       <a
-        href="https://research.deepvalues.ai/"
+        href="https://app.deepvalues.ai"
         target="_blank"
         rel="noopener noreferrer"
         className={`mt-11 inline-block text-2xl font-extrabold tracking-tight transition-colors md:text-[30px] ${
@@ -635,7 +635,7 @@ function MobileExploreDock({
           </p>
         </div>
         <a
-          href="https://research.deepvalues.ai/"
+          href="https://app.deepvalues.ai"
           target="_blank"
           rel="noopener noreferrer"
           className={`shrink-0 rounded-full px-5 py-3 text-[14px] font-semibold transition-colors ${

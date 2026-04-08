@@ -128,7 +128,7 @@ function SceneAboutCTA() {
         Built for Modern Intelligent Investors.
       </p>
       <a
-        href="https://research.deepvalues.ai/"
+        href="https://app.deepvalues.ai"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block mt-11 text-emerald-500 text-2xl md:text-[30px] font-extrabold tracking-tight hover:text-emerald-400 transition-colors"
@@ -273,7 +273,7 @@ export function AboutPage({ theme = 'dark', onToggleTheme }: AboutPageProps) {
                 </button>
               )}
               <a
-                href="https://research.deepvalues.ai/"
+                href="https://app.deepvalues.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`hidden md:inline-block ${isDark

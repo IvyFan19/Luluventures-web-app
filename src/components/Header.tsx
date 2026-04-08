@@ -122,7 +122,7 @@ export function Header({
             </>
           ) : (
             <a
-              href="https://research.deepvalues.ai/"
+              href="https://app.deepvalues.ai"
               target="_blank"
               rel="noopener noreferrer"
               className={
@@ -202,7 +202,7 @@ export function Header({
               </>
             )}
             <a
-              href="https://research.deepvalues.ai/"
+              href="https://app.deepvalues.ai"
               target="_blank"
               rel="noopener noreferrer"
               className={isLight ? 'py-2 font-medium text-[#1d1d1f]' : 'py-2 font-medium text-emerald-400'}

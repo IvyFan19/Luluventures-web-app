@@ -52,7 +52,7 @@ export function Newsletter() {
         </p>
 
         <a
-          href="https://research.deepvalues.ai/"
+          href="https://app.deepvalues.ai"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mt-10 text-emerald-500 text-2xl md:text-[30px] font-extrabold tracking-tight hover:text-emerald-400 transition-colors"

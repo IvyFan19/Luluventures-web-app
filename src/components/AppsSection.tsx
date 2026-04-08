@@ -8,7 +8,7 @@ const products = [
     description:
       'Fundamentals, value, growth, market, trend, and risk analysts — working together to research any company in seconds.',
     image: '/images/deep_value_intelligence.png',
-    cta: { label: 'Try It Free', url: 'https://research.deepvalues.ai/', icon: 'arrow' },
+    cta: { label: 'Try It Free', url: 'https://app.deepvalues.ai', icon: 'arrow' },
   },
   {
     id: 'buffett-indicator',
