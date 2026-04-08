@@ -54,16 +54,7 @@ export function Header({
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <div className="flex min-w-[160px] items-center">
-          <h1
-            className="cursor-pointer text-xl font-bold md:text-2xl"
-            onClick={() => {
-              goToScene?.(0);
-            }}
-          >
-            <span className="aurora-grad">DeepValues.ai</span>
-          </h1>
-        </div>
+        <div className="flex min-w-[160px] items-center" />
 
         {hasSceneNav && (
           <nav className="hidden items-center space-x-10 md:flex">
@@ -125,11 +116,12 @@ export function Header({
               href="https://app.deepvalues.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className={
-                isLight
-                  ? 'rounded-full bg-[#1d1d1f] px-6 py-2.5 text-[15px] font-medium text-white transition-colors hover:bg-[#333]'
-                  : 'rounded-full border border-emerald-500/20 bg-emerald-500/15 px-5 py-2 text-[15px] font-medium text-emerald-400 transition-colors hover:bg-emerald-500/25'
-              }
+              style={{
+                color: '#08c4e4',
+                borderColor: 'rgba(8, 196, 228, 0.4)',
+                backgroundColor: 'rgba(8, 196, 228, 0.12)',
+              }}
+              className="rounded-full border px-6 py-2.5 text-[15px] font-semibold transition-colors hover:bg-[rgba(8,196,228,0.2)]"
             >
               {g('nav.explore')}
             </a>

@@ -574,32 +574,30 @@ function SceneMission() {
 }
 
 function SceneCTA() {
-  const isDark = useTheme() === 'dark';
   const l = useLang();
   const g = (k: Parameters<typeof getText>[0]) => getText(k, l);
 
   return (
-    <div className="st text-center max-w-4xl mx-auto">
-      <h1 className="aurora-grad text-5xl font-black tracking-tighter leading-[0.9] md:text-7xl lg:text-[140px]">
-        Deep Values
-      </h1>
-      <p
-        className={`mx-auto mt-7 max-w-[700px] text-xl leading-relaxed md:text-2xl ${
-          isDark ? 'text-white/50' : 'text-gray-700'
-        }`}
-      >
-        {g('cta.sub')}
-      </p>
-      <a
-        href="https://app.deepvalues.ai"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`mt-11 inline-block text-2xl font-extrabold tracking-tight transition-colors md:text-[30px] ${
-          isDark ? 'text-emerald-500 hover:text-emerald-400' : 'text-emerald-600 hover:text-emerald-500'
-        }`}
-      >
-        deepvalues.ai →
-      </a>
+    <div className="relative -mt-24 md:-mt-40">
+      <div className="hero-bg" />
+      <div className="st relative text-center max-w-6xl mx-auto">
+        <div className="flex items-center justify-center gap-3 md:gap-4">
+          <img
+            src="/images/deepvalues-icon.png"
+            alt="DeepValues.ai"
+            className="h-6 w-auto md:h-8"
+          />
+          <span className="aurora-grad text-2xl font-bold tracking-tight md:text-4xl">
+            DeepValues.ai
+          </span>
+        </div>
+        <p className="mt-12 text-xl font-light tracking-[0.04em] text-white/55 md:mt-14 md:text-3xl lg:text-4xl">
+          {g('cta.sub')}
+        </p>
+        <h1 className="hero-headline mt-5 text-4xl font-black leading-[1.05] tracking-[-0.02em] md:mt-7 md:text-5xl lg:text-[66px]">
+          {g('cta.headline')}
+        </h1>
+      </div>
     </div>
   );
 }
