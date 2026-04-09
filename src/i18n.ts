@@ -113,8 +113,8 @@ const translations = {
   "team.bio": { en: "Xinwei is the founder and creator of DeepValues.AI. With expertise in AI/ML, full-stack engineering, and a deep passion for value investing, she is building a platform that brings institutional-grade business research to individual investors. Her broader mission is to democratize objective financial research and build a personal financial assistant that works only in the interest of intelligent investors.", zh: 'Xinwei 是 DeepValues.AI 的创始人和创造者。凭借在 AI/ML、全栈工程方面的专业能力，以及对价值投资的深厚热情，她正在打造一个将机构级商业研究带给个人投资者的平台。她更大的使命，是让客观的金融研究大众化，并打造一个只为智慧投资者利益服务的个人金融助手。' },
 
   // Scene: CTA
-  'cta.sub': { en: 'Built for Modern Intelligent Investors', zh: '为现代智慧投资者而生' },
-  'cta.headline': { en: 'Think Deeper, Invest Smarter', zh: '深度思考，智慧投资' },
+  'cta.sub': { en: 'Built for Modern Intelligent Investors', zh: '为新一代聪明的投资者而生' },
+  'cta.headline': { en: 'Think Deeper, Invest Smarter', zh: '深入研究，理性决策' },
 
   // Footer
   'footer.brand.desc': { en: 'Your trusted partner for value investing insights, following Warren Buffett\'s timeless principles for long-term wealth creation.', zh: '您值得信赖的价值投资伙伴，遵循巴菲特的经典原则，助力长期财富增长。' },
@@ -122,7 +122,7 @@ const translations = {
   'footer.disclaimer.link': { en: 'Disclaimer', zh: '免责声明' },
   'footer.disclaimer.text': { en: 'The content provided is for informational purposes only and does not constitute financial advice. Consult a professional before making investment decisions.', zh: '本网站提供的内容仅供参考，不构成财务建议。在做出投资决策前，请咨询专业人士。' },
   'footer.contact': { en: 'Contact', zh: '联系我们' },
-  'footer.copyright': { en: 'Built for modern intelligent investors.', zh: '为现代智慧投资者而生。' },
+  'footer.copyright': { en: 'Built for modern intelligent investors.', zh: '为新一代聪明的投资者而生。' },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
