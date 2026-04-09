@@ -579,14 +579,15 @@ function SceneCTA() {
 
   return (
     <div className="relative -mt-24 md:-mt-40">
-      <div className="hero-bg" />
       <div className="st relative text-center max-w-6xl mx-auto">
         <div className="flex items-center justify-center gap-3 md:gap-4">
-          <img
-            src="/images/deepvalues-icon.png"
-            alt="DeepValues.ai"
-            className="h-6 w-auto md:h-8"
-          />
+          <div className="flex items-center justify-center rounded-full bg-black h-8 w-8 md:h-11 md:w-11">
+            <img
+              src="/images/deepvalues-icon.png"
+              alt="DeepValues.ai"
+              className="h-5 w-auto md:h-7"
+            />
+          </div>
           <span className="aurora-grad text-2xl font-bold tracking-tight md:text-4xl">
             DeepValues.AI
           </span>
@@ -694,8 +695,8 @@ function PageSection({
         isFirst ? '' : isDarkSection ? 'border-t border-white/[0.05]' : 'border-t border-black/[0.06]'
       } ${isDarkSection ? 'scene-dark-insert' : 'page-section-light'}`}
     >
-      {isDarkSection ? <div className="aurora-insert" /> : <div className="page-section-light-wash" />}
-      <div className="relative z-10 flex min-h-[82vh] items-center px-6 py-24 md:min-h-screen md:px-10 md:py-28">
+      {isDarkSection ? (isFirst ? <div className="hero-bg" /> : <div className="aurora-insert" />) : <div className="page-section-light-wash" />}
+      <div className={`relative z-10 flex items-center px-6 py-24 md:px-10 md:py-28 ${isFirst ? 'min-h-[75vh] md:min-h-[85vh]' : 'min-h-[82vh] md:min-h-screen'}`}>
         <div className="mx-auto w-full max-w-7xl">
           <ThemeContext.Provider value={sectionTheme}>{children}</ThemeContext.Provider>
         </div>

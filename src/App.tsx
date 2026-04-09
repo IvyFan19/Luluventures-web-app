@@ -107,7 +107,7 @@ function AppRoutes() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage user={user} signOut={handleSignOut} theme={theme} onToggleTheme={toggleTheme} lang={lang} onToggleLang={toggleLang} />}
+          element={<HomePage user={user} signOut={handleSignOut} theme={theme} lang={lang} onToggleLang={toggleLang} />}
         />
         <Route
           path="/login"
