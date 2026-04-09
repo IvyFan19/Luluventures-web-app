@@ -39,21 +39,11 @@ function SceneProblem() {
   return (
     <div className="st text-center max-w-4xl mx-auto">
       <p
-        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-        }`}
+        className="mb-7 flex items-center justify-center gap-2.5 text-sm font-bold uppercase tracking-[5px] text-[#08c4e4]"
       >
-        <span
-          className={`h-px w-8 bg-gradient-to-r ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
+        <span className="h-px w-8 bg-gradient-to-r from-[#08c4e4] to-transparent" />
         {g('problem.eyebrow')}
-        <span
-          className={`h-px w-8 bg-gradient-to-l ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
+        <span className="h-px w-8 bg-gradient-to-l from-[#08c4e4] to-transparent" />
       </p>
       <h2 className="text-4xl font-extrabold tracking-tight leading-[1.05] md:text-6xl lg:text-[80px]">
         <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('problem.h1a')}</span>{' '}
@@ -99,21 +89,11 @@ function SceneLegends() {
   return (
     <div className="st text-center max-w-[1060px] mx-auto">
       <p
-        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-        }`}
+        className="mb-7 flex items-center justify-center gap-2.5 text-sm font-bold uppercase tracking-[5px] text-[#08c4e4]"
       >
-        <span
-          className={`h-px w-8 bg-gradient-to-r ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
+        <span className="h-px w-8 bg-gradient-to-r from-[#08c4e4] to-transparent" />
         {g('legends.eyebrow')}
-        <span
-          className={`h-px w-8 bg-gradient-to-l ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
+        <span className="h-px w-8 bg-gradient-to-l from-[#08c4e4] to-transparent" />
       </p>
       <h2 className="text-3xl font-extrabold tracking-tight leading-tight md:text-5xl lg:text-[60px]">
         <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('legends.h1a')}</span>
@@ -217,16 +197,11 @@ function SceneHowItWorks() {
       <div className="flex flex-col items-center gap-12 md:flex-row md:gap-24">
         <div className="flex-1">
           <p
-            className={`mb-7 flex items-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-              isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-            }`}
+            className="mb-7 flex items-center gap-2.5 text-sm font-bold uppercase tracking-[5px] text-[#08c4e4]"
           >
-            <span
-              className={`h-px w-8 bg-gradient-to-r ${
-                isDark ? 'from-emerald-500' : 'from-emerald-600'
-              } to-transparent`}
-            />
+            <span className="h-px w-8 bg-gradient-to-r from-[#08c4e4] to-transparent" />
             {g('how.eyebrow')}
+            <span className="h-px w-8 bg-gradient-to-l from-[#08c4e4] to-transparent" />
           </p>
           <h2 className="text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[68px]">
             <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('why.h1a')}</span>{' '}
@@ -331,21 +306,11 @@ function SceneDeliverables() {
   return (
     <div className="st text-center max-w-5xl mx-auto">
       <p
-        className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-          isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-        }`}
+        className="mb-7 flex items-center justify-center gap-2.5 text-sm font-bold uppercase tracking-[5px] text-[#08c4e4]"
       >
-        <span
-          className={`h-px w-8 bg-gradient-to-r ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
+        <span className="h-px w-8 bg-gradient-to-r from-[#08c4e4] to-transparent" />
         {g('del.eyebrow')}
-        <span
-          className={`h-px w-8 bg-gradient-to-l ${
-            isDark ? 'from-emerald-500' : 'from-emerald-600'
-          } to-transparent`}
-        />
+        <span className="h-px w-8 bg-gradient-to-l from-[#08c4e4] to-transparent" />
       </p>
       <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl lg:text-[56px]">
         <span className={isDark ? 'text-white/40' : 'text-gray-700'}>{g('del.h1a')}</span>{' '}
@@ -419,16 +384,11 @@ function SceneCommunity() {
     <div className="st max-w-5xl mx-auto w-full">
       <div className="mb-10 text-center">
         <p
-          className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-            isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-          }`}
+          className="mb-7 flex items-center justify-center gap-2.5 text-sm font-bold uppercase tracking-[5px] text-[#08c4e4]"
         >
-          <span
-            className={`h-px w-8 bg-gradient-to-r ${
-              isDark ? 'from-emerald-500' : 'from-emerald-600'
-            } to-transparent`}
-          />
+          <span className="h-px w-8 bg-gradient-to-r from-[#08c4e4] to-transparent" />
           {g('community.eyebrow')}
+          <span className="h-px w-8 bg-gradient-to-l from-[#08c4e4] to-transparent" />
         </p>
         <h2 className={`text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[56px] ${isDark ? 'text-white' : 'text-[#1d1d1f]'}`}>
           {g('community.h1a')}
@@ -524,16 +484,11 @@ function SceneMission() {
     <div className="st max-w-4xl mx-auto w-full text-center">
       <div className="mx-auto max-w-3xl">
         <p
-          className={`mb-7 flex items-center justify-center gap-2.5 text-xs font-bold uppercase tracking-[5px] ${
-            isDark ? 'text-emerald-400/80' : 'text-emerald-600/70'
-          }`}
+          className="mb-7 flex items-center justify-center gap-2.5 text-sm font-bold uppercase tracking-[5px] text-[#08c4e4]"
         >
-          <span
-            className={`h-px w-8 bg-gradient-to-r ${
-              isDark ? 'from-emerald-500' : 'from-emerald-600'
-            } to-transparent`}
-          />
+          <span className="h-px w-8 bg-gradient-to-r from-[#08c4e4] to-transparent" />
           {g('team.eyebrow')}
+          <span className="h-px w-8 bg-gradient-to-l from-[#08c4e4] to-transparent" />
         </p>
         <h2 className="mb-10 text-4xl font-extrabold tracking-tight leading-[1.02] md:text-5xl lg:text-[56px]">
           <span className={isDark ? 'text-white' : 'text-[#1d1d1f]'}>{g('team.h1a')}</span>

@@ -15,10 +15,10 @@ export function ProblemSection() {
         ref={ref}
         className={`stagger-in ${isVisible ? 'visible' : ''} max-w-4xl mx-auto px-6 text-center`}
       >
-        <p className="text-xs font-bold uppercase tracking-[5px] text-emerald-400/80 mb-7 flex items-center justify-center gap-2.5">
-          <span className="w-8 h-px bg-gradient-to-r from-emerald-500 to-transparent"></span>
+        <p className="text-xs font-bold uppercase tracking-[5px] text-[#08c4e4] mb-7 flex items-center justify-center gap-2.5">
+          <span className="w-8 h-px bg-gradient-to-r from-[#08c4e4] to-transparent"></span>
           The Problem
-          <span className="w-8 h-px bg-gradient-to-l from-emerald-500 to-transparent"></span>
+          <span className="w-8 h-px bg-gradient-to-l from-[#08c4e4] to-transparent"></span>
         </p>
 
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05]">
