@@ -45,12 +45,14 @@ export function Header({
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 backdrop-blur-xl backdrop-saturate-[1.8] ${
         isScrolled
           ? isLight
-            ? 'bg-white/80 py-3 shadow-sm backdrop-blur-xl'
-            : 'bg-black/60 py-3 shadow-sm backdrop-blur-xl'
-          : 'bg-transparent py-5'
+            ? 'bg-white/40 py-3 shadow-[0_1px_0_rgba(0,0,0,0.06)]'
+            : 'bg-white/[0.08] py-3 shadow-[0_1px_0_rgba(255,255,255,0.05)]'
+          : isLight
+            ? 'bg-white/20 py-5'
+            : 'bg-white/[0.04] py-5'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
