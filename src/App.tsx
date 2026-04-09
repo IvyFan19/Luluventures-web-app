@@ -48,8 +48,15 @@ function AppRoutes() {
   const [themeOverride, setThemeOverride] = useState<'dark' | 'light' | null>(null);
   const theme = themeOverride ?? (prefersDark ? 'dark' : 'light');
   const toggleTheme = () => setThemeOverride(theme === 'dark' ? 'light' : 'dark');
-  const [lang, setLang] = useState<'en' | 'zh'>('en');
-  const toggleLang = () => setLang((value) => (value === 'en' ? 'zh' : 'en'));
+  const [lang, setLang] = useState<'en' | 'zh'>(() => {
+    const saved = localStorage.getItem('lang');
+    if (saved === 'en' || saved === 'zh') return saved;
+    return navigator.language.startsWith('zh') ? 'zh' : 'en';
+  });
+  const changeLang = (newLang: 'en' | 'zh') => {
+    setLang(newLang);
+    localStorage.setItem('lang', newLang);
+  };
   const [loading, setLoading] = useState(location.pathname !== '/');
 
   const refreshUser = useCallback(async (blockUi = false) => {
@@ -107,7 +114,7 @@ function AppRoutes() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage user={user} signOut={handleSignOut} theme={theme} lang={lang} onToggleLang={toggleLang} />}
+          element={<HomePage user={user} signOut={handleSignOut} theme={theme} lang={lang} onChangeLang={changeLang} />}
         />
         <Route
           path="/login"

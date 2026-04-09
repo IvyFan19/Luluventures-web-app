@@ -18,7 +18,6 @@ export function Header({
   onToggleTheme,
   goToScene,
   lang = 'en',
-  onToggleLang,
 }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const isLight = theme === 'light';
@@ -44,181 +43,185 @@ export function Header({
     : 'text-white/50 hover:text-white transition-colors text-[15px]';
 
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 backdrop-blur-xl backdrop-saturate-[1.8] ${
-        isScrolled
-          ? isLight
-            ? 'bg-white/40 py-3 shadow-[0_1px_0_rgba(0,0,0,0.06)]'
-            : 'bg-white/[0.08] py-3 shadow-[0_1px_0_rgba(255,255,255,0.05)]'
-          : isLight
-            ? 'bg-white/20 py-5'
-            : 'bg-white/[0.04] py-5'
-      }`}
-    >
-      <div className="container mx-auto flex items-center justify-between px-6">
-        <div className="flex min-w-[160px] items-center" />
+    <>
+      <header
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 backdrop-blur-xl backdrop-saturate-[1.8] ${
+          isScrolled
+            ? isLight
+              ? 'bg-white/40 py-2 md:py-3 shadow-[0_1px_0_rgba(0,0,0,0.06)]'
+              : 'bg-white/[0.08] py-2 md:py-3 shadow-[0_1px_0_rgba(255,255,255,0.05)]'
+            : isLight
+              ? 'bg-white/20 py-3 md:py-5'
+              : 'bg-white/[0.04] py-3 md:py-5'
+        }`}
+      >
+        <div className="container mx-auto flex items-center justify-between px-6">
+          <div className="flex min-w-[160px] items-center">
+            <div className={`flex items-center justify-center rounded-full bg-black h-7 w-7 md:hidden transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
+              <img
+                src="/images/deepvalues-icon.png"
+                alt="DeepValues.ai"
+                className="h-4 w-auto"
+              />
+            </div>
+          </div>
 
-        {hasSceneNav && (
-          <nav className="hidden items-center space-x-10 md:flex">
-            <button onClick={() => handleNavClick(SCENE_HOW_IT_WORKS)} className={navTextClass}>
-              {g('nav.howItWorks')}
-            </button>
-            <button onClick={() => handleNavClick(SCENE_DELIVERABLES)} className={navTextClass}>
-              {g('nav.learn')}
-            </button>
-            <button onClick={() => handleNavClick(SCENE_COMMUNITY)} className={navTextClass}>
-              {g('nav.community')}
-            </button>
-            <button onClick={() => handleNavClick(SCENE_TEAM)} className={navTextClass}>
-              {g('nav.team')}
-            </button>
-          </nav>
-        )}
-
-        <div className="hidden min-w-[200px] items-center justify-end space-x-4 md:flex">
-          {onToggleLang && (
-            <button
-              onClick={onToggleLang}
-              className={`rounded-full px-2 py-1 text-[13px] font-medium transition-colors ${
-                isLight ? 'text-gray-400 hover:bg-gray-100 hover:text-gray-700' : 'text-white/40 hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              {lang === 'en' ? '中文' : 'EN'}
-            </button>
-          )}
-          {onToggleTheme && (
-            <button
-              onClick={onToggleTheme}
-              className={`rounded-full p-2 transition-colors ${
-                isLight ? 'text-gray-400 hover:bg-gray-100 hover:text-gray-700' : 'text-white/40 hover:bg-white/10 hover:text-white'
-              }`}
-              aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
-            >
-              {isLight ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
-          )}
-          {user ? (
-            <>
-              <span className={isLight ? 'text-[15px] text-gray-500' : 'text-[15px] text-white/50'}>
-                Hello, {user.username}
-              </span>
-              <button
-                onClick={signOut}
-                className={
-                  isLight
-                    ? 'rounded-full bg-gray-100 px-5 py-2 text-[15px] text-gray-900 transition-colors hover:bg-gray-200'
-                    : 'rounded-full border border-white/10 bg-white/10 px-5 py-2 text-[15px] text-white transition-colors hover:bg-white/15'
-                }
-              >
-                {g('nav.signOut')}
+          {hasSceneNav && (
+            <nav className="hidden items-center space-x-10 md:flex">
+              <button onClick={() => handleNavClick(SCENE_HOW_IT_WORKS)} className={navTextClass}>
+                {g('nav.howItWorks')}
               </button>
-            </>
-          ) : (
-            <a
-              href="https://app.deepvalues.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: '#08c4e4',
-                borderColor: 'rgba(8, 196, 228, 0.4)',
-                backgroundColor: 'rgba(8, 196, 228, 0.12)',
-              }}
-              className="rounded-full border px-6 py-2.5 text-[15px] font-semibold transition-colors hover:bg-[rgba(8,196,228,0.2)]"
-            >
-              {g('nav.explore')}
-            </a>
+              <button onClick={() => handleNavClick(SCENE_DELIVERABLES)} className={navTextClass}>
+                {g('nav.learn')}
+              </button>
+              <button onClick={() => handleNavClick(SCENE_COMMUNITY)} className={navTextClass}>
+                {g('nav.community')}
+              </button>
+              <button onClick={() => handleNavClick(SCENE_TEAM)} className={navTextClass}>
+                {g('nav.team')}
+              </button>
+            </nav>
           )}
-        </div>
 
-        <div className="flex items-center gap-1 md:hidden">
-          {onToggleLang && (
-            <button
-              onClick={onToggleLang}
-              className={`rounded-full px-2 py-1 text-[12px] font-medium transition-colors ${
-                isLight ? 'text-gray-400 hover:text-gray-700' : 'text-white/40 hover:text-white'
-              }`}
-            >
-              {lang === 'en' ? '中文' : 'EN'}
-            </button>
-          )}
-          {onToggleTheme && (
-            <button
-              onClick={onToggleTheme}
-              className={`rounded-full p-2 transition-colors ${
-                isLight ? 'text-gray-400 hover:text-gray-700' : 'text-white/40 hover:text-white'
-              }`}
-              aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
-            >
-              {isLight ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
-          )}
-          <button className={isLight ? 'text-gray-500' : 'text-white/70'} onClick={toggleMenu} aria-label={isMenuOpen ? 'Close menu' : 'Toggle menu'}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {isMenuOpen && (
-        <div
-          className={
-            isLight
-              ? 'border-t border-gray-200 bg-white/90 backdrop-blur-xl md:hidden'
-              : 'border-t border-white/[.06] bg-black/80 backdrop-blur-xl md:hidden'
-          }
-        >
-          <div className="container mx-auto flex flex-col space-y-4 px-6 py-4">
-            {hasSceneNav && (
-              <>
-                <button
-                  onClick={() => handleNavClick(SCENE_HOW_IT_WORKS)}
-                  className={isLight ? 'py-2 text-left text-gray-700 transition-colors hover:text-gray-900' : 'py-2 text-left text-white/50 transition-colors hover:text-white'}
-                >
-                  {g('nav.howItWorks')}
-                </button>
-                <button
-                  onClick={() => handleNavClick(SCENE_DELIVERABLES)}
-                  className={isLight ? 'py-2 text-left text-gray-700 transition-colors hover:text-gray-900' : 'py-2 text-left text-white/50 transition-colors hover:text-white'}
-                >
-                  {g('nav.learn')}
-                </button>
-                <button
-                  onClick={() => handleNavClick(SCENE_COMMUNITY)}
-                  className={isLight ? 'py-2 text-left text-gray-700 transition-colors hover:text-gray-900' : 'py-2 text-left text-white/50 transition-colors hover:text-white'}
-                >
-                  {g('nav.community')}
-                </button>
-                <button
-                  onClick={() => handleNavClick(SCENE_TEAM)}
-                  className={isLight ? 'py-2 text-left text-gray-700 transition-colors hover:text-gray-900' : 'py-2 text-left text-white/50 transition-colors hover:text-white'}
-                >
-                  {g('nav.team')}
-                </button>
-              </>
+          <div className="hidden min-w-[200px] items-center justify-end space-x-4 md:flex">
+            {onToggleTheme && (
+              <button
+                onClick={onToggleTheme}
+                className={`rounded-full p-2 transition-colors ${
+                  isLight ? 'text-gray-400 hover:bg-gray-100 hover:text-gray-700' : 'text-white/40 hover:bg-white/10 hover:text-white'
+                }`}
+                aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
+              >
+                {isLight ? <Moon size={18} /> : <Sun size={18} />}
+              </button>
             )}
-            <a
-              href="https://app.deepvalues.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={isLight ? 'py-2 font-medium text-[#1d1d1f]' : 'py-2 font-medium text-emerald-400'}
-            >
-              {g('nav.explore')} →
-            </a>
-            {user && (
+            {user ? (
               <>
-                <div className={`py-2 ${isLight ? 'border-t border-gray-200' : 'border-t border-white/[.06]'}`}>
-                  <span className={isLight ? 'text-gray-500' : 'text-white/50'}>Hello, {user.username}</span>
-                </div>
+                <span className={isLight ? 'text-[15px] text-gray-500' : 'text-[15px] text-white/50'}>
+                  Hello, {user.username}
+                </span>
                 <button
                   onClick={signOut}
-                  className={isLight ? 'rounded-full bg-gray-100 px-5 py-2 text-gray-900 transition-colors' : 'rounded-full bg-white/10 px-5 py-2 text-white transition-colors'}
+                  className={
+                    isLight
+                      ? 'rounded-full bg-gray-100 px-5 py-2 text-[15px] text-gray-900 transition-colors hover:bg-gray-200'
+                      : 'rounded-full border border-white/10 bg-white/10 px-5 py-2 text-[15px] text-white transition-colors hover:bg-white/15'
+                  }
                 >
                   {g('nav.signOut')}
                 </button>
               </>
+            ) : (
+              <a
+                href="https://app.deepvalues.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: '#08c4e4',
+                  borderColor: 'rgba(8, 196, 228, 0.4)',
+                  backgroundColor: 'rgba(8, 196, 228, 0.12)',
+                }}
+                className="rounded-full border px-6 py-2.5 text-[15px] font-semibold transition-colors hover:bg-[rgba(8,196,228,0.2)]"
+              >
+                {g('nav.explore')}
+              </a>
             )}
           </div>
+
+          <div className="flex items-center gap-1 md:hidden">
+            {onToggleTheme && (
+              <button
+                onClick={onToggleTheme}
+                className={`rounded-full p-2 transition-colors ${
+                  isLight ? 'text-gray-400 hover:text-gray-700' : 'text-white/40 hover:text-white'
+                }`}
+                aria-label={`Switch to ${isLight ? 'dark' : 'light'} mode`}
+              >
+                {isLight ? <Moon size={18} /> : <Sun size={18} />}
+              </button>
+            )}
+            <button className={isLight ? 'text-gray-500' : 'text-white/70'} onClick={toggleMenu} aria-label={isMenuOpen ? 'Close menu' : 'Toggle menu'}>
+              <Menu size={22} />
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Full-screen mobile menu overlay */}
+      <div
+        className={`fixed inset-0 z-[60] bg-black transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <div className="flex items-center justify-between px-6 py-3">
+          <div className="flex items-center justify-center rounded-full bg-black border border-white/10 h-7 w-7">
+            <img
+              src="/images/deepvalues-icon.png"
+              alt="DeepValues.ai"
+              className="h-4 w-auto"
+            />
+          </div>
+          <button
+            className="text-white/70"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        <div className="flex flex-col px-6 pt-6">
+          {hasSceneNav && (
+            <>
+              <button
+                onClick={() => handleNavClick(SCENE_HOW_IT_WORKS)}
+                className="border-b border-white/[.08] py-5 text-left text-[15px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:text-white/70"
+              >
+                {g('nav.howItWorks')}
+              </button>
+              <button
+                onClick={() => handleNavClick(SCENE_DELIVERABLES)}
+                className="border-b border-white/[.08] py-5 text-left text-[15px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:text-white/70"
+              >
+                {g('nav.learn')}
+              </button>
+              <button
+                onClick={() => handleNavClick(SCENE_COMMUNITY)}
+                className="border-b border-white/[.08] py-5 text-left text-[15px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:text-white/70"
+              >
+                {g('nav.community')}
+              </button>
+              <button
+                onClick={() => handleNavClick(SCENE_TEAM)}
+                className="border-b border-white/[.08] py-5 text-left text-[15px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:text-white/70"
+              >
+                {g('nav.team')}
+              </button>
+            </>
+          )}
+          <a
+            href="https://app.deepvalues.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-b border-white/[.08] py-5 text-[15px] font-bold uppercase tracking-[0.15em] text-[#08c4e4] transition-colors hover:text-[#3dd4ef]"
+          >
+            {g('nav.explore')}
+          </a>
+          {user && (
+            <>
+              <div className="border-b border-white/[.08] py-5">
+                <span className="text-white/50">Hello, {user.username}</span>
+              </div>
+              <button
+                onClick={() => { signOut?.(); toggleMenu(); }}
+                className="py-5 text-left text-[15px] font-bold uppercase tracking-[0.15em] text-white/50 transition-colors hover:text-white"
+              >
+                {g('nav.signOut')}
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </>
   );
 }

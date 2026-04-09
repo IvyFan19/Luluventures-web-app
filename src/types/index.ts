@@ -29,7 +29,6 @@ export interface HeaderProps {
   onToggleTheme?: () => void;
   goToScene?: (index: number) => void;
   lang?: 'en' | 'zh';
-  onToggleLang?: () => void;
 }
 
 export interface ModalProps {

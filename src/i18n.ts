@@ -115,6 +115,14 @@ const translations = {
   // Scene: CTA
   'cta.sub': { en: 'Built for Modern Intelligent Investors', zh: '为现代智慧投资者而生' },
   'cta.headline': { en: 'Think Deeper, Invest Smarter', zh: '深度思考，智慧投资' },
+
+  // Footer
+  'footer.brand.desc': { en: 'Your trusted partner for value investing insights, following Warren Buffett\'s timeless principles for long-term wealth creation.', zh: '您值得信赖的价值投资伙伴，遵循巴菲特的经典原则，助力长期财富增长。' },
+  'footer.legal': { en: 'Legal', zh: '法律声明' },
+  'footer.disclaimer.link': { en: 'Disclaimer', zh: '免责声明' },
+  'footer.disclaimer.text': { en: 'The content provided is for informational purposes only and does not constitute financial advice. Consult a professional before making investment decisions.', zh: '本网站提供的内容仅供参考，不构成财务建议。在做出投资决策前，请咨询专业人士。' },
+  'footer.contact': { en: 'Contact', zh: '联系我们' },
+  'footer.copyright': { en: 'Built for modern intelligent investors.', zh: '为现代智慧投资者而生。' },
 } as const;
 
 export type TranslationKey = keyof typeof translations;

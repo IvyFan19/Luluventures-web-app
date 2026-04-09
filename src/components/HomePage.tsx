@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react';
 import { Header } from './Header';
+import { Footer } from './Footer';
 import { getText } from '../i18n';
 
 const ThemeContext = createContext<'dark' | 'light'>('dark');
@@ -23,7 +24,7 @@ interface HomePageProps {
   theme?: 'dark' | 'light';
   onToggleTheme?: () => void;
   lang?: 'en' | 'zh';
-  onToggleLang?: () => void;
+  onChangeLang?: (lang: 'en' | 'zh') => void;
 }
 
 function getSectionTheme(index: number, baseTheme: 'dark' | 'light') {
@@ -576,27 +577,13 @@ function MobileExploreDock({
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] md:hidden">
       <div
-        className={`pointer-events-auto mx-auto flex max-w-md items-center gap-3 rounded-[22px] border px-3 py-3 shadow-[0_16px_40px_rgba(15,23,42,0.18)] backdrop-blur-xl ${
-          isDark ? 'border-white/10 bg-black/70' : 'border-black/10 bg-white/88'
-        }`}
+        className="pointer-events-auto mx-auto max-w-md shadow-[0_16px_40px_rgba(15,23,42,0.18)]"
       >
-        <div className="min-w-0 flex-1 pl-2">
-          <p className={`text-[11px] font-semibold uppercase tracking-[0.22em] ${isDark ? 'text-white/35' : 'text-gray-500'}`}>
-            Deep Values
-          </p>
-          <p className={`truncate text-[13px] ${isDark ? 'text-white/65' : 'text-gray-600'}`}>
-            {g('cta.sub')}
-          </p>
-        </div>
         <a
           href="https://app.deepvalues.ai"
           target="_blank"
           rel="noopener noreferrer"
-          className={`shrink-0 rounded-full px-5 py-3 text-[14px] font-semibold transition-colors ${
-            isDark
-              ? 'bg-emerald-500 text-black hover:bg-emerald-400'
-              : 'bg-[#1d1d1f] text-white hover:bg-black'
-          }`}
+          className="block w-full rounded-full px-5 py-3.5 text-center text-[15px] font-semibold transition-colors bg-[#08c4e4] text-black hover:bg-[#3dd4ef]"
           aria-label={g('nav.explore')}
         >
           {g('nav.explore')}
@@ -666,7 +653,7 @@ export function HomePage({
   theme = 'dark',
   onToggleTheme,
   lang = 'en',
-  onToggleLang,
+  onChangeLang,
 }: HomePageProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
@@ -748,7 +735,6 @@ export function HomePage({
           onToggleTheme={onToggleTheme}
           goToScene={scrollToSection}
           lang={lang}
-          onToggleLang={onToggleLang}
         />
 
         <main id="page-top" className="relative z-10 pb-28 md:pb-0">
@@ -768,6 +754,8 @@ export function HomePage({
             );
           })}
         </main>
+
+        <Footer lang={lang} onChangeLang={onChangeLang} />
 
         <MobileExploreDock
           isDark={headerTheme === 'dark'}
