@@ -588,13 +588,13 @@ function SceneCTA() {
             className="h-6 w-auto md:h-8"
           />
           <span className="aurora-grad text-2xl font-bold tracking-tight md:text-4xl">
-            DeepValues.ai
+            DeepValues.AI
           </span>
         </div>
         <p className="mt-12 text-xl font-light tracking-[0.04em] text-white/55 md:mt-14 md:text-3xl lg:text-4xl">
           {g('cta.sub')}
         </p>
-        <h1 className="hero-headline mt-5 text-4xl font-black leading-[1.05] tracking-[-0.02em] md:mt-7 md:text-5xl lg:text-[66px]">
+        <h1 className="hero-headline mt-5 text-4xl font-black leading-[1.05] tracking-[-0.02em] md:mt-7 md:text-6xl lg:text-[78px]">
           {g('cta.headline')}
         </h1>
       </div>
