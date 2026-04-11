@@ -1,7 +1,6 @@
 import { Suspense, lazy, useCallback, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
-import { usePrefersDark } from './hooks/usePrefersDark';
 import { ensureAmplifyConfigured, loadAmplifyAuth } from './utils/loadAmplifyAuth';
 
 interface AuthUser {
@@ -44,9 +43,8 @@ function RouteLoader({ theme }: { theme: 'dark' | 'light' }) {
 function AppRoutes() {
   const location = useLocation();
   const [user, setUser] = useState<AuthUser | null>(null);
-  const prefersDark = usePrefersDark();
   const [themeOverride, setThemeOverride] = useState<'dark' | 'light' | null>(null);
-  const theme = themeOverride ?? (prefersDark ? 'dark' : 'light');
+  const theme = themeOverride ?? 'dark';
   const toggleTheme = () => setThemeOverride(theme === 'dark' ? 'light' : 'dark');
   const [lang, setLang] = useState<'en' | 'zh'>(() => {
     const saved = localStorage.getItem('lang');
