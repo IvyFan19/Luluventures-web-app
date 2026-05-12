@@ -26,3 +26,7 @@ dist-ssr
 # Local development files
 .bolt/
 .specstory/
+.claude/
+.yarn/
+.yarnrc.yml
+AGENTS.md
