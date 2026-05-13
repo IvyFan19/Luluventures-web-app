@@ -535,16 +535,16 @@ function SceneCTA() {
 
   return (
     <div className="relative -mt-24 md:-mt-40">
-      <div className="st relative text-center max-w-6xl mx-auto">
-        <div className="flex items-center justify-center gap-3 md:gap-4">
-          <div className="flex items-center justify-center rounded-full bg-black h-8 w-8 md:h-11 md:w-11">
+      <div className="st relative text-center max-w-6xl mx-auto pt-36 md:pt-52">
+        <div className="flex items-center justify-center gap-4 md:gap-6">
+          <div className="flex items-center justify-center rounded-full bg-black h-12 w-12 md:h-16 md:w-16">
             <img
               src="/images/deepvalues-icon.png"
               alt="DeepValues.ai"
-              className="h-5 w-auto md:h-7"
+              className="h-7 w-auto md:h-10"
             />
           </div>
-          <span className="aurora-grad text-2xl font-bold tracking-tight md:text-4xl">
+          <span className="aurora-grad text-3xl font-bold tracking-tight md:text-6xl">
             DeepValues.AI
           </span>
         </div>
