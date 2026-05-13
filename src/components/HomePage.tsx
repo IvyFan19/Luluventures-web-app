@@ -551,6 +551,18 @@ function SceneCTA() {
         <h1 className="hero-headline mt-12 text-4xl font-black leading-[1.05] tracking-[-0.02em] md:mt-14 md:text-6xl lg:text-[78px]">
           {g('cta.headline')}
         </h1>
+        <div className="mt-10 flex justify-center md:mt-14">
+          <a
+            href="https://app.deepvalues.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#08c4e4] px-8 py-3.5 text-base font-semibold text-black shadow-[0_12px_32px_rgba(8,196,228,0.35)] transition-all hover:bg-[#3dd4ef] hover:shadow-[0_16px_40px_rgba(8,196,228,0.45)] md:px-10 md:py-4 md:text-lg"
+            aria-label={g('nav.explore')}
+          >
+            {g('nav.explore')}
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </div>
   );
