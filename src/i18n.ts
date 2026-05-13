@@ -5,7 +5,7 @@ const translations = {
   'nav.community': { en: 'Community', zh: '社区' },
   'nav.about': { en: 'Mission', zh: '使命' },
   'nav.team': { en: 'Creator', zh: '创作者' },
-  'nav.explore': { en: 'Explore Now', zh: '立即体验' },
+  'nav.explore': { en: 'Get Started', zh: '立即体验' },
   'nav.signOut': { en: 'Sign Out', zh: '退出' },
 
   // Scene: Problem
@@ -35,7 +35,7 @@ const translations = {
   'brand.eyebrow': { en: 'Deep Values Intelligence', zh: '深度价值智能' },
   'brand.sub': { en: 'Your own institutional-grade research team —', zh: '你自己的机构级研究团队——' },
   'brand.sub2': { en: 'one that actually works in your best interest.', zh: '真正为你的最佳利益服务。' },
-  'brand.cta': { en: 'Explore Now →', zh: '立即体验 →' },
+  'brand.cta': { en: 'Get Started →', zh: '立即体验 →' },
 
   // Scene: How It Works
   'how.eyebrow': { en: 'How It Works', zh: '工作原理' },
@@ -113,8 +113,7 @@ const translations = {
   "team.bio": { en: "Xinwei is the founder and creator of DeepValues.AI. With expertise in AI/ML, full-stack engineering, and a deep passion for value investing, she is building a platform that brings institutional-grade business research to individual investors. Her broader mission is to democratize objective financial research and build a personal financial assistant that works only in the interest of intelligent investors.", zh: 'Xinwei 是 DeepValues.AI 的创始人和创造者。凭借在 AI/ML、全栈工程方面的专业能力，以及对价值投资的深厚热情，她正在打造一个将机构级商业研究带给个人投资者的平台。她更大的使命，是让客观的金融研究大众化，并打造一个只为智慧投资者利益服务的个人金融助手。' },
 
   // Scene: CTA
-  'cta.sub': { en: 'Built for Modern Intelligent Investors', zh: '为新一代聪明的投资者而生' },
-  'cta.headline': { en: 'Think Deeper, Invest Smarter', zh: '深入研究，理性决策' },
+  'cta.headline': { en: 'Built for Modern Intelligent Investors', zh: '为新一代聪明的投资者而生' },
 
   // Footer
   'footer.brand.desc': { en: 'Your trusted partner for value investing insights, following Warren Buffett\'s timeless principles for long-term wealth creation.', zh: '您值得信赖的价值投资伙伴，遵循巴菲特的经典原则，助力长期财富增长。' },

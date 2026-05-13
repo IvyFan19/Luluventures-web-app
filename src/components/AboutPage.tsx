@@ -280,7 +280,7 @@ export function AboutPage({ theme = 'dark', onToggleTheme }: AboutPageProps) {
                   ? 'bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 px-5 py-2 rounded-full text-[15px] font-medium transition-colors border border-emerald-500/20'
                   : 'bg-[#1d1d1f] hover:bg-[#333] text-white px-6 py-2.5 rounded-full text-[15px] font-medium transition-colors'}`}
               >
-                Explore Now
+                Get Started
               </a>
             </div>
           </div>
