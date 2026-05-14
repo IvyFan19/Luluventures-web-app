@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background choices — DeepValues</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0a192f;
+      }
+      html,
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: var(--ink);
+        margin: 0;
+      }
+      body {
+        background: #f4f5f7;
+        padding: 32px;
+      }
+      h1 {
+        font-size: 22px;
+        font-weight: 800;
+        margin: 0 0 6px;
+      }
+      .sub {
+        color: #5b6577;
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+      @media (min-width: 1400px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .card {
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(15, 23, 60, 0.08);
+        background: #fff;
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 32px rgba(15, 23, 60, 0.14);
+      }
+      .card:hover .meta .name { color: #22abf0; }
+      .swatch {
+        height: 260px;
+        position: relative;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .swatch h2 {
+        font-size: 26px;
+        font-weight: 800;
+        margin: 0 0 6px;
+        line-height: 1.1;
+      }
+      .swatch h2 .accent {
+        color: #22abf0;
+      }
+      .swatch p {
+        font-size: 13px;
+        margin: 0;
+        max-width: 320px;
+      }
+      .swatch .pill {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(6px);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #2b3551;
+        margin-bottom: 10px;
+        width: max-content;
+      }
+      .swatch .btn {
+        margin-top: 14px;
+        background: #22abf0;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        width: max-content;
+        box-shadow: 0 8px 18px -6px rgba(34, 171, 240, 0.55);
+      }
+      .dark {
+        color: #e7ecf5;
+      }
+      .dark p {
+        color: #b3bdce;
+      }
+      .dark .pill {
+        background: rgba(255, 255, 255, 0.08);
+        color: #d8dde7;
+      }
+      .meta {
+        padding: 14px 18px 16px;
+        border-top: 1px solid rgba(15, 23, 60, 0.06);
+      }
+      .meta .name {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .meta .num {
+        color: #22abf0;
+        font-weight: 800;
+        margin-right: 6px;
+      }
+      .meta code {
+        display: block;
+        margin-top: 6px;
+        font-size: 11px;
+        color: #475266;
+        font-family: ui-monospace, monospace;
+        word-break: break-all;
+        line-height: 1.45;
+      }
+
+      /* ===== 10 backgrounds ===== */
+      .bg1  { background: #f7f6f2; }
+      .bg2  { background: radial-gradient(120% 90% at 10% 10%, #ffffff 0%, #eef2f7 60%, #e3e9f1 100%); }
+      .bg3  { background: linear-gradient(135deg, #f5f1e8 0%, #eef0f4 55%, #dfe5ec 100%); }
+      .bg4  { background: radial-gradient(120% 100% at 0% 0%, #fbf4e3 0%, #f5ecd2 45%, #ecdfbd 100%); }
+      .bg5  { background: linear-gradient(140deg, #f4f6f1 0%, #e8ede4 60%, #dde4d8 100%); }
+      .bg6  { background: linear-gradient(160deg, #f4f8fc 0%, #e3ecf5 50%, #cfdbe8 100%); }
+      .bg7  { background: radial-gradient(120% 90% at 8% 10%, #fef9f3 0%, #eaeef4 35%, #ccd6e3 100%); }
+      .bg8  { background: radial-gradient(120% 90% at 12% 10%, #16284a 0%, #0e1a33 60%, #070d1f 100%); }
+      .bg9  { background: linear-gradient(180deg, #121417 0%, #0b0d10 100%); }
+      .bg10 { background: radial-gradient(120% 90% at 10% 10%, #103745 0%, #0a2330 55%, #051620 100%); }
+    </style>
+  </head>
+  <body>
+    <h1>Background choices</h1>
+    <p class="sub">Each card shows the headline, supporting copy, and CTA in your chosen accent (#22ABF0). Pick a number and I'll swap it in.</p>
+
+    <div class="grid">
+      <!-- 1 -->
+      <a class="card" href="mock-wallstreet.html?bg=1"><div class="swatch bg1">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2>Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">01</span>Linen — flat off-white paper</div>
+          <code>background: #f7f6f2;</code></div></a>
+
+      <!-- 2 -->
+      <a class="card" href="mock-wallstreet.html?bg=2"><div class="swatch bg2">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2>Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">02</span>Cool Mist — luminous cool gray</div>
+          <code>radial-gradient(120% 90% at 10% 10%, #ffffff 0%, #eef2f7 60%, #e3e9f1 100%)</code></div></a>
+
+      <!-- 3 -->
+      <a class="card" href="mock-wallstreet.html?bg=3"><div class="swatch bg3">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2>Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">03</span>Slate Ivory — warm ivory → cool slate</div>
+          <code>linear-gradient(135deg, #f5f1e8 0%, #eef0f4 55%, #dfe5ec 100%)</code></div></a>
+
+      <!-- 4 -->
+      <a class="card" href="mock-wallstreet.html?bg=4"><div class="swatch bg4">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2>Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">04</span>Bloomberg Paper — cream → light gold</div>
+          <code>radial-gradient(120% 100% at 0% 0%, #fbf4e3 0%, #f5ecd2 45%, #ecdfbd 100%)</code></div></a>
+
+      <!-- 5 -->
+      <a class="card" href="mock-wallstreet.html?bg=5"><div class="swatch bg5">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2>Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">05</span>Soft Sage — calm minimal green-gray</div>
+          <code>linear-gradient(140deg, #f4f6f1 0%, #e8ede4 60%, #dde4d8 100%)</code></div></a>
+
+      <!-- 6 -->
+      <a class="card" href="mock-wallstreet.html?bg=6"><div class="swatch bg6">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2>Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">06</span>Glacier — pale silver-blue, fintech</div>
+          <code>linear-gradient(160deg, #f4f8fc 0%, #e3ecf5 50%, #cfdbe8 100%)</code></div></a>
+
+      <!-- 7 -->
+      <a class="card" href="mock-wallstreet.html?bg=7"><div class="swatch bg7">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2>Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">07</span>Steel Dawn — cool blue-gray + warm hint</div>
+          <code>radial-gradient(120% 90% at 8% 10%, #fef9f3 0%, #eaeef4 35%, #ccd6e3 100%)</code></div></a>
+
+      <!-- 8 -->
+      <a class="card" href="mock-wallstreet.html?bg=8"><div class="swatch bg8 dark">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2 style="color: #fff;">Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">08</span>Midnight Navy — premium deep navy</div>
+          <code>radial-gradient(120% 90% at 12% 10%, #16284a 0%, #0e1a33 60%, #070d1f 100%)</code></div></a>
+
+      <!-- 9 -->
+      <a class="card" href="mock-wallstreet.html?bg=9"><div class="swatch bg9 dark">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2 style="color: #fff;">Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">09</span>Graphite — near-black charcoal</div>
+          <code>linear-gradient(180deg, #121417 0%, #0b0d10 100%)</code></div></a>
+
+      <!-- 10 -->
+      <a class="card" href="mock-wallstreet.html?bg=10"><div class="swatch bg10 dark">
+          <span class="pill">SUPPORTED BY · MICROSOFT</span>
+          <h2 style="color: #fff;">Wall Street works for Wall Street.<br />Not for <span class="accent">you</span>.</h2>
+          <p>Built for Modern Intelligent Investors</p>
+          <div class="btn">Get Started</div>
+        </div>
+        <div class="meta">
+          <div class="name"><span class="num">10</span>Deep Teal — distinctive dark teal-navy</div>
+          <code>radial-gradient(120% 90% at 10% 10%, #103745 0%, #0a2330 55%, #051620 100%)</code></div></a>
+    </div>
+  </body>
+</html>
