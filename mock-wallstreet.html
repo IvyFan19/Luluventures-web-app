@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Changa:wght@200..800&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -204,6 +204,226 @@
       .phone-stage {
         min-height: 640px;
       }
+
+      /* ===== AI Intelligence panel ===== */
+      .ai-panel {
+        background:
+          linear-gradient(180deg, #0c1424 0%, #060a16 100%);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.05) inset,
+          0 30px 60px -20px rgba(7, 13, 31, 0.55);
+      }
+      .ai-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 48px 48px;
+        background-position: -1px -1px;
+        pointer-events: none;
+        -webkit-mask-image: radial-gradient(80% 70% at 50% 0%, #000 0%, transparent 90%);
+        mask-image: radial-gradient(80% 70% at 50% 0%, #000 0%, transparent 90%);
+      }
+      .ai-glow {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(80px);
+        pointer-events: none;
+      }
+      .ai-glow-a {
+        width: 360px;
+        height: 360px;
+        background: radial-gradient(closest-side, rgba(124, 210, 255, 0.35), transparent);
+        top: -120px;
+        left: -80px;
+      }
+      .ai-glow-b {
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(closest-side, rgba(168, 156, 255, 0.3), transparent);
+        bottom: -160px;
+        right: -100px;
+      }
+      .ai-gradient-text {
+        background: linear-gradient(90deg, #7cd2ff 0%, #a89cff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .ai-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 13px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+      }
+      .ai-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 22px;
+        backdrop-filter: blur(8px);
+      }
+      .ai-viewport {
+        overflow: hidden;
+        position: relative;
+      }
+      .ai-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        will-change: transform;
+      }
+      .ai-slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        min-height: 520px;
+      }
+
+      /* ===== Features carousel ===== */
+      .fc-headline {
+        font-weight: 900;
+        letter-spacing: -0.035em;
+        line-height: 1.0;
+      }
+
+      .fc-arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 60, 0.08);
+        color: #0a192f;
+        box-shadow: 0 6px 16px rgba(15, 23, 60, 0.05);
+        transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+        cursor: pointer;
+      }
+      .fc-arrow:hover {
+        background: #f5f7fb;
+        transform: translateY(-1px);
+      }
+
+      .fc-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(15, 23, 60, 0.18);
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        transition: width 0.25s ease, background 0.25s ease;
+      }
+      .fc-dot.active {
+        width: 26px;
+        background: rgba(15, 23, 60, 0.55);
+      }
+      .fc-dot:hover:not(.active) {
+        background: rgba(15, 23, 60, 0.32);
+      }
+
+      .fc-stage {
+        border-radius: 32px;
+        overflow: hidden;
+      }
+      .fc-track {
+        display: flex;
+        will-change: transform;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .fc-slide {
+        width: 100%;
+        flex: 0 0 100%;
+        min-height: 520px;
+      }
+
+      /* Per-slide gradients (soft pastel) */
+      .fc-gradient-1 {
+        background: linear-gradient(135deg, #dfe7ff 0%, #e3e0f9 38%, #efe2ed 72%, #f8e6e6 100%);
+      }
+      .fc-gradient-2 {
+        background: linear-gradient(135deg, #e3f3ff 0%, #dfeeff 35%, #ecedfb 70%, #f7e7f0 100%);
+      }
+      .fc-gradient-3 {
+        background: linear-gradient(135deg, #e6fbf0 0%, #dff3f1 38%, #e6ecfb 72%, #f1e6f7 100%);
+      }
+      .fc-gradient-4 {
+        background: linear-gradient(135deg, #fff1e2 0%, #ffe7e7 38%, #f3e2f5 72%, #e2e6ff 100%);
+      }
+
+      .fc-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 7px 14px;
+        border-radius: 9999px;
+        font-size: 14px;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(36, 158, 121, 0.25);
+        color: #169a64;
+        backdrop-filter: blur(4px);
+      }
+
+      .fc-readmore {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 9999px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #0a192f;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(15, 23, 60, 0.1);
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+      .fc-readmore:hover {
+        background: #ffffff;
+        transform: translateY(-1px);
+      }
+
+      /* Carousel phone (slightly smaller than hero phone) */
+      .fc-phone {
+        width: 260px;
+        height: 540px;
+        background: #0a0a0d;
+        border-radius: 40px;
+        padding: 6px;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.08) inset,
+          0 0 0 1.5px rgba(40, 40, 50, 0.9),
+          0 30px 60px -20px rgba(15, 23, 60, 0.35),
+          0 12px 32px -16px rgba(15, 23, 60, 0.25);
+        position: relative;
+      }
+      .fc-phone-screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 34px;
+        overflow: hidden;
+        position: relative;
+        background: #ffffff;
+      }
+      .fc-phone-notch {
+        position: absolute;
+        top: 9px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 86px;
+        height: 24px;
+        background: #000;
+        border-radius: 16px;
+        z-index: 10;
+      }
     </style>
   </head>
   <body>
@@ -220,7 +440,7 @@
               height="36"
               class="object-contain"
             />
-            <span class="text-[22px] tracking-tight" style="font-family: 'Goldman', sans-serif; font-weight: 700;">
+            <span class="text-[22px] tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700;">
               <span style="color: #003085;">Deep</span><span style="color: #019dde;">Values.AI</span>
             </span>
           </a>
@@ -276,7 +496,7 @@
           </button>
 
           <a
-            href="#"
+            href="https://app.deepvalues.ai"
             class="cta-primary text-white text-[15px] font-semibold px-6 py-3 rounded-full"
           >
             Login
@@ -298,31 +518,21 @@
 
             <!-- Microsoft -->
             <span class="inline-flex items-center gap-1.5">
-              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                <rect width="6" height="6" fill="#F25022" />
-                <rect x="8" width="6" height="6" fill="#7FBA00" />
-                <rect y="8" width="6" height="6" fill="#00A4EF" />
-                <rect x="8" y="8" width="6" height="6" fill="#FFB900" />
-              </svg>
+              <img
+                src="../../../public/images/microsoft-icon.png"
+                alt="Microsoft"
+                class="h-3.5 w-auto object-contain"
+              />
               <span class="text-[14px] font-semibold text-slate-800">Microsoft</span>
             </span>
 
-            <!-- AWS -->
+            <!-- Amazon Web Services -->
             <span class="inline-flex items-center gap-1.5">
-              <svg width="28" height="13" viewBox="0 2 80 38" aria-hidden="true" class="relative top-[3px]">
-                <path
-                  fill="#252F3E"
-                  d="M22.6 17.2c0 1 .1 1.8.3 2.4.2.6.5 1.2.9 1.9.1.2.2.4.2.6 0 .2-.1.5-.4.7l-1.4 1c-.2.1-.4.2-.6.2-.2 0-.4-.1-.6-.3-.3-.3-.6-.6-.8-1-.2-.4-.5-.8-.7-1.3-1.7 2-3.9 3-6.5 3-1.9 0-3.4-.5-4.5-1.6-1.1-1.1-1.7-2.5-1.7-4.3 0-1.9.7-3.5 2-4.7s3.1-1.8 5.4-1.8c.8 0 1.6.1 2.4.2.8.1 1.7.3 2.6.5v-1.6c0-1.7-.4-2.9-1.1-3.6-.7-.7-1.9-1-3.7-1-.8 0-1.6.1-2.4.3-.8.2-1.6.4-2.4.7-.4.2-.6.3-.8.3-.1 0-.3.1-.4.1-.4 0-.5-.3-.5-.8V5.3c0-.4.1-.7.2-.9.1-.2.3-.4.7-.5.8-.4 1.7-.7 2.8-1 1.1-.3 2.3-.4 3.5-.4 2.7 0 4.7.6 5.9 1.8 1.2 1.2 1.8 3.1 1.8 5.6v7.3zm-9 3.4c.7 0 1.5-.1 2.3-.4.8-.3 1.5-.8 2.1-1.4.4-.4.6-.9.8-1.4.1-.5.2-1.2.2-2v-1c-.7-.2-1.4-.3-2.1-.4-.7-.1-1.4-.1-2.1-.1-1.5 0-2.6.3-3.3.9-.7.6-1.1 1.4-1.1 2.5 0 1 .3 1.8.8 2.3.6.7 1.4 1 2.4 1zm17.8 2.4c-.5 0-.8-.1-1-.3-.2-.2-.4-.5-.5-1L24.7 5.4c-.2-.5-.2-.8-.2-1 0-.4.2-.6.6-.6h2.2c.5 0 .8.1 1 .3.2.2.4.5.5 1l3.7 14.5L36 4.7c.1-.5.3-.8.5-1 .2-.2.6-.3 1-.3h1.8c.5 0 .8.1 1 .3.2.2.4.5.5 1l3.5 14.7L48.1 4.7c.1-.5.3-.8.5-1 .2-.2.6-.3 1-.3h2.1c.4 0 .6.2.6.6 0 .1 0 .2-.1.4 0 .2-.1.4-.2.7l-5.4 17.3c-.2.5-.3.8-.5 1-.2.2-.6.3-1 .3h-2c-.5 0-.8-.1-1-.3-.2-.2-.4-.5-.5-1l-3.4-14.3-3.4 14.2c-.1.5-.3.8-.5 1-.2.2-.6.3-1 .3h-1.9zm28.5.6c-1.2 0-2.4-.1-3.5-.4-1.1-.3-2-.6-2.6-.9-.4-.2-.6-.5-.7-.7-.1-.2-.1-.5-.1-.7v-1.3c0-.5.2-.8.6-.8.2 0 .3 0 .5.1.2.1.4.2.6.3.8.4 1.6.6 2.5.8.9.2 1.8.3 2.7.3 1.4 0 2.5-.2 3.2-.7.7-.5 1.1-1.2 1.1-2.1 0-.6-.2-1.1-.6-1.5-.4-.4-1.1-.8-2.1-1.1L60 14c-1.5-.5-2.6-1.2-3.3-2.1-.7-.9-1-2-1-3.1 0-.9.2-1.7.6-2.4.4-.7.9-1.3 1.6-1.8.7-.5 1.4-.9 2.3-1.1.9-.3 1.8-.4 2.8-.4.5 0 1 0 1.5.1.5.1 1 .2 1.4.3.4.1.9.2 1.3.4.4.1.7.3.9.4.3.2.5.3.6.5.1.2.2.4.2.7v1.2c0 .5-.2.8-.6.8-.2 0-.5-.1-.9-.3-1.3-.6-2.8-.9-4.4-.9-1.3 0-2.3.2-3 .6-.7.4-1 1.1-1 2 0 .6.2 1.1.7 1.5.4.4 1.2.8 2.3 1.1l3 .9c1.5.5 2.6 1.1 3.2 2 .7.9 1 1.9 1 3 0 .9-.2 1.8-.6 2.5-.4.7-.9 1.4-1.6 1.9-.7.5-1.5.9-2.5 1.2-1 .3-2.1.4-3.3.4z"
-                />
-                <path
-                  fill="#FF9900"
-                  d="M72.1 30.5C64.4 36.2 53.2 39.2 43.6 39.2c-13.5 0-25.6-5-34.8-13.3-.7-.7 0-1.5.8-1 9.9 5.8 22.1 9.2 34.8 9.2 8.6 0 18-1.8 26.7-5.5 1.3-.5 2.4 1 1 1.9z"
-                />
-                <path
-                  fill="#FF9900"
-                  d="M75.3 26.9c-1-1.3-6.5-.6-9-.3-.8.1-.9-.6-.2-1 4.4-3.1 11.7-2.2 12.5-1.2.8 1.1-.2 8.4-4.4 11.9-.6.5-1.2.2-.9-.4.9-2.1 2.9-7 1.9-9z"
-                />
-              </svg>
+              <img
+                src="../../../public/images/aws-con.webp"
+                alt="Amazon"
+                class="h-5 w-auto object-contain"
+              />
               <span class="text-[14px] font-semibold text-slate-800">Amazon</span>
             </span>
           </div>
@@ -340,13 +550,14 @@
 
           <!-- Subtitle -->
           <p class="mt-7 text-[18px] sm:text-[19px] leading-[1.55] text-slate-600 max-w-[520px]">
-            Built for Modern Intelligent Investors
+            Deep Values is an AI-native financial assistant that works only for you —
+            bringing the power of institutional-grade stock analysis to individual investors.
           </p>
 
           <!-- CTAs -->
           <div class="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href="#"
+              href="https://app.deepvalues.ai"
               class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full"
               >Get Started</a
             >
@@ -395,147 +606,176 @@
                   </span>
                 </div>
 
-                <!-- URL bar -->
-                <div class="absolute top-12 left-0 right-0 px-3 flex items-center gap-2">
-                  <div
-                    class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center"
-                  >
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path
-                        d="M2 2l6 6M8 2l-6 6"
-                        stroke="#fff"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="flex-1 h-7 rounded-full bg-white/10 flex items-center justify-center text-[11px] text-white/80"
-                  >
-                    api.luluvalue.io
-                  </div>
-                  <div
-                    class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center"
-                  >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <rect
-                        x="1.5"
-                        y="1.5"
-                        width="9"
-                        height="9"
-                        rx="1.5"
-                        stroke="#fff"
-                        stroke-width="1.2"
-                      />
-                      <path d="M3.5 4.5h5M3.5 7.5h3" stroke="#fff" stroke-width="1.2" />
-                    </svg>
-                  </div>
+                <!-- Statement tabs -->
+                <div class="absolute left-3 right-3 top-[46px] flex items-end gap-4 text-[12px] border-b border-white/10 pb-1.5">
+                  <span class="font-bold text-white relative">Income<span class="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white"></span></span>
+                  <span class="text-white/45">Cash Flow</span>
+                  <span class="text-white/45">Balance Sheet</span>
                 </div>
 
-                <!-- Checkout card -->
-                <div class="absolute left-3 right-3 top-[120px] pop-card p-4">
-                  <div class="flex items-center justify-between">
-                    <span class="text-[10px] font-bold tracking-[1.5px] text-white/50"
-                      >RESEARCH</span
-                    >
-                    <span class="text-white/40 text-xs">×</span>
-                  </div>
-                  <p class="mt-2 text-[15px] font-semibold leading-snug text-white">
-                    Deep Value Analysis (Monthly)
-                  </p>
-                  <p class="mt-2 text-[28px] font-extrabold text-white">
-                    $9.99 <span class="text-[13px] font-medium text-white/60">/mo</span>
-                  </p>
-
-                  <div class="mt-3 grid grid-cols-2 gap-2">
-                    <button
-                      class="bg-white text-black rounded-xl py-2 text-[13px] font-semibold flex items-center justify-center gap-1.5"
-                    >
-                      <svg width="13" height="14" viewBox="0 0 13 14" fill="none">
-                        <path
-                          d="M9.3 2.2c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2 .8.1 1.5-.3 2-.9zM10.6 8c0-1.6 1.3-2.4 1.4-2.5-.8-1.1-1.9-1.3-2.4-1.3-1-.1-1.9.6-2.4.6s-1.3-.6-2.1-.6c-1.1 0-2 .6-2.6 1.6-1.1 1.9-.3 4.7.8 6.3.5.7 1.2 1.6 2 1.5.8 0 1.1-.5 2.1-.5s1.3.5 2.1.5c.9 0 1.5-.8 2-1.5.6-.8.9-1.7.9-1.7-1-.4-1.8-1.2-1.8-2.4z"
-                          fill="#000"
-                        />
-                      </svg>
-                      Pay
-                    </button>
-                    <button
-                      class="bg-brand-500 text-white rounded-xl py-2 text-[13px] font-semibold flex items-center justify-center gap-1.5"
-                    >
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <circle cx="7" cy="7" r="6" fill="white" />
-                        <path d="M5.5 4.5l4 2.5-4 2.5v-5z" fill="#0F85FF" />
-                      </svg>
-                      link
-                    </button>
+                <!-- Chart card -->
+                <div class="absolute left-3 right-3 top-[82px] rounded-2xl p-2.5" style="background: #1c1d20;">
+                  <!-- Range tabs -->
+                  <div class="flex items-center justify-between text-[10px]">
+                    <div class="flex gap-3">
+                      <span class="font-bold text-white relative pb-0.5">5Y<span class="absolute -bottom-0 left-0 w-3 h-[1.5px] bg-white"></span></span>
+                      <span class="text-white/45">ALL</span>
+                    </div>
+                    <div class="flex gap-3">
+                      <span class="text-white/45">Quarterly</span>
+                      <span class="font-bold text-white relative pb-0.5">Yearly<span class="absolute -bottom-0 left-0 right-0 h-[1.5px] bg-white"></span></span>
+                    </div>
                   </div>
 
-                  <div class="mt-3 flex items-center gap-2">
-                    <span class="flex-1 h-px bg-white/15"></span>
-                    <span class="text-[10px] text-white/40 font-semibold tracking-widest"
-                      >OR</span
-                    >
-                    <span class="flex-1 h-px bg-white/15"></span>
-                  </div>
-
-                  <div
-                    class="mt-3 flex items-center justify-between bg-white/[0.06] rounded-xl px-3 py-2.5"
-                  >
-                    <span class="flex items-center gap-2 text-[12px] text-white/80">
-                      <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                        <rect
-                          x="1"
-                          y="1.5"
-                          width="14"
-                          height="9"
-                          rx="1.5"
-                          stroke="#fff"
-                          stroke-opacity="0.6"
-                          stroke-width="1"
-                        />
-                        <rect x="1" y="3.5" width="14" height="1.5" fill="#fff" fill-opacity="0.6" />
-                      </svg>
-                      Credit or Debit Card
+                  <!-- Legend -->
+                  <div class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[8px] text-white/75 leading-tight">
+                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#8b7ee8;"></span>Revenue</span>
+                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#22d3ee;"></span>Net Income</span>
+                    <span class="flex items-center gap-1">
+                      <svg width="10" height="6" viewBox="0 0 10 6"><line x1="0" y1="3" x2="10" y2="3" stroke="#f59e0b" stroke-width="1.4"/><circle cx="5" cy="3" r="1.4" fill="#f59e0b"/></svg>
+                      Net Margin
                     </span>
-                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
-                      <path d="M2 2l4 4-4 4" stroke="#fff" stroke-opacity="0.5" stroke-width="1.4" />
-                    </svg>
+                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#34d399;"></span>FCF</span>
+                    <span class="flex items-center gap-1">
+                      <svg width="10" height="6" viewBox="0 0 10 6"><line x1="0" y1="3" x2="10" y2="3" stroke="#ec4899" stroke-width="1.4"/><circle cx="5" cy="3" r="1.4" fill="#ec4899"/></svg>
+                      FCF Margin
+                    </span>
                   </div>
 
-                  <div
-                    class="mt-3 flex items-center justify-center gap-1 text-[10px] text-white/40"
-                  >
-                    <svg width="9" height="11" viewBox="0 0 9 11" fill="none">
-                      <rect x="1" y="5" width="7" height="5" rx="1" stroke="#fff" stroke-opacity="0.5" />
-                      <path
-                        d="M2.5 5V3a2 2 0 0 1 4 0v2"
-                        stroke="#fff"
-                        stroke-opacity="0.5"
-                      />
-                    </svg>
-                    Secured by Stripe
+                  <!-- Chart SVG -->
+                  <svg viewBox="0 0 240 150" class="mt-2 w-full" preserveAspectRatio="none">
+                    <!-- Grid lines -->
+                    <line x1="22" y1="20"  x2="218" y2="20"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+                    <line x1="22" y1="55"  x2="218" y2="55"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+                    <line x1="22" y1="90"  x2="218" y2="90"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+                    <line x1="22" y1="125" x2="218" y2="125" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+
+                    <!-- Y-axis left labels -->
+                    <text x="0" y="22"  font-size="7" fill="#9ca3af">$435B</text>
+                    <text x="0" y="57"  font-size="7" fill="#9ca3af">$300B</text>
+                    <text x="0" y="92"  font-size="7" fill="#9ca3af">$150B</text>
+                    <text x="0" y="127" font-size="7" fill="#9ca3af">$0</text>
+                    <!-- Y-axis right labels -->
+                    <text x="220" y="22"  font-size="7" fill="#9ca3af">35%</text>
+                    <text x="220" y="48"  font-size="7" fill="#9ca3af">27%</text>
+                    <text x="220" y="86"  font-size="7" fill="#9ca3af">18%</text>
+                    <text x="220" y="111" font-size="7" fill="#9ca3af">9%</text>
+                    <text x="220" y="127" font-size="7" fill="#9ca3af">0%</text>
+
+                    <!-- Bars: 5 periods × 3 series. baseline y=125 -->
+                    <!-- '22 -->
+                    <rect x="32"  y="63"  width="6" height="62" fill="#8b7ee8" rx="1"/>
+                    <rect x="39"  y="111" width="6" height="14" fill="#22d3ee" rx="1"/>
+                    <rect x="46"  y="111" width="6" height="14" fill="#34d399" rx="1"/>
+                    <!-- '23 -->
+                    <rect x="71"  y="51"  width="6" height="74" fill="#8b7ee8" rx="1"/>
+                    <rect x="78"  y="106" width="6" height="19" fill="#22d3ee" rx="1"/>
+                    <rect x="85"  y="109" width="6" height="16" fill="#34d399" rx="1"/>
+                    <!-- '24 -->
+                    <rect x="110" y="37"  width="6" height="88" fill="#8b7ee8" rx="1"/>
+                    <rect x="117" y="102" width="6" height="23" fill="#22d3ee" rx="1"/>
+                    <rect x="124" y="108" width="6" height="17" fill="#34d399" rx="1"/>
+                    <!-- '25 -->
+                    <rect x="149" y="25"  width="6" height="100" fill="#8b7ee8" rx="1"/>
+                    <rect x="156" y="94"  width="6" height="31" fill="#22d3ee" rx="1"/>
+                    <rect x="163" y="108" width="6" height="17" fill="#34d399" rx="1"/>
+                    <!-- TTM -->
+                    <rect x="188" y="26"  width="6" height="99" fill="#8b7ee8" rx="1"/>
+                    <rect x="195" y="95"  width="6" height="30" fill="#22d3ee" rx="1"/>
+                    <rect x="202" y="111" width="6" height="14" fill="#34d399" rx="1"/>
+
+                    <!-- Net margin line (orange) -->
+                    <polyline points="41,76 80,57 119,40 158,29 197,30" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-linejoin="round"/>
+                    <g fill="#1c1d20" stroke="#f59e0b" stroke-width="1.4">
+                      <circle cx="41"  cy="76" r="2.2"/>
+                      <circle cx="80"  cy="57" r="2.2"/>
+                      <circle cx="119" cy="40" r="2.2"/>
+                      <circle cx="158" cy="29" r="2.2"/>
+                      <circle cx="197" cy="30" r="2.2"/>
+                    </g>
+
+                    <!-- FCF margin line (pink) -->
+                    <polyline points="41,78 80,75 119,80 158,86 197,90" fill="none" stroke="#ec4899" stroke-width="1.6" stroke-linejoin="round"/>
+                    <g fill="#1c1d20" stroke="#ec4899" stroke-width="1.4">
+                      <circle cx="41"  cy="78" r="2.2"/>
+                      <circle cx="80"  cy="75" r="2.2"/>
+                      <circle cx="119" cy="80" r="2.2"/>
+                      <circle cx="158" cy="86" r="2.2"/>
+                      <circle cx="197" cy="90" r="2.2"/>
+                    </g>
+
+                    <!-- X-axis labels -->
+                    <text x="34"  y="142" font-size="7" fill="#9ca3af">'22</text>
+                    <text x="73"  y="142" font-size="7" fill="#9ca3af">'23</text>
+                    <text x="112" y="142" font-size="7" fill="#9ca3af">'24</text>
+                    <text x="151" y="142" font-size="7" fill="#9ca3af">'25</text>
+                    <text x="188" y="142" font-size="7" fill="#9ca3af">TTM</text>
+                  </svg>
+                </div>
+
+                <!-- Metric chips -->
+                <div class="absolute left-3 right-3 top-[330px] flex flex-wrap gap-1">
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#241f4a; color:#a89cff;">Revenue</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#0e3a44; color:#5ee0f0;">Net Income</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#3a2a10; color:#f5b14b;">Net Margin</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#10301f; color:#5fdfa6;">Free Cash Flow</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#3a1428; color:#f06bb0;">FCF Margin</span>
+                </div>
+
+                <!-- Intrinsic Value title -->
+                <p class="absolute left-3 right-3 top-[368px] text-[13px] font-extrabold text-white">
+                  Intrinsic Value Calculator
+                </p>
+
+                <!-- Method tabs -->
+                <div class="absolute left-3 right-3 top-[392px] flex items-center gap-3 text-[10px] border-b border-white/10 pb-1.5">
+                  <span class="font-bold text-white relative">Cash Flow<span class="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white"></span></span>
+                  <span class="text-white/45">Buffett</span>
+                  <span class="text-white/45">Damodaran</span>
+                </div>
+
+                <!-- Valuation slider -->
+                <div class="absolute left-3 right-3 top-[428px]">
+                  <div class="relative h-3 rounded-full" style="background: linear-gradient(90deg, #2bd17e 0%, #f5d04a 50%, #ef4444 100%);">
+                    <!-- Cash Flow marker (~35%) -->
+                    <div class="absolute -top-1.5" style="left: 32%;">
+                      <div class="w-1 h-6 bg-white rounded-full"></div>
+                    </div>
+                    <!-- Current price marker (right end) -->
+                    <div class="absolute -top-1.5" style="right: 0;">
+                      <div class="w-1 h-6 bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                  <!-- $135 callout above the cash flow marker -->
+                  <div class="absolute -top-9 rounded-lg px-2 py-1 border border-white/15" style="left: 18%; background:#1c1d20;">
+                    <p class="text-[10px] font-extrabold text-white leading-none">$135</p>
+                    <p class="text-[7px] text-white/55 leading-none mt-0.5">Cash Flow Method</p>
+                  </div>
+                  <!-- $401 callout above the current price marker -->
+                  <div class="absolute -top-9 rounded-lg px-2 py-1 border" style="right: -4px; background:#1c1d20; border-color:#ef4444;">
+                    <p class="text-[10px] font-extrabold leading-none" style="color:#ef4444;">$401</p>
+                    <p class="text-[7px] leading-none mt-0.5" style="color:#ef4444;">Current Price</p>
+                  </div>
+                  <!-- Conservative / Optimistic labels -->
+                  <div class="mt-2 flex items-center justify-between text-[8px]">
+                    <div>
+                      <p class="font-bold leading-none" style="color:#2bd17e;">$73</p>
+                      <p class="leading-none mt-0.5" style="color:#2bd17e;">Conservative</p>
+                    </div>
+                    <div style="margin-left: 28%;">
+                      <p class="font-bold leading-none" style="color:#e4b800;">$284</p>
+                      <p class="leading-none mt-0.5" style="color:#e4b800;">Optimistic</p>
+                    </div>
                   </div>
                 </div>
 
-                <!-- bottom controls -->
-                <div class="absolute bottom-4 left-0 right-0 flex justify-between px-4">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M9 4l-4 3 4 3V4z"
-                      fill="#fff"
-                      fill-opacity="0.7"
-                    />
-                  </svg>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M11 7c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4"
-                      stroke="#fff"
-                      stroke-opacity="0.7"
-                      stroke-width="1.2"
-                      stroke-linecap="round"
-                    />
-                    <path d="M10 1l1.5 1.5L10 4" stroke="#fff" stroke-opacity="0.7" stroke-width="1.2" stroke-linecap="round" />
-                  </svg>
+                <!-- How we estimated it -->
+                <div class="absolute left-3 right-3 top-[504px] border-t border-white/10 pt-2">
+                  <p class="text-[8px] font-bold tracking-[1px] text-white/55">HOW WE ESTIMATED IT</p>
+                  <div class="mt-1 flex items-start justify-between gap-2">
+                    <p class="text-[8px] text-white/60 leading-tight">Open to see the detailed calculation steps for the current method.</p>
+                    <span class="text-white/55 text-[12px] leading-none">+</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -578,187 +818,212 @@
                   </span>
                 </div>
 
-                <!-- back arrow -->
-                <button
-                  class="absolute top-12 left-4 w-8 h-8 flex items-center justify-center"
-                >
-                  <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
-                    <path
-                      d="M8 1L1 8l7 7"
-                      stroke="#0A192F"
-                      stroke-width="1.6"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-
-                <!-- header circle -->
-                <div class="absolute left-0 right-0 top-[60px] flex flex-col items-center">
-                  <div
-                    class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center"
-                  >
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path
-                        d="M5 8a5 5 0 0 1 9-3M15 12a5 5 0 0 1-9 3"
-                        stroke="#fff"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M14 3v3h-3M6 17v-3h3"
-                        stroke="#fff"
-                        stroke-width="1.8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  <h3 class="mt-2 text-[18px] font-extrabold text-slate-900">
-                    Switch &amp; Save
-                  </h3>
-                  <p class="text-[11px] text-slate-500 mt-0.5">
-                    Same premium features, lower price
-                  </p>
+                <!-- Watchlist header -->
+                <div class="absolute left-4 right-4 top-[52px]">
+                  <h3 class="text-[22px] font-extrabold text-slate-900">Watchlist</h3>
                 </div>
 
-                <!-- Plan cards -->
-                <div class="absolute left-3 right-3 top-[160px]">
-                  <div class="bg-white rounded-2xl border border-slate-100 p-3 shadow-sm">
-                    <div class="flex items-center gap-2">
-                      <div class="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                          <path
-                            d="M9.3 2.2c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2 .8.1 1.5-.3 2-.9zM10.6 8c0-1.6 1.3-2.4 1.4-2.5-.8-1.1-1.9-1.3-2.4-1.3-1-.1-1.9.6-2.4.6s-1.3-.6-2.1-.6c-1.1 0-2 .6-2.6 1.6-1.1 1.9-.3 4.7.8 6.3.5.7 1.2 1.6 2 1.5.8 0 1.1-.5 2.1-.5s1.3.5 2.1.5c.9 0 1.5-.8 2-1.5.6-.8.9-1.7.9-1.7-1-.4-1.8-1.2-1.8-2.4z"
-                            fill="#0A192F"
-                          />
-                        </svg>
-                      </div>
-                      <div class="flex-1">
-                        <p class="text-[10px] text-slate-500">Current Plan</p>
-                        <p class="text-[12px] font-semibold">Premium Monthly</p>
-                      </div>
-                      <p class="text-[13px] font-bold">$19.99/mo</p>
-                    </div>
-                  </div>
-
-                  <div class="flex justify-center my-1">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path
-                        d="M7 2v10M3 8l4 4 4-4"
-                        stroke="#94A3B8"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
+                <!-- Search bar -->
+                <div class="absolute left-4 right-4 top-[96px]">
+                  <div class="bg-slate-100 rounded-full px-3 py-2 flex items-center gap-2">
+                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                      <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.5" />
+                      <path d="M11 11l3 3" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" />
                     </svg>
+                    <span class="text-[10px] text-slate-400">Search stocks to add or delete</span>
                   </div>
+                </div>
 
-                  <div
-                    class="bg-white rounded-2xl border-2 border-brand-500/40 p-3 shadow-sm"
-                  >
-                    <div class="flex items-center gap-2">
-                      <div
-                        class="w-7 h-7 rounded-lg bg-brand-50 flex items-center justify-center"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                          <rect
-                            x="1.5"
-                            y="3"
-                            width="11"
-                            height="8"
-                            rx="1.5"
-                            stroke="#0F85FF"
-                            stroke-width="1.4"
-                          />
-                          <path d="M1.5 6h11" stroke="#0F85FF" stroke-width="1.4" />
-                        </svg>
+                <!-- Stock list -->
+                <div class="absolute left-4 right-4 top-[136px] space-y-2.5">
+                  <!-- AAPL -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AAPL</p>
+                      <p class="text-[9px] text-slate-400">Apple Inc.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">36.1</p>
                       </div>
-                      <div class="flex-1">
-                        <p class="text-[10px] text-brand-600 font-semibold">Direct Billing</p>
-                        <p class="text-[12px] font-semibold">Premium Monthly</p>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">171.4%</p>
                       </div>
-                      <div class="text-right">
-                        <p class="text-[13px] font-bold text-brand-600">$13.99/mo</p>
-                        <p class="text-[9px] text-emerald-600 font-semibold">Save 30%</p>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">83.2%</p>
                       </div>
                     </div>
                   </div>
 
-                  <div
-                    class="mt-2 bg-brand-50 border border-brand-100 rounded-xl px-3 py-2 flex items-center gap-2"
-                  >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path
-                        d="M6 1l1.5 3.2 3.5.5-2.5 2.4.6 3.4L6 8.9l-3.1 1.6.6-3.4L1 4.7l3.5-.5L6 1z"
-                        fill="#0F85FF"
-                      />
-                    </svg>
-                    <p class="text-[10px] text-slate-700 leading-tight">
-                      <span class="font-bold">Save $72/yr</span> — that's $6 back in your
-                      pocket every month
-                    </p>
+                  <!-- MSFT -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">MSFT</p>
+                      <p class="text-[9px] text-slate-400">MICROSOFT...</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">24.3</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">33.3%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">32.4%</p>
+                      </div>
+                    </div>
                   </div>
 
-                  <!-- How it works -->
-                  <div class="mt-2">
-                    <p class="text-[11px] font-bold text-slate-700 mb-1">How it works</p>
-                    <ol class="space-y-1 text-[10px] text-slate-600 leading-tight">
-                      <li class="flex items-start gap-1.5">
-                        <span
-                          class="w-3.5 h-3.5 rounded-full bg-brand-500 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5"
-                          >1</span
-                        >
-                        <span><b class="text-slate-800">Set up direct billing</b><br />Pay securely with card or Apple Pay.</span>
-                      </li>
-                      <li class="flex items-start gap-1.5">
-                        <span
-                          class="w-3.5 h-3.5 rounded-full bg-brand-500 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5"
-                          >2</span
-                        >
-                        <span><b class="text-slate-800">Cancel App Store billing</b><br />We'll link you to your subscription settings.</span>
-                      </li>
-                      <li class="flex items-start gap-1.5">
-                        <span
-                          class="w-3.5 h-3.5 rounded-full bg-brand-500 text-white text-[8px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5"
-                          >3</span
-                        >
-                        <span><b class="text-slate-800">Enjoy your savings</b><br />Your premium access continues uninterrupted.</span>
-                      </li>
-                    </ol>
+                  <!-- GOOGL -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">GOOGL</p>
+                      <p class="text-[9px] text-slate-400">Alphabet Inc.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">30.6</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">35.7%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">27.3%</p>
+                      </div>
+                    </div>
                   </div>
 
-                  <button
-                    class="mt-2 w-full bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-xl py-2 text-[12px] font-bold"
-                  >
-                    Switch &amp; Save $6.00/mo
-                  </button>
+                  <!-- AMZN -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AMZN</p>
+                      <p class="text-[9px] text-slate-400">AMAZON INC</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">32.1</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">22.3%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">18.5%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- JNJ -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">JNJ</p>
+                      <p class="text-[9px] text-slate-400">Johnson &amp; J.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">26.6</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">35.0%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">25.3%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- V -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">V</p>
+                      <p class="text-[9px] text-slate-400">VISA INC.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">32.6</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">52.1%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">42.3%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- WMT -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">WMT</p>
+                      <p class="text-[9px] text-slate-400">Walmart Inc.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-rose-500">48.5</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">23.0%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">17.8%</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- bottom tab bar -->
                 <div
-                  class="absolute bottom-0 left-0 right-0 h-14 bg-white border-t border-slate-100 flex items-center justify-around"
+                  class="absolute bottom-0 left-0 right-0 h-14 bg-white border-t border-slate-100 flex items-center justify-around px-2"
                 >
-                  <div class="flex flex-col items-center text-brand-600">
+                  <div class="flex flex-col items-center gap-0.5" style="color: #0e85ff;">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <path
-                        d="M2 7l7-5 7 5v8a1 1 0 0 1-1 1h-3v-5H6v5H3a1 1 0 0 1-1-1V7z"
-                        fill="currentColor"
-                      />
+                      <path d="M3 14V8M8 14V4M13 14V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
                     </svg>
-                    <span class="text-[9px] font-semibold">Home</span>
+                    <span class="text-[9px] font-semibold">Values</span>
                   </div>
-                  <div class="flex flex-col items-center text-slate-400">
+                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.4" />
-                      <path
-                        d="M9 1v2M9 15v2M1 9h2M15 9h2M3.5 3.5l1.4 1.4M13.1 13.1l1.4 1.4M3.5 14.5l1.4-1.4M13.1 4.9l1.4-1.4"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                      />
+                      <rect x="3" y="5" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                      <circle cx="7" cy="9" r="0.9" fill="currentColor" />
+                      <circle cx="11" cy="9" r="0.9" fill="currentColor" />
+                      <path d="M9 2v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      <circle cx="9" cy="2" r="0.8" fill="currentColor" />
                     </svg>
-                    <span class="text-[9px]">Settings</span>
+                    <span class="text-[9px]">Intelligence</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M3 4h12v8H7l-4 3V4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    <span class="text-[9px]">Feedback</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.5" />
+                      <circle cx="9" cy="7.5" r="2" stroke="currentColor" stroke-width="1.5" />
+                      <path d="M4.5 14.5c1-1.8 2.7-2.8 4.5-2.8s3.5 1 4.5 2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span class="text-[9px]">Me</span>
                   </div>
                 </div>
               </div>
@@ -768,7 +1033,7 @@
       </div>
 
       <!-- scroll cue -->
-      <div class="flex justify-center mt-8 pb-12">
+      <div class="flex justify-center mt-8">
         <div class="scroll-cue text-slate-500">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <path
@@ -782,10 +1047,1215 @@
         </div>
       </div>
     </main>
+
+    <!-- ==================== FEATURES CAROUSEL ==================== -->
+    <section class="mt-24 lg:mt-32 pb-24" aria-label="Product features">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <!-- Heading -->
+        <div class="text-center">
+          <h2 class="fc-headline text-[44px] sm:text-[56px] lg:text-[64px] text-slate-900">
+            Built for Modern Intelligent Investors
+          </h2>
+          <p
+            class="mt-6 max-w-[620px] mx-auto text-[18px] sm:text-[19px] leading-[1.55] text-slate-500"
+          >
+            What if you could invest alongside Buffett, Munger, and Lynch? Deep Values
+            distills their playbooks into intrinsic-value calculators, moat watchlists,
+            and interactive fundamental analysis — all in a single workflow.
+          </p>
+
+          <!-- Controls -->
+          <div class="mt-8 flex items-center justify-center gap-5">
+            <button id="fcPrev" class="fc-arrow" aria-label="Previous feature">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M9 3L5 7L9 11"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div id="fcDots" class="flex items-center gap-2" role="tablist">
+              <button class="fc-dot active" data-index="0" aria-label="Slide 1"></button>
+              <button class="fc-dot" data-index="1" aria-label="Slide 2"></button>
+              <button class="fc-dot" data-index="2" aria-label="Slide 3"></button>
+            </div>
+            <button id="fcNext" class="fc-arrow" aria-label="Next feature">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M5 3L9 7L5 11"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Stage -->
+        <div class="fc-stage mt-12 relative">
+          <div id="fcTrack" class="fc-track">
+            <!-- ===== SLIDE 1: Intrinsic Value ===== -->
+            <article class="fc-slide fc-gradient-1">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <!-- Phone -->
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#0a0a0d; color:#fff;">
+                      <!-- header -->
+                      <div class="absolute left-0 right-0 top-[44px] px-5">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">DEEP VALUE</p>
+                        <p class="mt-1 text-[20px] font-extrabold text-white">Intrinsic Value</p>
+                      </div>
+                      <!-- method tabs -->
+                      <div
+                        class="absolute left-5 right-5 top-[112px] flex items-center gap-4 text-[11px] border-b border-white/10 pb-2"
+                      >
+                        <span class="font-bold text-white relative"
+                          >Cash Flow<span
+                            class="absolute -bottom-2 left-0 right-0 h-[2px] bg-white"
+                          ></span
+                        ></span>
+                        <span class="text-white/45">Buffett</span>
+                        <span class="text-white/45">Damodaran</span>
+                      </div>
+                      <!-- valuation slider -->
+                      <div class="absolute left-5 right-5 top-[170px]">
+                        <div
+                          class="relative h-3 rounded-full"
+                          style="background: linear-gradient(90deg, #2bd17e 0%, #f5d04a 50%, #ef4444 100%);"
+                        >
+                          <div class="absolute -top-1.5" style="left: 30%;">
+                            <div class="w-1 h-6 bg-white rounded-full"></div>
+                          </div>
+                          <div class="absolute -top-1.5" style="right: 0;">
+                            <div class="w-1 h-6 bg-white rounded-full"></div>
+                          </div>
+                        </div>
+                        <div
+                          class="absolute -top-10 rounded-lg px-2 py-1 border border-white/15"
+                          style="left: 14%; background: #1c1d20;"
+                        >
+                          <p class="text-[11px] font-extrabold text-white leading-none">$135</p>
+                          <p class="text-[8px] text-white/55 leading-none mt-0.5">Fair Value</p>
+                        </div>
+                        <div
+                          class="absolute -top-10 rounded-lg px-2 py-1 border"
+                          style="right: -4px; background: #1c1d20; border-color: #ef4444;"
+                        >
+                          <p class="text-[11px] font-extrabold leading-none" style="color: #ef4444;">$401</p>
+                          <p class="text-[8px] leading-none mt-0.5" style="color: #ef4444;">Current</p>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-[9px]">
+                          <div>
+                            <p class="font-bold leading-none" style="color: #2bd17e;">$73</p>
+                            <p class="leading-none mt-0.5" style="color: #2bd17e;">Conservative</p>
+                          </div>
+                          <div style="margin-left: 28%;">
+                            <p class="font-bold leading-none" style="color: #e4b800;">$284</p>
+                            <p class="leading-none mt-0.5" style="color: #e4b800;">Optimistic</p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- summary cards -->
+                      <div class="absolute left-5 right-5 top-[270px] space-y-2">
+                        <div
+                          class="rounded-2xl p-3 flex items-center justify-between"
+                          style="background: #15171b;"
+                        >
+                          <div>
+                            <p class="text-[9px] text-white/55 leading-none">DCF Estimate</p>
+                            <p class="mt-1 text-[16px] font-extrabold text-white">$135.20</p>
+                          </div>
+                          <span
+                            class="text-[10px] font-bold rounded-md px-2 py-1"
+                            style="background: #10301f; color: #5fdfa6;"
+                            >−66%</span
+                          >
+                        </div>
+                        <div
+                          class="rounded-2xl p-3 flex items-center justify-between"
+                          style="background: #15171b;"
+                        >
+                          <div>
+                            <p class="text-[9px] text-white/55 leading-none">Owner Earnings</p>
+                            <p class="mt-1 text-[16px] font-extrabold text-white">$148.70</p>
+                          </div>
+                          <span
+                            class="text-[10px] font-bold rounded-md px-2 py-1"
+                            style="background: #10301f; color: #5fdfa6;"
+                            >−63%</span
+                          >
+                        </div>
+                        <div
+                          class="rounded-2xl p-3 flex items-center justify-between"
+                          style="background: #15171b;"
+                        >
+                          <div>
+                            <p class="text-[9px] text-white/55 leading-none">Damodaran Method</p>
+                            <p class="mt-1 text-[16px] font-extrabold text-white">$162.40</p>
+                          </div>
+                          <span
+                            class="text-[10px] font-bold rounded-md px-2 py-1"
+                            style="background: #10301f; color: #5fdfa6;"
+                            >−60%</span
+                          >
+                        </div>
+                      </div>
+                      <!-- footnote -->
+                      <div class="absolute left-5 right-5 bottom-5 border-t border-white/10 pt-2">
+                        <p class="text-[8px] font-bold tracking-[1px] text-white/55">HOW WE ESTIMATED IT</p>
+                        <p class="text-[8px] text-white/55 mt-1 leading-tight">
+                          Three independent models cross-checked with peer benchmarks.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Copy -->
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Intrinsic Value Calculator
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill"
+                      >Accuracy
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="fc-pill"
+                      >Conviction
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="fc-pill"
+                      >Edge
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <p
+                    class="mt-6 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0"
+                  >
+                    Run DCF, Owner Earnings, and Damodaran valuations side-by-side.
+                    Cross-checked against peer benchmarks so you know what a business is
+                    really worth — not just what the market says.
+                  </p>
+                  <a href="#" class="fc-readmore mt-7">
+                    Read the Docs
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path
+                        d="M3 7H11M11 7L7 3M11 7L7 11"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- ===== SLIDE 2: Moat Watchlists ===== -->
+            <article class="fc-slide fc-gradient-2">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#f3f7f4; color:#0a192f;">
+                      <div class="absolute left-4 right-4 top-[48px]">
+                        <h4 class="text-[22px] font-extrabold text-slate-900">Watchlist</h4>
+                      </div>
+                      <!-- search -->
+                      <div class="absolute left-4 right-4 top-[88px]">
+                        <div class="bg-white rounded-full px-3 py-2 flex items-center gap-2 border border-slate-100">
+                          <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                            <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.5" />
+                            <path d="M11 11l3 3" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" />
+                          </svg>
+                          <span class="text-[10px] text-slate-400">Search to add stocks</span>
+                        </div>
+                      </div>
+                      <!-- list -->
+                      <div class="absolute left-4 right-4 top-[128px] space-y-2.5">
+                        <!-- AAPL -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AAPL</p>
+                            <p class="text-[9px] text-slate-400">Apple Inc.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">36.1</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">171%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">83.2%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- MSFT -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">MSFT</p>
+                            <p class="text-[9px] text-slate-400">Microsoft</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">24.3</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">33.3%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">32.4%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- GOOGL -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">GOOGL</p>
+                            <p class="text-[9px] text-slate-400">Alphabet Inc.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">30.6</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">35.7%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">27.3%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- V -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">V</p>
+                            <p class="text-[9px] text-slate-400">Visa Inc.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">32.6</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">52.1%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">42.3%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- JNJ -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">JNJ</p>
+                            <p class="text-[9px] text-slate-400">Johnson & J.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">26.6</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">35.0%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">25.3%</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Moat Watchlists
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill"
+                      >Coverage
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="fc-pill"
+                      >Clarity
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="fc-pill"
+                      >Speed
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <p
+                    class="mt-6 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0"
+                  >
+                    Track P/E, ROE, and ROIC for every name you follow. Color-coded so
+                    quality stands out at a glance — and so the businesses you should
+                    skip do too.
+                  </p>
+                  <a href="#" class="fc-readmore mt-7">
+                    Read the Docs
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path
+                        d="M3 7H11M11 7L7 3M11 7L7 11"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- ===== SLIDE 3: Financial Deep Dive ===== -->
+            <article class="fc-slide fc-gradient-3">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#0a0a0d; color:#fff;">
+                      <div
+                        class="absolute left-4 right-4 top-[44px] flex items-end gap-4 text-[12px] border-b border-white/10 pb-2"
+                      >
+                        <span class="font-bold text-white relative"
+                          >Income<span
+                            class="absolute -bottom-2 left-0 right-0 h-[2px] bg-white"
+                          ></span
+                        ></span>
+                        <span class="text-white/45">Cash Flow</span>
+                        <span class="text-white/45">Balance Sheet</span>
+                      </div>
+                      <div
+                        class="absolute left-4 right-4 top-[90px] rounded-2xl p-3"
+                        style="background: #1c1d20;"
+                      >
+                        <div class="flex items-center justify-between text-[10px]">
+                          <div class="flex gap-3">
+                            <span class="font-bold text-white relative pb-0.5"
+                              >5Y<span class="absolute -bottom-0 left-0 w-3 h-[1.5px] bg-white"></span
+                            ></span>
+                            <span class="text-white/45">ALL</span>
+                          </div>
+                          <div class="flex gap-3">
+                            <span class="text-white/45">Quarterly</span>
+                            <span class="font-bold text-white relative pb-0.5"
+                              >Yearly<span class="absolute -bottom-0 left-0 right-0 h-[1.5px] bg-white"></span
+                            ></span>
+                          </div>
+                        </div>
+                        <div
+                          class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[8px] text-white/75 leading-tight"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #8b7ee8;"></span>Revenue</span
+                          >
+                          <span class="flex items-center gap-1"
+                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #22d3ee;"></span>Net Income</span
+                          >
+                          <span class="flex items-center gap-1"
+                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #34d399;"></span>FCF</span
+                          >
+                        </div>
+                        <svg viewBox="0 0 240 150" class="mt-2 w-full" preserveAspectRatio="none">
+                          <line x1="22" y1="20" x2="218" y2="20" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <line x1="22" y1="55" x2="218" y2="55" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <line x1="22" y1="90" x2="218" y2="90" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <line x1="22" y1="125" x2="218" y2="125" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <text x="0" y="22" font-size="7" fill="#9ca3af">$435B</text>
+                          <text x="0" y="57" font-size="7" fill="#9ca3af">$300B</text>
+                          <text x="0" y="92" font-size="7" fill="#9ca3af">$150B</text>
+                          <text x="0" y="127" font-size="7" fill="#9ca3af">$0</text>
+                          <rect x="32" y="63" width="6" height="62" fill="#8b7ee8" rx="1" />
+                          <rect x="39" y="111" width="6" height="14" fill="#22d3ee" rx="1" />
+                          <rect x="46" y="111" width="6" height="14" fill="#34d399" rx="1" />
+                          <rect x="71" y="51" width="6" height="74" fill="#8b7ee8" rx="1" />
+                          <rect x="78" y="106" width="6" height="19" fill="#22d3ee" rx="1" />
+                          <rect x="85" y="109" width="6" height="16" fill="#34d399" rx="1" />
+                          <rect x="110" y="37" width="6" height="88" fill="#8b7ee8" rx="1" />
+                          <rect x="117" y="102" width="6" height="23" fill="#22d3ee" rx="1" />
+                          <rect x="124" y="108" width="6" height="17" fill="#34d399" rx="1" />
+                          <rect x="149" y="25" width="6" height="100" fill="#8b7ee8" rx="1" />
+                          <rect x="156" y="94" width="6" height="31" fill="#22d3ee" rx="1" />
+                          <rect x="163" y="108" width="6" height="17" fill="#34d399" rx="1" />
+                          <rect x="188" y="26" width="6" height="99" fill="#8b7ee8" rx="1" />
+                          <rect x="195" y="95" width="6" height="30" fill="#22d3ee" rx="1" />
+                          <rect x="202" y="111" width="6" height="14" fill="#34d399" rx="1" />
+                          <polyline
+                            points="41,76 80,57 119,40 158,29 197,30"
+                            fill="none"
+                            stroke="#f59e0b"
+                            stroke-width="1.6"
+                            stroke-linejoin="round"
+                          />
+                          <text x="34" y="142" font-size="7" fill="#9ca3af">'22</text>
+                          <text x="73" y="142" font-size="7" fill="#9ca3af">'23</text>
+                          <text x="112" y="142" font-size="7" fill="#9ca3af">'24</text>
+                          <text x="151" y="142" font-size="7" fill="#9ca3af">'25</text>
+                          <text x="188" y="142" font-size="7" fill="#9ca3af">TTM</text>
+                        </svg>
+                      </div>
+                      <div class="absolute left-4 right-4 top-[340px] grid grid-cols-3 gap-2">
+                        <div class="rounded-lg p-2" style="background: #15171b;">
+                          <p class="text-[8px] text-white/55 leading-none">Revenue</p>
+                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$394B</p>
+                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+8.1% YoY</p>
+                        </div>
+                        <div class="rounded-lg p-2" style="background: #15171b;">
+                          <p class="text-[8px] text-white/55 leading-none">Net Income</p>
+                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$103B</p>
+                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+11.4% YoY</p>
+                        </div>
+                        <div class="rounded-lg p-2" style="background: #15171b;">
+                          <p class="text-[8px] text-white/55 leading-none">FCF</p>
+                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$108B</p>
+                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+9.6% YoY</p>
+                        </div>
+                      </div>
+                      <div class="absolute left-4 right-4 top-[420px] rounded-2xl p-3" style="background: #15171b;">
+                        <p class="text-[9px] font-bold tracking-[1px] text-white/55">5-YEAR TREND</p>
+                        <p class="mt-1 text-[11px] text-white leading-snug">
+                          Revenue compounding at <span class="font-bold">11.2%</span>. Net
+                          margin expanding from 21% to 26%.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Financial Deep Dive
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill"
+                      >Depth
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="fc-pill"
+                      >Insight
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                    <span class="fc-pill"
+                      >Confidence
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M5 8V2M5 2L2 5M5 2L8 5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <p
+                    class="mt-6 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0"
+                  >
+                    Five years of income statement, cash flow, and balance sheet data
+                    — yearly and quarterly. Trends, margins, and growth rates ready
+                    in seconds.
+                  </p>
+                  <a href="#" class="fc-readmore mt-7">
+                    Read the Docs
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path
+                        d="M3 7H11M11 7L7 3M11 7L7 11"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AI INTELLIGENCE ==================== -->
+    <section class="mt-24 lg:mt-32 pb-24" aria-label="AI Intelligence">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <!-- Heading -->
+        <div class="text-center">
+          <h2 class="fc-headline text-[44px] sm:text-[56px] lg:text-[64px] text-slate-900">
+            Intelligence That Only Aligns With You.
+          </h2>
+          <p
+            class="mt-6 max-w-[640px] mx-auto text-[18px] sm:text-[19px] leading-[1.55] text-slate-500"
+          >
+            Other apps profit when you trade. DeepValues.AI is built to make you a better
+            investor — reading every filing, weighing the evidence, and showing its
+            sources so you can trust the verdict instead of the confetti.
+          </p>
+
+          <!-- Controls -->
+          <div class="mt-8 flex items-center justify-center gap-5">
+            <button id="aiPrev" class="fc-arrow" aria-label="Previous AI capability">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div id="aiDots" class="flex items-center gap-2" role="tablist">
+              <button class="fc-dot active" data-index="0" aria-label="AI slide 1"></button>
+              <button class="fc-dot" data-index="1" aria-label="AI slide 2"></button>
+              <button class="fc-dot" data-index="2" aria-label="AI slide 3"></button>
+              <button class="fc-dot" data-index="3" aria-label="AI slide 4"></button>
+              <button class="fc-dot" data-index="4" aria-label="AI slide 5"></button>
+            </div>
+            <button id="aiNext" class="fc-arrow" aria-label="Next AI capability">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-12 lg:mt-14 ai-panel relative overflow-hidden rounded-[36px]">
+          <div class="ai-grid" aria-hidden="true"></div>
+          <div class="ai-glow ai-glow-a" aria-hidden="true"></div>
+          <div class="ai-glow ai-glow-b" aria-hidden="true"></div>
+
+          <div class="ai-viewport">
+            <div id="aiTrack" class="ai-track">
+              <!-- ===== SLIDE 1: Deep Value Shorts ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#60a5fa;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#60a5fa; box-shadow: 0 0 10px #60a5fa;"></span>
+                      Deep Value Shorts
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Executive <span class="ai-gradient-text">Briefing and Reports</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Generated on-demand for any company.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      Watch a sample
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Video player thumbnail -->
+                      <div class="ai-card overflow-hidden" style="padding:0;">
+                        <div class="relative" style="aspect-ratio: 16/9; background: radial-gradient(120% 90% at 0% 100%, #2a1308 0%, #0b0d1a 60%, #050818 100%);">
+                          <div class="absolute top-4 left-4 rounded-full px-2.5 py-1 text-[10px] font-extrabold text-slate-900" style="background:#60a5fa;">Deep Value Shorts</div>
+                          <div class="absolute top-4 right-4 rounded-full px-2.5 py-1 text-[10px] font-extrabold text-white" style="border:1.5px solid #60a5fa;">GOOGL</div>
+                          <div class="absolute top-1/2 -translate-y-1/2 left-5 max-w-[55%]">
+                            <p class="text-[22px] sm:text-[28px] font-extrabold leading-[1.05] text-white">Alphabet Inc.</p>
+                            <div class="mt-2 h-px w-12" style="background: #60a5fa;"></div>
+                            <p class="mt-2 text-[11.5px] text-white/70 leading-snug">Is GOOGL worth a deeper look now?</p>
+                          </div>
+                          <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-md bg-white flex items-center justify-center shadow-lg" aria-hidden="true">
+                              <svg width="28" height="28" viewBox="0 0 48 48">
+                                <path fill="#4285f4" d="M46 24c0-1.6-.1-3.1-.4-4.6H24v9.1h12.4c-.5 2.9-2.2 5.4-4.7 7v5.8h7.6c4.4-4.1 6.7-10.1 6.7-17.3z"/>
+                                <path fill="#34a853" d="M24 47c6.3 0 11.6-2.1 15.5-5.7l-7.6-5.8c-2.1 1.4-4.8 2.2-7.9 2.2-6.1 0-11.2-4.1-13.1-9.6H3.2v6c3.9 7.7 11.8 12.9 20.8 12.9z"/>
+                                <path fill="#fbbc04" d="M10.9 28.1c-.5-1.4-.8-2.9-.8-4.5s.3-3.1.8-4.5v-6H3.2C1.7 16.1 1 20 1 24s.7 7.9 2.2 11l7.7-6z"/>
+                                <path fill="#ea4335" d="M24 10.5c3.4 0 6.5 1.2 8.9 3.5l6.7-6.7C35.6 3.4 30.3 1 24 1 15 1 7.1 6.2 3.2 13.9l7.7 6c1.9-5.5 7-9.4 13.1-9.4z"/>
+                              </svg>
+                            </div>
+                          </div>
+                          <button class="absolute inset-0 flex items-center justify-center" aria-label="Play video">
+                            <span class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.25);">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3l8 5-8 5V3z" fill="white"/></svg>
+                            </span>
+                          </button>
+                          <div class="absolute bottom-3 left-4 rounded-md px-2.5 py-1 text-[10px] font-extrabold text-white" style="border:1px solid rgba(255,255,255,0.25);">deepvalues.ai</div>
+                        </div>
+                      </div>
+
+                      <!-- Companion formats -->
+                      <div class="ai-card p-4">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">ALSO AVAILABLE</p>
+                        <div class="mt-2.5 grid grid-cols-2 gap-2">
+                          <a href="#" class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2);">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(248,113,113,0.18);">
+                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 1.5h6l4 4V14a.5.5 0 01-.5.5h-9A.5.5 0 013 14V2a.5.5 0 010-.5z" stroke="#fca5a5" stroke-width="1.3" stroke-linejoin="round"/>
+                                <path d="M9 1.5V5h4" stroke="#fca5a5" stroke-width="1.3"/>
+                                <text x="5" y="12.2" font-size="3.6" font-weight="800" fill="#fca5a5" font-family="Inter, sans-serif">PDF</text>
+                              </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">PDF Research</p>
+                              <p class="text-[9px] font-bold" style="color:#fca5a5;">Download →</p>
+                            </div>
+                          </a>
+                          <a href="#" class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(95,223,166,0.06); border: 1px solid rgba(95,223,166,0.2);">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(95,223,166,0.18);">
+                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 9a6 6 0 0112 0v3a1.5 1.5 0 01-1.5 1.5H12v-5h1V9a5 5 0 00-10 0v-.5h1v5h-.5A1.5 1.5 0 011 12V9z" fill="#5fdfa6"/>
+                              </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">Audio Report</p>
+                              <p class="text-[9px] font-bold" style="color:#5fdfa6;">Listen →</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 2: Buffett Lens chat ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#22d3ee;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#22d3ee; box-shadow: 0 0 10px #22d3ee;"></span>
+                      Buffett Lens
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Ask anything. <span class="ai-gradient-text">Get cited answers</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Voice or text. Always with sources.
+                    </p>
+                    <a href="https://app.deepvalues.ai" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      Try Buffett Lens
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Buffett Lens chat panel -->
+                      <div class="ai-card p-5">
+                        <div class="flex items-start justify-between">
+                          <div class="flex items-start gap-2.5">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(34, 211, 238, 0.12); border: 1px solid rgba(34, 211, 238, 0.3);">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 1.5l1.6 3.4 3.4.5-2.5 2.4.6 3.3L8 9.5l-3.1 1.6.6-3.3L3 5.4l3.4-.5L8 1.5z" stroke="#22d3ee" stroke-width="1.3" stroke-linejoin="round"/>
+                                <circle cx="12.5" cy="3" r="0.8" fill="#22d3ee"/>
+                                <circle cx="3.5" cy="11" r="0.8" fill="#22d3ee"/>
+                              </svg>
+                            </div>
+                            <div>
+                              <p class="text-[10px] font-bold tracking-[1.5px]" style="color:#22d3ee;">BUFFETT LENS</p>
+                              <p class="text-[14px] font-semibold text-white">Chat with Intrinsics AI</p>
+                            </div>
+                          </div>
+                          <span class="text-white/35 text-[14px] leading-none mt-1">×</span>
+                        </div>
+                        <p class="mt-2 text-[11.5px] text-white/55 leading-snug">
+                          Grounded in GOOGL's financials, valuation, and recent SEC filings.
+                        </p>
+                        <button class="mt-3 w-full rounded-lg py-1.5 text-[12px] font-bold flex items-center justify-center gap-1.5" style="background: rgba(95,223,166,0.1); color:#5fdfa6; border: 1px solid rgba(95,223,166,0.35);">
+                          <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="5" y="1" width="4" height="8" rx="2" fill="#5fdfa6"/><path d="M3 7c0 2.2 1.8 4 4 4M11 7c0 2.2-1.8 4-4 4M7 11v2M5 13h4" stroke="#5fdfa6" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
+                          Start Voice Q&amp;A
+                        </button>
+                        <div class="mt-2.5 space-y-1.5">
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">Is GOOGL cheap right now?</div>
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">What's the bear case for GOOGL?</div>
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">Walk me through the latest 10-Q.</div>
+                        </div>
+                        <div class="mt-2.5 flex items-center gap-2 rounded-full pl-3 pr-1 py-1" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+                          <span class="flex-1 text-[11px] text-white/45">Ask about GOOGL…</span>
+                          <button class="w-6 h-6 rounded-full flex items-center justify-center" style="background: rgba(34,211,238,0.18);">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l6-3-1.5 6L5 6.5 2 5z" fill="#22d3ee"/></svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Latest Earnings Call -->
+                      <div class="ai-card p-4">
+                        <div class="flex items-center gap-2">
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M2 8a5 5 0 0110 0v3a1.5 1.5 0 01-1.5 1.5H10v-4h1V8a4 4 0 00-8 0v.5h1v4h-.5A1.5 1.5 0 011 11V8z" fill="#22d3ee"/>
+                          </svg>
+                          <p class="text-[11.5px] font-semibold text-white">GOOGL Latest quarter earnings</p>
+                        </div>
+                        <p class="mt-1 ml-6 text-[9px] text-white/45">Filed Apr 29, 2026</p>
+                        <div class="mt-2.5 grid grid-cols-3 gap-1.5 text-[10px] font-semibold">
+                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(248,113,113,0.1); color:#fca5a5; border: 1px solid rgba(248,113,113,0.2);">▶ YouTube</a>
+                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(251,191,36,0.1); color:#fbbf24; border: 1px solid rgba(251,191,36,0.2);">Transcript</a>
+                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(124,210,255,0.1); color:#7cd2ff; border: 1px solid rgba(124,210,255,0.2);">IR page</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 3: never sleeps ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#7cd2ff;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#7cd2ff; box-shadow: 0 0 10px #7cd2ff;"></span>
+                      Powered by DVI AI
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      A team that <span class="ai-gradient-text">never sleeps</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Reads every filing and call — conviction in minutes.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      See a sample report
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <div class="ai-card p-5">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">AI VERDICT</span>
+                            <span class="text-[10px] font-bold text-white/80">Alphabet Inc. (GOOGL)</span>
+                          </div>
+                          <span class="text-[10px] font-bold rounded-md px-2 py-0.5" style="background: rgba(95, 223, 166, 0.18); color:#5fdfa6;">Fairly valued</span>
+                        </div>
+                        <p class="mt-3 text-[15px] font-semibold leading-snug text-white">
+                          Premium franchise trading near DCF fair value. Watch for a better entry on macro pullbacks.
+                        </p>
+                        <div class="mt-4 grid grid-cols-2 gap-4">
+                          <div>
+                            <p class="text-[9px] font-bold tracking-[1px]" style="color:#5fdfa6;">STRENGTHS</p>
+                            <ul class="mt-1.5 space-y-1">
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#5fdfa6;"></span>Search + YouTube dominate ad economics</li>
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#5fdfa6;"></span>Cloud margins inflecting positive</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <p class="text-[9px] font-bold tracking-[1px]" style="color:#f87171;">RISKS</p>
+                            <ul class="mt-1.5 space-y-1">
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#f87171;"></span>AI search disruption risk</li>
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#f87171;"></span>Regulatory / antitrust overhang</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ai-card p-4">
+                        <div class="flex items-start gap-2.5">
+                          <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background: rgba(255,255,255,0.08);">
+                            <span class="text-[10px] font-bold text-white/70">Q</span>
+                          </div>
+                          <p class="text-[13.5px] font-semibold text-white leading-snug">Why is gross margin compressing this quarter?</p>
+                        </div>
+                        <div class="mt-3 flex items-start gap-2.5">
+                          <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background: linear-gradient(135deg, #7cd2ff, #a89cff);">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.4 4.6 11 6l-3.6 1.4L6 11 4.6 7.4 1 6l3.6-1.4L6 1z" fill="white"/></svg>
+                          </div>
+                          <div class="flex-1">
+                            <p class="text-[12.5px] text-white/85 leading-snug">Heavier AI-infrastructure capex and a mix shift toward Cloud and YouTube Shorts — partly offset by Search ad pricing strength.</p>
+                            <div class="mt-2 flex items-center gap-1.5">
+                              <span class="text-[9px] font-bold tracking-[1px] text-white/40">SOURCES</span>
+                              <span class="inline-flex w-4 h-4 rounded-full items-center justify-center text-[8px] text-white/80 font-bold" style="background: rgba(124, 210, 255, 0.16);">1</span>
+                              <span class="inline-flex w-4 h-4 rounded-full items-center justify-center text-[8px] text-white/80 font-bold" style="background: rgba(124, 210, 255, 0.16);">2</span>
+                              <span class="inline-flex w-4 h-4 rounded-full items-center justify-center text-[8px] text-white/80 font-bold" style="background: rgba(124, 210, 255, 0.16);">3</span>
+                              <span class="text-[10px] text-white/45 ml-1">Q4 10-Q, earnings call</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 4: reads every word ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#5fdfa6;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#5fdfa6; box-shadow: 0 0 10px #5fdfa6;"></span>
+                      From 10-Ks to earnings calls
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Reads every word, <span class="ai-gradient-text">surfaces what matters</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Distilled to what moves the thesis.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      See a sample report
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Earnings call summary -->
+                      <div class="ai-card p-5">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">Q4 2025 EARNINGS CALL · 92 MIN</span>
+                          <span class="text-[10px] font-bold text-white/80">GOOGL</span>
+                        </div>
+                        <div class="mt-3 pl-3 border-l-2" style="border-color:#7cd2ff;">
+                          <p class="text-[12.5px] text-white/85 italic leading-snug">
+                            "Cloud reached profitability for a third straight quarter, and AI
+                            Overviews are driving deeper engagement across Search."
+                          </p>
+                          <p class="mt-1 text-[10px] text-white/45">— Sundar Pichai, CEO</p>
+                        </div>
+                        <ul class="mt-4 space-y-1.5">
+                          <li class="text-[11.5px] text-white/80 flex items-start gap-2"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#5fdfa6;"></span>Cloud revenue +28% YoY — second straight quarter of accel.</li>
+                          <li class="text-[11.5px] text-white/80 flex items-start gap-2"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#f87171;"></span>Antitrust mentioned 8× — most ever on a call.</li>
+                        </ul>
+                      </div>
+
+                      <!-- Recent SEC Filings -->
+                      <div class="ai-card p-4">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">RECENT SEC FILINGS</p>
+                        <div class="mt-2 space-y-1.5">
+                          <div class="flex items-center gap-2.5">
+                            <span class="text-[9px] font-extrabold rounded-md px-1.5 py-0.5 shrink-0" style="background: rgba(245,158,11,0.18); color:#fbbf24;">8-K</span>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">Current event report</p>
+                              <p class="text-[9px] text-white/45">Filed May 10, 2026</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center gap-2.5">
+                            <span class="text-[9px] font-extrabold rounded-md px-1.5 py-0.5 shrink-0" style="background: rgba(34,211,238,0.18); color:#22d3ee;">10-Q</span>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">Quarterly report</p>
+                              <p class="text-[9px] text-white/45">Filed Apr 29, 2026</p>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="mt-2 text-[9px] text-white/40">Source: SEC EDGAR · synced hourly</p>
+                      </div>
+
+                      <!-- Flags strip -->
+                      <div class="ai-card p-4">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">Q4 FLAGS</p>
+                        <div class="mt-2 grid grid-cols-2 gap-2">
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] leading-tight" style="background: rgba(95, 223, 166, 0.1); color:#a8e9c8;">
+                            <span class="font-bold">+ Cloud margin</span><br/><span class="text-white/55">+320 bps QoQ</span>
+                          </div>
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] leading-tight" style="background: rgba(248, 113, 113, 0.1); color:#f6b5b5;">
+                            <span class="font-bold">− Capex</span><br/><span class="text-white/55">+$4B QoQ</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 5: peer-aware ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#a89cff;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#a89cff; box-shadow: 0 0 10px #a89cff;"></span>
+                      Peer-aware intelligence
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Compares like <span class="ai-gradient-text">a guru would</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Every metric, in peer context.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      See a sample report
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Peer comparison table -->
+                      <div class="ai-card p-5">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">PEER BENCHMARK · MEGACAP TECH</span>
+                          <span class="text-[10px] font-bold text-white/55">FY25</span>
+                        </div>
+                        <div class="mt-3 overflow-hidden rounded-xl border" style="border-color: rgba(255,255,255,0.08);">
+                          <table class="w-full text-[11.5px] text-white/80">
+                            <thead style="background: rgba(255,255,255,0.04);">
+                              <tr class="text-[9px] uppercase tracking-[1px] text-white/55">
+                                <th class="text-left px-3 py-1.5 font-bold"></th>
+                                <th class="px-3 py-1.5 font-bold">ROIC</th>
+                                <th class="px-3 py-1.5 font-bold">Net Margin</th>
+                                <th class="px-3 py-1.5 font-bold">Rev Growth</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="border-t" style="border-color: rgba(255,255,255,0.06); background: rgba(124,210,255,0.05);">
+                                <td class="px-3 py-1.5 font-extrabold" style="color:#7cd2ff;">GOOGL</td>
+                                <td class="px-3 py-1.5 text-center">27%</td>
+                                <td class="px-3 py-1.5 text-center">29%</td>
+                                <td class="px-3 py-1.5 text-center font-bold" style="color:#5fdfa6;">14%</td>
+                              </tr>
+                              <tr class="border-t" style="border-color: rgba(255,255,255,0.06);">
+                                <td class="px-3 py-1.5 font-bold text-white">MSFT</td>
+                                <td class="px-3 py-1.5 text-center">32%</td>
+                                <td class="px-3 py-1.5 text-center font-bold" style="color:#5fdfa6;">37%</td>
+                                <td class="px-3 py-1.5 text-center">13%</td>
+                              </tr>
+                              <tr class="border-t" style="border-color: rgba(255,255,255,0.06);">
+                                <td class="px-3 py-1.5 font-bold text-white">AAPL</td>
+                                <td class="px-3 py-1.5 text-center font-bold" style="color:#5fdfa6;">83%</td>
+                                <td class="px-3 py-1.5 text-center">31%</td>
+                                <td class="px-3 py-1.5 text-center">3%</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <!-- 10-K YoY diff -->
+                      <div class="ai-card p-4">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">10-K · WHAT CHANGED YoY</span>
+                          <span class="text-[10px] font-bold text-white/55">FY25 vs FY24</span>
+                        </div>
+                        <ul class="mt-2.5 space-y-1.5">
+                          <li class="flex items-start gap-2 text-[11.5px] text-white/80 leading-snug">
+                            <span class="mt-0.5 inline-flex items-center justify-center w-4 h-4 rounded font-bold text-[10px] shrink-0" style="background: rgba(95,223,166,0.18); color:#5fdfa6;">+</span>
+                            New segment disclosure: <span class="text-white font-semibold ml-1">Generative AI services</span> (broken out from Cloud).
+                          </li>
+                          <li class="flex items-start gap-2 text-[11.5px] text-white/80 leading-snug">
+                            <span class="mt-0.5 inline-flex items-center justify-center w-4 h-4 rounded font-bold text-[10px] shrink-0" style="background: rgba(248,113,113,0.18); color:#f87171;">!</span>
+                            <span>Added <span class="text-white font-semibold">AI regulation</span> as a material risk factor.</span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!-- Moat strength -->
+                      <div class="ai-card p-4">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">ECONOMIC MOAT</span>
+                          <span class="text-[11px] font-extrabold rounded-md px-2 py-0.5" style="background: rgba(168,156,255,0.18); color:#cdc3ff;">WIDE</span>
+                        </div>
+                        <div class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-[10.5px]">
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Brand</span><span class="font-bold text-white/80">9.2</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:92%; background:#a89cff;"></div></div>
+                          </div>
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Switching cost</span><span class="font-bold text-white/80">7.4</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:74%; background:#a89cff;"></div></div>
+                          </div>
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Network effects</span><span class="font-bold text-white/80">9.1</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:91%; background:#a89cff;"></div></div>
+                          </div>
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Scale</span><span class="font-bold text-white/80">9.4</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:94%; background:#a89cff;"></div></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <script>
       (function () {
         var m = location.search.match(/[?&]bg=(\d+)/);
         if (m) document.body.classList.add('bg-' + m[1]);
+      })();
+
+      // ===== Features carousel =====
+      (function () {
+        var track = document.getElementById('fcTrack');
+        var prev = document.getElementById('fcPrev');
+        var next = document.getElementById('fcNext');
+        var dotsContainer = document.getElementById('fcDots');
+        if (!track || !prev || !next || !dotsContainer) return;
+
+        var dots = Array.prototype.slice.call(dotsContainer.querySelectorAll('.fc-dot'));
+        var total = dots.length;
+        var index = 0;
+
+        function update() {
+          track.style.transform = 'translateX(' + -index * 100 + '%)';
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+
+        function go(delta) {
+          index = (index + delta + total) % total;
+          update();
+        }
+
+        prev.addEventListener('click', function () { go(-1); });
+        next.addEventListener('click', function () { go(1); });
+
+        dots.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            var i = parseInt(dot.getAttribute('data-index'), 10);
+            if (!isNaN(i)) {
+              index = i;
+              update();
+            }
+          });
+        });
+
+        // Keyboard navigation when the carousel is in view
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') go(-1);
+          else if (e.key === 'ArrowRight') go(1);
+        });
+
+        // Touch / pointer swipe
+        var startX = null;
+        var threshold = 40;
+        track.addEventListener('pointerdown', function (e) {
+          startX = e.clientX;
+        });
+        track.addEventListener('pointerup', function (e) {
+          if (startX === null) return;
+          var dx = e.clientX - startX;
+          if (Math.abs(dx) > threshold) go(dx < 0 ? 1 : -1);
+          startX = null;
+        });
+        track.addEventListener('pointercancel', function () { startX = null; });
+      })();
+
+      // ===== AI Intelligence carousel =====
+      (function () {
+        var track = document.getElementById('aiTrack');
+        var prev = document.getElementById('aiPrev');
+        var next = document.getElementById('aiNext');
+        var dotsContainer = document.getElementById('aiDots');
+        if (!track || !prev || !next || !dotsContainer) return;
+
+        var dots = Array.prototype.slice.call(dotsContainer.querySelectorAll('.fc-dot'));
+        var total = dots.length;
+        var index = 0;
+
+        function update() {
+          track.style.transform = 'translateX(' + -index * 100 + '%)';
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+
+        function go(delta) {
+          index = (index + delta + total) % total;
+          update();
+        }
+
+        prev.addEventListener('click', function () { go(-1); });
+        next.addEventListener('click', function () { go(1); });
+
+        dots.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            var i = parseInt(dot.getAttribute('data-index'), 10);
+            if (!isNaN(i)) {
+              index = i;
+              update();
+            }
+          });
+        });
+
+        var startX = null;
+        var threshold = 40;
+        track.addEventListener('pointerdown', function (e) {
+          startX = e.clientX;
+        });
+        track.addEventListener('pointerup', function (e) {
+          if (startX === null) return;
+          var dx = e.clientX - startX;
+          if (Math.abs(dx) > threshold) go(dx < 0 ? 1 : -1);
+          startX = null;
+        });
+        track.addEventListener('pointercancel', function () { startX = null; });
       })();
     </script>
   </body>
