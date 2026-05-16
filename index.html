@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/images/deepvalues-circle-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deep Values</title>
+    <title>Deep Values — Wall Street works for Wall Street. Not for you.</title>
     <meta
       name="description"
-      content="Deep Values is building objective business research and a personal financial assistant aligned only with the interests of individual investors."
+      content="Deep Values is an AI-native financial assistant that works only for you — bringing institutional-grade stock analysis to individual investors."
     />
     <meta
       name="keywords"
@@ -16,11 +16,2185 @@
     <meta name="theme-color" content="#f5f5f7" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Changa:wght@200..800&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f543bf84be61485baa1671d167e9933b"}'></script><!-- End Cloudflare Web Analytics -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+            },
+            colors: {
+              brand: {
+                50: '#E6F2FF',
+                100: '#C2DEFF',
+                200: '#85BDFF',
+                300: '#4FA1FF',
+                400: '#2E92FF',
+                500: '#0F85FF',
+                600: '#006BD9',
+                700: '#0054AB',
+                800: '#003C7D',
+                900: '#00264F',
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html,
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        color: #0a192f;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-height: 100vh;
+        background: radial-gradient(
+          120% 90% at 8% 10%,
+          #fef9f3 0%,
+          #eaeef4 35%,
+          #ccd6e3 100%
+        );
+        background-attachment: fixed;
+      }
+      body.bg-1  { background: #f7f6f2; }
+      body.bg-2  { background: radial-gradient(120% 90% at 10% 10%, #ffffff 0%, #eef2f7 60%, #e3e9f1 100%) fixed; }
+      body.bg-3  { background: linear-gradient(135deg, #f5f1e8 0%, #eef0f4 55%, #dfe5ec 100%) fixed; }
+      body.bg-4  { background: radial-gradient(120% 100% at 0% 0%, #fbf4e3 0%, #f5ecd2 45%, #ecdfbd 100%) fixed; }
+      body.bg-5  { background: linear-gradient(140deg, #f4f6f1 0%, #e8ede4 60%, #dde4d8 100%) fixed; }
+      body.bg-6  { background: linear-gradient(160deg, #f4f8fc 0%, #e3ecf5 50%, #cfdbe8 100%) fixed; }
+      body.bg-7  { background: radial-gradient(120% 90% at 8% 10%, #fef9f3 0%, #eaeef4 35%, #ccd6e3 100%) fixed; }
+      body.bg-8  { background: radial-gradient(120% 90% at 12% 10%, #16284a 0%, #0e1a33 60%, #070d1f 100%) fixed; color: #e7ecf5; }
+      body.bg-9  { background: linear-gradient(180deg, #121417 0%, #0b0d10 100%) fixed; color: #e7ecf5; }
+      body.bg-10 { background: radial-gradient(120% 90% at 10% 10%, #103745 0%, #0a2330 55%, #051620 100%) fixed; color: #e7ecf5; }
+
+      .headline {
+        font-weight: 900;
+        letter-spacing: -0.035em;
+        line-height: 0.98;
+      }
+
+      .headline-underline {
+        text-decoration: underline;
+        text-decoration-color: rgba(15, 133, 255, 0.6);
+        text-underline-offset: 10px;
+        text-decoration-thickness: 3px;
+      }
+
+      .pill-shadow {
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.9) inset,
+          0 6px 16px rgba(15, 23, 60, 0.06);
+      }
+
+      .cta-primary {
+        background: #0e85ff;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.25) inset,
+          0 10px 24px -8px rgba(14, 133, 255, 0.55);
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease;
+      }
+      .cta-primary:hover {
+        background: #006bd9;
+        transform: translateY(-1px);
+      }
+
+      .cta-secondary {
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 60, 0.08);
+        box-shadow: 0 6px 16px rgba(15, 23, 60, 0.05);
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease;
+      }
+      .cta-secondary:hover {
+        background: #fafbff;
+        transform: translateY(-1px);
+      }
+
+      /* ===== Phone mockups ===== */
+      .phone {
+        width: 280px;
+        height: 580px;
+        background: #0a0a0d;
+        border-radius: 44px;
+        padding: 7px;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.08) inset,
+          0 0 0 1.5px rgba(40, 40, 50, 0.9),
+          0 40px 80px -20px rgba(15, 23, 60, 0.45),
+          0 20px 40px -20px rgba(15, 23, 60, 0.35);
+        position: relative;
+      }
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 36px;
+        overflow: hidden;
+        position: relative;
+      }
+      .phone-notch {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 96px;
+        height: 28px;
+        background: #000;
+        border-radius: 18px;
+        z-index: 10;
+      }
+      .phone-status {
+        position: absolute;
+        top: 14px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 26px;
+        font-size: 13px;
+        font-weight: 600;
+        z-index: 11;
+      }
+
+      /* Left (dark) phone content */
+      .phone-dark .phone-screen {
+        background: #000;
+        color: #fff;
+      }
+
+      /* Right (light) phone content */
+      .phone-light .phone-screen {
+        background: #f3f7f4;
+        color: #0a192f;
+      }
+
+      .pop-card {
+        background: #15171b;
+        border-radius: 24px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      .scroll-cue {
+        animation: cue 1.8s ease-in-out infinite;
+      }
+      @keyframes cue {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateY(6px);
+          opacity: 1;
+        }
+      }
+
+      /* Make sure the layout doesn't crop the phones on smaller laptops */
+      .phone-stage {
+        min-height: 640px;
+      }
+
+      /* ===== AI Intelligence panel ===== */
+      .ai-panel {
+        background:
+          linear-gradient(180deg, #0c1424 0%, #060a16 100%);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.05) inset,
+          0 30px 60px -20px rgba(7, 13, 31, 0.55);
+      }
+      .ai-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 48px 48px;
+        background-position: -1px -1px;
+        pointer-events: none;
+        -webkit-mask-image: radial-gradient(80% 70% at 50% 0%, #000 0%, transparent 90%);
+        mask-image: radial-gradient(80% 70% at 50% 0%, #000 0%, transparent 90%);
+      }
+      .ai-glow {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(80px);
+        pointer-events: none;
+      }
+      .ai-glow-a {
+        width: 360px;
+        height: 360px;
+        background: radial-gradient(closest-side, rgba(124, 210, 255, 0.35), transparent);
+        top: -120px;
+        left: -80px;
+      }
+      .ai-glow-b {
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(closest-side, rgba(168, 156, 255, 0.3), transparent);
+        bottom: -160px;
+        right: -100px;
+      }
+      .ai-gradient-text {
+        background: linear-gradient(90deg, #7cd2ff 0%, #a89cff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .ai-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 13px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+      }
+      .ai-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 22px;
+        backdrop-filter: blur(8px);
+      }
+      .ai-viewport {
+        overflow: hidden;
+        position: relative;
+      }
+      .ai-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        will-change: transform;
+      }
+      .ai-slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        min-height: 520px;
+      }
+
+      /* ===== Features carousel ===== */
+      .fc-headline {
+        font-weight: 900;
+        letter-spacing: -0.035em;
+        line-height: 1.0;
+      }
+
+      .fc-arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        border: 1px solid rgba(15, 23, 60, 0.08);
+        color: #0a192f;
+        box-shadow: 0 6px 16px rgba(15, 23, 60, 0.05);
+        transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+        cursor: pointer;
+      }
+      .fc-arrow:hover {
+        background: #f5f7fb;
+        transform: translateY(-1px);
+      }
+
+      .fc-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(15, 23, 60, 0.18);
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        transition: width 0.25s ease, background 0.25s ease;
+      }
+      .fc-dot.active {
+        width: 26px;
+        background: rgba(15, 23, 60, 0.55);
+      }
+      .fc-dot:hover:not(.active) {
+        background: rgba(15, 23, 60, 0.32);
+      }
+
+      .fc-stage {
+        border-radius: 32px;
+        overflow: hidden;
+      }
+      .fc-track {
+        display: flex;
+        will-change: transform;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .fc-slide {
+        width: 100%;
+        flex: 0 0 100%;
+        min-height: 520px;
+      }
+
+      /* Per-slide gradients (soft pastel) */
+      .fc-gradient-1 {
+        background: linear-gradient(135deg, #dfe7ff 0%, #e3e0f9 38%, #efe2ed 72%, #f8e6e6 100%);
+      }
+      .fc-gradient-2 {
+        background: linear-gradient(135deg, #e3f3ff 0%, #dfeeff 35%, #ecedfb 70%, #f7e7f0 100%);
+      }
+      .fc-gradient-3 {
+        background: linear-gradient(135deg, #e6fbf0 0%, #dff3f1 38%, #e6ecfb 72%, #f1e6f7 100%);
+      }
+      .fc-gradient-4 {
+        background: linear-gradient(135deg, #fff1e2 0%, #ffe7e7 38%, #f3e2f5 72%, #e2e6ff 100%);
+      }
+
+      .fc-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 7px 14px;
+        border-radius: 9999px;
+        font-size: 14px;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.55);
+        border: 1px solid rgba(14, 133, 255, 0.25);
+        color: #0e85ff;
+        backdrop-filter: blur(4px);
+      }
+
+      /* Carousel phone (slightly smaller than hero phone) */
+      .fc-phone {
+        width: 260px;
+        height: 540px;
+        background: #0a0a0d;
+        border-radius: 40px;
+        padding: 6px;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.08) inset,
+          0 0 0 1.5px rgba(40, 40, 50, 0.9),
+          0 30px 60px -20px rgba(15, 23, 60, 0.35),
+          0 12px 32px -16px rgba(15, 23, 60, 0.25);
+        position: relative;
+      }
+      .fc-phone-screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 34px;
+        overflow: hidden;
+        position: relative;
+        background: #ffffff;
+      }
+      .fc-phone-notch {
+        position: absolute;
+        top: 9px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 86px;
+        height: 24px;
+        background: #000;
+        border-radius: 16px;
+        z-index: 10;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+    <!-- ==================== NAV ==================== -->
+    <header class="max-w-[1280px] mx-auto px-6 lg:px-10 pt-6">
+      <nav class="flex items-center justify-between">
+        <div class="flex items-center gap-10">
+          <!-- Logo -->
+          <a href="#" class="flex items-center gap-2.5">
+            <img
+              src="/images/deepvalues-icon-image-0514.png"
+              alt="DeepValues logo"
+              width="36"
+              height="36"
+              class="object-contain"
+            />
+            <span class="text-[22px] tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700;">
+              <span style="color: #003085;">Deep</span><span style="color: #019dde;">Values.AI</span>
+            </span>
+          </a>
+
+          <!-- Menu -->
+          <ul class="hidden md:flex items-center gap-8 text-[15px] text-slate-700">
+            <li><a href="#" class="hover:text-slate-900 transition">Pricing</a></li>
+            <li><a href="#" class="hover:text-slate-900 transition">Compliance</a></li>
+            <li><a href="#" class="hover:text-slate-900 transition">FAQ</a></li>
+            <li>
+              <a href="#" class="hover:text-slate-900 transition flex items-center gap-1">
+                Docs
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M3 4.5L6 7.5L9 4.5"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Language switcher -->
+          <button
+            class="h-10 px-3 rounded-full flex items-center gap-1.5 hover:bg-white/50 transition text-[14px] font-semibold text-slate-700"
+            aria-label="Change language"
+          >
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="7.4" stroke="#0A192F" stroke-width="1.6" />
+              <path
+                d="M2.6 10h14.8M10 2.6c2 2.2 3.1 4.8 3.1 7.4 0 2.6-1.1 5.2-3.1 7.4M10 2.6c-2 2.2-3.1 4.8-3.1 7.4 0 2.6 1.1 5.2 3.1 7.4"
+                stroke="#0A192F"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>EN</span>
+            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path
+                d="M3 4.5L6 7.5L9 4.5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <a
+            href="https://app.deepvalues.ai"
+            class="cta-primary text-white text-[15px] font-semibold px-6 py-3 rounded-full"
+          >
+            Login
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <main class="max-w-[1280px] mx-auto px-6 lg:px-10 mt-10 lg:mt-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- LEFT: copy -->
+        <div class="lg:col-span-6">
+          <!-- Supported by Microsoft, Amazon pill -->
+          <div class="inline-flex items-center gap-2.5 bg-white/70 backdrop-blur pill-shadow rounded-full pl-4 pr-5 py-2">
+            <span class="text-[11px] font-bold uppercase tracking-[1.5px] text-slate-600"
+              >Supported by</span
+            >
+
+            <!-- Microsoft -->
+            <span class="inline-flex items-center gap-1.5">
+              <img
+                src="/images/microsoft-icon.png"
+                alt="Microsoft"
+                class="h-3.5 w-auto object-contain"
+              />
+              <span class="text-[14px] font-semibold text-slate-800">Microsoft</span>
+            </span>
+
+            <!-- Amazon Web Services -->
+            <span class="inline-flex items-center gap-1.5">
+              <img
+                src="/images/aws-con.webp"
+                alt="Amazon"
+                class="h-5 w-auto object-contain"
+              />
+              <span class="text-[14px] font-semibold text-slate-800">Amazon</span>
+            </span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="headline mt-7 text-[44px] sm:text-[56px] lg:text-[68px]">
+            <span class="text-slate-900">
+              Wall Street works for
+              <span class="headline-underline">Wall Street</span>.
+            </span>
+            <br />
+            <span class="text-slate-900">Not for </span><span style="color: #0e85ff;">you</span
+            ><span class="text-slate-900">.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="mt-7 text-[18px] sm:text-[19px] leading-[1.55] text-slate-600 max-w-[520px]">
+            Deep Values is an AI-native financial assistant that works only for you —
+            bringing the power of institutional-grade stock analysis to individual investors.
+          </p>
+
+          <!-- CTAs -->
+          <div class="mt-9 flex flex-wrap items-center gap-3">
+            <a
+              href="https://app.deepvalues.ai"
+              class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full"
+              >Get Started</a
+            >
+          </div>
+
+        </div>
+
+        <!-- RIGHT: phones -->
+        <div class="lg:col-span-6">
+          <div class="phone-stage relative flex items-center justify-center">
+            <!-- Left/back phone (checkout) -->
+            <div
+              class="phone phone-dark absolute"
+              style="transform: rotate(-9deg) translate(-90px, 10px)"
+            >
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <!-- status bar -->
+                <div class="phone-status text-white">
+                  <span>9:41</span>
+                  <span class="flex items-center gap-1">
+                    <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+                      <rect x="0" y="3" width="3" height="4" rx="0.5" fill="white" />
+                      <rect x="4" y="2" width="3" height="6" rx="0.5" fill="white" />
+                      <rect x="8" y="1" width="3" height="8" rx="0.5" fill="white" />
+                      <rect x="12" y="0" width="3" height="10" rx="0.5" fill="white" />
+                    </svg>
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                      <path
+                        d="M1 4.5C2.5 3 4.5 2 7 2C9.5 2 11.5 3 13 4.5"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M3.5 6.5C4.5 5.5 5.7 5 7 5C8.3 5 9.5 5.5 10.5 6.5"
+                        stroke="white"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      />
+                      <circle cx="7" cy="8.5" r="0.9" fill="white" />
+                    </svg>
+                    <span class="inline-block w-5 h-2 border border-white rounded-[2px] relative">
+                      <span class="absolute inset-0.5 bg-white rounded-[1px]"></span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Statement tabs -->
+                <div class="absolute left-3 right-3 top-[46px] flex items-end gap-4 text-[12px] border-b border-white/10 pb-1.5">
+                  <span class="font-bold text-white relative">Income<span class="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white"></span></span>
+                  <span class="text-white/45">Cash Flow</span>
+                  <span class="text-white/45">Balance Sheet</span>
+                </div>
+
+                <!-- Chart card -->
+                <div class="absolute left-3 right-3 top-[82px] rounded-2xl p-2.5" style="background: #1c1d20;">
+                  <!-- Range tabs -->
+                  <div class="flex items-center justify-between text-[10px]">
+                    <div class="flex gap-3">
+                      <span class="font-bold text-white relative pb-0.5">5Y<span class="absolute -bottom-0 left-0 w-3 h-[1.5px] bg-white"></span></span>
+                      <span class="text-white/45">ALL</span>
+                    </div>
+                    <div class="flex gap-3">
+                      <span class="text-white/45">Quarterly</span>
+                      <span class="font-bold text-white relative pb-0.5">Yearly<span class="absolute -bottom-0 left-0 right-0 h-[1.5px] bg-white"></span></span>
+                    </div>
+                  </div>
+
+                  <!-- Legend -->
+                  <div class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[8px] text-white/75 leading-tight">
+                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#8b7ee8;"></span>Revenue</span>
+                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#22d3ee;"></span>Net Income</span>
+                    <span class="flex items-center gap-1">
+                      <svg width="10" height="6" viewBox="0 0 10 6"><line x1="0" y1="3" x2="10" y2="3" stroke="#f59e0b" stroke-width="1.4"/><circle cx="5" cy="3" r="1.4" fill="#f59e0b"/></svg>
+                      Net Margin
+                    </span>
+                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#34d399;"></span>FCF</span>
+                    <span class="flex items-center gap-1">
+                      <svg width="10" height="6" viewBox="0 0 10 6"><line x1="0" y1="3" x2="10" y2="3" stroke="#ec4899" stroke-width="1.4"/><circle cx="5" cy="3" r="1.4" fill="#ec4899"/></svg>
+                      FCF Margin
+                    </span>
+                  </div>
+
+                  <!-- Chart SVG -->
+                  <svg viewBox="0 0 240 150" class="mt-2 w-full" preserveAspectRatio="none">
+                    <!-- Grid lines -->
+                    <line x1="22" y1="20"  x2="218" y2="20"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+                    <line x1="22" y1="55"  x2="218" y2="55"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+                    <line x1="22" y1="90"  x2="218" y2="90"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+                    <line x1="22" y1="125" x2="218" y2="125" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
+
+                    <!-- Y-axis left labels -->
+                    <text x="0" y="22"  font-size="7" fill="#9ca3af">$435B</text>
+                    <text x="0" y="57"  font-size="7" fill="#9ca3af">$300B</text>
+                    <text x="0" y="92"  font-size="7" fill="#9ca3af">$150B</text>
+                    <text x="0" y="127" font-size="7" fill="#9ca3af">$0</text>
+                    <!-- Y-axis right labels -->
+                    <text x="220" y="22"  font-size="7" fill="#9ca3af">35%</text>
+                    <text x="220" y="48"  font-size="7" fill="#9ca3af">27%</text>
+                    <text x="220" y="86"  font-size="7" fill="#9ca3af">18%</text>
+                    <text x="220" y="111" font-size="7" fill="#9ca3af">9%</text>
+                    <text x="220" y="127" font-size="7" fill="#9ca3af">0%</text>
+
+                    <!-- Bars: 5 periods × 3 series. baseline y=125 -->
+                    <!-- '22 -->
+                    <rect x="32"  y="63"  width="6" height="62" fill="#8b7ee8" rx="1"/>
+                    <rect x="39"  y="111" width="6" height="14" fill="#22d3ee" rx="1"/>
+                    <rect x="46"  y="111" width="6" height="14" fill="#34d399" rx="1"/>
+                    <!-- '23 -->
+                    <rect x="71"  y="51"  width="6" height="74" fill="#8b7ee8" rx="1"/>
+                    <rect x="78"  y="106" width="6" height="19" fill="#22d3ee" rx="1"/>
+                    <rect x="85"  y="109" width="6" height="16" fill="#34d399" rx="1"/>
+                    <!-- '24 -->
+                    <rect x="110" y="37"  width="6" height="88" fill="#8b7ee8" rx="1"/>
+                    <rect x="117" y="102" width="6" height="23" fill="#22d3ee" rx="1"/>
+                    <rect x="124" y="108" width="6" height="17" fill="#34d399" rx="1"/>
+                    <!-- '25 -->
+                    <rect x="149" y="25"  width="6" height="100" fill="#8b7ee8" rx="1"/>
+                    <rect x="156" y="94"  width="6" height="31" fill="#22d3ee" rx="1"/>
+                    <rect x="163" y="108" width="6" height="17" fill="#34d399" rx="1"/>
+                    <!-- TTM -->
+                    <rect x="188" y="26"  width="6" height="99" fill="#8b7ee8" rx="1"/>
+                    <rect x="195" y="95"  width="6" height="30" fill="#22d3ee" rx="1"/>
+                    <rect x="202" y="111" width="6" height="14" fill="#34d399" rx="1"/>
+
+                    <!-- Net margin line (orange) -->
+                    <polyline points="41,76 80,57 119,40 158,29 197,30" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-linejoin="round"/>
+                    <g fill="#1c1d20" stroke="#f59e0b" stroke-width="1.4">
+                      <circle cx="41"  cy="76" r="2.2"/>
+                      <circle cx="80"  cy="57" r="2.2"/>
+                      <circle cx="119" cy="40" r="2.2"/>
+                      <circle cx="158" cy="29" r="2.2"/>
+                      <circle cx="197" cy="30" r="2.2"/>
+                    </g>
+
+                    <!-- FCF margin line (pink) -->
+                    <polyline points="41,78 80,75 119,80 158,86 197,90" fill="none" stroke="#ec4899" stroke-width="1.6" stroke-linejoin="round"/>
+                    <g fill="#1c1d20" stroke="#ec4899" stroke-width="1.4">
+                      <circle cx="41"  cy="78" r="2.2"/>
+                      <circle cx="80"  cy="75" r="2.2"/>
+                      <circle cx="119" cy="80" r="2.2"/>
+                      <circle cx="158" cy="86" r="2.2"/>
+                      <circle cx="197" cy="90" r="2.2"/>
+                    </g>
+
+                    <!-- X-axis labels -->
+                    <text x="34"  y="142" font-size="7" fill="#9ca3af">'22</text>
+                    <text x="73"  y="142" font-size="7" fill="#9ca3af">'23</text>
+                    <text x="112" y="142" font-size="7" fill="#9ca3af">'24</text>
+                    <text x="151" y="142" font-size="7" fill="#9ca3af">'25</text>
+                    <text x="188" y="142" font-size="7" fill="#9ca3af">TTM</text>
+                  </svg>
+                </div>
+
+                <!-- Metric chips -->
+                <div class="absolute left-3 right-3 top-[330px] flex flex-wrap gap-1">
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#241f4a; color:#a89cff;">Revenue</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#0e3a44; color:#5ee0f0;">Net Income</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#3a2a10; color:#f5b14b;">Net Margin</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#10301f; color:#5fdfa6;">Free Cash Flow</span>
+                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#3a1428; color:#f06bb0;">FCF Margin</span>
+                </div>
+
+                <!-- Intrinsic Value title -->
+                <p class="absolute left-3 right-3 top-[368px] text-[13px] font-extrabold text-white">
+                  Intrinsic Value Calculator
+                </p>
+
+                <!-- Method tabs -->
+                <div class="absolute left-3 right-3 top-[392px] flex items-center gap-3 text-[10px] border-b border-white/10 pb-1.5">
+                  <span class="font-bold text-white relative">Cash Flow<span class="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white"></span></span>
+                  <span class="text-white/45">Buffett</span>
+                  <span class="text-white/45">Damodaran</span>
+                </div>
+
+                <!-- Valuation slider -->
+                <div class="absolute left-3 right-3 top-[428px]">
+                  <div class="relative h-3 rounded-full" style="background: linear-gradient(90deg, #2bd17e 0%, #f5d04a 50%, #ef4444 100%);">
+                    <!-- Cash Flow marker (~35%) -->
+                    <div class="absolute -top-1.5" style="left: 32%;">
+                      <div class="w-1 h-6 bg-white rounded-full"></div>
+                    </div>
+                    <!-- Current price marker (right end) -->
+                    <div class="absolute -top-1.5" style="right: 0;">
+                      <div class="w-1 h-6 bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                  <!-- $135 callout above the cash flow marker -->
+                  <div class="absolute -top-9 rounded-lg px-2 py-1 border border-white/15" style="left: 18%; background:#1c1d20;">
+                    <p class="text-[10px] font-extrabold text-white leading-none">$135</p>
+                    <p class="text-[7px] text-white/55 leading-none mt-0.5">Cash Flow Method</p>
+                  </div>
+                  <!-- $401 callout above the current price marker -->
+                  <div class="absolute -top-9 rounded-lg px-2 py-1 border" style="right: -4px; background:#1c1d20; border-color:#ef4444;">
+                    <p class="text-[10px] font-extrabold leading-none" style="color:#ef4444;">$401</p>
+                    <p class="text-[7px] leading-none mt-0.5" style="color:#ef4444;">Current Price</p>
+                  </div>
+                  <!-- Conservative / Optimistic labels -->
+                  <div class="mt-2 flex items-center justify-between text-[8px]">
+                    <div>
+                      <p class="font-bold leading-none" style="color:#2bd17e;">$73</p>
+                      <p class="leading-none mt-0.5" style="color:#2bd17e;">Conservative</p>
+                    </div>
+                    <div style="margin-left: 28%;">
+                      <p class="font-bold leading-none" style="color:#e4b800;">$284</p>
+                      <p class="leading-none mt-0.5" style="color:#e4b800;">Optimistic</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- How we estimated it -->
+                <div class="absolute left-3 right-3 top-[504px] border-t border-white/10 pt-2">
+                  <p class="text-[8px] font-bold tracking-[1px] text-white/55">HOW WE ESTIMATED IT</p>
+                  <div class="mt-1 flex items-start justify-between gap-2">
+                    <p class="text-[8px] text-white/60 leading-tight">Open to see the detailed calculation steps for the current method.</p>
+                    <span class="text-white/55 text-[12px] leading-none">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right/front phone (switch & save) -->
+            <div
+              class="phone phone-light absolute"
+              style="transform: rotate(7deg) translate(110px, -30px)"
+            >
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <!-- status bar -->
+                <div class="phone-status text-slate-900">
+                  <span>9:41</span>
+                  <span class="flex items-center gap-1">
+                    <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+                      <rect x="0" y="3" width="3" height="4" rx="0.5" fill="#0A192F" />
+                      <rect x="4" y="2" width="3" height="6" rx="0.5" fill="#0A192F" />
+                      <rect x="8" y="1" width="3" height="8" rx="0.5" fill="#0A192F" />
+                      <rect x="12" y="0" width="3" height="10" rx="0.5" fill="#0A192F" />
+                    </svg>
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                      <path
+                        d="M1 4.5C2.5 3 4.5 2 7 2C9.5 2 11.5 3 13 4.5"
+                        stroke="#0A192F"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M3.5 6.5C4.5 5.5 5.7 5 7 5C8.3 5 9.5 5.5 10.5 6.5"
+                        stroke="#0A192F"
+                        stroke-width="1.2"
+                        stroke-linecap="round"
+                      />
+                      <circle cx="7" cy="8.5" r="0.9" fill="#0A192F" />
+                    </svg>
+                    <span class="inline-block w-5 h-2 border border-slate-900 rounded-[2px] relative">
+                      <span class="absolute inset-0.5 bg-slate-900 rounded-[1px]"></span>
+                    </span>
+                  </span>
+                </div>
+
+                <!-- Watchlist header -->
+                <div class="absolute left-4 right-4 top-[52px]">
+                  <h3 class="text-[22px] font-extrabold text-slate-900">Watchlist</h3>
+                </div>
+
+                <!-- Search bar -->
+                <div class="absolute left-4 right-4 top-[96px]">
+                  <div class="bg-slate-100 rounded-full px-3 py-2 flex items-center gap-2">
+                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                      <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.5" />
+                      <path d="M11 11l3 3" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span class="text-[10px] text-slate-400">Search stocks to add or delete</span>
+                  </div>
+                </div>
+
+                <!-- Stock list -->
+                <div class="absolute left-4 right-4 top-[136px] space-y-2.5">
+                  <!-- AAPL -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AAPL</p>
+                      <p class="text-[9px] text-slate-400">Apple Inc.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">36.1</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">171.4%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">83.2%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- MSFT -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">MSFT</p>
+                      <p class="text-[9px] text-slate-400">MICROSOFT...</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">24.3</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">33.3%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">32.4%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- GOOGL -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">GOOGL</p>
+                      <p class="text-[9px] text-slate-400">Alphabet Inc.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">30.6</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">35.7%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">27.3%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- AMZN -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AMZN</p>
+                      <p class="text-[9px] text-slate-400">AMAZON INC</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">32.1</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">22.3%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">18.5%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- JNJ -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">JNJ</p>
+                      <p class="text-[9px] text-slate-400">Johnson &amp; J.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">26.6</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">35.0%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">25.3%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- V -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">V</p>
+                      <p class="text-[9px] text-slate-400">VISA INC.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-orange-500">32.6</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">52.1%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">42.3%</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- WMT -->
+                  <div class="flex items-center justify-between">
+                    <div class="flex-shrink-0">
+                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">WMT</p>
+                      <p class="text-[9px] text-slate-400">Walmart Inc.</p>
+                    </div>
+                    <div class="flex gap-1">
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                        <p class="text-[10px] font-bold text-rose-500">48.5</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                        <p class="text-[10px] font-bold text-emerald-500">23.0%</p>
+                      </div>
+                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                        <p class="text-[10px] font-bold text-emerald-500">17.8%</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- bottom tab bar -->
+                <div
+                  class="absolute bottom-0 left-0 right-0 h-14 bg-white border-t border-slate-100 flex items-center justify-around px-2"
+                >
+                  <div class="flex flex-col items-center gap-0.5" style="color: #0e85ff;">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M3 14V8M8 14V4M13 14V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                    <span class="text-[9px] font-semibold">Values</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <rect x="3" y="5" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
+                      <circle cx="7" cy="9" r="0.9" fill="currentColor" />
+                      <circle cx="11" cy="9" r="0.9" fill="currentColor" />
+                      <path d="M9 2v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      <circle cx="9" cy="2" r="0.8" fill="currentColor" />
+                    </svg>
+                    <span class="text-[9px]">Intelligence</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M3 4h12v8H7l-4 3V4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    </svg>
+                    <span class="text-[9px]">Feedback</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.5" />
+                      <circle cx="9" cy="7.5" r="2" stroke="currentColor" stroke-width="1.5" />
+                      <path d="M4.5 14.5c1-1.8 2.7-2.8 4.5-2.8s3.5 1 4.5 2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span class="text-[9px]">Me</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- scroll cue -->
+      <div class="flex justify-center mt-8">
+        <div class="scroll-cue text-slate-500">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path
+              d="M5 8l6 6 6-6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== FEATURES CAROUSEL ==================== -->
+    <section class="mt-24 lg:mt-32 pb-24" aria-label="Product features">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <!-- Heading -->
+        <div class="text-center">
+          <h2 class="fc-headline text-[44px] sm:text-[56px] lg:text-[64px] text-slate-900">
+            Built for Modern Intelligent Investors
+          </h2>
+          <p
+            class="mt-6 max-w-[620px] mx-auto text-[18px] sm:text-[19px] leading-[1.55] text-slate-500"
+          >
+            What if you could invest alongside Buffett, Munger, and Lynch? Deep Values
+            distills their playbooks into moat watchlists, intrinsic-value calculators,
+            and interactive fundamental analysis — all in a single workflow.
+          </p>
+
+          <!-- Controls -->
+          <div class="mt-8 flex items-center justify-center gap-5">
+            <button id="fcPrev" class="fc-arrow" aria-label="Previous feature">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M9 3L5 7L9 11"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div id="fcDots" class="flex items-center gap-2" role="tablist">
+              <button class="fc-dot active" data-index="0" aria-label="Slide 1"></button>
+              <button class="fc-dot" data-index="1" aria-label="Slide 2"></button>
+              <button class="fc-dot" data-index="2" aria-label="Slide 3"></button>
+            </div>
+            <button id="fcNext" class="fc-arrow" aria-label="Next feature">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M5 3L9 7L5 11"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Stage -->
+        <div class="fc-stage mt-12 relative">
+          <div id="fcTrack" class="fc-track">
+            <!-- ===== SLIDE 1: Moat Watchlists ===== -->
+            <article class="fc-slide fc-gradient-1">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#f3f7f4; color:#0a192f;">
+                      <div class="absolute left-4 right-4 top-[48px]">
+                        <h4 class="text-[22px] font-extrabold text-slate-900">Watchlist</h4>
+                      </div>
+                      <!-- search -->
+                      <div class="absolute left-4 right-4 top-[88px]">
+                        <div class="bg-white rounded-full px-3 py-2 flex items-center gap-2 border border-slate-100">
+                          <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                            <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.5" />
+                            <path d="M11 11l3 3" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" />
+                          </svg>
+                          <span class="text-[10px] text-slate-400">Search to add stocks</span>
+                        </div>
+                      </div>
+                      <!-- list -->
+                      <div class="absolute left-4 right-4 top-[128px] space-y-2.5">
+                        <!-- AAPL -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AAPL</p>
+                            <p class="text-[9px] text-slate-400">Apple Inc.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">36.1</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">171%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">83.2%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- MSFT -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">MSFT</p>
+                            <p class="text-[9px] text-slate-400">Microsoft</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">24.3</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">33.3%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">32.4%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- GOOGL -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">GOOGL</p>
+                            <p class="text-[9px] text-slate-400">Alphabet Inc.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">30.6</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">35.7%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">27.3%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- V -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">V</p>
+                            <p class="text-[9px] text-slate-400">Visa Inc.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">32.6</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">52.1%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">42.3%</p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- JNJ -->
+                        <div class="flex items-center justify-between">
+                          <div>
+                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">JNJ</p>
+                            <p class="text-[9px] text-slate-400">Johnson & J.</p>
+                          </div>
+                          <div class="flex gap-1">
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
+                              <p class="text-[10px] font-bold text-orange-500">26.6</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
+                              <p class="text-[10px] font-bold text-emerald-500">35.0%</p>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
+                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
+                              <p class="text-[10px] font-bold text-emerald-500">25.3%</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Moat Watchlists
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill"
+                      >Build Your Lens
+                    </span>
+                    <span class="fc-pill"
+                      >Judge by Color
+                    </span>
+                    <span class="fc-pill"
+                      >One-Glance Compare
+                    </span>
+                  </div>
+                  <ul
+                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
+                  >
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Intrinsic-value investors aren't price-watchers — we're value-watchers.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Each value is colored against the thresholds Buffett, Munger, Greenblatt, and other legends actually used.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Your whole watchlist resolves into a verdict at a glance.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- ===== SLIDE 2: Intrinsic Value ===== -->
+            <article class="fc-slide fc-gradient-2">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <!-- Phone -->
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#0a0a0d; color:#fff;">
+                      <!-- header -->
+                      <div class="absolute left-0 right-0 top-[44px] px-5">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">DEEP VALUE</p>
+                        <p class="mt-1 text-[20px] font-extrabold text-white">Intrinsic Value</p>
+                      </div>
+                      <!-- method tabs -->
+                      <div
+                        class="absolute left-5 right-5 top-[112px] flex items-center gap-4 text-[11px] border-b border-white/10 pb-2"
+                      >
+                        <span class="font-bold text-white relative"
+                          >Cash Flow<span
+                            class="absolute -bottom-2 left-0 right-0 h-[2px] bg-white"
+                          ></span
+                        ></span>
+                        <span class="text-white/45">Buffett</span>
+                        <span class="text-white/45">Damodaran</span>
+                      </div>
+                      <!-- valuation slider -->
+                      <div class="absolute left-5 right-5 top-[170px]">
+                        <div
+                          class="relative h-3 rounded-full"
+                          style="background: linear-gradient(90deg, #2bd17e 0%, #f5d04a 50%, #ef4444 100%);"
+                        >
+                          <div class="absolute -top-1.5" style="left: 30%;">
+                            <div class="w-1 h-6 bg-white rounded-full"></div>
+                          </div>
+                          <div class="absolute -top-1.5" style="right: 0;">
+                            <div class="w-1 h-6 bg-white rounded-full"></div>
+                          </div>
+                        </div>
+                        <div
+                          class="absolute -top-10 rounded-lg px-2 py-1 border border-white/15"
+                          style="left: 14%; background: #1c1d20;"
+                        >
+                          <p class="text-[11px] font-extrabold text-white leading-none">$135</p>
+                          <p class="text-[8px] text-white/55 leading-none mt-0.5">Fair Value</p>
+                        </div>
+                        <div
+                          class="absolute -top-10 rounded-lg px-2 py-1 border"
+                          style="right: -4px; background: #1c1d20; border-color: #ef4444;"
+                        >
+                          <p class="text-[11px] font-extrabold leading-none" style="color: #ef4444;">$401</p>
+                          <p class="text-[8px] leading-none mt-0.5" style="color: #ef4444;">Current</p>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between text-[9px]">
+                          <div>
+                            <p class="font-bold leading-none" style="color: #2bd17e;">$73</p>
+                            <p class="leading-none mt-0.5" style="color: #2bd17e;">Conservative</p>
+                          </div>
+                          <div style="margin-left: 28%;">
+                            <p class="font-bold leading-none" style="color: #e4b800;">$284</p>
+                            <p class="leading-none mt-0.5" style="color: #e4b800;">Optimistic</p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- summary cards -->
+                      <div class="absolute left-5 right-5 top-[270px] space-y-2">
+                        <div
+                          class="rounded-2xl p-3 flex items-center justify-between"
+                          style="background: #15171b;"
+                        >
+                          <div>
+                            <p class="text-[9px] text-white/55 leading-none">DCF Estimate</p>
+                            <p class="mt-1 text-[16px] font-extrabold text-white">$135.20</p>
+                          </div>
+                          <span
+                            class="text-[10px] font-bold rounded-md px-2 py-1"
+                            style="background: #10301f; color: #5fdfa6;"
+                            >−66%</span
+                          >
+                        </div>
+                        <div
+                          class="rounded-2xl p-3 flex items-center justify-between"
+                          style="background: #15171b;"
+                        >
+                          <div>
+                            <p class="text-[9px] text-white/55 leading-none">Owner Earnings</p>
+                            <p class="mt-1 text-[16px] font-extrabold text-white">$148.70</p>
+                          </div>
+                          <span
+                            class="text-[10px] font-bold rounded-md px-2 py-1"
+                            style="background: #10301f; color: #5fdfa6;"
+                            >−63%</span
+                          >
+                        </div>
+                        <div
+                          class="rounded-2xl p-3 flex items-center justify-between"
+                          style="background: #15171b;"
+                        >
+                          <div>
+                            <p class="text-[9px] text-white/55 leading-none">Damodaran Method</p>
+                            <p class="mt-1 text-[16px] font-extrabold text-white">$162.40</p>
+                          </div>
+                          <span
+                            class="text-[10px] font-bold rounded-md px-2 py-1"
+                            style="background: #10301f; color: #5fdfa6;"
+                            >−60%</span
+                          >
+                        </div>
+                      </div>
+                      <!-- footnote -->
+                      <div class="absolute left-5 right-5 bottom-5 border-t border-white/10 pt-2">
+                        <p class="text-[8px] font-bold tracking-[1px] text-white/55">HOW WE ESTIMATED IT</p>
+                        <p class="text-[8px] text-white/55 mt-1 leading-tight">
+                          Three independent models cross-checked with peer benchmarks.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Copy -->
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Intrinsic Value Calculator
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill"
+                      >Margin of Safety
+                    </span>
+                    <span class="fc-pill"
+                      >Three Models
+                    </span>
+                    <span class="fc-pill"
+                      >Cross-Checked
+                    </span>
+                  </div>
+                  <ul
+                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
+                  >
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Before you buy, know what it's worth.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Three independent valuations — DCF, Owner Earnings, and Damodaran — cross-checked against peers.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>See at a glance where today's price sits: above, around, or below what it's worth.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- ===== SLIDE 3: Financial Deep Dive ===== -->
+            <article class="fc-slide fc-gradient-3">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#0a0a0d; color:#fff;">
+                      <div
+                        class="absolute left-4 right-4 top-[44px] flex items-end gap-4 text-[12px] border-b border-white/10 pb-2"
+                      >
+                        <span class="font-bold text-white relative"
+                          >Income<span
+                            class="absolute -bottom-2 left-0 right-0 h-[2px] bg-white"
+                          ></span
+                        ></span>
+                        <span class="text-white/45">Cash Flow</span>
+                        <span class="text-white/45">Balance Sheet</span>
+                      </div>
+                      <div
+                        class="absolute left-4 right-4 top-[90px] rounded-2xl p-3"
+                        style="background: #1c1d20;"
+                      >
+                        <div class="flex items-center justify-between text-[10px]">
+                          <div class="flex gap-3">
+                            <span class="font-bold text-white relative pb-0.5"
+                              >5Y<span class="absolute -bottom-0 left-0 w-3 h-[1.5px] bg-white"></span
+                            ></span>
+                            <span class="text-white/45">ALL</span>
+                          </div>
+                          <div class="flex gap-3">
+                            <span class="text-white/45">Quarterly</span>
+                            <span class="font-bold text-white relative pb-0.5"
+                              >Yearly<span class="absolute -bottom-0 left-0 right-0 h-[1.5px] bg-white"></span
+                            ></span>
+                          </div>
+                        </div>
+                        <div
+                          class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[8px] text-white/75 leading-tight"
+                        >
+                          <span class="flex items-center gap-1"
+                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #8b7ee8;"></span>Revenue</span
+                          >
+                          <span class="flex items-center gap-1"
+                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #22d3ee;"></span>Net Income</span
+                          >
+                          <span class="flex items-center gap-1"
+                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #34d399;"></span>FCF</span
+                          >
+                        </div>
+                        <svg viewBox="0 0 240 150" class="mt-2 w-full" preserveAspectRatio="none">
+                          <line x1="22" y1="20" x2="218" y2="20" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <line x1="22" y1="55" x2="218" y2="55" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <line x1="22" y1="90" x2="218" y2="90" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <line x1="22" y1="125" x2="218" y2="125" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
+                          <text x="0" y="22" font-size="7" fill="#9ca3af">$435B</text>
+                          <text x="0" y="57" font-size="7" fill="#9ca3af">$300B</text>
+                          <text x="0" y="92" font-size="7" fill="#9ca3af">$150B</text>
+                          <text x="0" y="127" font-size="7" fill="#9ca3af">$0</text>
+                          <rect x="32" y="63" width="6" height="62" fill="#8b7ee8" rx="1" />
+                          <rect x="39" y="111" width="6" height="14" fill="#22d3ee" rx="1" />
+                          <rect x="46" y="111" width="6" height="14" fill="#34d399" rx="1" />
+                          <rect x="71" y="51" width="6" height="74" fill="#8b7ee8" rx="1" />
+                          <rect x="78" y="106" width="6" height="19" fill="#22d3ee" rx="1" />
+                          <rect x="85" y="109" width="6" height="16" fill="#34d399" rx="1" />
+                          <rect x="110" y="37" width="6" height="88" fill="#8b7ee8" rx="1" />
+                          <rect x="117" y="102" width="6" height="23" fill="#22d3ee" rx="1" />
+                          <rect x="124" y="108" width="6" height="17" fill="#34d399" rx="1" />
+                          <rect x="149" y="25" width="6" height="100" fill="#8b7ee8" rx="1" />
+                          <rect x="156" y="94" width="6" height="31" fill="#22d3ee" rx="1" />
+                          <rect x="163" y="108" width="6" height="17" fill="#34d399" rx="1" />
+                          <rect x="188" y="26" width="6" height="99" fill="#8b7ee8" rx="1" />
+                          <rect x="195" y="95" width="6" height="30" fill="#22d3ee" rx="1" />
+                          <rect x="202" y="111" width="6" height="14" fill="#34d399" rx="1" />
+                          <polyline
+                            points="41,76 80,57 119,40 158,29 197,30"
+                            fill="none"
+                            stroke="#f59e0b"
+                            stroke-width="1.6"
+                            stroke-linejoin="round"
+                          />
+                          <text x="34" y="142" font-size="7" fill="#9ca3af">'22</text>
+                          <text x="73" y="142" font-size="7" fill="#9ca3af">'23</text>
+                          <text x="112" y="142" font-size="7" fill="#9ca3af">'24</text>
+                          <text x="151" y="142" font-size="7" fill="#9ca3af">'25</text>
+                          <text x="188" y="142" font-size="7" fill="#9ca3af">TTM</text>
+                        </svg>
+                      </div>
+                      <div class="absolute left-4 right-4 top-[340px] grid grid-cols-3 gap-2">
+                        <div class="rounded-lg p-2" style="background: #15171b;">
+                          <p class="text-[8px] text-white/55 leading-none">Revenue</p>
+                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$394B</p>
+                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+8.1% YoY</p>
+                        </div>
+                        <div class="rounded-lg p-2" style="background: #15171b;">
+                          <p class="text-[8px] text-white/55 leading-none">Net Income</p>
+                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$103B</p>
+                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+11.4% YoY</p>
+                        </div>
+                        <div class="rounded-lg p-2" style="background: #15171b;">
+                          <p class="text-[8px] text-white/55 leading-none">FCF</p>
+                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$108B</p>
+                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+9.6% YoY</p>
+                        </div>
+                      </div>
+                      <div class="absolute left-4 right-4 top-[420px] rounded-2xl p-3" style="background: #15171b;">
+                        <p class="text-[9px] font-bold tracking-[1px] text-white/55">5-YEAR TREND</p>
+                        <p class="mt-1 text-[11px] text-white leading-snug">
+                          Revenue compounding at <span class="font-bold">11.2%</span>. Net
+                          margin expanding from 21% to 26%.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Financial Deep Dive
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill"
+                      >Whole-Life Data
+                    </span>
+                    <span class="fc-pill"
+                      >Official Data Source
+                    </span>
+                    <span class="fc-pill"
+                      >Easy to Track
+                    </span>
+                  </div>
+                  <ul
+                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
+                  >
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>The truth about a business is in its full financial history.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Every income, expense, cash flow, and balance-sheet line — the company's full history, sourced straight from SEC filings.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Easy to watch, easy to track.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AI INTELLIGENCE ==================== -->
+    <section class="mt-24 lg:mt-32 pb-24" aria-label="AI Intelligence">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+        <!-- Heading -->
+        <div class="text-center">
+          <h2 class="fc-headline text-[44px] sm:text-[56px] lg:text-[64px] text-slate-900">
+            Intelligence That Only Aligns With You.
+          </h2>
+          <p
+            class="mt-6 max-w-[640px] mx-auto text-[18px] sm:text-[19px] leading-[1.55] text-slate-500"
+          >
+            Other apps profit when you trade. DeepValues.AI is built to make you a better
+            investor — reading every filing, weighing the evidence, and showing its
+            sources so you can trust the verdict instead of the confetti.
+          </p>
+
+          <!-- Controls -->
+          <div class="mt-8 flex items-center justify-center gap-5">
+            <button id="aiPrev" class="fc-arrow" aria-label="Previous AI capability">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div id="aiDots" class="flex items-center gap-2" role="tablist">
+              <button class="fc-dot active" data-index="0" aria-label="AI slide 1"></button>
+              <button class="fc-dot" data-index="1" aria-label="AI slide 2"></button>
+              <button class="fc-dot" data-index="2" aria-label="AI slide 3"></button>
+              <button class="fc-dot" data-index="3" aria-label="AI slide 4"></button>
+              <button class="fc-dot" data-index="4" aria-label="AI slide 5"></button>
+            </div>
+            <button id="aiNext" class="fc-arrow" aria-label="Next AI capability">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-12 lg:mt-14 ai-panel relative overflow-hidden rounded-[36px]">
+          <div class="ai-grid" aria-hidden="true"></div>
+          <div class="ai-glow ai-glow-a" aria-hidden="true"></div>
+          <div class="ai-glow ai-glow-b" aria-hidden="true"></div>
+
+          <div class="ai-viewport">
+            <div id="aiTrack" class="ai-track">
+              <!-- ===== SLIDE 1: Deep Value Shorts ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#60a5fa;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#60a5fa; box-shadow: 0 0 10px #60a5fa;"></span>
+                      Executive Briefing and Reports
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Executive <span class="ai-gradient-text">Briefing and Reports</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Generated on-demand for any company.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      Watch a sample
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Video player thumbnail -->
+                      <div class="ai-card overflow-hidden" style="padding:0;">
+                        <div class="relative" style="aspect-ratio: 16/9; background: radial-gradient(120% 90% at 0% 100%, #2a1308 0%, #0b0d1a 60%, #050818 100%);">
+                          <div class="absolute top-4 left-4 rounded-full px-2.5 py-1 text-[10px] font-extrabold text-slate-900" style="background:#60a5fa;">Deep Value Shorts</div>
+                          <div class="absolute top-4 right-4 rounded-full px-2.5 py-1 text-[10px] font-extrabold text-white" style="border:1.5px solid #60a5fa;">GOOGL</div>
+                          <div class="absolute top-1/2 -translate-y-1/2 left-5 max-w-[55%]">
+                            <p class="text-[22px] sm:text-[28px] font-extrabold leading-[1.05] text-white">Alphabet Inc.</p>
+                            <div class="mt-2 h-px w-12" style="background: #60a5fa;"></div>
+                            <p class="mt-2 text-[11.5px] text-white/70 leading-snug">Is GOOGL worth a deeper look now?</p>
+                          </div>
+                          <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center">
+                            <div class="w-12 h-12 rounded-md bg-white flex items-center justify-center shadow-lg" aria-hidden="true">
+                              <svg width="28" height="28" viewBox="0 0 48 48">
+                                <path fill="#4285f4" d="M46 24c0-1.6-.1-3.1-.4-4.6H24v9.1h12.4c-.5 2.9-2.2 5.4-4.7 7v5.8h7.6c4.4-4.1 6.7-10.1 6.7-17.3z"/>
+                                <path fill="#34a853" d="M24 47c6.3 0 11.6-2.1 15.5-5.7l-7.6-5.8c-2.1 1.4-4.8 2.2-7.9 2.2-6.1 0-11.2-4.1-13.1-9.6H3.2v6c3.9 7.7 11.8 12.9 20.8 12.9z"/>
+                                <path fill="#fbbc04" d="M10.9 28.1c-.5-1.4-.8-2.9-.8-4.5s.3-3.1.8-4.5v-6H3.2C1.7 16.1 1 20 1 24s.7 7.9 2.2 11l7.7-6z"/>
+                                <path fill="#ea4335" d="M24 10.5c3.4 0 6.5 1.2 8.9 3.5l6.7-6.7C35.6 3.4 30.3 1 24 1 15 1 7.1 6.2 3.2 13.9l7.7 6c1.9-5.5 7-9.4 13.1-9.4z"/>
+                              </svg>
+                            </div>
+                          </div>
+                          <button class="absolute inset-0 flex items-center justify-center" aria-label="Play video">
+                            <span class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.25);">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3l8 5-8 5V3z" fill="white"/></svg>
+                            </span>
+                          </button>
+                          <div class="absolute bottom-3 left-4 rounded-md px-2.5 py-1 text-[10px] font-extrabold text-white" style="border:1px solid rgba(255,255,255,0.25);">deepvalues.ai</div>
+                        </div>
+                      </div>
+
+                      <!-- Companion formats -->
+                      <div class="ai-card p-4">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">ALSO AVAILABLE</p>
+                        <div class="mt-2.5 grid grid-cols-2 gap-2">
+                          <a href="#" class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2);">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(248,113,113,0.18);">
+                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 1.5h6l4 4V14a.5.5 0 01-.5.5h-9A.5.5 0 013 14V2a.5.5 0 010-.5z" stroke="#fca5a5" stroke-width="1.3" stroke-linejoin="round"/>
+                                <path d="M9 1.5V5h4" stroke="#fca5a5" stroke-width="1.3"/>
+                                <text x="5" y="12.2" font-size="3.6" font-weight="800" fill="#fca5a5" font-family="Inter, sans-serif">PDF</text>
+                              </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">PDF Research</p>
+                              <p class="text-[9px] font-bold" style="color:#fca5a5;">Download →</p>
+                            </div>
+                          </a>
+                          <a href="#" class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(95,223,166,0.06); border: 1px solid rgba(95,223,166,0.2);">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(95,223,166,0.18);">
+                              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                <path d="M2 9a6 6 0 0112 0v3a1.5 1.5 0 01-1.5 1.5H12v-5h1V9a5 5 0 00-10 0v-.5h1v5h-.5A1.5 1.5 0 011 12V9z" fill="#5fdfa6"/>
+                              </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">Audio Report</p>
+                              <p class="text-[9px] font-bold" style="color:#5fdfa6;">Listen →</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 2: Buffett Lens chat ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#22d3ee;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#22d3ee; box-shadow: 0 0 10px #22d3ee;"></span>
+                      Buffett Lens
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Ask anything. <span class="ai-gradient-text">Get cited answers</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Voice or text. Always with sources.
+                    </p>
+                    <a href="https://app.deepvalues.ai" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      Try Buffett Lens
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Buffett Lens chat panel -->
+                      <div class="ai-card p-5">
+                        <div class="flex items-start justify-between">
+                          <div class="flex items-start gap-2.5">
+                            <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style="background: rgba(34, 211, 238, 0.12); border: 1px solid rgba(34, 211, 238, 0.3);">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M8 1.5l1.6 3.4 3.4.5-2.5 2.4.6 3.3L8 9.5l-3.1 1.6.6-3.3L3 5.4l3.4-.5L8 1.5z" stroke="#22d3ee" stroke-width="1.3" stroke-linejoin="round"/>
+                                <circle cx="12.5" cy="3" r="0.8" fill="#22d3ee"/>
+                                <circle cx="3.5" cy="11" r="0.8" fill="#22d3ee"/>
+                              </svg>
+                            </div>
+                            <div>
+                              <p class="text-[10px] font-bold tracking-[1.5px]" style="color:#22d3ee;">BUFFETT LENS - Intrinsics AI</p>
+                              <p class="text-[14px] font-semibold text-white">Chat with Intrinsics AI</p>
+                            </div>
+                          </div>
+                          <span class="text-white/35 text-[14px] leading-none mt-1">×</span>
+                        </div>
+                        <p class="mt-2 text-[11.5px] text-white/55 leading-snug">
+                          Grounded in GOOGL's financials, valuation, and recent SEC filings.
+                        </p>
+                        <button class="mt-3 w-full rounded-lg py-1.5 text-[12px] font-bold flex items-center justify-center gap-1.5" style="background: rgba(95,223,166,0.1); color:#5fdfa6; border: 1px solid rgba(95,223,166,0.35);">
+                          <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="5" y="1" width="4" height="8" rx="2" fill="#5fdfa6"/><path d="M3 7c0 2.2 1.8 4 4 4M11 7c0 2.2-1.8 4-4 4M7 11v2M5 13h4" stroke="#5fdfa6" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
+                          Start Voice Q&amp;A
+                        </button>
+                        <div class="mt-2.5 space-y-1.5">
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">Is GOOGL cheap right now?</div>
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">What's the bear case for GOOGL?</div>
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">Walk me through the latest 10-Q.</div>
+                        </div>
+                        <div class="mt-2.5 flex items-center gap-2 rounded-full pl-3 pr-1 py-1" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
+                          <span class="flex-1 text-[11px] text-white/45">Ask about GOOGL…</span>
+                          <button class="w-6 h-6 rounded-full flex items-center justify-center" style="background: rgba(34,211,238,0.18);">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l6-3-1.5 6L5 6.5 2 5z" fill="#22d3ee"/></svg>
+                          </button>
+                        </div>
+                      </div>
+
+                      <!-- Latest Earnings Call -->
+                      <div class="ai-card p-4">
+                        <div class="flex items-center gap-2">
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M2 8a5 5 0 0110 0v3a1.5 1.5 0 01-1.5 1.5H10v-4h1V8a4 4 0 00-8 0v.5h1v4h-.5A1.5 1.5 0 011 11V8z" fill="#22d3ee"/>
+                          </svg>
+                          <p class="text-[11.5px] font-semibold text-white">GOOGL Latest quarter earnings</p>
+                        </div>
+                        <p class="mt-1 ml-6 text-[9px] text-white/45">Filed Apr 29, 2026</p>
+                        <div class="mt-2.5 grid grid-cols-3 gap-1.5 text-[10px] font-semibold">
+                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(248,113,113,0.1); color:#fca5a5; border: 1px solid rgba(248,113,113,0.2);">▶ YouTube</a>
+                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(251,191,36,0.1); color:#fbbf24; border: 1px solid rgba(251,191,36,0.2);">Transcript</a>
+                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(124,210,255,0.1); color:#7cd2ff; border: 1px solid rgba(124,210,255,0.2);">IR page</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 3: never sleeps ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#7cd2ff;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#7cd2ff; box-shadow: 0 0 10px #7cd2ff;"></span>
+                      Powered by DVI AI
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      A team that <span class="ai-gradient-text">never sleeps</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Reads every filing and call — conviction in minutes.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      See a sample report
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <div class="ai-card p-5">
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">AI VERDICT</span>
+                            <span class="text-[10px] font-bold text-white/80">Alphabet Inc. (GOOGL)</span>
+                          </div>
+                          <span class="text-[10px] font-bold rounded-md px-2 py-0.5" style="background: rgba(95, 223, 166, 0.18); color:#5fdfa6;">Fairly valued</span>
+                        </div>
+                        <p class="mt-3 text-[15px] font-semibold leading-snug text-white">
+                          Premium franchise trading near DCF fair value. Watch for a better entry on macro pullbacks.
+                        </p>
+                        <div class="mt-4 grid grid-cols-2 gap-4">
+                          <div>
+                            <p class="text-[9px] font-bold tracking-[1px]" style="color:#5fdfa6;">STRENGTHS</p>
+                            <ul class="mt-1.5 space-y-1">
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#5fdfa6;"></span>Search + YouTube dominate ad economics</li>
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#5fdfa6;"></span>Cloud margins inflecting positive</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <p class="text-[9px] font-bold tracking-[1px]" style="color:#f87171;">RISKS</p>
+                            <ul class="mt-1.5 space-y-1">
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#f87171;"></span>AI search disruption risk</li>
+                              <li class="text-[11px] text-white/70 flex items-start gap-1.5"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#f87171;"></span>Regulatory / antitrust overhang</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ai-card p-4">
+                        <div class="flex items-start gap-2.5">
+                          <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background: rgba(255,255,255,0.08);">
+                            <span class="text-[10px] font-bold text-white/70">Q</span>
+                          </div>
+                          <p class="text-[13.5px] font-semibold text-white leading-snug">Why is gross margin compressing this quarter?</p>
+                        </div>
+                        <div class="mt-3 flex items-start gap-2.5">
+                          <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background: linear-gradient(135deg, #7cd2ff, #a89cff);">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L7.4 4.6 11 6l-3.6 1.4L6 11 4.6 7.4 1 6l3.6-1.4L6 1z" fill="white"/></svg>
+                          </div>
+                          <div class="flex-1">
+                            <p class="text-[12.5px] text-white/85 leading-snug">Heavier AI-infrastructure capex and a mix shift toward Cloud and YouTube Shorts — partly offset by Search ad pricing strength.</p>
+                            <div class="mt-2 flex items-center gap-1.5">
+                              <span class="text-[9px] font-bold tracking-[1px] text-white/40">SOURCES</span>
+                              <span class="inline-flex w-4 h-4 rounded-full items-center justify-center text-[8px] text-white/80 font-bold" style="background: rgba(124, 210, 255, 0.16);">1</span>
+                              <span class="inline-flex w-4 h-4 rounded-full items-center justify-center text-[8px] text-white/80 font-bold" style="background: rgba(124, 210, 255, 0.16);">2</span>
+                              <span class="inline-flex w-4 h-4 rounded-full items-center justify-center text-[8px] text-white/80 font-bold" style="background: rgba(124, 210, 255, 0.16);">3</span>
+                              <span class="text-[10px] text-white/45 ml-1">Q4 10-Q, earnings call</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 4: reads every word ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#5fdfa6;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#5fdfa6; box-shadow: 0 0 10px #5fdfa6;"></span>
+                      From 10-Ks to earnings calls
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Reads every word, <span class="ai-gradient-text">surfaces what matters</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Distilled to what moves the thesis.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      See a sample report
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Earnings call summary -->
+                      <div class="ai-card p-5">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">Q4 2025 EARNINGS CALL · 92 MIN</span>
+                          <span class="text-[10px] font-bold text-white/80">GOOGL</span>
+                        </div>
+                        <div class="mt-3 pl-3 border-l-2" style="border-color:#7cd2ff;">
+                          <p class="text-[12.5px] text-white/85 italic leading-snug">
+                            "Cloud reached profitability for a third straight quarter, and AI
+                            Overviews are driving deeper engagement across Search."
+                          </p>
+                          <p class="mt-1 text-[10px] text-white/45">— Sundar Pichai, CEO</p>
+                        </div>
+                        <ul class="mt-4 space-y-1.5">
+                          <li class="text-[11.5px] text-white/80 flex items-start gap-2"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#5fdfa6;"></span>Cloud revenue +28% YoY — second straight quarter of accel.</li>
+                          <li class="text-[11.5px] text-white/80 flex items-start gap-2"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#f87171;"></span>Antitrust mentioned 8× — most ever on a call.</li>
+                        </ul>
+                      </div>
+
+                      <!-- Recent SEC Filings -->
+                      <div class="ai-card p-4">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">RECENT SEC FILINGS</p>
+                        <div class="mt-2 space-y-1.5">
+                          <div class="flex items-center gap-2.5">
+                            <span class="text-[9px] font-extrabold rounded-md px-1.5 py-0.5 shrink-0" style="background: rgba(245,158,11,0.18); color:#fbbf24;">8-K</span>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">Current event report</p>
+                              <p class="text-[9px] text-white/45">Filed May 10, 2026</p>
+                            </div>
+                          </div>
+                          <div class="flex items-center gap-2.5">
+                            <span class="text-[9px] font-extrabold rounded-md px-1.5 py-0.5 shrink-0" style="background: rgba(34,211,238,0.18); color:#22d3ee;">10-Q</span>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[11.5px] font-semibold text-white truncate">Quarterly report</p>
+                              <p class="text-[9px] text-white/45">Filed Apr 29, 2026</p>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="mt-2 text-[9px] text-white/40">Source: SEC EDGAR · synced hourly</p>
+                      </div>
+
+                      <!-- Flags strip -->
+                      <div class="ai-card p-4">
+                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">Q4 FLAGS</p>
+                        <div class="mt-2 grid grid-cols-2 gap-2">
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] leading-tight" style="background: rgba(95, 223, 166, 0.1); color:#a8e9c8;">
+                            <span class="font-bold">+ Cloud margin</span><br/><span class="text-white/55">+320 bps QoQ</span>
+                          </div>
+                          <div class="rounded-lg px-2.5 py-1.5 text-[11px] leading-tight" style="background: rgba(248, 113, 113, 0.1); color:#f6b5b5;">
+                            <span class="font-bold">− Capex</span><br/><span class="text-white/55">+$4B QoQ</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- ===== SLIDE 5: peer-aware ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#a89cff;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#a89cff; box-shadow: 0 0 10px #a89cff;"></span>
+                      Peer-aware intelligence
+                    </p>
+                    <h3 class="mt-4 text-[40px] sm:text-[52px] lg:text-[56px] font-extrabold leading-[1.05] tracking-tight">
+                      Compares like <span class="ai-gradient-text">a guru would</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      Every metric, in peer context.
+                    </p>
+                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                      See a sample report
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="space-y-3.5">
+                      <!-- Peer comparison table -->
+                      <div class="ai-card p-5">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">PEER BENCHMARK · MEGACAP TECH</span>
+                          <span class="text-[10px] font-bold text-white/55">FY25</span>
+                        </div>
+                        <div class="mt-3 overflow-hidden rounded-xl border" style="border-color: rgba(255,255,255,0.08);">
+                          <table class="w-full text-[11.5px] text-white/80">
+                            <thead style="background: rgba(255,255,255,0.04);">
+                              <tr class="text-[9px] uppercase tracking-[1px] text-white/55">
+                                <th class="text-left px-3 py-1.5 font-bold"></th>
+                                <th class="px-3 py-1.5 font-bold">ROIC</th>
+                                <th class="px-3 py-1.5 font-bold">Net Margin</th>
+                                <th class="px-3 py-1.5 font-bold">Rev Growth</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="border-t" style="border-color: rgba(255,255,255,0.06); background: rgba(124,210,255,0.05);">
+                                <td class="px-3 py-1.5 font-extrabold" style="color:#7cd2ff;">GOOGL</td>
+                                <td class="px-3 py-1.5 text-center">27%</td>
+                                <td class="px-3 py-1.5 text-center">29%</td>
+                                <td class="px-3 py-1.5 text-center font-bold" style="color:#5fdfa6;">14%</td>
+                              </tr>
+                              <tr class="border-t" style="border-color: rgba(255,255,255,0.06);">
+                                <td class="px-3 py-1.5 font-bold text-white">MSFT</td>
+                                <td class="px-3 py-1.5 text-center">32%</td>
+                                <td class="px-3 py-1.5 text-center font-bold" style="color:#5fdfa6;">37%</td>
+                                <td class="px-3 py-1.5 text-center">13%</td>
+                              </tr>
+                              <tr class="border-t" style="border-color: rgba(255,255,255,0.06);">
+                                <td class="px-3 py-1.5 font-bold text-white">AAPL</td>
+                                <td class="px-3 py-1.5 text-center font-bold" style="color:#5fdfa6;">83%</td>
+                                <td class="px-3 py-1.5 text-center">31%</td>
+                                <td class="px-3 py-1.5 text-center">3%</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <!-- 10-K YoY diff -->
+                      <div class="ai-card p-4">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">10-K · WHAT CHANGED YoY</span>
+                          <span class="text-[10px] font-bold text-white/55">FY25 vs FY24</span>
+                        </div>
+                        <ul class="mt-2.5 space-y-1.5">
+                          <li class="flex items-start gap-2 text-[11.5px] text-white/80 leading-snug">
+                            <span class="mt-0.5 inline-flex items-center justify-center w-4 h-4 rounded font-bold text-[10px] shrink-0" style="background: rgba(95,223,166,0.18); color:#5fdfa6;">+</span>
+                            New segment disclosure: <span class="text-white font-semibold ml-1">Generative AI services</span> (broken out from Cloud).
+                          </li>
+                          <li class="flex items-start gap-2 text-[11.5px] text-white/80 leading-snug">
+                            <span class="mt-0.5 inline-flex items-center justify-center w-4 h-4 rounded font-bold text-[10px] shrink-0" style="background: rgba(248,113,113,0.18); color:#f87171;">!</span>
+                            <span>Added <span class="text-white font-semibold">AI regulation</span> as a material risk factor.</span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!-- Moat strength -->
+                      <div class="ai-card p-4">
+                        <div class="flex items-center justify-between">
+                          <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">ECONOMIC MOAT</span>
+                          <span class="text-[11px] font-extrabold rounded-md px-2 py-0.5" style="background: rgba(168,156,255,0.18); color:#cdc3ff;">WIDE</span>
+                        </div>
+                        <div class="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-[10.5px]">
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Brand</span><span class="font-bold text-white/80">9.2</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:92%; background:#a89cff;"></div></div>
+                          </div>
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Switching cost</span><span class="font-bold text-white/80">7.4</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:74%; background:#a89cff;"></div></div>
+                          </div>
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Network effects</span><span class="font-bold text-white/80">9.1</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:91%; background:#a89cff;"></div></div>
+                          </div>
+                          <div>
+                            <div class="flex items-center justify-between text-white/60 mb-1"><span>Scale</span><span class="font-bold text-white/80">9.4</span></div>
+                            <div class="h-1 rounded-full overflow-hidden" style="background: rgba(255,255,255,0.08);"><div class="h-full rounded-full" style="width:94%; background:#a89cff;"></div></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="mt-24 bg-black text-white">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-12">
+        <!-- Brand wordmark -->
+        <div class="pb-8">
+          <a href="#" class="inline-block tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 44px; line-height: 1;">
+            <span class="text-white">Deep</span><span style="color: #4ec3ee;">Values.AI</span>
+          </a>
+        </div>
+
+        <!-- Top row (above divider): nav links on the left -->
+        <div class="pb-3">
+          <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-white/90">
+            <li><a href="#" class="hover:text-white transition">About</a></li>
+            <li><a href="#" class="hover:text-white transition">Contact</a></li>
+            <li><a href="#" class="hover:text-white transition">Apps</a></li>
+          </ul>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-white/15"></div>
+
+        <!-- Bottom row (below divider): copyright + legal links on the right -->
+        <div class="flex justify-end pt-3 text-[14px] text-white/70">
+          <ul class="flex flex-wrap items-center gap-x-8 gap-y-2">
+            <li>© 2026</li>
+            <li><a href="#" class="hover:text-white transition">Cookies</a></li>
+            <li><a href="#" class="hover:text-white transition">Legal</a></li>
+            <li><a href="#" class="hover:text-white transition">Privacy Statement</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var m = location.search.match(/[?&]bg=(\d+)/);
+        if (m) document.body.classList.add('bg-' + m[1]);
+      })();
+
+      // ===== Features carousel =====
+      (function () {
+        var track = document.getElementById('fcTrack');
+        var prev = document.getElementById('fcPrev');
+        var next = document.getElementById('fcNext');
+        var dotsContainer = document.getElementById('fcDots');
+        if (!track || !prev || !next || !dotsContainer) return;
+
+        var dots = Array.prototype.slice.call(dotsContainer.querySelectorAll('.fc-dot'));
+        var total = dots.length;
+        var index = 0;
+
+        function update() {
+          track.style.transform = 'translateX(' + -index * 100 + '%)';
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+
+        function go(delta) {
+          index = (index + delta + total) % total;
+          update();
+        }
+
+        prev.addEventListener('click', function () { go(-1); });
+        next.addEventListener('click', function () { go(1); });
+
+        dots.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            var i = parseInt(dot.getAttribute('data-index'), 10);
+            if (!isNaN(i)) {
+              index = i;
+              update();
+            }
+          });
+        });
+
+        // Keyboard navigation when the carousel is in view
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') go(-1);
+          else if (e.key === 'ArrowRight') go(1);
+        });
+
+        // Touch / pointer swipe
+        var startX = null;
+        var threshold = 40;
+        track.addEventListener('pointerdown', function (e) {
+          startX = e.clientX;
+        });
+        track.addEventListener('pointerup', function (e) {
+          if (startX === null) return;
+          var dx = e.clientX - startX;
+          if (Math.abs(dx) > threshold) go(dx < 0 ? 1 : -1);
+          startX = null;
+        });
+        track.addEventListener('pointercancel', function () { startX = null; });
+      })();
+
+      // ===== AI Intelligence carousel =====
+      (function () {
+        var track = document.getElementById('aiTrack');
+        var prev = document.getElementById('aiPrev');
+        var next = document.getElementById('aiNext');
+        var dotsContainer = document.getElementById('aiDots');
+        if (!track || !prev || !next || !dotsContainer) return;
+
+        var dots = Array.prototype.slice.call(dotsContainer.querySelectorAll('.fc-dot'));
+        var total = dots.length;
+        var index = 0;
+
+        function update() {
+          track.style.transform = 'translateX(' + -index * 100 + '%)';
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+
+        function go(delta) {
+          index = (index + delta + total) % total;
+          update();
+        }
+
+        prev.addEventListener('click', function () { go(-1); });
+        next.addEventListener('click', function () { go(1); });
+
+        dots.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            var i = parseInt(dot.getAttribute('data-index'), 10);
+            if (!isNaN(i)) {
+              index = i;
+              update();
+            }
+          });
+        });
+
+        var startX = null;
+        var threshold = 40;
+        track.addEventListener('pointerdown', function (e) {
+          startX = e.clientX;
+        });
+        track.addEventListener('pointerup', function (e) {
+          if (startX === null) return;
+          var dx = e.clientX - startX;
+          if (Math.abs(dx) > threshold) go(dx < 0 ? 1 : -1);
+          startX = null;
+        });
+        track.addEventListener('pointercancel', function () { startX = null; });
+      })();
+    </script>
   </body>
 </html>

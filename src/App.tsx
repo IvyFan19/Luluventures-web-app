@@ -132,8 +132,9 @@ function AppRoutes() {
 }
 
 function App() {
+  // React SPA is mounted at /app via app.html; the marketing landing page lives at /.
   return (
-    <Router>
+    <Router basename="/app">
       <AppRoutes />
     </Router>
   );
