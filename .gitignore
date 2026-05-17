@@ -30,3 +30,7 @@ dist-ssr
 .yarn/
 .yarnrc.yml
 AGENTS.md
+
+# Lockfile policy: npm is the canonical package manager (see CI workflow).
+# Do not commit yarn.lock — it drifts from package-lock.json across OSes.
+yarn.lock
