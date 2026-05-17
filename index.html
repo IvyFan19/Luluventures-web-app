@@ -49,6 +49,9 @@
       };
     </script>
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       html,
       body {
         font-family: 'Inter', system-ui, sans-serif;
@@ -440,23 +443,8 @@
 
           <!-- Menu -->
           <ul class="hidden md:flex items-center gap-8 text-[15px] text-slate-700">
-            <li><a href="#" class="hover:text-slate-900 transition">Pricing</a></li>
-            <li><a href="#" class="hover:text-slate-900 transition">Compliance</a></li>
-            <li><a href="#" class="hover:text-slate-900 transition">FAQ</a></li>
-            <li>
-              <a href="#" class="hover:text-slate-900 transition flex items-center gap-1">
-                Docs
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path
-                    d="M3 4.5L6 7.5L9 4.5"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </li>
+            <li><a href="#app" class="hover:text-slate-900 transition">App</a></li>
+            <li><a href="#ai-intelligence" class="hover:text-slate-900 transition">AI Intelligence</a></li>
           </ul>
         </div>
 
@@ -1042,7 +1030,7 @@
     </main>
 
     <!-- ==================== FEATURES CAROUSEL ==================== -->
-    <section class="mt-24 lg:mt-32 pb-24" aria-label="Product features">
+    <section id="app" class="mt-24 lg:mt-32 pb-24" aria-label="Product features">
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
         <!-- Heading -->
         <div class="text-center">
@@ -1573,7 +1561,7 @@
     </section>
 
     <!-- ==================== AI INTELLIGENCE ==================== -->
-    <section class="mt-24 lg:mt-32 pb-24" aria-label="AI Intelligence">
+    <section id="ai-intelligence" class="mt-24 lg:mt-32 pb-24" aria-label="AI Intelligence">
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
         <!-- Heading -->
         <div class="text-center">
@@ -2048,34 +2036,34 @@
     </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="mt-24 bg-black text-white">
+    <footer class="mt-24 border-t border-slate-900/10 text-slate-700">
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-12">
         <!-- Brand wordmark -->
         <div class="pb-8">
           <a href="#" class="inline-block tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 44px; line-height: 1;">
-            <span class="text-white">Deep</span><span style="color: #4ec3ee;">Values.AI</span>
+            <span style="color: #003085;">Deep</span><span style="color: #019dde;">Values.AI</span>
           </a>
         </div>
 
         <!-- Top row (above divider): nav links on the left -->
         <div class="pb-3">
-          <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-white/90">
-            <li><a href="#" class="hover:text-white transition">About</a></li>
-            <li><a href="#" class="hover:text-white transition">Contact</a></li>
-            <li><a href="#" class="hover:text-white transition">Apps</a></li>
+          <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-slate-700">
+            <li><a href="#" class="hover:text-slate-900 transition">About</a></li>
+            <li><a href="#" class="hover:text-slate-900 transition">Contact</a></li>
+            <li><a href="#" class="hover:text-slate-900 transition">Apps</a></li>
           </ul>
         </div>
 
         <!-- Divider -->
-        <div class="border-t border-white/15"></div>
+        <div class="border-t border-slate-900/10"></div>
 
         <!-- Bottom row (below divider): copyright + legal links on the right -->
-        <div class="flex justify-end pt-3 text-[14px] text-white/70">
+        <div class="flex justify-end pt-3 text-[14px] text-slate-500">
           <ul class="flex flex-wrap items-center gap-x-8 gap-y-2">
             <li>© 2026</li>
-            <li><a href="#" class="hover:text-white transition">Cookies</a></li>
-            <li><a href="#" class="hover:text-white transition">Legal</a></li>
-            <li><a href="#" class="hover:text-white transition">Privacy Statement</a></li>
+            <li><a href="#" class="hover:text-slate-900 transition">Cookies</a></li>
+            <li><a href="#" class="hover:text-slate-900 transition">Legal</a></li>
+            <li><a href="#" class="hover:text-slate-900 transition">Privacy Statement</a></li>
           </ul>
         </div>
       </div>
