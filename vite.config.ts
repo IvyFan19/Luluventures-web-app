@@ -33,6 +33,8 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         // React SPA shell — serves /app and React Router sub-routes
         app: resolve(__dirname, 'app.html'),
+        // Static legal pages
+        privacy: resolve(__dirname, 'privacy.html'),
       },
     },
   },

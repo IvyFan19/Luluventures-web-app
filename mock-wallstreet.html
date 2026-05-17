@@ -405,6 +405,12 @@
       .fc-gradient-4 {
         background: linear-gradient(135deg, #fff1e2 0%, #ffe7e7 38%, #f3e2f5 72%, #e2e6ff 100%);
       }
+      .fc-gradient-5 {
+        background: linear-gradient(135deg, #e9f0ff 0%, #e2eaff 38%, #ede4fb 72%, #fde2ee 100%);
+      }
+      .fc-gradient-6 {
+        background: linear-gradient(135deg, #fff5e0 0%, #fde6cf 38%, #f4d9d0 72%, #e0d7f6 100%);
+      }
 
       .fc-pill {
         display: inline-flex;
@@ -476,7 +482,7 @@
 
           <!-- Menu -->
           <ul class="hidden md:flex items-center gap-8 text-[15px] text-slate-700">
-            <li><a href="#" class="hover:text-slate-900 transition">Pricing</a></li>
+            <li><a href="#pricing" class="hover:text-slate-900 transition">Pricing</a></li>
             <li><a href="#" class="hover:text-slate-900 transition">Compliance</a></li>
             <li><a href="#" class="hover:text-slate-900 transition">FAQ</a></li>
             <li>
@@ -542,7 +548,7 @@
           <!-- Supported by Microsoft, Amazon pill -->
           <div class="inline-flex items-center gap-2.5 bg-white/70 backdrop-blur pill-shadow rounded-full pl-4 pr-5 py-2">
             <span class="text-[11px] font-bold uppercase tracking-[1.5px] text-slate-600"
-              >Supported by</span
+              >Sponsored by</span
             >
 
             <!-- Microsoft -->
@@ -1110,6 +1116,8 @@
               <button class="fc-dot active" data-index="0" aria-label="Slide 1"></button>
               <button class="fc-dot" data-index="1" aria-label="Slide 2"></button>
               <button class="fc-dot" data-index="2" aria-label="Slide 3"></button>
+              <button class="fc-dot" data-index="3" aria-label="Slide 4"></button>
+              <button class="fc-dot" data-index="4" aria-label="Slide 5"></button>
             </div>
             <button id="fcNext" class="fc-arrow" aria-label="Next feature">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -1128,7 +1136,7 @@
         <!-- Stage -->
         <div class="fc-stage mt-12 relative">
           <div id="fcTrack" class="fc-track">
-            <!-- ===== SLIDE 1: Moat Watchlists ===== -->
+            <!-- ===== SLIDE 1: Values Watchlist ===== -->
             <article class="fc-slide fc-gradient-1">
               <div
                 class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
@@ -1263,7 +1271,7 @@
                 </div>
                 <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
                   <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
-                    Moat Watchlists
+                    Values Watchlist
                   </h3>
                   <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
                     <span class="fc-pill"
@@ -1452,7 +1460,7 @@
               </div>
             </article>
 
-            <!-- ===== SLIDE 3: Financial Deep Dive ===== -->
+            <!-- ===== SLIDE 3: Financials Deep Dive ===== -->
             <article class="fc-slide fc-gradient-3">
               <div
                 class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
@@ -1570,7 +1578,7 @@
                 </div>
                 <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
                   <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
-                    Financial Deep Dive
+                    Financials Deep Dive
                   </h3>
                   <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
                     <span class="fc-pill"
@@ -1597,6 +1605,246 @@
                     <li class="flex items-start gap-3">
                       <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
                       <span>Easy to watch, easy to track.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- ===== SLIDE 4: Smart Money & Gurus ===== -->
+            <article class="fc-slide fc-gradient-4">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#0b0d12; color:#fff;">
+                      <!-- header -->
+                      <div class="absolute left-4 right-4 top-[48px]">
+                        <div class="flex items-center gap-2">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M2 5l3 2.5L8 2l3 5.5L14 5l-1 7H3L2 5z" stroke="#22d3ee" stroke-width="1.3" stroke-linejoin="round"/>
+                          </svg>
+                          <h4 class="text-[16px] font-extrabold text-white">Smart Money</h4>
+                        </div>
+                        <p class="mt-1 text-[9px] text-white/55">What tracked gurus did with this stock last quarter.</p>
+                      </div>
+                      <!-- stat -->
+                      <div class="absolute left-4 right-4 top-[108px]">
+                        <p class="text-[12px] font-extrabold text-white leading-tight">17 of 29 tracked gurus hold this stock.</p>
+                        <div class="mt-2 flex items-baseline gap-2">
+                          <span class="text-[9px] uppercase tracking-wider text-white/40">Combined</span>
+                          <span class="text-[16px] font-extrabold text-white">$38.3B</span>
+                          <span class="text-[9px] font-bold text-emerald-400">+40% QoQ</span>
+                        </div>
+                      </div>
+                      <!-- table -->
+                      <div class="absolute left-4 right-4 top-[180px] rounded-xl border border-white/10" style="background: rgba(255,255,255,0.03);">
+                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/10">
+                          <span class="text-[7.5px] uppercase tracking-wider text-white/40">Manager</span>
+                          <div class="flex gap-4">
+                            <span class="text-[7.5px] uppercase tracking-wider text-white/40">Position</span>
+                            <span class="text-[7.5px] uppercase tracking-wider text-white/40 w-[42px] text-right">Δ QoQ</span>
+                          </div>
+                        </div>
+                        <!-- Buffett -->
+                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
+                          <div class="flex items-center gap-1.5">
+                            <span style="color:#22c55e;">▲</span>
+                            <span class="text-[10px] font-bold text-white">Warren Buffett</span>
+                          </div>
+                          <div class="flex gap-4">
+                            <span class="text-[10px] font-bold text-white">$15.6B</span>
+                            <span class="text-[10px] font-bold text-emerald-400 w-[42px] text-right">+204%</span>
+                          </div>
+                        </div>
+                        <!-- Griffin -->
+                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
+                          <div class="flex items-center gap-1.5">
+                            <span style="color:#ef4444;">▽</span>
+                            <span class="text-[10px] font-bold text-white">Ken Griffin</span>
+                          </div>
+                          <div class="flex gap-4">
+                            <span class="text-[10px] font-bold text-white">$10.2B</span>
+                            <span class="text-[10px] font-bold text-red-400 w-[42px] text-right">−5%</span>
+                          </div>
+                        </div>
+                        <!-- Coleman -->
+                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
+                          <div class="flex items-center gap-1.5">
+                            <span style="color:#94a3b8;">●</span>
+                            <span class="text-[10px] font-bold text-white">Chase Coleman</span>
+                          </div>
+                          <div class="flex gap-4">
+                            <span class="text-[10px] font-bold text-white">$3.1B</span>
+                            <span class="text-[10px] font-bold text-white/55 w-[42px] text-right">flat</span>
+                          </div>
+                        </div>
+                        <!-- Englander -->
+                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
+                          <div class="flex items-center gap-1.5">
+                            <span style="color:#22c55e;">▲</span>
+                            <span class="text-[10px] font-bold text-white">Israel Englander</span>
+                          </div>
+                          <div class="flex gap-4">
+                            <span class="text-[10px] font-bold text-white">$3.0B</span>
+                            <span class="text-[10px] font-bold text-emerald-400 w-[42px] text-right">+7%</span>
+                          </div>
+                        </div>
+                        <!-- Two Sigma -->
+                        <div class="flex items-center justify-between px-3 py-2">
+                          <div class="flex items-center gap-1.5">
+                            <span style="color:#22c55e;">▲</span>
+                            <span class="text-[10px] font-bold text-white">Two Sigma</span>
+                          </div>
+                          <div class="flex gap-4">
+                            <span class="text-[10px] font-bold text-white">$1.4B</span>
+                            <span class="text-[10px] font-bold text-emerald-400 w-[42px] text-right">+833%</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="absolute left-4 right-4 bottom-[24px] flex items-center justify-between">
+                        <span class="text-[8px] text-white/40">Plus 12 more tracked gurus</span>
+                        <span class="text-[8px] font-bold" style="color:#22d3ee;">See all →</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Smart Money &amp; Gurus
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill">Track 29 Gurus</span>
+                    <span class="fc-pill">Quarterly 13F Sync</span>
+                    <span class="fc-pill">Sector &amp; Style Filters</span>
+                  </div>
+                  <ul
+                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
+                  >
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>See which legends own a stock, how big the bet is, and how it shifted quarter over quarter.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>QoQ deltas surface fresh conviction and quiet exits before they hit the headlines.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Tap a name to read their full thesis and follow their next move.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- ===== SLIDE 5: Filings & Earnings ===== -->
+            <article class="fc-slide fc-gradient-5">
+              <div
+                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
+              >
+                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+                  <div class="fc-phone">
+                    <div class="fc-phone-notch"></div>
+                    <div class="fc-phone-screen" style="background:#0b0d12; color:#fff;">
+                      <!-- header -->
+                      <div class="absolute left-4 right-4 top-[48px]">
+                        <h4 class="text-[15px] font-extrabold text-white">Recent SEC Filings</h4>
+                      </div>
+                      <!-- 8-K -->
+                      <div class="absolute left-4 right-4 top-[80px]">
+                        <div class="rounded-lg border border-white/10 px-3 py-2.5 flex items-center gap-2.5" style="background: rgba(255,255,255,0.03);">
+                          <span class="rounded px-1.5 py-0.5 text-[9px] font-extrabold text-slate-900" style="background:#f59e0b;">8-K</span>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-[11px] font-extrabold text-white leading-tight">Current event report</p>
+                            <p class="text-[9px] text-white/45">Filed May 10, 2026</p>
+                          </div>
+                          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M6 3h7v7M13 3L4 12" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <!-- 10-Q -->
+                      <div class="absolute left-4 right-4 top-[138px]">
+                        <div class="rounded-lg border border-white/10 px-3 py-2.5 flex items-center gap-2.5" style="background: rgba(255,255,255,0.03);">
+                          <span class="rounded px-1.5 py-0.5 text-[9px] font-extrabold text-slate-900" style="background:#22d3ee;">10-Q</span>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-[11px] font-extrabold text-white leading-tight">Quarterly report</p>
+                            <p class="text-[9px] text-white/45">Filed Apr 29, 2026</p>
+                          </div>
+                          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M6 3h7v7M13 3L4 12" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="absolute left-4 right-4 top-[200px]">
+                        <p class="text-[8px] text-white/40">Source: SEC EDGAR · synced hourly</p>
+                      </div>
+                      <!-- earnings header -->
+                      <div class="absolute left-4 right-4 top-[228px]">
+                        <h4 class="text-[15px] font-extrabold text-white">Latest Earnings Call</h4>
+                      </div>
+                      <!-- earnings card -->
+                      <div class="absolute left-4 right-4 top-[260px] rounded-xl border border-white/10 p-3" style="background: rgba(255,255,255,0.03);">
+                        <div class="flex items-center gap-2">
+                          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 9a5 5 0 0110 0v3a1.5 1.5 0 01-1.5 1.5H10v-4h1V9a3 3 0 00-6 0v.5h1v4H5A1.5 1.5 0 013.5 12V9H3z" fill="#22d3ee"/>
+                          </svg>
+                          <p class="text-[10px] font-extrabold text-white">GOOGL latest quarter earnings</p>
+                        </div>
+                        <p class="mt-0.5 text-[8.5px] text-white/45">Filed Apr 29, 2026</p>
+                        <div class="mt-2.5 space-y-1.5">
+                          <div class="rounded-md px-2 py-1.5 flex items-center justify-between" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.25);">
+                            <div class="flex items-center gap-1.5">
+                              <span class="inline-block w-3 h-3 rounded-sm" style="background:#fca5a5;"></span>
+                              <span class="text-[9px] font-bold text-white">Listen on YouTube</span>
+                            </div>
+                            <svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L4 12" stroke="#fca5a5" stroke-width="1.5"/></svg>
+                          </div>
+                          <div class="rounded-md px-2 py-1.5 flex items-center justify-between" style="background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25);">
+                            <div class="flex items-center gap-1.5">
+                              <span class="inline-block w-3 h-3 rounded-sm" style="background:#fbbf24;"></span>
+                              <span class="text-[9px] font-bold text-white">Transcript on Seeking Alpha</span>
+                            </div>
+                            <svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L4 12" stroke="#fbbf24" stroke-width="1.5"/></svg>
+                          </div>
+                          <div class="rounded-md px-2 py-1.5 flex items-center justify-between" style="background: rgba(124,210,255,0.08); border: 1px solid rgba(124,210,255,0.25);">
+                            <div class="flex items-center gap-1.5">
+                              <span class="inline-block w-3 h-3 rounded-sm" style="background:#7cd2ff;"></span>
+                              <span class="text-[9px] font-bold text-white">Alphabet Inc. IR page</span>
+                            </div>
+                            <svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L4 12" stroke="#7cd2ff" stroke-width="1.5"/></svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
+                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]">
+                    Filings &amp; Earnings
+                  </h3>
+                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="fc-pill">EDGAR Synced Hourly</span>
+                    <span class="fc-pill">Earnings Replay</span>
+                    <span class="fc-pill">One-Click Sources</span>
+                  </div>
+                  <ul
+                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
+                  >
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Every 8-K, 10-Q, and 10-K lands within an hour of EDGAR — never miss a filing.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>Jump straight to the earnings audio, transcript, and investor relations page.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
+                      <span>We don't host the audio — links open YouTube, Seeking Alpha, or the company's IR, so the source stays original.</span>
                     </li>
                   </ul>
                 </div>
@@ -1637,6 +1885,7 @@
               <button class="fc-dot" data-index="2" aria-label="AI slide 3"></button>
               <button class="fc-dot" data-index="3" aria-label="AI slide 4"></button>
               <button class="fc-dot" data-index="4" aria-label="AI slide 5"></button>
+              <button class="fc-dot" data-index="5" aria-label="AI slide 6"></button>
             </div>
             <button id="aiNext" class="fc-arrow" aria-label="Next AI capability">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -2069,8 +2318,316 @@
                   </div>
                 </div>
               </article>
+              <!-- ===== SLIDE 6: How It Makes Money ===== -->
+              <article class="ai-slide">
+                <div class="px-8 sm:px-12 lg:px-14 py-10 lg:py-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative">
+                  <div class="lg:col-span-6 text-white">
+                    <p class="flex items-center gap-2 text-[11px] font-bold tracking-[2px] uppercase" style="color:#5fdfa6;">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full" style="background:#5fdfa6; box-shadow: 0 0 10px #5fdfa6;"></span>
+                      How It Makes Money
+                    </p>
+                    <h3 class="mt-4 text-[32px] lg:text-[40px] font-extrabold leading-[1.1] tracking-tight">
+                      Revenue flow, <span class="ai-gradient-text">end-to-end</span>.
+                    </h3>
+                    <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70">
+                      The AI rebuilds the full income statement as a single Sankey — segment revenue, cost of revenue, operating expenses, taxes, all the way to net income. One look tells you where the money comes from and where it goes.
+                    </p>
+                  </div>
+                  <div class="lg:col-span-6">
+                    <div class="ai-card p-5">
+                      <!-- header -->
+                      <div class="flex items-center justify-between">
+                        <div>
+                          <p class="text-[13px] font-extrabold text-white">How It Makes Money</p>
+                          <p class="text-[10px] text-white/45">FY2025 · period ending 2025-12-31</p>
+                        </div>
+                        <span class="rounded-full px-2 py-0.5 text-[10px] font-bold" style="background: rgba(95,223,166,0.12); color:#5fdfa6; border: 1px solid rgba(95,223,166,0.3);">GOOGL</span>
+                      </div>
+                      <!-- KPI strip -->
+                      <div class="mt-4 grid grid-cols-4 gap-2">
+                        <div>
+                          <p class="text-[8px] uppercase tracking-wider text-white/40">Revenue</p>
+                          <p class="text-[14px] font-extrabold text-white">$403B</p>
+                          <p class="text-[9px] font-bold text-emerald-400">+15% Y/Y</p>
+                        </div>
+                        <div>
+                          <p class="text-[8px] uppercase tracking-wider text-white/40">Gross</p>
+                          <p class="text-[14px] font-extrabold text-white">60%</p>
+                          <p class="text-[9px] font-bold text-emerald-400">+18% Y/Y</p>
+                        </div>
+                        <div>
+                          <p class="text-[8px] uppercase tracking-wider text-white/40">Op.</p>
+                          <p class="text-[14px] font-extrabold text-white">32%</p>
+                          <p class="text-[9px] font-bold text-emerald-400">+15% Y/Y</p>
+                        </div>
+                        <div>
+                          <p class="text-[8px] uppercase tracking-wider text-white/40">Net</p>
+                          <p class="text-[14px] font-extrabold text-white">33%</p>
+                          <p class="text-[9px] font-bold text-emerald-400">+32% Y/Y</p>
+                        </div>
+                      </div>
+                      <!-- Sankey-like flow -->
+                      <div class="mt-5 rounded-xl p-4" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);">
+                        <div class="grid grid-cols-12 gap-2 items-center text-[9px]">
+                          <!-- col 1: segments -->
+                          <div class="col-span-3 space-y-1.5">
+                            <div class="flex items-center gap-1.5">
+                              <div class="h-4 rounded-sm" style="background:#3b82f6; width:100%;"></div>
+                            </div>
+                            <p class="text-white/70 leading-tight">Search &amp; Other<br/><span class="text-white/40">$224.5B</span></p>
+                            <div class="flex items-center gap-1.5">
+                              <div class="h-2.5 rounded-sm" style="background:#60a5fa; width:60%;"></div>
+                            </div>
+                            <p class="text-white/70 leading-tight">Cloud<br/><span class="text-white/40">$58.7B</span></p>
+                            <div class="flex items-center gap-1.5">
+                              <div class="h-2 rounded-sm" style="background:#93c5fd; width:50%;"></div>
+                            </div>
+                            <p class="text-white/70 leading-tight">YouTube Ads<br/><span class="text-white/40">$40.4B</span></p>
+                            <div class="flex items-center gap-1.5">
+                              <div class="h-1.5 rounded-sm" style="background:#fbbf24; width:38%;"></div>
+                            </div>
+                            <p class="text-white/70 leading-tight">Network<br/><span class="text-white/40">$29.8B</span></p>
+                          </div>
+                          <!-- col 2: arrow to revenue -->
+                          <div class="col-span-1 flex justify-center">
+                            <div class="h-px w-full" style="background: linear-gradient(90deg, transparent, rgba(96,165,250,0.6), transparent);"></div>
+                          </div>
+                          <!-- col 3: revenue bar -->
+                          <div class="col-span-2 text-center">
+                            <div class="rounded-md py-2.5" style="background:#3b82f6;">
+                              <p class="text-[10px] font-extrabold text-white">Revenue</p>
+                              <p class="text-[11px] font-extrabold text-white">$403B</p>
+                            </div>
+                          </div>
+                          <!-- col 4: arrow to gross -->
+                          <div class="col-span-1 flex justify-center">
+                            <div class="h-px w-full" style="background: linear-gradient(90deg, transparent, rgba(95,223,166,0.6), transparent);"></div>
+                          </div>
+                          <!-- col 5: outputs -->
+                          <div class="col-span-5 space-y-1.5">
+                            <div class="rounded-md px-2 py-1 flex items-center justify-between" style="background: rgba(95,223,166,0.18); border: 1px solid rgba(95,223,166,0.35);">
+                              <span class="text-[9px] font-bold text-white">Net income</span>
+                              <span class="text-[10px] font-extrabold" style="color:#5fdfa6;">$132.2B</span>
+                            </div>
+                            <div class="rounded-md px-2 py-1 flex items-center justify-between" style="background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.3);">
+                              <span class="text-[9px] font-bold text-white">Cost of revenue</span>
+                              <span class="text-[10px] font-extrabold" style="color:#fca5a5;">$162.5B</span>
+                            </div>
+                            <div class="rounded-md px-2 py-1 flex items-center justify-between" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.22);">
+                              <span class="text-[9px] font-bold text-white">R&amp;D</span>
+                              <span class="text-[10px] font-extrabold" style="color:#fca5a5;">$61.1B</span>
+                            </div>
+                            <div class="rounded-md px-2 py-1 flex items-center justify-between" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.22);">
+                              <span class="text-[9px] font-bold text-white">Sales &amp; marketing</span>
+                              <span class="text-[10px] font-extrabold" style="color:#fca5a5;">$28.7B</span>
+                            </div>
+                            <div class="rounded-md px-2 py-1 flex items-center justify-between" style="background: rgba(248,113,113,0.06); border: 1px solid rgba(248,113,113,0.2);">
+                              <span class="text-[9px] font-bold text-white">Tax</span>
+                              <span class="text-[10px] font-extrabold" style="color:#fca5a5;">$26.7B</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="mt-3 text-[9px] text-white/40 text-center">Built from the latest 10-K · always sourced</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRICING ==================== -->
+    <style>
+      #pricing .pricing-grid,
+      #pricing .credit-grid {
+        display: grid;
+        gap: 20px;
+      }
+      #pricing .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+      #pricing .credit-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      @media (max-width: 960px) {
+        #pricing .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+        #pricing .credit-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 560px) {
+        #pricing .pricing-grid { grid-template-columns: 1fr; }
+        #pricing .credit-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+    <section id="pricing" style="
+      background: #f5f5f7;
+      padding: 96px 24px;
+      font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      color: #1d1d1f;
+    ">
+      <div style="max-width: 1120px; margin: 0 auto;">
+        <header style="text-align: center; margin-bottom: 64px;">
+          <h2 style="
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin: 0 0 16px;
+            line-height: 1.1;
+          ">Pricing aligned with your interest.</h2>
+          <p style="
+            font-size: 18px;
+            color: #6e6e73;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+          ">Pay for the research you actually run. No advertiser kickbacks,
+          no promoted stocks, no conflict of interest, no surprise charges.</p>
+        </header>
+
+        <!-- 4-tier grid -->
+        <div class="pricing-grid">
+          <!-- FREE -->
+          <article style="
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid #e2e2e4;
+          ">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Basic (Free)</h3>
+            <p style="font-size: 13px; color: #6e6e73; margin: 0 0 24px;">Get a feel for Deep Values.</p>
+            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$0</div>
+            <div style="font-size: 13px; color: #6e6e73; margin-bottom: 32px;">forever free</div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
+              <li>· 30 credits / week</li>
+              <li>· 7-stock watchlist</li>
+              <li>· Follow 3 gurus</li>
+              <li>· Buffett Lens: 3 voice + unlimited text</li>
+              <li>· Smart Money for every stock</li>
+            </ul>
+          </article>
+
+          <!-- PLUS -->
+          <article style="
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid #e2e2e4;
+          ">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Plus</h3>
+            <p style="font-size: 13px; color: #6e6e73; margin: 0 0 24px;">For regular use.</p>
+            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$9.99</div>
+            <div style="font-size: 13px; color: #6e6e73; margin-bottom: 32px;">/ month · 7-day free trial</div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
+              <li>· Everything in Free</li>
+              <li>· 15-stock watchlist</li>
+              <li>· Track 10 gurus</li>
+              <li>· Custom email alerts</li>
+              <li>· Unlimited Buffett Lens text</li>
+            </ul>
+          </article>
+
+          <!-- PRO — featured -->
+          <article style="
+            background: #1d1d1f;
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid #1d1d1f;
+            position: relative;
+          ">
+            <span style="
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+              background: #08c4e4;
+              color: #0b0d10;
+              font-size: 11px;
+              font-weight: 700;
+              padding: 4px 12px;
+              border-radius: 999px;
+              letter-spacing: 0.5px;
+            ">MOST POPULAR</span>
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">Pro</h3>
+            <p style="font-size: 13px; color: #b0b0b8; margin: 0 0 24px;">Serious research.</p>
+            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$29.99</div>
+            <div style="font-size: 13px; color: #b0b0b8; margin-bottom: 32px;">/ month · 7-day free trial</div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
+              <li>· Everything in Plus</li>
+              <li>· 100 credits / week</li>
+              <li>· Up to 10 fresh briefings / month</li>
+              <li>· Unlimited watchlist</li>
+              <li>· Track ALL 29 gurus, real-time alerts</li>
+              <li>· Buffett Lens voice: 30 min / month</li>
+              <li>· CSV export, 3 concurrent runs</li>
+            </ul>
+          </article>
+
+          <!-- API -->
+          <article style="
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid #e2e2e4;
+          ">
+            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;">API</h3>
+            <p style="font-size: 13px; color: #6e6e73; margin: 0 0 24px;">For developers and advisors.</p>
+            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$99</div>
+            <div style="font-size: 13px; color: #6e6e73; margin-bottom: 32px;">/ month</div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
+              <li>· 10,000 requests / day</li>
+              <li>· Bundle, Smart Money, IV, Indicators, Digest endpoints</li>
+              <li>· Real-time guru webhooks</li>
+              <li>· Commercial license included</li>
+              <li>· Full Pro UI access</li>
+              <li>· AI briefings billed per use</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Credit packs row -->
+        <div style="margin-top: 80px;">
+          <h3 style="font-size: 20px; font-weight: 600; margin: 0 0 8px; text-align: center;">Credit packs</h3>
+          <p style="font-size: 14px; color: #6e6e73; text-align: center; margin: 0 0 32px;">
+            Top up any plan whenever you need to. Plus members get an extra 10% on packs; Pro members get 15%.
+          </p>
+          <div class="credit-grid">
+            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
+              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;">Starter</div>
+              <div style="font-size: 22px; font-weight: 700;">$20</div>
+              <div style="font-size: 12px; color: #6e6e73;">20 credits</div>
+            </div>
+            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
+              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;">Standard</div>
+              <div style="font-size: 22px; font-weight: 700;">$50</div>
+              <div style="font-size: 12px; color: #6e6e73;">55 credits (+10%)</div>
+            </div>
+            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
+              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;">Power</div>
+              <div style="font-size: 22px; font-weight: 700;">$100</div>
+              <div style="font-size: 12px; color: #6e6e73;">120 credits (+20%)</div>
+            </div>
+            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
+              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;">Bulk</div>
+              <div style="font-size: 22px; font-weight: 700;">$250</div>
+              <div style="font-size: 12px; color: #6e6e73;">320 credits (+28%)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Honest-money note -->
+        <div style="
+          max-width: 720px;
+          margin: 80px auto 0;
+          text-align: center;
+          font-size: 14px;
+          color: #6e6e73;
+          line-height: 1.7;
+        ">
+          <p>The credits you spend are the actual cost of running a multi-analyst AI research pipeline on your behalf. No advertiser kickbacks. No promoted stocks. No affiliate links inside our briefings. The product works only as well as it's useful to you — because that's the only way we make money.</p>
         </div>
       </div>
     </section>
@@ -2078,18 +2635,52 @@
     <!-- ==================== FOOTER ==================== -->
     <footer class="mt-24 bg-black text-white">
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-12">
-        <!-- Brand wordmark -->
-        <div class="pb-8">
+        <!-- Brand wordmark + social row (same row) -->
+        <div class="pb-6 flex flex-wrap items-center justify-between gap-4">
           <a href="#" class="inline-block tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 44px; line-height: 1;">
             <span style="color: #003085;">Deep</span><span style="color: #0e85ff;">Values.AI</span>
           </a>
+          <div class="flex items-center gap-3">
+            <a href="https://www.youtube.com/@TheDeepValues" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <a href="https://podcasts.apple.com/us/podcast/deep-values/id1811057697" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="Apple Podcasts">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-3.05 9.78c.27-.42.74-.69 1.27-.69h3.56c.53 0 1 .27 1.27.69.28.44.32.99.11 1.47l-1.75 4.2c-.24.58-.81.97-1.44.97s-1.2-.39-1.44-.97l-1.75-4.2c-.21-.48-.17-1.03.11-1.47zM4.5 13.5a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3zm0 5.25a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3zm15-5.25a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3zm0 5.25a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9?si=YsWJodQKS7CEMq5Twdh_8Q" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="Spotify">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12C24 5.4 18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/thedeepvalue?s=21" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="X (Twitter)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
         <!-- Top row (above divider): nav links on the left -->
         <div class="pb-3">
           <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-white/90">
             <li><a href="#" class="hover:text-white transition">About</a></li>
-            <li><a href="#" class="hover:text-white transition">Contact</a></li>
+            <li><a href="mailto:team@deepvalues.ai" class="hover:text-white transition">Contact</a></li>
             <li><a href="#" class="hover:text-white transition">Apps</a></li>
           </ul>
         </div>
@@ -2103,7 +2694,7 @@
             <li>© 2026</li>
             <li><a href="#" class="hover:text-white transition">Cookies</a></li>
             <li><a href="#" class="hover:text-white transition">Legal</a></li>
-            <li><a href="#" class="hover:text-white transition">Privacy Statement</a></li>
+            <li><a href="/privacy.html" class="hover:text-white transition">Privacy Statement</a></li>
           </ul>
         </div>
       </div>
