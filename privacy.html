@@ -187,7 +187,7 @@
         <h3>From you</h3>
         <ul>
           <li><strong>Account</strong> — email, display name, password, optional profile fields.</li>
-          <li><strong>Billing</strong> — name, billing address, last 4 of your card. Full card numbers go straight to Stripe; we never see them.</li>
+          <li><strong>Billing</strong> — when paid plans launch, name, billing address, and the last 4 digits of your card. Full card numbers will go directly to our payment processor (a PCI-compliant third party); we never receive or store them.</li>
           <li><strong>Your inputs</strong> — tickers, watchlists, guru follows, alert rules, feedback.</li>
           <li><strong>Communications</strong> — emails, support tickets, survey responses.</li>
         </ul>
@@ -202,7 +202,6 @@
         <h3>From third parties</h3>
         <ul>
           <li><strong>Sign-in providers</strong> — email + identifier from Google or Apple if you use SSO.</li>
-          <li><strong>Stripe</strong> — subscription status, renewal dates, payment-failure events.</li>
           <li><strong>Public sources</strong> — SEC filings, transcripts, 13F holdings. Not personal data about you.</li>
         </ul>
 
@@ -235,7 +234,7 @@
 
         <h3>We do not train AI models on your inputs</h3>
         <p>
-          Your Inputs and Outputs are not used to train any foundation model — ours or our vendors'. We send Inputs to OpenAI under its <strong>API / enterprise no-training</strong> contractual terms, which prohibit OpenAI from using customer content for model improvement. We periodically verify these terms remain in force.
+          Your Inputs and Outputs are not used to train any foundation model — ours or our vendors'. We send Inputs to OpenAI and Anthropic under their <strong>API / enterprise no-training</strong> contractual terms, which prohibit them from using customer content for model improvement. We periodically verify these terms remain in force.
         </p>
 
         <h3>Human review</h3>
@@ -265,8 +264,8 @@
         </p>
         <ul>
           <li><strong>Capture &amp; consent</strong> — your device microphone is only activated when you tap the Lens record button. We do not background-listen.</li>
-          <li><strong>Transcription</strong> — audio is streamed to our servers, converted to text in real time, and the AI then processes the text transcript. The audio is never written to disk.</li>
-          <li><strong>Retention</strong> — we <strong>do not store your audio</strong>. The raw audio is discarded as soon as transcription completes. Only the text transcript is kept, and only as part of your conversation history; deleting a conversation removes the transcript.</li>
+          <li><strong>Transcription</strong> — audio is streamed to <strong>Microsoft Azure Speech Services</strong> for real-time transcription. We proxy the stream through our servers but never write the audio to our own storage; Azure processes the audio in real time and does not retain it.</li>
+          <li><strong>Retention</strong> — neither we nor Microsoft Azure store the raw audio after transcription completes. Only the text transcript is kept, and only as part of your conversation history; deleting a conversation removes the transcript.</li>
           <li><strong>No biometric profile</strong> — we do not build voice fingerprints, do not perform voice ID, and do not use audio for any purpose other than answering your question.</li>
           <li><strong>No model training</strong> — voice data is never used to train speech or language models, ours or our vendors'.</li>
           <li><strong>Opt-out</strong> — toggle "Disable Buffett Lens" in Settings to prevent any future audio capture.</li>
@@ -288,8 +287,9 @@
             <tbody>
               <tr><td>Amazon Web Services (AWS)</td><td>Hosting, DynamoDB database, encrypted storage, backups</td><td>US</td></tr>
               <tr><td>AWS Cognito</td><td>Account authentication, password hashing, session tokens</td><td>US</td></tr>
-              <tr><td>Stripe</td><td>Subscription billing, credit-pack purchases, payment cards</td><td>US</td></tr>
-              <tr><td>OpenAI</td><td>LLM inference for briefings &amp; Buffett Lens (under no-training enterprise terms)</td><td>US</td></tr>
+              <tr><td>OpenAI</td><td>LLM inference for briefings &amp; Buffett Lens text chat (under no-training enterprise terms)</td><td>US</td></tr>
+              <tr><td>Anthropic</td><td>LLM inference for briefings &amp; Buffett Lens text chat (under no-training API terms); used as an alternative or complement to OpenAI</td><td>US</td></tr>
+              <tr><td>Microsoft Azure (Speech Services)</td><td>Real-time speech-to-text transcription for Buffett Lens voice; we proxy the audio stream and never write it to our own storage</td><td>US</td></tr>
               <tr><td>Cloudflare</td><td>CDN, DDoS protection, cookieless web analytics</td><td>Global edge</td></tr>
               <tr><td>Google Workspace</td><td>In-app transactional email delivery (account, billing, alerts) via SMTP</td><td>US</td></tr>
               <tr><td>EmailJS</td><td>Newsletter signup processing on the marketing site</td><td>US</td></tr>
@@ -325,7 +325,7 @@
         <ul>
           <li><strong>Account data</strong> — kept while your account is active; deleted within 30 days of account deletion.</li>
           <li><strong>Briefings &amp; chat history</strong> — kept until you delete them, or indefinitely if you keep them.</li>
-          <li><strong>Buffett Lens raw audio</strong> — not stored. Discarded immediately after real-time transcription.</li>
+          <li><strong>Buffett Lens raw audio</strong> — not stored on our servers. Streamed to Microsoft Azure for real-time transcription; Azure does not retain the audio after the transcription completes.</li>
           <li><strong>Billing records</strong> — retained for 7 years to comply with US tax and accounting law.</li>
           <li><strong>Backups</strong> — encrypted snapshots are retained for up to 90 days, then overwritten.</li>
           <li><strong>Aggregated analytics</strong> — kept indefinitely in de-identified form.</li>
@@ -374,7 +374,7 @@
         </p>
         <ul>
           <li><strong>Reading and the free Basic plan</strong> — open to anyone <strong>13 or older</strong> (16 or older in the EEA and UK, per GDPR-K). Build a watchlist, run free briefings, browse Smart Money — all fine.</li>
-          <li><strong>Paid plans (Plus, Pro, API) and Buffett Lens voice</strong> — limited to users <strong>18 or older</strong>. This isn't about content; it's about contract capacity. In nearly every US state, minors can't enter into a binding subscription contract on their own, and our payment processor (Stripe) requires account holders to be 18+. Voice data from minors also carries extra-sensitive treatment under several state laws.</li>
+          <li><strong>Paid plans (Plus, Pro, API) and Buffett Lens voice</strong> — limited to users <strong>18 or older</strong>. This isn't about content; it's about contract capacity. In nearly every US state, minors can't enter into a binding subscription contract on their own, and most payment processors require account holders to be 18+. Voice data from minors also carries extra-sensitive treatment under several state laws.</li>
           <li><strong>Under 13</strong> — we do not knowingly collect personal information from children under 13 (in compliance with COPPA). If you are under 13, please do not create an account or send us personal information.</li>
         </ul>
         <p>
