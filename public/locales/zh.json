@@ -16,10 +16,8 @@
   "footer.cookies": "Cookie",
   "footer.legal": "法律",
   "footer.privacy": "隐私声明",
-
   "features.heading": "为现代智慧投资者而生",
   "features.subtitle": "如果你能与巴菲特、芒格和林奇并肩投资，会是什么感觉？Deep Values 将他们的投资心法提炼为护城河观察清单、内在价值计算器和交互式基本面分析 —— 全部融合在一个工作流中。",
-
   "features.slide1.title": "价值观察清单",
   "features.slide1.pill1": "打造你的视角",
   "features.slide1.pill2": "按色辨值",
@@ -27,7 +25,6 @@
   "features.slide1.bullet1": "内在价值投资者不盯价格 —— 我们盯的是价值。",
   "features.slide1.bullet2": "每个数值都按巴菲特、芒格、Greenblatt 等投资大师真正使用过的阈值进行着色标注。",
   "features.slide1.bullet3": "你的整个观察清单，一眼便能得出结论。",
-
   "features.slide2.title": "内在价值计算器",
   "features.slide2.pill1": "安全边际",
   "features.slide2.pill2": "三种模型",
@@ -35,7 +32,6 @@
   "features.slide2.bullet1": "在买入之前，先知道它值多少钱。",
   "features.slide2.bullet2": "三种独立估值方法 —— DCF、所有者收益与 Damodaran —— 并与同行交叉比对。",
   "features.slide2.bullet3": "一眼看清今日股价的位置：高于、接近，还是低于其真实价值。",
-
   "features.slide3.title": "财务深度剖析",
   "features.slide3.pill1": "全生命周期数据",
   "features.slide3.pill2": "官方数据源",
@@ -43,7 +39,6 @@
   "features.slide3.bullet1": "一家企业的真相，藏在它完整的财务历史中。",
   "features.slide3.bullet2": "每一笔收入、支出、现金流和资产负债表科目 —— 公司全部历史数据，直接来源于 SEC 文件。",
   "features.slide3.bullet3": "便于查看，便于追踪。",
-
   "features.slide4.title": "Smart Money 与投资大师",
   "features.slide4.pill1": "追踪 29 位大师",
   "features.slide4.pill2": "13F 季度同步",
@@ -51,7 +46,6 @@
   "features.slide4.bullet1": "看清哪些传奇人物持有某只股票，下注多重，以及季度间的仓位变化。",
   "features.slide4.bullet2": "QoQ 变化先于头条新闻揭示新增信念与悄然退出的迹象。",
   "features.slide4.bullet3": "点击大师名字即可阅读他们的完整投资论点，并跟随他们的下一步动作。",
-
   "features.slide5.title": "财报与文件",
   "features.slide5.pill1": "EDGAR 每小时同步",
   "features.slide5.pill2": "财报回放",
@@ -59,37 +53,28 @@
   "features.slide5.bullet1": "每一份 8-K、10-Q 和 10-K 都在 EDGAR 发布一小时内同步到位 —— 不错过任何文件。",
   "features.slide5.bullet2": "直接跳转至财报音频、文字稿与投资者关系页面。",
   "features.slide5.bullet3": "我们不托管音频 —— 链接直接打开 YouTube、Seeking Alpha 或公司 IR 页面，原始来源始终保留。",
-
   "intelligence.heading": "唯一与你利益一致的智能。",
   "intelligence.subtitle": "其他应用在你交易时赚钱。DeepValues.AI 的目标是让你成为更出色的投资者 —— 阅读每一份文件、权衡每一项证据、展示每一处来源，让你信任的是结论本身，而不是那些花哨的特效。",
-
   "intelligence.slide1.eyebrow": "高管简报与研究报告",
   "intelligence.slide1.headlineHtml": "高管 <span class=\"ai-gradient-text\">简报与报告</span>。",
   "intelligence.slide1.desc": "为任何一家公司按需生成。",
-
   "intelligence.slide2.eyebrow": "Buffett Lens",
   "intelligence.slide2.headlineHtml": "想问什么都可以。<span class=\"ai-gradient-text\">获得带引用的答案</span>。",
   "intelligence.slide2.desc": "语音或文字。始终附带来源。",
-
   "intelligence.slide3.eyebrow": "由 DVI AI 驱动",
   "intelligence.slide3.headlineHtml": "一支<span class=\"ai-gradient-text\">永不休息</span>的团队。",
   "intelligence.slide3.desc": "阅读每一份文件与电话会议 —— 几分钟内形成信念。",
-
   "intelligence.slide4.eyebrow": "从 10-K 到财报电话会议",
   "intelligence.slide4.headlineHtml": "逐字阅读，<span class=\"ai-gradient-text\">浮现真正关键的信息</span>。",
   "intelligence.slide4.desc": "提炼出真正影响投资论点的内容。",
-
   "intelligence.slide5.eyebrow": "同行视角的智能",
   "intelligence.slide5.headlineHtml": "像<span class=\"ai-gradient-text\">投资大师一样比较</span>。",
   "intelligence.slide5.desc": "每一项指标，都置于同行的语境之中。",
-
   "intelligence.slide6.eyebrow": "公司如何赚钱",
   "intelligence.slide6.headlineHtml": "营收流向，<span class=\"ai-gradient-text\">端到端</span>。",
   "intelligence.slide6.desc": "AI 将完整的利润表重构为一张 Sankey 桑基图 —— 分部收入、营业成本、运营费用、税费，直至净利润。一眼看清钱从哪里来，又去了哪里。",
-
   "pricing.headline": "与你利益一致的定价。",
   "pricing.subhead": "只为你真正使用的研究付费。没有广告主返佣、没有推广股票、没有利益冲突、没有意外收费。",
-
   "pricing.basic.name": "Basic（免费）",
   "pricing.basic.desc": "体验 Deep Values。",
   "pricing.basic.priceUnit": "永久免费",
@@ -98,16 +83,14 @@
   "pricing.basic.feature3": "· 关注 3 位投资大师",
   "pricing.basic.feature4": "· Buffett Lens：3 次语音 + 无限文字",
   "pricing.basic.feature5": "· 每只股票的 Smart Money 数据",
-
   "pricing.plus.name": "Plus",
   "pricing.plus.desc": "适合日常使用。",
   "pricing.plus.priceUnit": "/ 月 · 7 天免费试用",
-  "pricing.plus.feature1": "· 包含免费版全部功能",
+  "pricing.plus.feature1": "· 包含 Basic 版全部功能",
   "pricing.plus.feature2": "· 15 只股票观察清单",
   "pricing.plus.feature3": "· 追踪 10 位投资大师",
   "pricing.plus.feature4": "· 自定义邮件提醒",
   "pricing.plus.feature5": "· 无限 Buffett Lens 文字对话",
-
   "pricing.pro.badge": "最受欢迎",
   "pricing.pro.name": "Pro",
   "pricing.pro.desc": "认真做研究。",
@@ -118,8 +101,6 @@
   "pricing.pro.feature4": "· 无限观察清单",
   "pricing.pro.feature5": "· 追踪全部 29 位投资大师，实时提醒",
   "pricing.pro.feature6": "· Buffett Lens 语音：每月 30 分钟",
-  "pricing.pro.feature7": "· CSV 导出，3 个并发任务",
-
   "pricing.api.name": "API",
   "pricing.api.desc": "面向开发者与投资顾问。",
   "pricing.api.priceUnit": "/ 月",
@@ -129,7 +110,6 @@
   "pricing.api.feature4": "· 包含商业授权",
   "pricing.api.feature5": "· 完整 Pro UI 访问权限",
   "pricing.api.feature6": "· AI 简报按次计费",
-
   "pricing.credits.heading": "点数包",
   "pricing.credits.intro": "随时为任何套餐补充点数。Plus 会员购买点数包额外赠送 10%；Pro 会员额外赠送 15%。",
   "pricing.credits.starter.name": "入门包",
@@ -140,6 +120,5 @@
   "pricing.credits.power.desc": "120 点数（+20%）",
   "pricing.credits.bulk.name": "大容量包",
   "pricing.credits.bulk.desc": "320 点数（+28%）",
-
   "pricing.honest": "你消耗的每一点积分，都对应着我们为你运行多分析师 AI 研究流水线的真实成本。没有广告主返佣，没有推广股票，简报中也没有联盟链接。产品只有在真正对你有用时才有价值 —— 因为这是我们唯一的盈利方式。"
 }

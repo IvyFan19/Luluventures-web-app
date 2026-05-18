@@ -16,10 +16,8 @@
   "footer.cookies": "Cookies",
   "footer.legal": "Aviso legal",
   "footer.privacy": "Declaración de privacidad",
-
   "features.heading": "Diseñado para inversores inteligentes de hoy",
   "features.subtitle": "¿Y si pudieras invertir junto a Buffett, Munger y Lynch? Deep Values destila sus estrategias en listas de seguimiento por ventaja competitiva, calculadoras de valor intrínseco y análisis fundamental interactivo — todo en un único flujo de trabajo.",
-
   "features.slide1.title": "Lista de valores",
   "features.slide1.pill1": "Crea tu lente",
   "features.slide1.pill2": "Juzga por color",
@@ -27,7 +25,6 @@
   "features.slide1.bullet1": "Los inversores en valor intrínseco no miramos precios — miramos valor.",
   "features.slide1.bullet2": "Cada valor se colorea según los umbrales que Buffett, Munger, Greenblatt y otras leyendas usaban de verdad.",
   "features.slide1.bullet3": "Toda tu lista de seguimiento se resuelve en un veredicto de un solo vistazo.",
-
   "features.slide2.title": "Calculadora de valor intrínseco",
   "features.slide2.pill1": "Margen de seguridad",
   "features.slide2.pill2": "Tres modelos",
@@ -35,7 +32,6 @@
   "features.slide2.bullet1": "Antes de comprar, sabe lo que vale.",
   "features.slide2.bullet2": "Tres valoraciones independientes — DCF, Owner Earnings y Damodaran — contrastadas frente a sus comparables.",
   "features.slide2.bullet3": "Ve de un vistazo dónde está hoy el precio: por encima, alrededor o por debajo de lo que vale.",
-
   "features.slide3.title": "Análisis financiero a fondo",
   "features.slide3.pill1": "Datos de toda la vida del negocio",
   "features.slide3.pill2": "Fuente oficial",
@@ -43,7 +39,6 @@
   "features.slide3.bullet1": "La verdad sobre un negocio está en su historial financiero completo.",
   "features.slide3.bullet2": "Cada ingreso, gasto, flujo de caja y partida del balance — el historial completo de la compañía, directamente de los registros de la SEC.",
   "features.slide3.bullet3": "Fácil de observar, fácil de seguir.",
-
   "features.slide4.title": "Smart Money y gurús",
   "features.slide4.pill1": "Sigue a 29 gurús",
   "features.slide4.pill2": "Sincronización trimestral de 13F",
@@ -51,7 +46,6 @@
   "features.slide4.bullet1": "Ve qué leyendas tienen una acción, cuán grande es su apuesta y cómo ha variado trimestre a trimestre.",
   "features.slide4.bullet2": "Las variaciones QoQ revelan nuevas convicciones y salidas silenciosas antes de que lleguen a los titulares.",
   "features.slide4.bullet3": "Pulsa un nombre para leer su tesis completa y seguir su próximo movimiento.",
-
   "features.slide5.title": "Registros y resultados",
   "features.slide5.pill1": "EDGAR sincronizado cada hora",
   "features.slide5.pill2": "Repetición de resultados",
@@ -59,37 +53,28 @@
   "features.slide5.bullet1": "Cada 8-K, 10-Q y 10-K aparece en menos de una hora desde EDGAR — no se te escapa ningún registro.",
   "features.slide5.bullet2": "Salta directamente al audio de resultados, la transcripción y la página de relación con inversores.",
   "features.slide5.bullet3": "No alojamos el audio — los enlaces abren YouTube, Seeking Alpha o el IR de la compañía, así la fuente sigue siendo original.",
-
   "intelligence.heading": "Inteligencia que solo se alinea contigo.",
   "intelligence.subtitle": "Otras apps ganan cuando operas. DeepValues.AI está diseñado para hacerte mejor inversor — leyendo cada registro, sopesando las pruebas y mostrando sus fuentes para que confíes en el veredicto en lugar de en los fuegos artificiales.",
-
   "intelligence.slide1.eyebrow": "Briefing ejecutivo e informes",
   "intelligence.slide1.headlineHtml": "Briefing ejecutivo <span class=\"ai-gradient-text\">e informes</span>.",
   "intelligence.slide1.desc": "Generados bajo demanda para cualquier compañía.",
-
   "intelligence.slide2.eyebrow": "Buffett Lens",
   "intelligence.slide2.headlineHtml": "Pregunta lo que quieras. <span class=\"ai-gradient-text\">Obtén respuestas citadas</span>.",
   "intelligence.slide2.desc": "Voz o texto. Siempre con fuentes.",
-
   "intelligence.slide3.eyebrow": "Impulsado por DVI AI",
   "intelligence.slide3.headlineHtml": "Un equipo que <span class=\"ai-gradient-text\">nunca duerme</span>.",
   "intelligence.slide3.desc": "Lee cada registro y cada call — convicción en minutos.",
-
   "intelligence.slide4.eyebrow": "Desde los 10-K hasta las earnings calls",
   "intelligence.slide4.headlineHtml": "Lee cada palabra, <span class=\"ai-gradient-text\">destaca lo que importa</span>.",
   "intelligence.slide4.desc": "Destilado a lo que mueve la tesis.",
-
   "intelligence.slide5.eyebrow": "Inteligencia consciente del sector",
   "intelligence.slide5.headlineHtml": "Compara como <span class=\"ai-gradient-text\">lo haría un gurú</span>.",
   "intelligence.slide5.desc": "Cada métrica, en contexto frente a sus comparables.",
-
   "intelligence.slide6.eyebrow": "Cómo gana dinero",
   "intelligence.slide6.headlineHtml": "Flujo de ingresos, <span class=\"ai-gradient-text\">de principio a fin</span>.",
   "intelligence.slide6.desc": "La IA reconstruye la cuenta de resultados completa en un único Sankey — ingresos por segmento, coste de ventas, gastos operativos, impuestos, hasta llegar al beneficio neto. Un vistazo te dice de dónde viene el dinero y a dónde va.",
-
   "pricing.headline": "Precios alineados con tu interés.",
   "pricing.subhead": "Paga por la investigación que realmente realizas. Sin comisiones de anunciantes, sin acciones promocionadas, sin conflictos de interés, sin cargos sorpresa.",
-
   "pricing.basic.name": "Básico (Gratis)",
   "pricing.basic.desc": "Tantea Deep Values.",
   "pricing.basic.priceUnit": "gratis para siempre",
@@ -98,16 +83,14 @@
   "pricing.basic.feature3": "· Sigue a 3 gurús",
   "pricing.basic.feature4": "· Buffett Lens: 3 por voz + texto ilimitado",
   "pricing.basic.feature5": "· Smart Money para cada acción",
-
   "pricing.plus.name": "Plus",
   "pricing.plus.desc": "Para uso habitual.",
   "pricing.plus.priceUnit": "/ mes · 7 días de prueba gratuita",
-  "pricing.plus.feature1": "· Todo lo del plan Gratis",
+  "pricing.plus.feature1": "· Todo lo del plan Basic",
   "pricing.plus.feature2": "· Lista de seguimiento de 15 acciones",
   "pricing.plus.feature3": "· Sigue a 10 gurús",
   "pricing.plus.feature4": "· Alertas por correo personalizadas",
   "pricing.plus.feature5": "· Buffett Lens por texto ilimitado",
-
   "pricing.pro.badge": "EL MÁS POPULAR",
   "pricing.pro.name": "Pro",
   "pricing.pro.desc": "Investigación en serio.",
@@ -118,8 +101,6 @@
   "pricing.pro.feature4": "· Lista de seguimiento ilimitada",
   "pricing.pro.feature5": "· Sigue a los 29 gurús, alertas en tiempo real",
   "pricing.pro.feature6": "· Buffett Lens por voz: 30 min / mes",
-  "pricing.pro.feature7": "· Exportación a CSV, 3 ejecuciones simultáneas",
-
   "pricing.api.name": "API",
   "pricing.api.desc": "Para desarrolladores y asesores.",
   "pricing.api.priceUnit": "/ mes",
@@ -129,7 +110,6 @@
   "pricing.api.feature4": "· Licencia comercial incluida",
   "pricing.api.feature5": "· Acceso completo a la UI de Pro",
   "pricing.api.feature6": "· Briefings de IA facturados por uso",
-
   "pricing.credits.heading": "Packs de créditos",
   "pricing.credits.intro": "Recarga cualquier plan cuando lo necesites. Los miembros Plus reciben un 10% extra en los packs; los Pro, un 15%.",
   "pricing.credits.starter.name": "Inicial",
@@ -140,6 +120,5 @@
   "pricing.credits.power.desc": "120 créditos (+20%)",
   "pricing.credits.bulk.name": "Bulk",
   "pricing.credits.bulk.desc": "320 créditos (+28%)",
-
   "pricing.honest": "Los créditos que gastas son el coste real de ejecutar un pipeline de investigación de IA multi-analista por ti. Sin comisiones de anunciantes. Sin acciones promocionadas. Sin enlaces de afiliados dentro de nuestros briefings. El producto solo funciona en la medida en que te resulta útil — porque esa es la única forma en que ganamos dinero."
 }
