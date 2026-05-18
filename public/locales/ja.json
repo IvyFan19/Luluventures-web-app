@@ -16,10 +16,8 @@
   "footer.cookies": "Cookie",
   "footer.legal": "法的事項",
   "footer.privacy": "プライバシーステートメント",
-
   "features.heading": "現代の知的投資家のために設計",
   "features.subtitle": "もしバフェット、マンガー、リンチと並んで投資できたら? Deep Values は彼らの投資哲学を、モート・ウォッチリスト、本源的価値計算、インタラクティブなファンダメンタルズ分析として一つのワークフローに凝縮します。",
-
   "features.slide1.title": "バリュー・ウォッチリスト",
   "features.slide1.pill1": "自分のレンズを作る",
   "features.slide1.pill2": "色で判断",
@@ -27,7 +25,6 @@
   "features.slide1.bullet1": "本源的価値を重視する投資家は、株価ではなくバリューを見ます。",
   "features.slide1.bullet2": "各指標は、バフェット、マンガー、グリーンブラットら伝説的投資家が実際に用いた基準で色分けされます。",
   "features.slide1.bullet3": "ウォッチリスト全体の判断が一目でわかります。",
-
   "features.slide2.title": "本源的価値計算ツール",
   "features.slide2.pill1": "安全余裕率",
   "features.slide2.pill2": "3つのモデル",
@@ -35,7 +32,6 @@
   "features.slide2.bullet1": "買う前に、その価値を知る。",
   "features.slide2.bullet2": "DCF、オーナー利益、ダモダラン方式の3つの独立した評価を、同業他社と相互検証。",
   "features.slide2.bullet3": "今日の株価が本源的価値の上か、近辺か、下かが一目でわかります。",
-
   "features.slide3.title": "財務データ・ディープダイブ",
   "features.slide3.pill1": "全期間データ",
   "features.slide3.pill2": "公式データソース",
@@ -43,7 +39,6 @@
   "features.slide3.bullet1": "企業の真実は、財務の全履歴に宿ります。",
   "features.slide3.bullet2": "収益、費用、キャッシュフロー、貸借対照表のすべての項目を、SEC 提出書類から直接取得した全履歴で。",
   "features.slide3.bullet3": "見やすく、追跡しやすい。",
-
   "features.slide4.title": "Smart Money とグル投資家",
   "features.slide4.pill1": "29人のグルを追跡",
   "features.slide4.pill2": "四半期ごとの 13F 同期",
@@ -51,7 +46,6 @@
   "features.slide4.bullet1": "どの伝説的投資家がその銘柄を保有し、ポジションがどれほど大きく、四半期ごとにどう変動したかを把握。",
   "features.slide4.bullet2": "QoQ の変化量が、見出しになる前に新たな確信と静かな撤退を浮かび上がらせます。",
   "features.slide4.bullet3": "名前をタップして、投資論文の全文を読み、次の一手を追う。",
-
   "features.slide5.title": "提出書類と決算",
   "features.slide5.pill1": "EDGAR を毎時同期",
   "features.slide5.pill2": "決算リプレイ",
@@ -59,37 +53,28 @@
   "features.slide5.bullet1": "すべての 8-K、10-Q、10-K が EDGAR 公開から1時間以内に到着 — 提出書類を見逃しません。",
   "features.slide5.bullet2": "決算音声、書き起こし、IR ページへ直接ジャンプ。",
   "features.slide5.bullet3": "音声は当社では保管せず、リンクは YouTube、Seeking Alpha、または企業の IR ページに開きます — ソースは原本のまま。",
-
   "intelligence.heading": "あなたとだけ利害が一致するインテリジェンス。",
   "intelligence.subtitle": "他のアプリはあなたが取引するほど儲かります。DeepValues.AI は、あなたをより優れた投資家にするために設計されています — すべての提出書類を読み込み、証拠を検証し、ソースを示すので、派手な演出ではなく結論そのものを信頼できます。",
-
   "intelligence.slide1.eyebrow": "エグゼクティブ・ブリーフィングとレポート",
   "intelligence.slide1.headlineHtml": "エグゼクティブ・<span class=\"ai-gradient-text\">ブリーフィングとレポート</span>。",
   "intelligence.slide1.desc": "あらゆる企業について、オンデマンドで生成。",
-
   "intelligence.slide2.eyebrow": "Buffett Lens",
   "intelligence.slide2.headlineHtml": "何でも聞ける。<span class=\"ai-gradient-text\">出典付きで答えが返る</span>。",
   "intelligence.slide2.desc": "音声でもテキストでも。常に出典付き。",
-
   "intelligence.slide3.eyebrow": "DVI AI 搭載",
   "intelligence.slide3.headlineHtml": "<span class=\"ai-gradient-text\">眠らない</span>チーム。",
   "intelligence.slide3.desc": "あらゆる提出書類と決算説明会を読み込み、数分で確信を導く。",
-
   "intelligence.slide4.eyebrow": "10-K から決算説明会まで",
   "intelligence.slide4.headlineHtml": "一語一句を読み、<span class=\"ai-gradient-text\">重要な点を浮き彫りに</span>。",
   "intelligence.slide4.desc": "投資論を動かすポイントへと凝縮。",
-
   "intelligence.slide5.eyebrow": "同業比較を踏まえたインテリジェンス",
   "intelligence.slide5.headlineHtml": "<span class=\"ai-gradient-text\">グルのように</span>比較。",
   "intelligence.slide5.desc": "あらゆる指標を、同業他社の文脈で。",
-
   "intelligence.slide6.eyebrow": "収益の仕組み",
   "intelligence.slide6.headlineHtml": "収益の流れを、<span class=\"ai-gradient-text\">端から端まで</span>。",
   "intelligence.slide6.desc": "AI が損益計算書全体を一枚のサンキー図に再構築します — セグメント別売上、売上原価、営業費用、税金、そして純利益まで。お金がどこから来て、どこへ行くのかが一目でわかります。",
-
   "pricing.headline": "あなたの利益と一致した料金体系。",
   "pricing.subhead": "実際に実行したリサーチにだけお支払いください。広告主からのキックバックも、推奨銘柄も、利益相反も、不意の請求もありません。",
-
   "pricing.basic.name": "Basic(無料)",
   "pricing.basic.desc": "Deep Values を試してみる。",
   "pricing.basic.priceUnit": "ずっと無料",
@@ -98,16 +83,14 @@
   "pricing.basic.feature3": "· 3人のグルをフォロー",
   "pricing.basic.feature4": "· Buffett Lens:音声3回 + テキスト無制限",
   "pricing.basic.feature5": "· 全銘柄で Smart Money",
-
   "pricing.plus.name": "Plus",
   "pricing.plus.desc": "日常使いに。",
   "pricing.plus.priceUnit": "/ 月 · 7日間無料トライアル",
-  "pricing.plus.feature1": "· Free の全機能",
+  "pricing.plus.feature1": "· Basic の全機能",
   "pricing.plus.feature2": "· 15銘柄ウォッチリスト",
   "pricing.plus.feature3": "· 10人のグルを追跡",
   "pricing.plus.feature4": "· カスタムメールアラート",
   "pricing.plus.feature5": "· Buffett Lens テキスト無制限",
-
   "pricing.pro.badge": "最も人気",
   "pricing.pro.name": "Pro",
   "pricing.pro.desc": "本格的なリサーチに。",
@@ -118,8 +101,6 @@
   "pricing.pro.feature4": "· ウォッチリスト無制限",
   "pricing.pro.feature5": "· 29人すべてのグルを追跡、リアルタイム通知",
   "pricing.pro.feature6": "· Buffett Lens 音声:月30分",
-  "pricing.pro.feature7": "· CSV エクスポート、3並列実行",
-
   "pricing.api.name": "API",
   "pricing.api.desc": "開発者・アドバイザー向け。",
   "pricing.api.priceUnit": "/ 月",
@@ -129,7 +110,6 @@
   "pricing.api.feature4": "· 商用ライセンス込み",
   "pricing.api.feature5": "· Pro UI フルアクセス",
   "pricing.api.feature6": "· AI ブリーフィングは使用量課金",
-
   "pricing.credits.heading": "クレジットパック",
   "pricing.credits.intro": "どのプランでも、必要なときにいつでもチャージ可能。Plus 会員はパックに10%、Pro 会員は15%を追加。",
   "pricing.credits.starter.name": "Starter",
@@ -140,6 +120,5 @@
   "pricing.credits.power.desc": "120クレジット(+20%)",
   "pricing.credits.bulk.name": "Bulk",
   "pricing.credits.bulk.desc": "320クレジット(+28%)",
-
   "pricing.honest": "あなたが消費するクレジットは、あなたのために複数アナリスト構成の AI リサーチパイプラインを実行する実コストです。広告主からのキックバックなし。推奨銘柄なし。ブリーフィング内にアフィリエイトリンクなし。このプロダクトは、あなたにとって有用である分だけ機能します — それが当社の唯一の収益源だからです。"
 }
