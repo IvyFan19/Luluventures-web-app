@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/deepvalues-circle-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deep Values API — DeepValues.AI</title>
+    <meta name="description" content="Drop-in equity research that thinks like a Berkshire analyst. AI briefings, 50+ guru tracking, drop-in chatbot grounding — one API, $99/mo." />
+    <meta name="theme-color" content="#f5f5f7" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+        background: #f5f5f7;
+        color: #1d1d1f;
+      }
+      .prose-doc h2 {
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: -0.4px;
+        margin: 56px 0 16px;
+        color: #0a192f;
+        scroll-margin-top: 96px;
+      }
+      .prose-doc h3 {
+        font-size: 19px;
+        font-weight: 600;
+        margin: 32px 0 12px;
+        color: #1d1d1f;
+      }
+      .prose-doc p,
+      .prose-doc li {
+        font-size: 16px;
+        line-height: 1.7;
+        color: #3a3a3c;
+      }
+      .prose-doc p { margin: 12px 0; }
+      .prose-doc ul { margin: 12px 0 12px 22px; list-style: disc; }
+      .prose-doc ul li { margin: 6px 0; }
+      .prose-doc a { color: #0e85ff; text-decoration: underline; text-underline-offset: 2px; }
+      .prose-doc strong { color: #0a192f; font-weight: 600; }
+      .prose-doc code {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        background: rgba(15, 23, 60, 0.06);
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #0a192f;
+      }
+      .prose-doc hr {
+        border: none;
+        border-top: 1px solid #e2e2e4;
+        margin: 48px 0;
+      }
+      .prose-doc pre {
+        background: #0a192f;
+        color: #e6edf3;
+        padding: 18px 20px;
+        border-radius: 12px;
+        overflow-x: auto;
+        margin: 18px 0;
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+      .prose-doc pre code {
+        background: transparent;
+        padding: 0;
+        color: inherit;
+        font-size: inherit;
+      }
+      .prose-doc blockquote {
+        border-left: 3px solid #0e85ff;
+        padding: 4px 0 4px 16px;
+        margin: 18px 0;
+        color: #475569;
+        font-style: italic;
+      }
+      .endpoint-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        margin: 20px 0;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #e2e2e4;
+      }
+      .endpoint-table th,
+      .endpoint-table td {
+        padding: 12px 16px;
+        text-align: left;
+        border-bottom: 1px solid #e2e2e4;
+        vertical-align: top;
+      }
+      .endpoint-table tr:last-child td { border-bottom: none; }
+      .endpoint-table th {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: #6e6e73;
+        background: #fafafa;
+        font-weight: 600;
+      }
+      .endpoint-table td:first-child {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 13px;
+        color: #0a192f;
+        white-space: nowrap;
+      }
+      .tldr-card {
+        background: #ffffff;
+        border: 1px solid #e2e2e4;
+        border-radius: 20px;
+        padding: 28px 32px;
+        box-shadow: 0 1px 0 rgba(15, 23, 60, 0.03);
+      }
+      .toc-card {
+        background: #ffffff;
+        border: 1px solid #e2e2e4;
+        border-radius: 16px;
+        padding: 20px 24px;
+      }
+      .toc-card a {
+        display: block;
+        padding: 6px 0;
+        font-size: 14px;
+        color: #3a3a3c;
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      .toc-card a:hover { color: #0e85ff; }
+      .feature-card {
+        background: #ffffff;
+        border: 1px solid #e2e2e4;
+        border-radius: 16px;
+        padding: 8px 28px 24px;
+        margin: 24px 0;
+      }
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 24px 0;
+      }
+      .cta-row a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #0e85ff;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background 0.15s ease;
+      }
+      .cta-row a:hover { background: #0a6ed9; }
+      .cta-row a.secondary {
+        background: #ffffff;
+        color: #0a192f !important;
+        border: 1px solid #d2d2d4;
+      }
+      .cta-row a.secondary:hover { background: #f5f5f7; }
+      /* ---- Locale switcher (matches index.html / privacy.html) ---- */
+      .locale-switcher { position: relative; }
+      .locale-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 240px;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 12px 32px rgba(15, 23, 60, 0.18);
+        padding: 8px;
+        display: none;
+        z-index: 50;
+      }
+      .locale-switcher.open .locale-menu { display: block; }
+      .locale-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #1d1d1f;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+      }
+      .locale-item:hover { background: rgba(14, 133, 255, 0.06); }
+      .locale-item .locale-name { font-weight: 600; margin-right: 6px; }
+      .locale-item .locale-region { color: #6e6e73; font-size: 13px; flex: 1; }
+      .locale-item .locale-check { color: #0e85ff; font-weight: 700; opacity: 0; margin-left: 8px; }
+      .locale-item.active .locale-check { opacity: 1; }
+    </style>
+    <script src="/i18n.js" defer></script>
+  </head>
+  <body>
+    <!-- ==================== NAV ==================== -->
+    <header class="max-w-[1280px] mx-auto px-6 lg:px-10 pt-6">
+      <nav class="flex items-center justify-between">
+        <div class="flex items-center gap-10">
+          <a href="/" class="flex items-center gap-2.5">
+            <img src="/images/deepvalues-circle-icon.png" alt="DeepValues.AI" class="h-9 w-9 rounded-full" />
+            <span class="text-[22px] tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700;">
+              <span style="color: #003085;">Deep</span><span style="color: #0e85ff;">Values.AI</span>
+            </span>
+          </a>
+          <ul class="hidden md:flex items-center gap-8 text-[15px] text-slate-700">
+            <li><a href="/#app" class="hover:text-slate-900 transition" data-i18n="nav.values">Values</a></li>
+            <li><a href="/#ai-intelligence" class="hover:text-slate-900 transition" data-i18n="nav.intelligence">Intelligence</a></li>
+            <li><a href="/#pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
+            <li><a href="/api.html" class="text-slate-900 font-semibold transition" data-i18n="nav.api">API</a></li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="locale-switcher">
+            <button
+              id="localeTrigger"
+              type="button"
+              class="h-10 px-3 rounded-full flex items-center gap-1.5 hover:bg-white/50 transition text-[14px] font-semibold text-slate-700"
+              aria-label="Change language"
+              aria-haspopup="listbox"
+            >
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7.4" stroke="#0A192F" stroke-width="1.6" />
+                <path
+                  d="M2.6 10h14.8M10 2.6c2 2.2 3.1 4.8 3.1 7.4 0 2.6-1.1 5.2-3.1 7.4M10 2.6c-2 2.2-3.1 4.8-3.1 7.4 0 2.6 1.1 5.2 3.1 7.4"
+                  stroke="#0A192F"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span data-locale-current>EN</span>
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div id="localeMenu" class="locale-menu" role="listbox"></div>
+          </div>
+
+          <a href="https://app.deepvalues.ai" class="text-white text-[15px] font-semibold px-6 py-3 rounded-full" style="background: #0e85ff;" data-i18n="nav.login">
+            Login
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ==================== HEADER ==================== -->
+    <main class="max-w-[860px] mx-auto px-6 lg:px-10 mt-16 lg:mt-24">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-4" style="background: rgba(14, 133, 255, 0.08); border: 1px solid rgba(14, 133, 255, 0.25);">
+        <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #0e85ff;"></span>
+        <span class="text-[12px] font-bold uppercase tracking-[1.5px] text-[#0e85ff]">Coming Soon · In Development</span>
+      </div>
+      <h1 class="text-[44px] sm:text-[56px] font-extrabold leading-[1.05] tracking-tight text-slate-900" style="font-family: 'Google Sans', sans-serif;">
+        Deep Values API
+      </h1>
+      <p class="mt-5 text-[18px] text-slate-600 leading-relaxed">
+        Drop-in equity research that thinks like a Berkshire analyst, not a data dashboard.
+        Build value-investing products in days, not quarters.
+      </p>
+      <p class="mt-4 text-[15px] text-slate-500 leading-relaxed">
+        The endpoints below preview what's coming. We're still building — join the waiting list and we'll email you the moment your key is ready.
+      </p>
+      <div class="cta-row mt-6">
+        <a href="mailto:team@deepvalues.ai?subject=API%20Waitlist&body=Please%20add%20me%20to%20the%20Deep%20Values%20API%20waiting%20list.">Join the waiting list →</a>
+        <a href="#full-menu" class="secondary">See all endpoints</a>
+      </div>
+
+      <!-- TL;DR card -->
+      <section class="mt-10 tldr-card">
+        <h2 class="text-[18px] font-bold text-slate-900 mb-3" style="margin: 0 0 12px;">What you get</h2>
+        <ul class="space-y-2.5 text-[15px] text-slate-700 list-none p-0">
+          <li class="flex gap-3"><span class="mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span><span><strong>AI equity research as JSON.</strong> Same multi-analyst pipeline as the consumer product — one endpoint, full briefing.</span></li>
+          <li class="flex gap-3"><span class="mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span><span><strong>50+ curated gurus.</strong> Real 13F filings, auto-classified position deltas, materiality-filtered webhooks.</span></li>
+          <li class="flex gap-3"><span class="mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span><span><strong>Drop-in AI context.</strong> Ready-to-use system prompt + grounded data block for your own GPT / Claude / Llama wrapper.</span></li>
+          <li class="flex gap-3"><span class="mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span><span><strong>$99 / month.</strong> 10k metadata calls + 50 AI research calls per day, commercial license, 99.5% uptime SLA.</span></li>
+        </ul>
+
+        <div class="cta-row" style="margin-bottom: 0;">
+          <a href="mailto:team@deepvalues.ai?subject=API%20Waitlist&body=Please%20add%20me%20to%20the%20Deep%20Values%20API%20waiting%20list.">Join the waiting list →</a>
+          <a href="#quick-start" class="secondary">Quick start</a>
+        </div>
+      </section>
+
+      <!-- TOC -->
+      <section class="mt-8 toc-card">
+        <p class="text-[11px] font-bold uppercase tracking-[1.5px] text-slate-500 mb-2">Contents</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+          <a href="#research">1. AI equity research</a>
+          <a href="#smart-money">2. Smart Money API</a>
+          <a href="#ai-context">3. Drop-in AI context</a>
+          <a href="#full-menu">4. The full menu</a>
+          <a href="#pricing">5. Pricing</a>
+          <a href="#audience">6. Who this is for</a>
+          <a href="#quick-start">7. Quick start</a>
+          <a href="#faq">8. FAQ</a>
+        </div>
+      </section>
+
+      <!-- ==================== BODY ==================== -->
+      <article class="prose-doc">
+
+        <h2 id="three-things" style="margin-top: 64px;">Three things nobody else gives you at this price</h2>
+
+        <div class="feature-card">
+          <h3 id="research" style="margin-top: 20px;">1. AI equity research, structured as JSON</h3>
+          <p>
+            One endpoint. Full briefing. Bull case, bear case, valuation snapshot, investment plan, fair-value range. The same multi-analyst pipeline that powers our consumer product, exposed as a single JSON call.
+          </p>
+<pre><code>GET /v1/research/AAPL</code></pre>
+<pre><code>{
+  "ticker": "AAPL",
+  "company_name": "Apple Inc.",
+  "stance": "watch",
+  "as_of": "2026-05-17T14:23:00Z",
+  "briefing": "Services growth accelerating to 16% YoY; iPhone units flat...",
+  "bull_summary": "Services moat widening, $200B buyback runway, India ramp...",
+  "bear_summary": "Hardware refresh cycle lengthening, China exposure 19%...",
+  "fundamentals_report": "Revenue $391B (+2.0% YoY)...",
+  "valuation": {
+    "intrinsic_value_per_share": 218.4,
+    "method": "dcf_owner_earnings_blend",
+    "confidence_p10": 178.2,
+    "confidence_p90": 261.7,
+    "current_price": 184.92,
+    "implied_upside_pct": 18.1
+  },
+  "investment_plan": "Conservative entry below $175; full position $158-165...",
+  "key_risks": ["China revenue concentration", "Hardware ASP normalization", "..."]
+}</code></pre>
+          <p>
+            Sentieo and AlphaSense cost $30,000/year. We're $99/month for the same output shape on US equities. Yes really.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3 id="smart-money" style="margin-top: 20px;">2. The Smart Money API</h3>
+          <p>
+            50+ legendary investors. Real 13F filings. Auto-classified position deltas. Materiality-filtered notifications. The data nobody else packages this way at any price.
+          </p>
+<pre><code>GET  /v1/smart-money/holdings?ticker=BRK.B
+GET  /v1/smart-money/changes?since=2026-Q1&min_position_usd=100000000
+GET  /v1/gurus/warren-buffett/portfolio
+POST /v1/webhooks/guru-moves  (subscribe to threshold breaches)</code></pre>
+<pre><code>{
+  "ticker": "AAPL",
+  "quarter_end": "2026-03-31",
+  "holders": [
+    {
+      "guru": { "slug": "warren-buffett", "fund": "Berkshire Hathaway" },
+      "shares": 905560000,
+      "position_usd": 167400000000,
+      "pct_portfolio": 31.4,
+      "delta": { "status": "trimmed", "delta_shares": -10000000, "delta_pct": -1.1 }
+    },
+    {
+      "guru": { "slug": "duan-yongping", "fund": "H&amp;H International Investment" },
+      "shares": 17500000,
+      "position_usd": 3236000000,
+      "pct_portfolio": 18.5,
+      "delta": { "status": "added", "delta_shares": 500000, "delta_pct": 2.9 }
+    }
+  ],
+  "summary": {
+    "guru_count": 12,
+    "total_value_usd": 184000000000,
+    "qoq_delta_pct": -0.8
+  }
+}</code></pre>
+          <p>
+            <strong>What's curated.</strong> Not raw 13F dumps — a hand-picked 50+ roster: Buffett, Munger, Burry, Ackman, Druckenmiller, Klarman, Marks, Li Lu, Duan Yongping, Pabrai, Einhorn, Mandel, Loeb, Tepper, Coleman, Soros, Cohen (Point72), Peltz, Greenblatt, Hawkins (Longleaf), Yacktman, Tweedy Browne, Wedgewood, Sequoia Fund, and 25+ more — every name a serious value investor would recognize.
+          </p>
+          <p>
+            <strong>What's auto-computed.</strong> Each holding row carries the delta vs prior quarter (<code>new</code> / <code>added</code> / <code>trimmed</code> / <code>unchanged</code> / <code>exited</code>) plus position size and % of portfolio. No client-side joining.
+          </p>
+          <p>
+            <strong>What's filtered.</strong> Material moves only — new positions, full exits, ≥25% share-count shifts, or ≥$100M position size. No noise from $200K fractional trims.
+          </p>
+          <p>
+            <strong>Webhooks fire</strong> within 30 minutes of each new 13F-HR landing on SEC EDGAR — usually a 45-day lag from quarter end, occasionally the day after quarter close.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3 id="ai-context" style="margin-top: 20px;">3. Drop-in AI context for your own chatbot</h3>
+          <p>
+            Building a stock-aware GPT? An investing copilot? A research assistant inside your app? Skip the months of plumbing.
+          </p>
+<pre><code>GET /v1/ai-context/AAPL</code></pre>
+          <p>
+            Returns a ready-to-use system prompt + structured data block, scoped to one ticker. Includes the company overview, latest fundamentals, recent 13F moves, current sentiment, latest SEC filings, and our AI-generated valuation snapshot — all formatted so you can drop it straight into your LLM's context window.
+          </p>
+<pre><code>{
+  "system_prompt": "You are a research assistant grounded in current Apple Inc. data...",
+  "context_block": "...structured ~6000-token data dump optimized for grounding...",
+  "context_tokens_estimated": 5847,
+  "as_of": "2026-05-17T14:23:00Z",
+  "tools_available": ["fetch_filing_section", "fetch_quarterly_history", "fetch_smart_money"]
+}</code></pre>
+          <p>
+            Drop it into OpenAI / Anthropic / any LLM SDK. We do the grounding; you build the product.
+          </p>
+        </div>
+
+        <h2 id="full-menu">The full menu</h2>
+        <table class="endpoint-table">
+          <thead>
+            <tr>
+              <th>Endpoint</th>
+              <th>What you get</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>GET /v1/research/{ticker}</td><td>Full multi-analyst AI report (chargeable)</td></tr>
+            <tr><td>GET /v1/research/{ticker}/audio</td><td>MP3 narration</td></tr>
+            <tr><td>GET /v1/research/{ticker}/pdf</td><td>PDF briefing</td></tr>
+            <tr><td>GET /v1/smart-money/holdings?ticker=X</td><td>Who from our roster holds X, deltas, %</td></tr>
+            <tr><td>GET /v1/smart-money/changes?since=...</td><td>All material moves in window</td></tr>
+            <tr><td>GET /v1/gurus</td><td>The curated 50+ roster + each guru's top holdings</td></tr>
+            <tr><td>GET /v1/gurus/{slug}</td><td>One guru's full portfolio + history + bio</td></tr>
+            <tr><td>GET /v1/theses?ticker=X&amp;min_conviction=4</td><td>Structured human investment views</td></tr>
+            <tr><td>GET /v1/intrinsic-value/{ticker}</td><td>DCF + Owner Earnings + Damodaran scenarios</td></tr>
+            <tr><td>GET /v1/indicators/buffett</td><td>Buffett Indicator + zone (over/fair/under)</td></tr>
+            <tr><td>GET /v1/indicators/shiller-pe</td><td>Shiller PE + percentile vs history</td></tr>
+            <tr><td>GET /v1/fundamentals/{ticker}</td><td>Income + balance + cashflow, annual + quarterly</td></tr>
+            <tr><td>GET /v1/filings/{ticker}</td><td>10-K, 10-Q, 8-K, DEF 14A with parsed sections</td></tr>
+            <tr><td>GET /v1/news/{ticker}</td><td>Sentiment-scored news, latest first</td></tr>
+            <tr><td>GET /v1/sentiment/{ticker}?source=...</td><td>Value-investor sentiment (NOT WSB noise)</td></tr>
+            <tr><td>GET /v1/ai-context/{ticker}</td><td>Drop-in grounding for chatbot builders</td></tr>
+            <tr><td>POST /v1/webhooks</td><td>Subscribe to events (guru moves, new filings, sentiment shifts)</td></tr>
+          </tbody>
+        </table>
+        <p>Full OpenAPI spec at <a href="#">api.deepvalues.ai/openapi.json</a>.</p>
+
+        <h2 id="pricing">Pricing</h2>
+        <p><strong>$99 / month</strong> — or $999/year (save ~17%).</p>
+        <p>Includes:</p>
+        <ul>
+          <li><strong>10,000</strong> metadata calls per day (everything except <code>/research</code>)</li>
+          <li><strong>50</strong> AI research calls per day (the multi-analyst pipeline)</li>
+          <li><strong>1,000</strong> webhook events per day</li>
+          <li><strong>All 50+ gurus</strong>, full quarterly history back 4+ years</li>
+          <li><strong>Commercial license</strong> — redistribute derived outputs in your own product</li>
+          <li><strong>99.5% uptime</strong> SLA</li>
+          <li>Email support, business-day response</li>
+        </ul>
+        <p>
+          Overage: $0.10 per extra AI research call, $0.001 per extra metadata call, $0.001 per extra webhook event. We don't kneecap you mid-month — you keep working, we bill the overage at month-end.
+        </p>
+        <p>
+          <strong>Custom tier</strong> for higher volume, white-label, or private guru universes (track your own watchlist of 13F filers): <a href="mailto:hello@deepvalues.ai">hello@deepvalues.ai</a>.
+        </p>
+
+        <h2 id="audience">Who this is for</h2>
+        <p>
+          <strong>Newsletter writers + Substack stock-pickers.</strong> Pull live 13F deltas into your Monday morning post. "Berkshire trimmed AAPL by 1.1% last quarter — here's the data." One API call, no scraping.
+        </p>
+        <p>
+          <strong>Robo-advisors + portfolio products.</strong> Show your users "what the smart money is doing" without licensing WhaleWisdom at $1k+/mo. Add AI-generated stock briefings as a premium feature with zero in-house AI infra.
+        </p>
+        <p>
+          <strong>AI app builders.</strong> Drop our <code>ai-context</code> endpoint into your GPT / Claude / Llama wrapper and your chatbot is suddenly grounded in real fundamentals, 13F data, and sentiment. No prompt-engineering required.
+        </p>
+        <p>
+          <strong>Small funds + family offices.</strong> Use our 50+ guru tracking as your own competitor monitoring. Get webhook-notified the day a competitor exits a position you also hold.
+        </p>
+        <p>
+          <strong>Quants + researchers.</strong> Backtest against curated guru moves over 4+ years of history. Build sentiment-weighted strategies from the value-investing-focused subreddit feed (not the meme-stock noise).
+        </p>
+
+        <h2 id="quick-start">Quick start</h2>
+<pre><code># 1. Sign up at deepvalues.ai/api and grab your key
+export DV_API_KEY=dv_sk_live_...
+
+# 2. Smart Money in one call
+curl -H "Authorization: Bearer $DV_API_KEY" \
+  "https://api.deepvalues.ai/v1/smart-money/holdings?ticker=AAPL"
+
+# 3. Full AI research briefing
+curl -H "Authorization: Bearer $DV_API_KEY" \
+  "https://api.deepvalues.ai/v1/research/AAPL"
+
+# 4. Subscribe to webhook
+curl -X POST -H "Authorization: Bearer $DV_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "url": "https://yourapp.com/dv-hook", "events": ["guru.move.material"] }' \
+  "https://api.deepvalues.ai/v1/webhooks"</code></pre>
+
+        <div class="cta-row">
+          <a href="mailto:team@deepvalues.ai?subject=API%20Waitlist&body=Please%20add%20me%20to%20the%20Deep%20Values%20API%20waiting%20list.">Join the waiting list →</a>
+          <a href="#full-menu" class="secondary">See all endpoints</a>
+        </div>
+
+        <h2 id="faq">FAQ</h2>
+
+        <h3>Is the AI research deterministic?</h3>
+        <p>
+          Same <code>ticker</code> returns the same cached briefing for 14 days. Pass <code>?fresh=true</code> to force a re-run (counts as one of your AI research calls). Past briefings stay accessible forever via <code>/v1/research/{ticker}/history</code>.
+        </p>
+
+        <h3>How fast is the data?</h3>
+        <p>
+          13F deltas: real-time vs SEC EDGAR (we re-poll every 30 minutes after the 4pm-ET filing window). Fundamentals: end-of-day. News + sentiment: hourly. Indicators: daily. AI research: synthesized on first call, cached 14 days.
+        </p>
+
+        <h3>Can I redistribute the data?</h3>
+        <p>
+          Yes — your $99/mo includes a commercial license to redistribute derived outputs in your own product. You can't resell the raw API itself; everything else (charts, summaries, briefings you generate for your users) is yours.
+        </p>
+
+        <h3>What about real-time prices, options, insider trades?</h3>
+        <p>
+          We don't do those. Polygon ($99–2000/mo) is the best of breed for real-time tape. Quiver Quantitative covers gov + insider data. We focus on the value-investing slice nobody else serves at this price.
+        </p>
+
+        <h3>Will my AI research counts roll over?</h3>
+        <p>
+          No, daily limits reset at 00:00 UTC. Need higher headroom or rollover? Custom tier.
+        </p>
+
+        <h3>SLAs and incidents?</h3>
+        <p>
+          99.5% uptime over rolling 30 days. Status page at <a href="#">status.deepvalues.ai</a>. Active incident notifications via your webhook URL or email.
+        </p>
+
+        <h3>Can I see a real response before signing up?</h3>
+        <p>
+          Yes — every endpoint has a sandbox response at <a href="#">deepvalues.ai/api/sandbox</a>. No signup required.
+        </p>
+
+        <p class="mt-12 text-[13px] text-slate-400">
+          Last updated May 17, 2026. Built by Deep Values in San Francisco. <a href="mailto:hello@deepvalues.ai">Contact</a> · <a href="#">Status</a> · <a href="#">Changelog</a>
+        </p>
+      </article>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="mt-24 bg-black text-white">
+      <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-12">
+        <div class="pb-6 flex flex-wrap items-center justify-between gap-4">
+          <a href="/" class="inline-block tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 44px; line-height: 1;">
+            <span style="color: #003085;">Deep</span><span style="color: #0e85ff;">Values.AI</span>
+          </a>
+          <div class="flex items-center gap-3">
+            <a href="https://www.youtube.com/@TheDeepValues" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+            <a href="https://podcasts.apple.com/us/podcast/deep-values/id1811057697" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="Apple Podcasts">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-3.05 9.78c.27-.42.74-.69 1.27-.69h3.56c.53 0 1 .27 1.27.69.28.44.32.99.11 1.47l-1.75 4.2c-.24.58-.81.97-1.44.97s-1.2-.39-1.44-.97l-1.75-4.2c-.21-.48-.17-1.03.11-1.47zM4.5 13.5a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3zm0 5.25a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3zm15-5.25a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3zm0 5.25a1.5 1.5 0 0 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+              </svg>
+            </a>
+            <a href="https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9?si=YsWJodQKS7CEMq5Twdh_8Q" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="Spotify">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12C24 5.4 18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+            </a>
+            <a href="https://x.com/thedeepvalue?s=21" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 rounded-full flex items-center justify-center transition hover:text-white text-white/70"
+               style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);"
+               aria-label="X (Twitter)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="pb-3">
+          <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-white/90">
+            <li><a href="/" class="hover:text-white transition">Home</a></li>
+            <li><a href="mailto:team@deepvalues.ai" class="hover:text-white transition">Contact</a></li>
+            <li><a href="/#pricing" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="/api.html" class="hover:text-white transition">API</a></li>
+          </ul>
+        </div>
+        <div class="border-t border-white/15"></div>
+        <div class="flex justify-end pt-3 text-[14px] text-white/70">
+          <ul class="flex flex-wrap items-center gap-x-8 gap-y-2">
+            <li>© 2026 LuLu Ventures LLC</li>
+            <li><a href="#" class="hover:text-white transition">Cookies</a></li>
+            <li><a href="#" class="hover:text-white transition">Legal</a></li>
+            <li><a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

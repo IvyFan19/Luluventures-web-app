@@ -35,6 +35,8 @@ export default defineConfig({
         app: resolve(__dirname, 'app.html'),
         // Static legal pages
         privacy: resolve(__dirname, 'privacy.html'),
+        // Static API references landing page
+        api: resolve(__dirname, 'api.html'),
       },
     },
   },

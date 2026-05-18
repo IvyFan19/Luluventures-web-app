@@ -1,5 +1,6 @@
 {
   "nav.pricing": "价格",
+  "nav.api": "API",
   "nav.compliance": "合规",
   "nav.faq": "常见问题",
   "nav.docs": "文档",
@@ -110,6 +111,8 @@
   "pricing.api.feature4": "· 包含商业授权",
   "pricing.api.feature5": "· 完整 Pro UI 访问权限",
   "pricing.api.feature6": "· AI 简报按次计费",
+  "pricing.api.cta": "加入等待列表",
+  "pricing.api.comingSoon": "即将推出",
   "pricing.credits.heading": "点数包",
   "pricing.credits.intro": "随时为任何套餐补充点数。Plus 会员购买点数包额外赠送 10%；Pro 会员额外赠送 15%。",
   "pricing.credits.starter.name": "入门包",

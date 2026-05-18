@@ -1,5 +1,6 @@
 {
   "nav.pricing": "Tarifs",
+  "nav.api": "API",
   "nav.compliance": "Conformité",
   "nav.faq": "FAQ",
   "nav.docs": "Docs",
@@ -110,6 +111,8 @@
   "pricing.api.feature4": "· Licence commerciale incluse",
   "pricing.api.feature5": "· Accès complet à l'interface Pro",
   "pricing.api.feature6": "· Briefings IA facturés à l'usage",
+  "pricing.api.cta": "Rejoindre la liste d'attente",
+  "pricing.api.comingSoon": "BIENTÔT DISPONIBLE",
   "pricing.credits.heading": "Packs de crédits",
   "pricing.credits.intro": "Rechargez n'importe quel plan à tout moment. Les membres Plus reçoivent 10 % en plus sur les packs ; les membres Pro, 15 %.",
   "pricing.credits.starter.name": "Starter",

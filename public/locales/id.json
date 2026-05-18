@@ -1,5 +1,6 @@
 {
   "nav.pricing": "Harga",
+  "nav.api": "API",
   "nav.compliance": "Kepatuhan",
   "nav.faq": "FAQ",
   "nav.docs": "Dokumentasi",
@@ -110,6 +111,8 @@
   "pricing.api.feature4": "· Lisensi komersial sudah termasuk",
   "pricing.api.feature5": "· Akses penuh UI Pro",
   "pricing.api.feature6": "· Briefing AI ditagih per pemakaian",
+  "pricing.api.cta": "Gabung daftar tunggu",
+  "pricing.api.comingSoon": "SEGERA HADIR",
   "pricing.credits.heading": "Paket kredit",
   "pricing.credits.intro": "Top up paket mana pun kapan Anda butuh. Member Plus dapat tambahan 10% pada paket; member Pro dapat 15%.",
   "pricing.credits.starter.name": "Starter",

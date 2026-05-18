@@ -95,10 +95,6 @@
 
       .headline-underline {
         color: #ef4444;
-        text-decoration: underline;
-        text-decoration-color: rgba(239, 68, 68, 0.55);
-        text-underline-offset: 10px;
-        text-decoration-thickness: 3px;
       }
 
       .pill-shadow {
@@ -498,6 +494,7 @@
             <li><a href="#app" class="hover:text-slate-900 transition" data-i18n="nav.values">Values</a></li>
             <li><a href="#ai-intelligence" class="hover:text-slate-900 transition" data-i18n="nav.intelligence">Intelligence</a></li>
             <li><a href="#pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
+            <li><a href="/api.html" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
           </ul>
         </div>
 
@@ -2514,12 +2511,29 @@
             border-radius: 16px;
             padding: 32px 24px;
             border: 1px solid #e2e2e4;
+            position: relative;
+            display: flex;
+            flex-direction: column;
           ">
+            <span style="
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+              background: #ffffff;
+              color: #6e6e73;
+              font-size: 11px;
+              font-weight: 700;
+              padding: 4px 12px;
+              border-radius: 999px;
+              letter-spacing: 0.5px;
+              border: 1px solid #e2e2e4;
+            " data-i18n="pricing.api.comingSoon">COMING SOON</span>
             <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;" data-i18n="pricing.api.name">API</h3>
             <p style="font-size: 13px; color: #6e6e73; margin: 0 0 24px;" data-i18n="pricing.api.desc">For developers and advisors.</p>
             <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$99</div>
             <div style="font-size: 13px; color: #6e6e73; margin-bottom: 32px;" data-i18n="pricing.api.priceUnit">/ month</div>
-            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
+            <ul style="list-style: none; padding: 0; margin: 0 0 24px; font-size: 14px; line-height: 1.7;">
               <li data-i18n="pricing.api.feature1">· 10,000 requests / day</li>
               <li data-i18n="pricing.api.feature2">· Bundle, Smart Money, IV, Indicators, Digest endpoints</li>
               <li data-i18n="pricing.api.feature3">· Real-time guru webhooks</li>
@@ -2527,6 +2541,26 @@
               <li data-i18n="pricing.api.feature5">· Full Pro UI access</li>
               <li data-i18n="pricing.api.feature6">· AI briefings billed per use</li>
             </ul>
+            <a
+              href="mailto:team@deepvalues.ai?subject=API%20Waitlist&body=Please%20add%20me%20to%20the%20Deep%20Values%20API%20waiting%20list."
+              style="
+                margin-top: auto;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #1d1d1f;
+                color: #ffffff;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 12px 20px;
+                border-radius: 999px;
+                text-decoration: none;
+                transition: background 0.15s ease;
+              "
+              onmouseover="this.style.background='#2c2c2e'"
+              onmouseout="this.style.background='#1d1d1f'"
+              data-i18n="pricing.api.cta"
+            >Join the waiting list</a>
           </article>
         </div>
 
