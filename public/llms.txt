@@ -1,0 +1,57 @@
+# DeepValues.AI
+
+> AI-native financial assistant for individual investors — institutional-grade stock research that aligns only with your interest. Built by LuLu Ventures LLC.
+
+DeepValues.AI brings the kind of deep, multi-analyst stock research traditionally locked behind expensive Wall Street terminals to individual retail investors. The product runs an AI research pipeline that reads every SEC filing, earnings transcript, and 13F holding for a company, then produces a structured briefing covering business moat, intrinsic value, financials, smart-money positioning, and recent filings.
+
+The brand premise: Wall Street works for Wall Street, not for you. DeepValues.AI is explicitly aligned with the individual investor — no advertiser kickbacks, no promoted stocks, no affiliate links inside research, no conflicts of interest. The credits you spend are the actual cost of running the multi-analyst AI pipeline on your behalf, because that's the only way the product makes money.
+
+## Core Features
+
+- **AI Research Briefings**: On-demand multi-analyst reports for any US-listed stock. The pipeline reads filings, transcripts, and market data, then writes a fully-sourced briefing.
+- **Buffett Lens**: Voice and text chat with an AI grounded in a company's public disclosures. Every answer cites its sources.
+- **Smart Money tracking**: 29 tracked legendary investors (Buffett, Munger, Griffin, Coleman, Englander, Two Sigma, etc.) — their 13F holdings, quarter-over-quarter deltas, and the boldest moves each quarter.
+- **Values Watchlist**: Personal watchlist with color-coded value metrics (P/E, ROE, ROIC, intrinsic value) judged against the thresholds Buffett, Munger, Greenblatt, and other legends actually used.
+- **Filings & Earnings**: Hourly EDGAR sync. Every 8-K, 10-Q, and 10-K lands within an hour. One-click to earnings audio, transcripts, and IR pages.
+- **Financials Deep Dive**: Full company financial history sourced directly from SEC filings — every income line, cash-flow line, balance-sheet line, with cross-period comparison.
+- **How It Makes Money**: AI-generated Sankey-diagram revenue breakdown — segment revenue, cost of revenue, operating expenses, taxes, all the way to net income, in one view.
+- **Intrinsic Value Calculator**: Three independent valuation models — DCF, Owner Earnings, and Damodaran — cross-checked against peers.
+
+## Pricing
+
+- **Basic (Free)** — 30 credits/week, 7-stock watchlist, follow 3 gurus, Buffett Lens (3 voice + unlimited text), Smart Money for every stock.
+- **Plus — $9.99/month** — 15-stock watchlist, track 10 gurus, custom email alerts, unlimited Buffett Lens text. 7-day free trial.
+- **Pro — $29.99/month** — 100 credits/week, up to 10 fresh briefings/month, unlimited watchlist, track ALL 29 gurus with real-time alerts, Buffett Lens voice 30 min/month. 7-day free trial.
+- **API — $99/month** — 10,000 requests/day to Bundle, Smart Money, Intrinsic Value, Indicators, Digest endpoints; real-time guru webhooks; commercial license. AI briefings billed per use.
+- **Credit packs** available for top-ups (Starter $20, Standard $50, Power $100, Bulk $250).
+
+## Languages
+
+The marketing site is available in 12 languages: English, Simplified Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
+
+## Pages
+
+- [Home](https://deepvalues.ai/) — Product overview, features, pricing
+- [Privacy Policy](https://deepvalues.ai/privacy.html) — Data handling, sub-processors (AWS, OpenAI, Anthropic, Microsoft Azure Speech, Cloudflare, Google Workspace), AI/automated-processing disclosures
+- [API documentation](https://deepvalues.ai/api.html) — Developer API references
+- [Application](https://app.deepvalues.ai/) — The actual product (login required)
+- [Terms of Use](https://app.deepvalues.ai/terms) — Terms of service
+
+## Social and Media
+
+- YouTube channel: https://www.youtube.com/@TheDeepValues
+- Apple Podcasts: https://podcasts.apple.com/us/podcast/deep-values/id1811057697
+- Spotify: https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9
+- X (Twitter): https://x.com/thedeepvalue
+
+## Company
+
+- Legal entity: LuLu Ventures LLC
+- Contact: team@deepvalues.ai
+- Headquartered in the United States
+
+## Important disclaimers
+
+DeepValues.AI is an AI research and education product, not a registered investment adviser. AI briefings are factual research, not personalized investment advice. Users are responsible for their own investment decisions. AI can be wrong or out of date — every output cites its source so users can verify.
+
+The product does not store Buffett Lens voice audio on its servers; audio is streamed to Microsoft Azure Speech Services for real-time transcription only, and neither party retains it after transcription completes. Users' inputs and outputs are never used to train any foundation model (OpenAI and Anthropic are used under their API/enterprise no-training terms).
