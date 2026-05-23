@@ -569,13 +569,13 @@
         z-index: 10;
       }
 
-      /* ===== Locale switcher dropdown ===== */
+      /* ===== Locale switcher dropdown (now in footer; opens upward) ===== */
       .locale-switcher { position: relative; }
       .locale-menu {
         display: none;
         position: absolute;
-        top: calc(100% + 8px);
-        right: 0;
+        bottom: calc(100% + 8px);
+        left: 0;
         width: 280px;
         max-height: 480px;
         overflow-y: auto;
@@ -652,38 +652,6 @@
 
         <div class="flex items-center gap-4">
           <!-- Language switcher -->
-          <div class="locale-switcher">
-            <button
-              id="localeTrigger"
-              type="button"
-              class="h-10 px-3 rounded-full flex items-center gap-1.5 hover:bg-white/50 transition text-[14px] font-semibold text-slate-700"
-              aria-label="Change language"
-              aria-haspopup="listbox"
-            >
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <circle cx="10" cy="10" r="7.4" stroke="#0A192F" stroke-width="1.6" />
-                <path
-                  d="M2.6 10h14.8M10 2.6c2 2.2 3.1 4.8 3.1 7.4 0 2.6-1.1 5.2-3.1 7.4M10 2.6c-2 2.2-3.1 4.8-3.1 7.4 0 2.6 1.1 5.2 3.1 7.4"
-                  stroke="#0A192F"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span data-locale-current>EN</span>
-              <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path
-                  d="M3 4.5L6 7.5L9 4.5"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <div id="localeMenu" class="locale-menu" role="listbox"></div>
-          </div>
-
           <a
             href="https://app.deepvalues.ai"
             class="cta-primary text-white text-[15px] font-semibold px-6 py-3 rounded-full"
@@ -2899,8 +2867,39 @@
         <!-- Divider -->
         <div class="border-t border-white/15"></div>
 
-        <!-- Bottom row (below divider): copyright + legal links on the right -->
-        <div class="flex justify-end pt-3 text-[14px] text-white/70">
+        <!-- Bottom row (below divider): language switcher + copyright/legal -->
+        <div class="flex flex-wrap items-center justify-between gap-y-3 pt-3 text-[14px] text-white/70">
+          <div class="locale-switcher">
+            <button
+              id="localeTrigger"
+              type="button"
+              class="flex items-center gap-1.5 text-white/70 hover:text-white transition"
+              aria-label="Change language"
+              aria-haspopup="listbox"
+            >
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="7.4" stroke="currentColor" stroke-width="1.6" />
+                <path
+                  d="M2.6 10h14.8M10 2.6c2 2.2 3.1 4.8 3.1 7.4 0 2.6-1.1 5.2-3.1 7.4M10 2.6c-2 2.2-3.1 4.8-3.1 7.4 0 2.6 1.1 5.2 3.1 7.4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span data-locale-current>EN</span>
+              <svg width="9" height="9" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path
+                  d="M3 7.5L6 4.5L9 7.5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div id="localeMenu" class="locale-menu" role="listbox"></div>
+          </div>
           <ul class="flex flex-wrap items-center gap-x-8 gap-y-2">
             <li>© 2026</li>
             <li><a href="#" class="hover:text-white transition" data-i18n="footer.cookies">Cookies</a></li>
