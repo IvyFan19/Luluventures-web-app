@@ -141,5 +141,11 @@
   "faq.q7": "Quanto costa?",
   "faq.a7": "Basic è gratis per sempre (30 crediti a settimana, watchlist da 7 titoli, Buffett Lens testo illimitato più 3 query vocali). Plus è $9.99/mese con 7 giorni di prova gratuita (watchlist da 15 titoli, segui 10 guru, Buffett Lens testo illimitato). Pro è $29.99/mese (100 crediti/settimana, watchlist illimitata, tutti i 29 guru con avvisi in tempo reale, 30 minuti di voce al mese). L'accesso API costa $99/mese per sviluppatori e consulenti. Sono disponibili pacchetti di ricarica crediti.",
   "faq.q8": "I miei dati sono privati?",
-  "faq.a8": "Sì. Non vendiamo dati personali. Non usiamo i tuoi input o le tue chat per addestrare alcun modello AI (né il nostro né quello dei nostri fornitori). L'audio vocale non viene mai memorizzato — viene trasmesso in streaming a Microsoft Azure solo per la trascrizione in tempo reale, poi scartato. Puoi esportare o eliminare il tuo account con un clic. Tutti i dettagli nell'Informativa sulla privacy."
+  "faq.a8": "Sì. Non vendiamo dati personali. Non usiamo i tuoi input o le tue chat per addestrare alcun modello AI (né il nostro né quello dei nostri fornitori). L'audio vocale non viene mai memorizzato — viene trasmesso in streaming a Microsoft Azure solo per la trascrizione in tempo reale, poi scartato. Puoi esportare o eliminare il tuo account con un clic. Tutti i dettagli nell'Informativa sulla privacy.",
+  "pricing.hero.badge": "Gratis per sempre · Senza carta di credito",
+  "pricing.hero.title": "Inizia con Basic — gratis per sempre.",
+  "pricing.hero.sub": "Ogni settimana 30 crediti, una watchlist da 7 titoli, Buffett Lens via testo e Smart Money su ogni titolo. Abbastanza per fare ricerca vera.",
+  "pricing.hero.cta": "Inizia gratis →",
+  "pricing.hero.hint": "Nessuna carta di credito. Passa a un piano superiore quando ti serve.",
+  "pricing.details.label": "Vedi i piani Plus, Pro e API"
 }

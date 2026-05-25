@@ -141,5 +141,11 @@
   "faq.q7": "Combien ça coûte ?",
   "faq.a7": "Basic est gratuit pour toujours (30 crédits par semaine, liste de suivi de 7 titres, Buffett Lens texte plus 3 requêtes vocales). Plus est à 9,99 $/mois avec 7 jours d'essai gratuit (liste de suivi de 15 titres, suivi de 10 gourous, Buffett Lens texte illimité). Pro est à 29,99 $/mois (100 crédits/semaine, liste de suivi illimitée, les 29 gourous avec alertes en temps réel, 30 minutes de voix par mois). L'accès API est à 99 $/mois pour les développeurs et conseillers. Des packs de recharge de crédits sont disponibles.",
   "faq.q8": "Mes données sont-elles privées ?",
-  "faq.a8": "Oui. Nous ne vendons pas de données personnelles. Nous n'utilisons ni vos saisies ni vos conversations pour entraîner aucun modèle d'IA (le nôtre ou ceux de nos fournisseurs). L'audio vocal n'est jamais conservé — il est transmis en flux à Microsoft Azure uniquement pour la transcription en temps réel, puis supprimé. Vous pouvez exporter ou supprimer votre compte en un clic. Tous les détails dans la Politique de confidentialité."
+  "faq.a8": "Oui. Nous ne vendons pas de données personnelles. Nous n'utilisons ni vos saisies ni vos conversations pour entraîner aucun modèle d'IA (le nôtre ou ceux de nos fournisseurs). L'audio vocal n'est jamais conservé — il est transmis en flux à Microsoft Azure uniquement pour la transcription en temps réel, puis supprimé. Vous pouvez exporter ou supprimer votre compte en un clic. Tous les détails dans la Politique de confidentialité.",
+  "pricing.hero.badge": "Gratuit pour toujours · Sans carte bancaire",
+  "pricing.hero.title": "Commencez avec Basic — gratuit pour toujours.",
+  "pricing.hero.sub": "30 crédits par semaine, une liste de suivi de 7 titres, Buffett Lens en mode texte et Smart Money sur chaque titre. De quoi faire de la vraie recherche.",
+  "pricing.hero.cta": "Commencer gratuitement →",
+  "pricing.hero.hint": "Pas de carte bancaire. Passez à un plan supérieur quand vous en avez besoin.",
+  "pricing.details.label": "Voir les plans Plus, Pro et API"
 }

@@ -141,5 +141,11 @@
   "faq.q7": "Berapa biayanya?",
   "faq.a7": "Basic gratis selamanya (30 kredit per minggu, watchlist 7 saham, teks Buffett Lens plus 3 query suara). Plus seharga $9.99/bulan dengan uji coba gratis 7 hari (watchlist 15 saham, lacak 10 guru, teks Buffett Lens tanpa batas). Pro seharga $29.99/bulan (100 kredit/minggu, watchlist tanpa batas, seluruh 29 guru dengan alert real-time, 30 menit suara per bulan). Akses API seharga $99/bulan untuk developer dan penasihat. Paket top-up kredit juga tersedia.",
   "faq.q8": "Apakah data saya privat?",
-  "faq.a8": "Ya. Kami tidak menjual data pribadi. Kami tidak menggunakan input atau chat Anda untuk melatih model AI mana pun (milik kami maupun vendor kami). Audio suara tidak pernah disimpan — hanya di-stream ke Microsoft Azure untuk transkripsi real-time, lalu dibuang. Anda bisa mengekspor atau menghapus akun Anda dengan satu klik. Detail lengkap ada di Kebijakan Privasi."
+  "faq.a8": "Ya. Kami tidak menjual data pribadi. Kami tidak menggunakan input atau chat Anda untuk melatih model AI mana pun (milik kami maupun vendor kami). Audio suara tidak pernah disimpan — hanya di-stream ke Microsoft Azure untuk transkripsi real-time, lalu dibuang. Anda bisa mengekspor atau menghapus akun Anda dengan satu klik. Detail lengkap ada di Kebijakan Privasi.",
+  "pricing.hero.badge": "Gratis selamanya · Tanpa kartu kredit",
+  "pricing.hero.title": "Mulai dengan Basic — gratis selamanya.",
+  "pricing.hero.sub": "Setiap minggu 30 kredit, watchlist 7 saham, Buffett Lens lewat teks, dan Smart Money untuk setiap saham. Cukup untuk riset yang serius.",
+  "pricing.hero.cta": "Mulai gratis →",
+  "pricing.hero.hint": "Tanpa kartu kredit. Upgrade kapan pun Anda membutuhkannya.",
+  "pricing.details.label": "Lihat paket Plus, Pro, dan API"
 }

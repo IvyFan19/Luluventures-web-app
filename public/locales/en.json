@@ -141,5 +141,11 @@
   "faq.q7": "What does it cost?",
   "faq.a7": "Basic is free forever (30 credits per week, 7-stock watchlist, Buffett Lens text plus 3 voice queries). Plus is $9.99/month with a 7-day free trial (15-stock watchlist, track 10 gurus, unlimited Buffett Lens text). Pro is $29.99/month (100 credits/week, unlimited watchlist, all 29 gurus with real-time alerts, 30 minutes of voice per month). API access is $99/month for developers and advisors. Credit top-up packs are available.",
   "faq.q8": "Is my data private?",
-  "faq.a8": "Yes. We don't sell personal data. We don't use your inputs or chats to train any AI model (ours or our vendors'). Voice audio is never stored — it's streamed to Microsoft Azure for real-time transcription only, then discarded. You can export or delete your account in one click. Full details in the Privacy Policy."
+  "faq.a8": "Yes. We don't sell personal data. We don't use your inputs or chats to train any AI model (ours or our vendors'). Voice audio is never stored — it's streamed to Microsoft Azure for real-time transcription only, then discarded. You can export or delete your account in one click. Full details in the Privacy Policy.",
+  "pricing.hero.badge": "Free forever · No card required",
+  "pricing.hero.title": "Start with Basic — free forever.",
+  "pricing.hero.sub": "30 credits a week, a 7-stock watchlist, Buffett Lens text chat, and Smart Money for every stock. Enough to actually do real research.",
+  "pricing.hero.cta": "Get started free →",
+  "pricing.hero.hint": "No credit card. Upgrade anytime when you outgrow it.",
+  "pricing.details.label": "See Plus, Pro, and API plans"
 }

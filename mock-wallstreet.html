@@ -2641,6 +2641,90 @@
         #pricing .pricing-grid { grid-template-columns: 1fr; }
         #pricing .credit-grid { grid-template-columns: 1fr; }
       }
+
+      /* Free-first hero + disclosure for the full pricing grid */
+      #pricing .free-first-hero {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 56px 40px;
+        background: #ffffff;
+        border: 1px solid #e2e2e4;
+        border-radius: 24px;
+        text-align: center;
+        box-shadow: 0 1px 0 rgba(15, 23, 60, 0.03);
+      }
+      #pricing .free-first-hero .badge {
+        display: inline-block;
+        padding: 6px 14px;
+        background: rgba(95, 223, 166, 0.14);
+        color: #047857;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      #pricing .free-first-hero h3 {
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin: 20px 0 12px;
+        color: #0a192f;
+        line-height: 1.15;
+      }
+      #pricing .free-first-hero p.sub {
+        font-size: 16px;
+        color: #6e6e73;
+        max-width: 480px;
+        margin: 0 auto 28px;
+        line-height: 1.55;
+      }
+      #pricing .free-first-hero a.cta {
+        display: inline-block;
+        padding: 14px 32px;
+        background: #0e85ff;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 999px;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+      #pricing .free-first-hero a.cta:hover { background: #006bd9; transform: translateY(-1px); }
+      #pricing .free-first-hero p.hint {
+        font-size: 13px;
+        color: #94959b;
+        margin: 16px 0 0;
+      }
+      #pricing details.pricing-details { margin-top: 48px; }
+      #pricing details.pricing-details summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        max-width: 360px;
+        margin: 0 auto;
+        cursor: pointer;
+        list-style: none;
+        font-size: 14px;
+        font-weight: 600;
+        color: #6e6e73;
+        padding: 12px 24px;
+        border-radius: 999px;
+        background: transparent;
+        border: 1px solid #d2d2d6;
+        transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      }
+      #pricing details.pricing-details summary::-webkit-details-marker { display: none; }
+      #pricing details.pricing-details summary:hover { color: #0a192f; border-color: #94959b; background: #ffffff; }
+      #pricing details.pricing-details summary::after {
+        content: '⌄';
+        font-size: 14px;
+        line-height: 1;
+        transition: transform 0.2s ease;
+      }
+      #pricing details.pricing-details[open] summary::after { transform: rotate(180deg) translateY(2px); }
+      #pricing details.pricing-details > .pricing-details-body { margin-top: 48px; }
     </style>
     <section id="pricing" style="
       background: #f5f5f7;
@@ -2666,6 +2750,20 @@
           " data-i18n="pricing.subhead">Pay for the research you actually run. No advertiser kickbacks,
           no promoted stocks, no conflict of interest, no surprise charges.</p>
         </header>
+
+        <!-- Free-first hero: primary CTA + free-forever badge -->
+        <div class="free-first-hero">
+          <span class="badge" data-i18n="pricing.hero.badge">Free forever · No card required</span>
+          <h3 data-i18n="pricing.hero.title">Start with Basic — free forever.</h3>
+          <p class="sub" data-i18n="pricing.hero.sub">30 credits a week, a 7-stock watchlist, Buffett Lens text chat, and Smart Money for every stock. Enough to actually do real research.</p>
+          <a class="cta" href="https://app.deepvalues.ai" data-i18n="pricing.hero.cta">Get started free →</a>
+          <p class="hint" data-i18n="pricing.hero.hint">No credit card. Upgrade anytime when you outgrow it.</p>
+        </div>
+
+        <!-- All paid plans + credit packs tucked behind a disclosure -->
+        <details class="pricing-details">
+          <summary data-i18n="pricing.details.label">See Plus, Pro, and API plans</summary>
+          <div class="pricing-details-body">
 
         <!-- 4-tier grid -->
         <div class="pricing-grid">
@@ -2808,6 +2906,9 @@
         ">
           <p data-i18n="pricing.honest">The credits you spend are the actual cost of running a multi-analyst AI research pipeline on your behalf. No advertiser kickbacks. No promoted stocks. No affiliate links inside our briefings. The product works only as well as it's useful to you — because that's the only way we make money.</p>
         </div>
+
+          </div>
+        </details>
       </div>
     </section>
 
