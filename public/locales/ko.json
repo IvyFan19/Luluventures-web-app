@@ -9,7 +9,7 @@
   "nav.intelligence": "인텔리전스",
   "hero.sponsoredBy": "후원사",
   "hero.headlineHtml": "<span class=\"text-slate-900\">월스트리트는 <span class=\"headline-underline\">월스트리트</span>를 위해 일합니다.</span><br><span class=\"text-slate-900\">당</span><span style=\"color: #0e85ff;\">신</span><span class=\"text-slate-900\">을 위해서가 아닙니다.</span>",
-  "hero.subtitle": "DeepValues.AI는 당신을 더 날카로운 투자자로 만듭니다 — 결론만이 아니라 근거를 보여주고 모든 출처를 인용하는 기관 수준의 리서치로, 사용하면서 배우게 됩니다.",
+  "hero.subtitle": "DeepValues.AI는 오직 당신만을 위해 일하는 AI 네이티브 금융 어시스턴트입니다. 기관 수준의 주식 분석을 개인 투자자에게 제공합니다.",
   "hero.cta": "시작하기",
   "footer.about": "소개",
   "footer.contact": "연락처",
@@ -147,14 +147,5 @@
   "pricing.hero.sub": "주당 30 크레딧, 7종목 워치리스트, Buffett Lens 텍스트 채팅, 모든 종목에 대한 Smart Money. 진짜 리서치를 하기에 충분합니다.",
   "pricing.hero.cta": "무료로 시작하기 →",
   "pricing.hero.hint": "신용카드 등록 없음. 필요할 때 언제든 업그레이드할 수 있습니다.",
-  "pricing.details.label": "Plus, Pro, API 플랜 보기",
-  "betterinvestor.eyebrow": "왜 DeepValues.AI인가",
-  "betterinvestor.heading": "답만 드리지 않습니다. 더 날카롭게 만들어 드립니다.",
-  "betterinvestor.subtitle": "대부분의 도구는 숫자만 던져주고 그게 어떻게 나왔는지 묻지 않기를 바랍니다. 우리는 근거를 보여주고, 출처를 인용하며, 전설적인 투자자들이 실제로 사용한 프레임워크를 적용합니다 — 그래서 사용할 때마다 더 나은 투자자가 됩니다.",
-  "betterinvestor.point1.title": "출처를 확인하세요",
-  "betterinvestor.point1.desc": "모든 주장은 원본 공시나 트랜스크립트로 연결됩니다. 결론을 그냥 믿는 게 아니라, 증거를 직접 확인하는 법을 배우게 됩니다.",
-  "betterinvestor.point2.title": "프레임워크를 배우세요",
-  "betterinvestor.point2.desc": "모든 지표는 Buffett, Munger, Greenblatt가 실제로 사용한 기준에 따라 평가됩니다 — 그래서 무엇이 “좋은” 것인지 체득하게 됩니다.",
-  "betterinvestor.point3.title": "프로처럼 사고하세요",
-  "betterinvestor.point3.desc": "Buffett Lens는 훌륭한 애널리스트가 던지는 질문을 보여주고, 출처와 함께 답합니다 — 그 사고방식이 자연스럽게 스며듭니다."
+  "pricing.details.label": "Plus, Pro, API 플랜 보기"
 }

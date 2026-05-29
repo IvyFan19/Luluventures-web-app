@@ -9,7 +9,7 @@
   "nav.intelligence": "Inteligência",
   "hero.sponsoredBy": "Patrocinado por",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street trabalha para <span class=\"headline-underline\">Wall Street</span>.</span><br><span class=\"text-slate-900\">Não para </span><span style=\"color: #0e85ff;\">você</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "A DeepValues.AI torna você um investidor mais afiado — pesquisa de nível institucional que mostra o raciocínio e cita cada fonte, para você aprender no caminho.",
+  "hero.subtitle": "DeepValues.AI é um assistente financeiro AI-native que trabalha só para você — trazendo o poder da análise de ações de nível institucional aos investidores individuais.",
   "hero.cta": "Começar",
   "footer.about": "Sobre",
   "footer.contact": "Contato",
@@ -147,14 +147,5 @@
   "pricing.hero.sub": "30 créditos por semana, watchlist de 7 ações, Buffett Lens via texto e Smart Money para cada ação. O suficiente para fazer pesquisa de verdade.",
   "pricing.hero.cta": "Comece grátis →",
   "pricing.hero.hint": "Sem cartão de crédito. Faça upgrade quando precisar.",
-  "pricing.details.label": "Ver planos Plus, Pro e API",
-  "betterinvestor.eyebrow": "Por que a DeepValues.AI",
-  "betterinvestor.heading": "A gente não só dá respostas. A gente deixa você mais afiado.",
-  "betterinvestor.subtitle": "A maioria das ferramentas te entrega um número e torce para você não perguntar como chegou nele. Nós mostramos o raciocínio, citamos as fontes e usamos os métodos que as lendas realmente usavam — para que cada sessão deixe você um investidor melhor.",
-  "betterinvestor.point1.title": "Veja as fontes",
-  "betterinvestor.point1.desc": "Cada afirmação tem link para o filing ou a transcrição original. Você aprende a conferir as evidências por conta própria — não só a confiar num veredito.",
-  "betterinvestor.point2.title": "Aprenda os métodos",
-  "betterinvestor.point2.desc": "Cada métrica é avaliada com base nos limites que Buffett, Munger e Greenblatt realmente usavam — para você internalizar o que é um número “bom”.",
-  "betterinvestor.point3.title": "Raciocine como um pro",
-  "betterinvestor.point3.desc": "O Buffett Lens mostra as perguntas que um grande analista faz — e as responde com fontes, para o jeito de pensar grudar em você."
+  "pricing.details.label": "Ver planos Plus, Pro e API"
 }
