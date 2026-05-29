@@ -9,7 +9,7 @@
   "nav.intelligence": "Intelligence",
   "hero.sponsoredBy": "Sponsored by",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street works for <span class=\"headline-underline\">Wall Street</span>.</span><br><span class=\"text-slate-900\">Not for </span><span style=\"color: #0e85ff;\">you</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "DeepValues.AI makes you a sharper investor — institutional-grade research that shows its reasoning and cites every source, so you learn as you go.",
+  "hero.subtitle": "The AI-native financial assistant that works only for you — bringing the power of institutional-grade stock analysis to individual investors.",
   "hero.cta": "Get Started",
   "footer.about": "About",
   "footer.contact": "Contact",
@@ -147,14 +147,5 @@
   "pricing.hero.sub": "30 credits a week, a 7-stock watchlist, Buffett Lens text chat, and Smart Money for every stock. Enough to actually do real research.",
   "pricing.hero.cta": "Get started free →",
   "pricing.hero.hint": "No credit card. Upgrade anytime when you outgrow it.",
-  "pricing.details.label": "See Plus, Pro, and API plans",
-  "betterinvestor.eyebrow": "Why DeepValues.AI",
-  "betterinvestor.heading": "We don't just give you answers. We make you sharper.",
-  "betterinvestor.subtitle": "Most tools hand you a number and hope you don't ask how they got it. We show the reasoning, cite the sources, and use the frameworks the legends actually used — so every session leaves you a better investor.",
-  "betterinvestor.point1.title": "See the sources",
-  "betterinvestor.point1.desc": "Every claim links to the original filing or transcript. You learn to check the evidence yourself — not just trust a verdict.",
-  "betterinvestor.point2.title": "Learn the frameworks",
-  "betterinvestor.point2.desc": "Every metric is judged against the thresholds Buffett, Munger, and Greenblatt actually used — so you internalize what “good” looks like.",
-  "betterinvestor.point3.title": "Reason like a pro",
-  "betterinvestor.point3.desc": "Buffett Lens shows you the questions a great analyst asks — and answers them with citations, so the thinking rubs off."
+  "pricing.details.label": "See Plus, Pro, and API plans"
 }

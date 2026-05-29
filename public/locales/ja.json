@@ -9,7 +9,7 @@
   "nav.intelligence": "インテリジェンス",
   "hero.sponsoredBy": "協賛",
   "hero.headlineHtml": "<span class=\"text-slate-900\">ウォール街は<span class=\"headline-underline\">ウォール街</span>のために働く。</span><br><span class=\"text-slate-900\">あ</span><span style=\"color: #0e85ff;\">なた</span><span class=\"text-slate-900\">のためではない。</span>",
-  "hero.subtitle": "DeepValues.AI は、あなたをより鋭い投資家にします — 機関投資家レベルのリサーチが結論だけでなく根拠を示し、すべての出典を引用するので、使いながら学べます。",
+  "hero.subtitle": "DeepValues.AI は、あなたのためだけに働く AI ネイティブの金融アシスタントです。機関投資家レベルの株式分析を個人投資家にお届けします。",
   "hero.cta": "はじめる",
   "footer.about": "私たちについて",
   "footer.contact": "お問い合わせ",
@@ -147,14 +147,5 @@
   "pricing.hero.sub": "週30クレジット、7銘柄のウォッチリスト、Buffett Lens のテキストチャット、すべての銘柄での Smart Money。本格的なリサーチに十分な内容です。",
   "pricing.hero.cta": "無料で始める →",
   "pricing.hero.hint": "クレジットカード不要。必要になったらいつでもアップグレードできます。",
-  "pricing.details.label": "Plus、Pro、API のプランを見る",
-  "betterinvestor.eyebrow": "DeepValues.AI が選ばれる理由",
-  "betterinvestor.heading": "答えを渡すだけではありません。あなたをより鋭くします。",
-  "betterinvestor.subtitle": "たいていのツールは数字だけを差し出し、その根拠を問われないことを期待しています。私たちは推論を示し、出典を引用し、伝説的投資家が実際に用いた枠組みを使います — だから使うたびに、あなたはより優れた投資家になります。",
-  "betterinvestor.point1.title": "出典を見る",
-  "betterinvestor.point1.desc": "すべての主張は元の提出書類や決算説明会の記録にリンクしています。結論をただ信じるのではなく、自分で根拠を確かめられるようになります。",
-  "betterinvestor.point2.title": "枠組みを学ぶ",
-  "betterinvestor.point2.desc": "すべての指標は、Buffett、Munger、Greenblatt が実際に用いた基準と照らして評価されます — だから「良い」とは何かが体に染み込みます。",
-  "betterinvestor.point3.title": "プロのように考える",
-  "betterinvestor.point3.desc": "Buffett Lens は優れたアナリストが投げかける問いを示し、出典付きで答えます — その思考法が自然と身につきます。"
+  "pricing.details.label": "Plus、Pro、API のプランを見る"
 }

@@ -9,7 +9,7 @@
   "nav.intelligence": "Inteligencia",
   "hero.sponsoredBy": "Con el apoyo de",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street trabaja para <span class=\"headline-underline\">Wall Street</span>.</span><br><span class=\"text-slate-900\">No para </span><span style=\"color: #0e85ff;\">ti</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "DeepValues.AI te convierte en un inversor más agudo — investigación de nivel institucional que muestra su razonamiento y cita cada fuente, para que aprendas sobre la marcha.",
+  "hero.subtitle": "DeepValues.AI es un asistente financiero nativo de IA que trabaja solo para ti — lleva el poder del análisis bursátil de nivel institucional a los inversores individuales.",
   "hero.cta": "Empezar",
   "footer.about": "Acerca de",
   "footer.contact": "Contacto",
@@ -147,14 +147,5 @@
   "pricing.hero.sub": "30 créditos a la semana, una lista de seguimiento de 7 valores, Buffett Lens por texto y Smart Money para cada valor. Suficiente para hacer investigación de verdad.",
   "pricing.hero.cta": "Empezar gratis →",
   "pricing.hero.hint": "Sin tarjeta de crédito. Cambia de plan cuando lo necesites.",
-  "pricing.details.label": "Ver los planes Plus, Pro y API",
-  "betterinvestor.eyebrow": "Por qué DeepValues.AI",
-  "betterinvestor.heading": "No solo te damos respuestas. Te hacemos más agudo.",
-  "betterinvestor.subtitle": "La mayoría de las herramientas te sueltan un número y esperan que no preguntes de dónde ha salido. Nosotros mostramos el razonamiento, citamos las fuentes y usamos los métodos que las leyendas usaban de verdad — para que cada sesión te haga un mejor inversor.",
-  "betterinvestor.point1.title": "Mira las fuentes",
-  "betterinvestor.point1.desc": "Cada afirmación enlaza con el registro o la transcripción original. Aprendes a verificar las pruebas tú mismo — no solo a fiarte de un veredicto.",
-  "betterinvestor.point2.title": "Aprende los métodos",
-  "betterinvestor.point2.desc": "Cada métrica se evalúa frente a los umbrales que Buffett, Munger y Greenblatt usaban de verdad — para que interiorices cómo es un número “bueno”.",
-  "betterinvestor.point3.title": "Razona como un profesional",
-  "betterinvestor.point3.desc": "Buffett Lens te muestra las preguntas que hace un gran analista — y las responde con fuentes, para que se te pegue su forma de pensar."
+  "pricing.details.label": "Ver los planes Plus, Pro y API"
 }
