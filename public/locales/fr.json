@@ -9,7 +9,7 @@
   "nav.intelligence": "Intelligence",
   "hero.sponsoredBy": "Avec le soutien de",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street travaille pour <span class=\"headline-underline\">Wall Street</span>.</span><br><span class=\"text-slate-900\">Pas pour </span><span style=\"color: #0e85ff;\">vous</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "DeepValues.AI est un assistant financier nourri par l'IA qui ne travaille que pour vous — il apporte la puissance de l'analyse boursière de niveau institutionnel aux investisseurs individuels.",
+  "hero.subtitle": "DeepValues.AI fait de vous un investisseur plus affûté — une recherche de niveau institutionnel qui montre son raisonnement et cite chaque source, pour que vous appreniez au fil de l'eau.",
   "hero.cta": "Commencer",
   "footer.about": "À propos",
   "footer.contact": "Contact",
@@ -147,5 +147,14 @@
   "pricing.hero.sub": "30 crédits par semaine, une liste de suivi de 7 titres, Buffett Lens en mode texte et Smart Money sur chaque titre. De quoi faire de la vraie recherche.",
   "pricing.hero.cta": "Commencer gratuitement →",
   "pricing.hero.hint": "Pas de carte bancaire. Passez à un plan supérieur quand vous en avez besoin.",
-  "pricing.details.label": "Voir les plans Plus, Pro et API"
+  "pricing.details.label": "Voir les plans Plus, Pro et API",
+  "betterinvestor.eyebrow": "Pourquoi DeepValues.AI",
+  "betterinvestor.heading": "On ne se contente pas de vous donner des réponses. On vous rend plus affûté.",
+  "betterinvestor.subtitle": "La plupart des outils vous lâchent un chiffre en espérant que vous ne demanderez pas comment ils l'ont obtenu. Nous montrons le raisonnement, citons les sources et utilisons les méthodes que les légendes employaient vraiment — pour que chaque session fasse de vous un meilleur investisseur.",
+  "betterinvestor.point1.title": "Voyez les sources",
+  "betterinvestor.point1.desc": "Chaque affirmation renvoie au dépôt ou à la transcription d'origine. Vous apprenez à vérifier les preuves vous-même — pas seulement à croire un verdict.",
+  "betterinvestor.point2.title": "Apprenez les méthodes",
+  "betterinvestor.point2.desc": "Chaque indicateur est jugé selon les seuils que Buffett, Munger et Greenblatt utilisaient réellement — pour que vous intégriez ce qu'est un « bon » chiffre.",
+  "betterinvestor.point3.title": "Raisonnez comme un pro",
+  "betterinvestor.point3.desc": "Buffett Lens vous montre les questions qu'un grand analyste pose — et y répond avec des sources, pour que cette façon de penser déteigne sur vous."
 }

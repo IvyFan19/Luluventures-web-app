@@ -9,7 +9,7 @@
   "nav.intelligence": "Intelligenz",
   "hero.sponsoredBy": "Unterstützt von",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Die Wall Street arbeitet für die <span class=\"headline-underline\">Wall Street</span>.</span><br><span class=\"text-slate-900\">Nicht für </span><span style=\"color: #0e85ff;\">dich</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "DeepValues.AI ist ein KI-basierter Finanzassistent, der ausschließlich für dich arbeitet – er bringt die Kraft institutioneller Aktienanalyse zu Privatanlegern.",
+  "hero.subtitle": "DeepValues.AI macht dich zu einem schärferen Anleger — Recherche auf institutionellem Niveau, die ihre Begründung zeigt und jede Quelle nennt, damit du nebenbei lernst.",
   "hero.cta": "Loslegen",
   "footer.about": "Über uns",
   "footer.contact": "Kontakt",
@@ -147,5 +147,14 @@
   "pricing.hero.sub": "30 Credits pro Woche, eine 7-Aktien-Watchlist, Buffett Lens als Textchat und Smart Money für jede Aktie. Genug, um echte Recherche zu machen.",
   "pricing.hero.cta": "Kostenlos loslegen →",
   "pricing.hero.hint": "Keine Kreditkarte. Upgrade jederzeit, wenn du es brauchst.",
-  "pricing.details.label": "Plus-, Pro- und API-Pläne anzeigen"
+  "pricing.details.label": "Plus-, Pro- und API-Pläne anzeigen",
+  "betterinvestor.eyebrow": "Warum DeepValues.AI",
+  "betterinvestor.heading": "Wir geben dir nicht nur Antworten. Wir machen dich schärfer.",
+  "betterinvestor.subtitle": "Die meisten Tools werfen dir eine Zahl hin und hoffen, dass du nicht fragst, wie sie zustande kam. Wir zeigen die Begründung, nennen die Quellen und nutzen die Methoden, die die Legenden wirklich angewandt haben — damit dich jede Sitzung zu einem besseren Anleger macht.",
+  "betterinvestor.point1.title": "Sieh die Quellen",
+  "betterinvestor.point1.desc": "Jede Aussage verlinkt auf den originalen Geschäftsbericht oder das Transkript. Du lernst, die Belege selbst zu prüfen — statt einem Urteil einfach zu vertrauen.",
+  "betterinvestor.point2.title": "Lerne die Methoden",
+  "betterinvestor.point2.desc": "Jede Kennzahl wird an den Schwellen gemessen, die Buffett, Munger und Greenblatt wirklich nutzten — damit du verinnerlichst, was „gut“ bedeutet.",
+  "betterinvestor.point3.title": "Denke wie ein Profi",
+  "betterinvestor.point3.desc": "Buffett Lens zeigt dir die Fragen, die ein guter Analyst stellt — und beantwortet sie mit Quellen, sodass die Denkweise auf dich abfärbt."
 }

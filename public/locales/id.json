@@ -9,7 +9,7 @@
   "nav.intelligence": "Intelijen",
   "hero.sponsoredBy": "Disponsori oleh",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street bekerja untuk <span class=\"headline-underline\">Wall Street</span>.</span><br><span class=\"text-slate-900\">Bukan untuk </span><span style=\"color: #0e85ff;\">Anda</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "DeepValues.AI adalah asisten keuangan berbasis AI yang bekerja hanya untuk Anda — menghadirkan kekuatan analisis saham berkualitas institusional kepada investor individu.",
+  "hero.subtitle": "DeepValues.AI membuat Anda jadi investor yang lebih tajam — riset berkualitas institusional yang menunjukkan alur penalarannya dan mengutip setiap sumber, jadi Anda belajar sambil jalan.",
   "hero.cta": "Mulai Sekarang",
   "footer.about": "Tentang",
   "footer.contact": "Kontak",
@@ -147,5 +147,14 @@
   "pricing.hero.sub": "Setiap minggu 30 kredit, watchlist 7 saham, Buffett Lens lewat teks, dan Smart Money untuk setiap saham. Cukup untuk riset yang serius.",
   "pricing.hero.cta": "Mulai gratis →",
   "pricing.hero.hint": "Tanpa kartu kredit. Upgrade kapan pun Anda membutuhkannya.",
-  "pricing.details.label": "Lihat paket Plus, Pro, dan API"
+  "pricing.details.label": "Lihat paket Plus, Pro, dan API",
+  "betterinvestor.eyebrow": "Kenapa DeepValues.AI",
+  "betterinvestor.heading": "Kami bukan cuma memberi jawaban. Kami membuat Anda lebih tajam.",
+  "betterinvestor.subtitle": "Kebanyakan alat cuma menyodorkan angka dan berharap Anda tidak bertanya dari mana asalnya. Kami menunjukkan penalarannya, mengutip sumbernya, dan memakai kerangka yang benar-benar dipakai para legenda — supaya setiap sesi membuat Anda jadi investor yang lebih baik.",
+  "betterinvestor.point1.title": "Lihat sumbernya",
+  "betterinvestor.point1.desc": "Setiap klaim tertaut ke filing atau transkrip aslinya. Anda belajar memeriksa bukti sendiri — bukan sekadar percaya pada vonis.",
+  "betterinvestor.point2.title": "Pelajari kerangkanya",
+  "betterinvestor.point2.desc": "Setiap metrik dinilai berdasarkan ambang yang benar-benar dipakai Buffett, Munger, dan Greenblatt — supaya Anda paham seperti apa angka yang “bagus”.",
+  "betterinvestor.point3.title": "Bernalar seperti pro",
+  "betterinvestor.point3.desc": "Buffett Lens menunjukkan pertanyaan yang diajukan analis hebat — dan menjawabnya dengan sumber, jadi cara berpikirnya menular ke Anda."
 }

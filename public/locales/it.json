@@ -9,7 +9,7 @@
   "nav.intelligence": "Intelligence",
   "hero.sponsoredBy": "Con il supporto di",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street lavora per <span class=\"headline-underline\">Wall Street</span>.</span><br><span class=\"text-slate-900\">Non per </span><span style=\"color: #0e85ff;\">te</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "DeepValues.AI è un assistente finanziario AI-native che lavora solo per te — porta la potenza dell'analisi azionaria di livello istituzionale agli investitori privati.",
+  "hero.subtitle": "DeepValues.AI ti rende un investitore più acuto — ricerca di livello istituzionale che mostra il suo ragionamento e cita ogni fonte, così impari strada facendo.",
   "hero.cta": "Inizia ora",
   "footer.about": "Chi siamo",
   "footer.contact": "Contatti",
@@ -147,5 +147,14 @@
   "pricing.hero.sub": "Ogni settimana 30 crediti, una watchlist da 7 titoli, Buffett Lens via testo e Smart Money su ogni titolo. Abbastanza per fare ricerca vera.",
   "pricing.hero.cta": "Inizia gratis →",
   "pricing.hero.hint": "Nessuna carta di credito. Passa a un piano superiore quando ti serve.",
-  "pricing.details.label": "Vedi i piani Plus, Pro e API"
+  "pricing.details.label": "Vedi i piani Plus, Pro e API",
+  "betterinvestor.eyebrow": "Perché DeepValues.AI",
+  "betterinvestor.heading": "Non ti diamo solo risposte. Ti rendiamo più acuto.",
+  "betterinvestor.subtitle": "La maggior parte degli strumenti ti lancia un numero e spera che tu non chieda come ci è arrivata. Noi mostriamo il ragionamento, citiamo le fonti e usiamo i metodi che le leggende usavano davvero — così ogni sessione ti rende un investitore migliore.",
+  "betterinvestor.point1.title": "Vedi le fonti",
+  "betterinvestor.point1.desc": "Ogni affermazione rimanda al filing o alla trascrizione originale. Impari a verificare le prove da solo — non solo a fidarti di un verdetto.",
+  "betterinvestor.point2.title": "Impara i metodi",
+  "betterinvestor.point2.desc": "Ogni metrica è valutata rispetto alle soglie che Buffett, Munger e Greenblatt usavano davvero — così interiorizzi cosa significa “buono”.",
+  "betterinvestor.point3.title": "Ragiona come un pro",
+  "betterinvestor.point3.desc": "Buffett Lens ti mostra le domande che un grande analista pone — e risponde con le fonti, così il modo di ragionare ti contagia."
 }
