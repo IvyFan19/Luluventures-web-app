@@ -9,7 +9,7 @@
   "nav.intelligence": "洞察",
   "hero.sponsoredBy": "战略合作伙伴",
   "hero.headlineHtml": "<span class=\"text-slate-900\">华尔街只为<span class=\"headline-underline\">华尔街</span>工作。</span><br><span class=\"text-slate-900\">不为</span><span style=\"color: #0e85ff;\">你</span><span class=\"text-slate-900\">。</span>",
-  "hero.subtitle": "DeepValues.AI 是一款 AI 原生的金融助手，只为你工作 —— 将机构级股票研究的能力带给个人投资者。",
+  "hero.subtitle": "DeepValues.AI 让你成为更敏锐的投资者 —— 机构级研究不仅给出结论，还展示推理过程、标注每一处来源，让你边用边学。",
   "hero.cta": "立即开始",
   "footer.about": "关于",
   "footer.contact": "联系",
@@ -147,5 +147,14 @@
   "pricing.hero.sub": "每周 30 个积分、可关注 7 支股票的 Watchlist、Buffett Lens 文字对话，以及每支股票的 Smart Money 数据。足够做真正的研究。",
   "pricing.hero.cta": "免费开始 →",
   "pricing.hero.hint": "无需信用卡。等到不够用时再随时升级。",
-  "pricing.details.label": "查看 Plus、Pro 和 API 方案"
+  "pricing.details.label": "查看 Plus、Pro 和 API 方案",
+  "betterinvestor.eyebrow": "为什么选择 DeepValues.AI",
+  "betterinvestor.heading": "我们不只给你答案，更让你变得更敏锐。",
+  "betterinvestor.subtitle": "大多数工具只甩给你一个数字，指望你别追问它是怎么算出来的。我们展示推理、标注来源，并运用投资传奇们真正用过的框架 —— 让每一次使用都让你成为更好的投资者。",
+  "betterinvestor.point1.title": "看见来源",
+  "betterinvestor.point1.desc": "每一个结论都链接到原始财报或电话会议记录。你学会亲自核实证据，而不只是相信一个结论。",
+  "betterinvestor.point2.title": "学会框架",
+  "betterinvestor.point2.desc": "每一项指标都对照 Buffett、Munger 和 Greenblatt 真正用过的阈值来评判 —— 让你内化什么才算「好」。",
+  "betterinvestor.point3.title": "像专家一样思考",
+  "betterinvestor.point3.desc": "Buffett Lens 向你展示优秀分析师会问的问题，并附带来源作答 —— 让那套思考方式自然而然地传给你。"
 }

@@ -9,7 +9,7 @@
   "nav.intelligence": "इंटेलिजेंस",
   "hero.sponsoredBy": "प्रायोजक",
   "hero.headlineHtml": "<span class=\"text-slate-900\">वॉल स्ट्रीट <span class=\"headline-underline\">वॉल स्ट्रीट</span> के लिए काम करती है।</span><br><span class=\"text-slate-900\">आ</span><span style=\"color: #0e85ff;\">पके</span><span class=\"text-slate-900\"> लिए नहीं।</span>",
-  "hero.subtitle": "DeepValues.AI एक AI-निर्मित वित्तीय सहायक है जो केवल आपके लिए काम करता है — संस्थागत-स्तर के स्टॉक विश्लेषण की शक्ति को व्यक्तिगत निवेशकों तक पहुँचाता है।",
+  "hero.subtitle": "DeepValues.AI आपको एक ज़्यादा पैना निवेशक बनाता है — संस्थागत-स्तर की रिसर्च जो सिर्फ़ नतीजा नहीं, अपनी पूरी सोच दिखाती है और हर स्रोत का हवाला देती है, ताकि आप इस्तेमाल करते-करते सीखते जाएँ।",
   "hero.cta": "शुरू करें",
   "footer.about": "हमारे बारे में",
   "footer.contact": "संपर्क",
@@ -147,5 +147,14 @@
   "pricing.hero.sub": "हर हफ़्ते 30 क्रेडिट, 7-स्टॉक वॉचलिस्ट, Buffett Lens टेक्स्ट चैट, और हर स्टॉक के लिए Smart Money। असली रिसर्च करने के लिए काफ़ी।",
   "pricing.hero.cta": "मुफ़्त शुरू करें →",
   "pricing.hero.hint": "कोई क्रेडिट कार्ड नहीं। ज़रूरत पड़ने पर कभी भी अपग्रेड करें।",
-  "pricing.details.label": "Plus, Pro और API प्लान देखें"
+  "pricing.details.label": "Plus, Pro और API प्लान देखें",
+  "betterinvestor.eyebrow": "DeepValues.AI ही क्यों",
+  "betterinvestor.heading": "हम सिर्फ़ जवाब नहीं देते। हम आपको पैना बनाते हैं।",
+  "betterinvestor.subtitle": "ज़्यादातर टूल आपको बस एक आँकड़ा थमा देते हैं और उम्मीद करते हैं कि आप यह न पूछें कि वह आया कहाँ से। हम सोच दिखाते हैं, स्रोत बताते हैं, और उन्हीं फ्रेमवर्क का इस्तेमाल करते हैं जो दिग्गजों ने असल में अपनाए — ताकि हर बार आप एक बेहतर निवेशक बनकर निकलें।",
+  "betterinvestor.point1.title": "स्रोत देखिए",
+  "betterinvestor.point1.desc": "हर दावा सीधे मूल फाइलिंग या ट्रांसक्रिप्ट से जुड़ा होता है। आप सबूत खुद जाँचना सीखते हैं — सिर्फ़ किसी नतीजे पर भरोसा नहीं करते।",
+  "betterinvestor.point2.title": "फ्रेमवर्क सीखिए",
+  "betterinvestor.point2.desc": "हर मीट्रिक को उन्हीं थ्रेशोल्ड के मुकाबले परखा जाता है जो Buffett, Munger और Greenblatt ने असल में इस्तेमाल किए — ताकि आप समझ जाएँ कि “अच्छा” किसे कहते हैं।",
+  "betterinvestor.point3.title": "पेशेवर की तरह सोचिए",
+  "betterinvestor.point3.desc": "Buffett Lens आपको वे सवाल दिखाता है जो एक बेहतरीन एनालिस्ट पूछता है — और स्रोत सहित उनके जवाब देता है, ताकि वह सोच आप में भी उतरे।"
 }
