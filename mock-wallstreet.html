@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeepValues.AI — Wall Street works for Wall Street. Not for you.</title>
     <meta name="description" content="DeepValues.AI is an AI-native financial assistant for individual investors — institutional-grade stock research, intrinsic-value calculators, and Smart Money tracking, all aligned with your interest." />
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0e17" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href="https://deepvalues.ai/" />
     <meta property="og:site_name" content="DeepValues.AI" />
     <meta property="og:title" content="DeepValues.AI — AI-native financial assistant for individual investors" />
@@ -519,6 +521,74 @@
       }
       .fc-gradient-6 {
         background: linear-gradient(135deg, #fff5e0 0%, #fde6cf 38%, #f4d9d0 72%, #e0d7f6 100%);
+      }
+
+      /* ==================================================================
+         DARK MODE — auto, follows the OS / browser preference.
+         Re-themes chrome + content sections. Device mockups (.fc-phone,
+         .phone and their screens) deliberately stay light. The AI
+         Intelligence panel and the black footer are already dark.
+         ================================================================== */
+      @media (prefers-color-scheme: dark) {
+        html, body { color: #e7ecf5; }
+        body {
+          background: radial-gradient(120% 90% at 12% 10%, #141a27 0%, #0c111b 55%, #070a12 100%) fixed;
+        }
+
+        .text-slate-900 { color: #eef2f8 !important; }
+        .text-slate-800 { color: #dde4ee !important; }
+        .text-slate-700 { color: #c7cfdd !important; }
+        .text-slate-600 { color: #a8b2c4 !important; }
+        .text-slate-500 { color: #8a93a6 !important; }
+        .text-slate-400 { color: #6e7686 !important; }
+        .hover\:text-slate-900:hover { color: #ffffff !important; }
+
+        nav span[style*="#003085"] { color: #5b8dff !important; }
+
+        .pill-shadow {
+          background: rgba(255,255,255,0.06) !important;
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10) !important;
+        }
+        .pill-shadow .text-slate-800 { color: #dde4ee !important; }
+
+        .fc-gradient-1 { background: linear-gradient(135deg, #1a2236 0%, #1d2030 38%, #241f2e 72%, #2a1f24 100%); }
+        .fc-gradient-2 { background: linear-gradient(135deg, #16263a 0%, #1a2740 35%, #211f33 70%, #281c2c 100%); }
+        .fc-gradient-3 { background: linear-gradient(135deg, #15291f 0%, #182a28 38%, #1c2236 72%, #221d30 100%); }
+        .fc-gradient-4 { background: linear-gradient(135deg, #2a2118 0%, #2a1c1c 38%, #241d2c 72%, #1c2030 100%); }
+        .fc-gradient-5 { background: linear-gradient(135deg, #1a2236 0%, #1c2038 38%, #241d31 72%, #2b1d28 100%); }
+        .fc-gradient-6 { background: linear-gradient(135deg, #2a2418 0%, #281e16 38%, #241d20 72%, #1e1f2e 100%); }
+        .fc-pill {
+          background: rgba(255,255,255,0.07) !important;
+          border-color: rgba(96,165,250,0.35) !important;
+          color: #6db4ff !important;
+        }
+        .fc-arrow { background: #1a1f2b !important; border-color: rgba(255,255,255,0.12) !important; color: #e7ecf5 !important; }
+        .fc-arrow:hover { background: #232936 !important; }
+        .fc-dot { background: rgba(255,255,255,0.22) !important; }
+        .fc-dot.active { background: rgba(255,255,255,0.78) !important; }
+
+        #faq { background: #0b0f18 !important; }
+        #faq .faq-heading { color: #eef2f8 !important; }
+        #faq .faq-subtitle { color: #98a2b4 !important; }
+        #faq .faq-item { background: #151a24 !important; border-color: rgba(255,255,255,0.08) !important; }
+        #faq .faq-item[open] { background: #1a2030 !important; }
+        #faq .faq-item summary { color: #eef2f8 !important; }
+        #faq .faq-item summary::after { color: #98a2b4 !important; }
+        #faq .faq-item .faq-answer { color: #b4bdcc !important; }
+
+        #pricing { background: #0a0e17 !important; color: #e7ecf5 !important; }
+        #pricing [style*="color: #1d1d1f"] { color: #eef2f8 !important; }
+        #pricing [style*="color: #6e6e73"] { color: #99a3b5 !important; }
+        #pricing [style*="color: #94959b"] { color: #7d8696 !important; }
+        #pricing [style*="background: #ffffff"] { background: #151a24 !important; }
+        #pricing [style*="background: #fafafa"] { background: #12161f !important; }
+        #pricing [style*="border: 1px solid #e2e2e4"] { border-color: rgba(255,255,255,0.08) !important; }
+        #pricing .free-first-hero { background: #151a24 !important; border-color: rgba(255,255,255,0.08) !important; }
+        #pricing details.pricing-details summary { color: #99a3b5 !important; border-color: rgba(255,255,255,0.18) !important; }
+        #pricing details.pricing-details summary:hover { color: #ffffff !important; background: #151a24 !important; }
+        #pricing [style*="background: #1d1d1f"] { background: #1e2535 !important; border-color: #1e2535 !important; }
+
+        .headline-underline { color: #ff6363; }
       }
 
       .fc-pill {
