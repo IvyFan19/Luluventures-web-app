@@ -565,9 +565,15 @@
         /* Pro card is already dark (#1d1d1f) — elevate it so it still stands out */
         #pricing [style*="background: #1d1d1f"] { background: #2c2c2e !important; border-color: #2c2c2e !important; }
 
-        /* Footer */
+        /* Footer (index.html footer is bg-white — flip it to black) */
+        footer.bg-white { background-color: #000000 !important; }
         footer .border-t,
         footer.border-t { border-color: rgba(255,255,255,0.10) !important; }
+        footer span[style*="#003085"] { color: #2997ff !important; }
+        footer a[style*="rgba(15,23,60,0.04)"] {
+          background: rgba(255,255,255,0.06) !important;
+          border-color: rgba(255,255,255,0.12) !important;
+        }
 
         .headline-underline { color: #ff6b6b; }
       }
