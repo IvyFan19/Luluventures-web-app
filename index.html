@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/deepvalues-circle-icon.png" />
+    <link rel="icon" type="image/png" href="/images/deepvalues-diamond-icon.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="/images/deepvalues-diamond-icon-white.png" media="(prefers-color-scheme: dark)" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeepValues.AI — Wall Street works for Wall Street. Not for you.</title>
     <meta
@@ -517,6 +518,9 @@
         /* Brand wordmark "Deep" is very dark navy — lift to Apple blue */
         nav span[style*="#003085"] { color: #2997ff !important; }
 
+        /* Brand diamond logo is pure black — invert to white so it stays visible on the dark nav */
+        nav .brand-logo { filter: invert(1); }
+
         /* Sponsored-by pill */
         .pill-shadow {
           background: rgba(255,255,255,0.05) !important;
@@ -688,15 +692,13 @@
           <!-- Logo -->
           <a href="#" class="flex items-center gap-2.5">
             <img
-              src="/images/deepvalues-icon-image-0514.png"
+              src="/images/deepvalues-diamond-icon.png"
               alt="DeepValues logo"
-              width="36"
-              height="36"
-              class="object-contain"
+              width="28"
+              height="28"
+              class="object-contain brand-logo"
             />
-            <span class="text-[22px] tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700;">
-              <span style="color: #003085;">Deep</span><span style="color: #019dde;">Values.AI</span>
-            </span>
+            <span class="text-[22px] tracking-tight text-slate-700" style="font-family: 'Google Sans', sans-serif; font-weight: 700;">DeepValues.AI</span>
           </a>
 
           <!-- Menu -->
@@ -714,7 +716,7 @@
             class="cta-primary text-white text-[15px] font-semibold px-6 py-3 rounded-full"
             data-i18n="nav.login"
           >
-            Login
+            Login / Sign Up
           </a>
         </div>
       </nav>
@@ -743,11 +745,15 @@
 
             <!-- Amazon Web Services -->
             <span class="inline-flex items-center gap-1.5">
-              <img
-                src="/images/aws-con.webp"
-                alt="Amazon"
-                class="h-5 w-auto object-contain"
-              />
+              <picture>
+                <!-- Dark mode: white "aws" lettering so it stays visible on the dark pill -->
+                <source media="(prefers-color-scheme: dark)" srcset="/images/aws-con-dark.png" />
+                <img
+                  src="/images/aws-con.webp"
+                  alt="Amazon"
+                  class="h-5 w-auto object-contain"
+                />
+              </picture>
               <span class="text-[14px] font-semibold text-slate-800">Amazon</span>
             </span>
           </div>
@@ -756,11 +762,10 @@
           <h1 class="headline mt-7 text-[44px] sm:text-[56px] lg:text-[68px]" data-i18n-html="hero.headlineHtml">
             <span class="text-slate-900">
               Wall Street works for
-              <span class="headline-underline">Wall Street</span>.
+              <span class="headline-underline">Wall Street</span>,
             </span>
             <br />
-            <span class="text-slate-900">Not for </span><span style="color: #0e85ff;">you</span
-            ><span class="text-slate-900">.</span>
+            <span class="text-slate-900">Not for </span><span style="color: #0e85ff;">you</span><span class="text-slate-900">.</span>
           </h1>
 
           <!-- Subtitle -->
