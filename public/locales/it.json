@@ -9,7 +9,7 @@
   "nav.intelligence": "Intelligence",
   "hero.sponsoredBy": "Con il supporto di",
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street lavora per <span class=\"headline-underline\">Wall Street</span>,</span><br><span class=\"text-slate-900\">Non per </span><span style=\"color: #0e85ff;\">te</span><span class=\"text-slate-900\">.</span>",
-  "hero.subtitle": "DeepValues.AI è un assistente finanziario AI-native che lavora solo per te — porta la potenza dell'analisi azionaria di livello istituzionale agli investitori privati.",
+  "hero.subtitle": "<strong class=\"text-slate-900\">DeepValues.AI ti rende un investitore migliore.</strong> È un assistente finanziario AI-native che lavora solo per te — porta la potenza dell'analisi azionaria di livello istituzionale agli investitori privati.",
   "hero.cta": "Inizia ora",
   "footer.about": "Chi siamo",
   "footer.contact": "Contatti",

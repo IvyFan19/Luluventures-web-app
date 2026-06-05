@@ -9,7 +9,7 @@
   "nav.intelligence": "इंटेलिजेंस",
   "hero.sponsoredBy": "प्रायोजक",
   "hero.headlineHtml": "<span class=\"text-slate-900\">वॉल स्ट्रीट <span class=\"headline-underline\">वॉल स्ट्रीट</span> के लिए काम करती है,</span><br><span class=\"text-slate-900\">आ</span><span style=\"color: #0e85ff;\">पके</span><span class=\"text-slate-900\"> लिए नहीं।</span>",
-  "hero.subtitle": "DeepValues.AI एक AI-निर्मित वित्तीय सहायक है जो केवल आपके लिए काम करता है — संस्थागत-स्तर के स्टॉक विश्लेषण की शक्ति को व्यक्तिगत निवेशकों तक पहुँचाता है।",
+  "hero.subtitle": "<strong class=\"text-slate-900\">DeepValues.AI आपको एक बेहतर निवेशक बनाता है।</strong> यह एक AI-निर्मित वित्तीय सहायक है जो केवल आपके लिए काम करता है — संस्थागत-स्तर के स्टॉक विश्लेषण की शक्ति को व्यक्तिगत निवेशकों तक पहुँचाता है।",
   "hero.cta": "शुरू करें",
   "footer.about": "हमारे बारे में",
   "footer.contact": "संपर्क",

@@ -9,7 +9,7 @@
   "nav.intelligence": "洞察",
   "hero.sponsoredBy": "战略合作伙伴",
   "hero.headlineHtml": "<span class=\"text-slate-900\">华尔街只为<span class=\"headline-underline\">华尔街</span>工作，</span><br><span class=\"text-slate-900\">不为</span><span style=\"color: #0e85ff;\">你</span><span class=\"text-slate-900\">。</span>",
-  "hero.subtitle": "DeepValues.AI 是一款 AI 原生的金融助手，只为你工作 —— 将机构级股票研究的能力带给个人投资者。",
+  "hero.subtitle": "<strong class=\"text-slate-900\">DeepValues.AI 让你成为更好的投资者。</strong> 它是一款 AI 原生的金融助手，只为你工作 —— 将机构级股票研究的能力带给个人投资者。",
   "hero.cta": "立即开始",
   "footer.about": "关于",
   "footer.contact": "联系",
