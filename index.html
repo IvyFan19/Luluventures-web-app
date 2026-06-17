@@ -683,6 +683,154 @@
       .locale-item.active .locale-check { opacity: 1; }
     </style>
     <script src="/i18n.js" defer></script>
+
+    <!-- ===== Mobile waitlist (trigger button + modal) ===== -->
+    <style>
+      /* Hero secondary trigger — glass pill matching .pill-shadow (Sponsored by) in light mode */
+      .wl-trigger {
+        border: 0;
+        transition: transform 0.15s ease, background 0.15s ease;
+        cursor: pointer;
+      }
+      .wl-trigger:hover { transform: translateY(-1px); }
+      /* Dark mode: solid gray pill matching the subtitle text color (text-slate-600 → #a1a1a6) */
+      @media (prefers-color-scheme: dark) {
+        #waitlistOpen {
+          background: #a1a1a6 !important;
+          color: #0a192f !important;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
+        }
+        #waitlistOpen:hover { background: #86868b !important; }
+      }
+
+      .wl-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background: rgba(10, 15, 25, 0.55);
+        backdrop-filter: blur(4px);
+      }
+      .wl-overlay.wl-open { display: flex; }
+      .wl-card {
+        width: 100%;
+        max-width: 440px;
+        max-height: calc(100vh - 32px);
+        overflow-y: auto;
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: 0 30px 80px -20px rgba(15, 23, 60, 0.45);
+        position: relative;
+      }
+      .wl-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 32px;
+        height: 32px;
+        border: 0;
+        border-radius: 9999px;
+        background: transparent;
+        color: #6e6e73;
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .wl-close:hover { background: rgba(15, 23, 60, 0.06); color: #1d1d1f; }
+      .wl-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #0e85ff;
+        border: 1px solid rgba(14, 133, 255, 0.35);
+        border-radius: 9999px;
+        padding: 5px 12px;
+      }
+      .wl-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #0a192f; margin: 0; }
+      .wl-title-spaced { margin-top: 18px; }
+      .wl-sub { font-size: 14px; line-height: 1.55; color: #6e6e73; margin: 8px 0 0; }
+      .wl-label { font-size: 12px; font-weight: 600; color: #6e6e73; margin: 18px 0 8px; }
+      .wl-input {
+        width: 100%;
+        border: 1px solid rgba(15, 23, 60, 0.14);
+        border-radius: 9999px;
+        padding: 12px 16px;
+        font-size: 15px;
+        color: #0a192f;
+        background: #f7f8fb;
+        font-family: inherit;
+      }
+      .wl-input:focus {
+        outline: none;
+        border-color: #0e85ff;
+        box-shadow: 0 0 0 3px rgba(14, 133, 255, 0.15);
+      }
+      .wl-chips { display: flex; gap: 8px; }
+      .wl-chip {
+        flex: 1;
+        text-align: center;
+        border: 1px solid rgba(15, 23, 60, 0.14);
+        border-radius: 9999px;
+        padding: 9px 0;
+        font-size: 13px;
+        font-weight: 600;
+        color: #6e6e73;
+        background: transparent;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .wl-chip:hover { border-color: rgba(15, 23, 60, 0.3); }
+      .wl-chip.sel { border-color: #0e85ff; color: #0e85ff; background: rgba(14, 133, 255, 0.08); }
+      .wl-primary {
+        width: 100%;
+        margin-top: 20px;
+        border: 0;
+        border-radius: 9999px;
+        padding: 13px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #ffffff;
+        background: #0e85ff;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.15s ease;
+      }
+      .wl-primary:hover { background: #006bd9; }
+      .wl-primary:disabled { opacity: 0.6; cursor: default; }
+      .wl-error { color: #dc2626; font-size: 13px; margin-top: 8px; }
+      .wl-success { text-align: center; padding: 8px 0; }
+      .wl-success-ic {
+        width: 56px; height: 56px;
+        border-radius: 9999px;
+        background: #0e85ff;
+        color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 16px;
+        font-size: 28px;
+      }
+      .wl-hide { display: none !important; }
+
+      @media (prefers-color-scheme: dark) {
+        .wl-card { background: #1d1d1f; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6); }
+        .wl-title { color: #f5f5f7; }
+        .wl-sub, .wl-label { color: #a1a1a6; }
+        .wl-close { color: #a1a1a6; }
+        .wl-close:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+        .wl-badge { color: #2997ff; border-color: rgba(41, 151, 255, 0.4); }
+        .wl-input { background: #2c2c2e; border-color: rgba(255, 255, 255, 0.12); color: #f5f5f7; }
+        .wl-chip { border-color: rgba(255, 255, 255, 0.14); color: #a1a1a6; }
+        .wl-chip.sel { border-color: #2997ff; color: #2997ff; background: rgba(41, 151, 255, 0.12); }
+      }
+    </style>
   </head>
   <body>
     <!-- ==================== NAV ==================== -->
@@ -690,7 +838,7 @@
       <nav class="flex items-center justify-between">
         <div class="flex items-center gap-10">
           <!-- Logo -->
-          <a href="#" class="flex items-center gap-2.5">
+          <a href="#" class="flex items-center gap-1.5">
             <img
               src="/images/deepvalues-diamond-icon.png"
               alt="DeepValues logo"
@@ -776,13 +924,36 @@
           </p>
 
           <!-- CTAs -->
-          <div class="mt-9 flex flex-wrap items-center gap-3">
+          <div class="mt-9 flex flex-col items-start gap-3">
             <a
               href="https://app.deepvalues.ai"
-              class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full"
-              data-i18n="hero.cta"
-              >Get Started</a
+              class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2"
+              data-i18n-attr="aria-label:hero.cta"
+              aria-label="Get Started"
             >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="3" rx="2" />
+                <line x1="8" x2="16" y1="21" y2="21" />
+                <line x1="12" x2="12" y1="17" y2="21" />
+              </svg>
+              <span data-i18n="hero.cta">Get Started</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="13 6 19 12 13 18" />
+              </svg>
+            </a>
+            <button
+              type="button"
+              id="waitlistOpen"
+              class="wl-trigger text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 bg-white/70 backdrop-blur pill-shadow text-slate-800"
+              data-i18n-attr="aria-label:waitlist.cta"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                <path d="M12 18h.01" />
+              </svg>
+              <span data-i18n="waitlist.cta">Join Mobile Waitlist</span>
+            </button>
           </div>
 
         </div>
@@ -3044,6 +3215,49 @@
       </div>
     </footer>
 
+    <!-- ==================== MOBILE WAITLIST MODAL ==================== -->
+    <div class="wl-overlay" id="waitlistOverlay" role="dialog" aria-modal="true" aria-labelledby="wlTitle">
+      <div class="wl-card" id="waitlistCard">
+        <button type="button" class="wl-close" id="waitlistClose" data-i18n-attr="aria-label:waitlist.close" aria-label="Close">&times;</button>
+
+        <!-- Form (single step) -->
+        <div id="wlForm">
+          <span class="wl-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+              <path d="M12 18h.01" />
+            </svg>
+            <span data-i18n="waitlist.badge">iOS &amp; Android · coming soon</span>
+          </span>
+
+          <h2 class="wl-title wl-title-spaced" id="wlTitle" data-i18n="waitlist.title">Be first to get the app</h2>
+          <p class="wl-sub" data-i18n="waitlist.sub">We're building DeepValues for iPhone and Android. Drop your email and tell us which device you use — we'll notify you the moment it's live.</p>
+
+          <p class="wl-label" data-i18n="waitlist.email.label">Email</p>
+          <input type="email" id="wlEmail" class="wl-input" autocomplete="email" inputmode="email" placeholder="you@example.com" data-i18n-attr="placeholder:waitlist.email.ph" />
+          <p class="wl-error wl-hide" id="wlEmailError" data-i18n="waitlist.invalidEmail">Please enter a valid email address.</p>
+
+          <p class="wl-label" data-i18n="waitlist.platform.label">Which device do you use?</p>
+          <div class="wl-chips">
+            <button type="button" class="wl-chip" data-platform="ios" data-i18n="waitlist.platform.ios">iPhone</button>
+            <button type="button" class="wl-chip" data-platform="android" data-i18n="waitlist.platform.android">Android</button>
+            <button type="button" class="wl-chip" data-platform="both" data-i18n="waitlist.platform.both">Both</button>
+          </div>
+
+          <p class="wl-error wl-hide" id="wlSubmitError" data-i18n="waitlist.error">Something went wrong. Please try again.</p>
+          <button type="button" class="wl-primary" id="wlSubmit" data-i18n="waitlist.submit">Join the waitlist</button>
+        </div>
+
+        <!-- Success -->
+        <div id="wlSuccess" class="wl-success wl-hide">
+          <div class="wl-success-ic" aria-hidden="true">&#10003;</div>
+          <h2 class="wl-title" data-i18n="waitlist.success.title">You're on the list!</h2>
+          <p class="wl-sub" data-i18n="waitlist.success.sub">We'll email you the moment the app launches. We appreciate your trust in DeepValues.AI.</p>
+          <button type="button" class="wl-primary" id="wlDone" data-i18n="waitlist.close">Close</button>
+        </div>
+      </div>
+    </div>
+
     <script>
       (function () {
         var m = location.search.match(/[?&]bg=(\d+)/);
@@ -3157,6 +3371,116 @@
           startX = null;
         });
         track.addEventListener('pointercancel', function () { startX = null; });
+      })();
+
+      // ===== Mobile waitlist modal =====
+      (function () {
+        // Google Apps Script Web App URL (ends in /exec). See WAITLIST_SETUP.md.
+        var WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz_u-IvVfcysQuzrcZsNUqqMqmxP8-jh1i0jrMyVmBB4l1E__8AhV6QnINdTumxZ3zLSw/exec';
+
+        var overlay = document.getElementById('waitlistOverlay');
+        var openBtn = document.getElementById('waitlistOpen');
+        if (!overlay || !openBtn) return;
+
+        var closeBtn = document.getElementById('waitlistClose');
+        var formWrap = document.getElementById('wlForm');
+        var success = document.getElementById('wlSuccess');
+        var emailInput = document.getElementById('wlEmail');
+        var emailError = document.getElementById('wlEmailError');
+        var submitError = document.getElementById('wlSubmitError');
+        var submitBtn = document.getElementById('wlSubmit');
+        var doneBtn = document.getElementById('wlDone');
+        var chips = Array.prototype.slice.call(document.querySelectorAll('.wl-chip'));
+
+        var platform = '';
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        function show(el) { el.classList.remove('wl-hide'); }
+        function hide(el) { el.classList.add('wl-hide'); }
+
+        function reset() {
+          show(formWrap); hide(success);
+          hide(emailError); hide(submitError);
+          emailInput.value = '';
+          platform = '';
+          chips.forEach(function (c) { c.classList.remove('sel'); });
+        }
+
+        function open() {
+          reset();
+          overlay.classList.add('wl-open');
+          document.body.style.overflow = 'hidden';
+          setTimeout(function () { emailInput.focus(); }, 60);
+        }
+        function close() {
+          overlay.classList.remove('wl-open');
+          document.body.style.overflow = '';
+        }
+
+        openBtn.addEventListener('click', open);
+        closeBtn.addEventListener('click', close);
+        if (doneBtn) doneBtn.addEventListener('click', close);
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && overlay.classList.contains('wl-open')) close();
+        });
+
+        chips.forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            var val = chip.getAttribute('data-platform');
+            if (platform === val) { platform = ''; chip.classList.remove('sel'); return; }
+            platform = val;
+            chips.forEach(function (c) { c.classList.toggle('sel', c === chip); });
+          });
+        });
+
+        function submit() {
+          hide(emailError); hide(submitError);
+
+          if (!EMAIL_RE.test((emailInput.value || '').trim())) {
+            show(emailError);
+            emailInput.focus();
+            return;
+          }
+
+          if (!WAITLIST_ENDPOINT) {
+            console.error('[waitlist] WAITLIST_ENDPOINT is not set — see WAITLIST_SETUP.md');
+            show(submitError);
+            return;
+          }
+
+          var payload = {
+            email: (emailInput.value || '').trim(),
+            platform: platform || 'unspecified',
+            feedback: '',
+            locale: document.documentElement.getAttribute('lang') || 'en',
+            source: 'hero-modal',
+            submittedAt: new Date().toISOString(),
+            pageUrl: location.href,
+            userAgent: navigator.userAgent
+          };
+
+          submitBtn.disabled = true;
+
+          // Apps Script Web Apps don't return CORS headers, so we POST with
+          // no-cors + a text/plain body to avoid a preflight. The response is
+          // opaque, so a resolved fetch is treated as success.
+          fetch(WAITLIST_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+          }).then(function () {
+            hide(formWrap); show(success);
+          }).catch(function (err) {
+            console.error('[waitlist] submission failed:', err);
+            show(submitError);
+          }).finally(function () {
+            submitBtn.disabled = false;
+          });
+        }
+        submitBtn.addEventListener('click', submit);
+        emailInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
       })();
     </script>
   </body>
