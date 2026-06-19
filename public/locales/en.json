@@ -8,7 +8,7 @@
   "nav.values": "Values",
   "nav.intelligence": "Intelligence",
   "hero.sponsoredBy": "Sponsored by",
-  "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street works for <span class=\"headline-underline\">Wall Street</span>,</span><br><span class=\"text-slate-900\">Not for </span><span style=\"color: #0e85ff;\">you</span><span class=\"text-slate-900\">.</span>",
+  "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street works for <span class=\"headline-underline\">Wall Street</span>,</span><br><span class=\"text-slate-900\">Not for </span><span style=\"color: #0e85ff;\">You</span><span class=\"text-slate-900\">.</span>",
   "hero.subtitle": "<strong class=\"text-slate-900\">DeepValues.AI makes you a better investor.</strong> The AI-native financial assistant that works only for you — bringing the power of institutional-grade stock analysis to individual investors.",
   "hero.cta": "Get Started",
   "waitlist.cta": "Join Mobile Waitlist",

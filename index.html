@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="/images/deepvalues-diamond-icon.png" media="(prefers-color-scheme: light)" />
     <link rel="icon" type="image/png" href="/images/deepvalues-diamond-icon-white.png" media="(prefers-color-scheme: dark)" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DeepValues.AI — Wall Street works for Wall Street. Not for you.</title>
+    <title>DeepValues.AI — Wall Street works for Wall Street. Not for You.</title>
     <meta
       name="description"
       content="DeepValues.AI is an AI-native financial assistant for individual investors — institutional-grade stock research, intrinsic-value calculators, and Smart Money tracking, all aligned with your interest."
@@ -26,7 +26,7 @@
     <meta property="og:image:alt" content="DeepValues.AI — AI-native financial assistant" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@thedeepvalue" />
-    <meta name="twitter:title" content="DeepValues.AI — Wall Street works for Wall Street. Not for you." />
+    <meta name="twitter:title" content="DeepValues.AI — Wall Street works for Wall Street. Not for You." />
     <meta name="twitter:description" content="AI-native financial assistant for individual investors — institutional-grade stock research, intrinsic-value calculators, and Smart Money tracking, all aligned with your interest." />
     <meta name="twitter:image" content="https://deepvalues.ai/images/deepvalues-icon-image-0514.png" />
     <script type="application/ld+json">
@@ -528,13 +528,22 @@
         }
         .pill-shadow .text-slate-800 { color: #e8e8ed !important; }
 
-        /* Features carousel — neutral near-black surfaces */
-        .fc-gradient-1 { background: linear-gradient(135deg, #1d1d1f 0%, #1c1c1e 50%, #202022 100%); }
-        .fc-gradient-2 { background: linear-gradient(135deg, #1c1c1e 0%, #1d1d1f 50%, #212123 100%); }
-        .fc-gradient-3 { background: linear-gradient(135deg, #1c1e1d 0%, #1d1d1f 50%, #1e2021 100%); }
-        .fc-gradient-4 { background: linear-gradient(135deg, #201e1d 0%, #1d1d1f 50%, #1c1d1f 100%); }
-        .fc-gradient-5 { background: linear-gradient(135deg, #1d1d20 0%, #1c1c1e 50%, #201e20 100%); }
-        .fc-gradient-6 { background: linear-gradient(135deg, #201f1c 0%, #1d1d1f 50%, #1c1d1f 100%); }
+        /* Features carousel — match the AI Intelligence panel (dark navy gradient + border + inset
+           highlight) so both sections read as the same surface in dark mode. */
+        .fc-stage {
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          box-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.05) inset,
+            0 30px 60px -20px rgba(7, 13, 31, 0.55);
+        }
+        .fc-gradient-1,
+        .fc-gradient-2,
+        .fc-gradient-3,
+        .fc-gradient-4,
+        .fc-gradient-5,
+        .fc-gradient-6 {
+          background: linear-gradient(180deg, #0c1424 0%, #060a16 100%);
+        }
         .fc-pill {
           background: rgba(255,255,255,0.06) !important;
           border-color: rgba(41,151,255,0.35) !important;
@@ -913,7 +922,7 @@
               <span class="headline-underline">Wall Street</span>,
             </span>
             <br />
-            <span class="text-slate-900">Not for </span><span style="color: #0e85ff;">you</span><span class="text-slate-900">.</span>
+            <span class="text-slate-900">Not for </span><span style="color: #0e85ff;">You</span><span class="text-slate-900">.</span>
           </h1>
 
           <!-- Subtitle -->
@@ -2198,7 +2207,6 @@
         </div>
 
         <div class="mt-12 lg:mt-14 ai-panel relative overflow-hidden rounded-[36px]">
-          <div class="ai-grid" aria-hidden="true"></div>
           <div class="ai-glow ai-glow-a" aria-hidden="true"></div>
           <div class="ai-glow ai-glow-b" aria-hidden="true"></div>
 
