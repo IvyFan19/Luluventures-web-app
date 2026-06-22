@@ -49,6 +49,8 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Analytics 4 (analytics only) + cookie consent — config in public/analytics.js -->
+    <script src="/analytics.js" defer></script>
     <style>
       html { scroll-behavior: smooth; }
       body {
@@ -364,6 +366,7 @@
               <tr><td>Anthropic</td><td>LLM inference for briefings &amp; Buffett Lens text chat (under no-training API terms); used as an alternative or complement to OpenAI</td><td>US</td></tr>
               <tr><td>Microsoft Azure (Speech Services)</td><td>Real-time speech-to-text transcription for Buffett Lens voice; we proxy the audio stream and never write it to our own storage</td><td>US</td></tr>
               <tr><td>Cloudflare</td><td>CDN, DDoS protection, cookieless web analytics</td><td>Global edge</td></tr>
+              <tr><td>Google Analytics 4</td><td>Marketing-website analytics (traffic sources, feature usage); loaded only after you accept cookies. Analytics only — not used for advertising.</td><td>US</td></tr>
               <tr><td>Google Workspace</td><td>In-app transactional email delivery (account, billing, alerts) via SMTP</td><td>US</td></tr>
               <tr><td>EmailJS</td><td>Newsletter signup processing on the marketing site</td><td>US</td></tr>
             </tbody>
@@ -376,8 +379,9 @@
         <h2 id="cookies">7. Cookies, analytics &amp; tracking</h2>
         <ul>
           <li><strong>Essential cookies</strong> — keep you signed in, remember your language preference, and prevent CSRF attacks. Cannot be disabled without breaking the Service.</li>
-          <li><strong>Analytics</strong> — Cloudflare Web Analytics. Cookieless, no fingerprinting, no cross-site tracking, aggregated by day.</li>
-          <li><strong>No advertising trackers</strong> — we do not use Google Analytics, Facebook Pixel, TikTok Pixel, or any ad-network tracker. We do not retarget you elsewhere on the web.</li>
+          <li><strong>Privacy-friendly analytics</strong> — Cloudflare Web Analytics. Cookieless, no fingerprinting, no cross-site tracking, aggregated by day. Always on; needs no consent.</li>
+          <li><strong>Google Analytics 4 (consent-based, analytics only)</strong> — on our marketing website we use Google Analytics 4 to understand which channels bring visitors and how features (such as the mobile waitlist) are used, so we can improve the site. GA4 sets cookies and is <strong>off by default</strong>: it loads only after you choose "Accept" in our cookie banner, and we use Google Consent Mode so nothing is stored on your device until you consent. You can reject it, and change your choice at any time via the "Cookies" link in the footer. We use GA4 <strong>for analytics only</strong> — its advertising and remarketing features stay disabled.</li>
+          <li><strong>No advertising trackers</strong> — we do not use Google Ads remarketing, Facebook Pixel, TikTok Pixel, or any ad-network tracker, and we do not retarget you elsewhere on the web.</li>
         </ul>
 
         <h2 id="rights">8. Your rights &amp; choices</h2>
@@ -530,8 +534,8 @@
         <div class="flex justify-end pt-3 text-[14px] text-white/70">
           <ul class="flex flex-wrap items-center gap-x-8 gap-y-2">
             <li>© 2026 LuLu Ventures LLC</li>
-            <li><a href="#" class="hover:text-white transition">Cookies</a></li>
-            <li><a href="#" class="hover:text-white transition">Legal</a></li>
+            <li><a href="/privacy.html#cookies" class="hover:text-white transition" onclick="if(window.openCookieSettings){event.preventDefault();window.openCookieSettings();}">Cookies</a></li>
+            <li><a href="/terms.html" class="hover:text-white transition">Terms of Use</a></li>
             <li><a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
           </ul>
         </div>

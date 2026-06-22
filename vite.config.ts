@@ -39,6 +39,7 @@ export default defineConfig({
         app: resolve(__dirname, 'app.html'),
         // Static legal pages
         privacy: resolve(__dirname, 'privacy.html'),
+        terms: resolve(__dirname, 'terms.html'),
         // App-specific privacy policy (Buffett Indicator iOS / Bubble Watch Android)
         'privacy-buffett-indicator': resolve(__dirname, 'privacy/buffett-indicator/index.html'),
         // Static API references landing page

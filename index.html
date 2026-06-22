@@ -141,6 +141,8 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "f543bf84be61485baa1671d167e9933b"}'></script><!-- End Cloudflare Web Analytics -->
+    <!-- Google Analytics 4 (analytics only) + cookie consent — config in public/analytics.js -->
+    <script src="/analytics.js" defer></script>
     <script>
       tailwind.config = {
         theme: {
@@ -847,7 +849,7 @@
       <nav class="flex items-center justify-between">
         <div class="flex items-center gap-10">
           <!-- Logo -->
-          <a href="#" class="flex items-center gap-1.5">
+          <a href="/" class="flex items-center gap-1.5">
             <img
               src="/images/deepvalues-diamond-icon.png"
               alt="DeepValues logo"
@@ -872,6 +874,7 @@
             href="https://app.deepvalues.ai"
             class="cta-primary text-white text-[15px] font-semibold px-6 py-3 rounded-full"
             data-i18n="nav.login"
+            data-ga-event="login_click"
           >
             Login / Sign Up
           </a>
@@ -939,6 +942,7 @@
               class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2"
               data-i18n-attr="aria-label:hero.cta"
               aria-label="Get Started"
+              data-ga-event="get_started_click"
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect width="20" height="14" x="2" y="3" rx="2" />
@@ -956,6 +960,7 @@
               id="waitlistOpen"
               class="wl-trigger text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 bg-white/70 backdrop-blur pill-shadow text-slate-800"
               data-i18n-attr="aria-label:waitlist.cta"
+              data-ga-event="waitlist_open"
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
@@ -2932,7 +2937,7 @@
           <span class="badge" data-i18n="pricing.hero.badge">Free forever · No card required</span>
           <h3 data-i18n="pricing.hero.title">Start with Basic — free forever.</h3>
           <p class="sub" data-i18n="pricing.hero.sub">30 credits a week, a 7-stock watchlist, Buffett Lens text chat, and Smart Money for every stock. Enough to actually do real research.</p>
-          <a class="cta" href="https://app.deepvalues.ai" data-i18n="pricing.hero.cta">Get started free →</a>
+          <a class="cta" href="https://app.deepvalues.ai" data-i18n="pricing.hero.cta" data-ga-event="pricing_cta_click">Get started free →</a>
           <p class="hint" data-i18n="pricing.hero.hint">No credit card. Upgrade anytime when you outgrow it.</p>
         </div>
 
@@ -3130,7 +3135,7 @@
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-12">
         <!-- Brand wordmark + social icons (same row, vertically centered) -->
         <div class="pb-6 flex flex-wrap items-center gap-6">
-          <a href="#" class="inline-block tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 32px; line-height: 1;">
+          <a href="/" class="inline-block tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 32px; line-height: 1;">
             <span style="color: #003085;">Deep</span><span style="color: #019dde;">Values.AI</span>
           </a>
           <div class="flex items-center gap-4">
@@ -3171,7 +3176,6 @@
         <!-- Top row (above divider): nav links on the left -->
         <div class="pb-3">
           <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-slate-700">
-            <li><a href="#" class="hover:text-slate-900 transition" data-i18n="footer.about">About</a></li>
             <li><a href="mailto:team@deepvalues.ai" class="hover:text-slate-900 transition" data-i18n="footer.contact">Contact</a></li>
             <li><a href="#" class="hover:text-slate-900 transition" data-i18n="footer.apps">Apps</a></li>
           </ul>
@@ -3215,8 +3219,8 @@
           </div>
           <div class="text-center">© 2026 LULU VENTURES LLC</div>
           <ul class="flex flex-wrap items-center justify-end gap-x-8 gap-y-2">
-            <li><a href="#" class="hover:text-slate-900 transition" data-i18n="footer.cookies">Cookies</a></li>
-            <li><a href="#" class="hover:text-slate-900 transition" data-i18n="footer.legal">Legal</a></li>
+            <li><a href="/privacy.html#cookies" class="hover:text-slate-900 transition" data-i18n="footer.cookies" onclick="if(window.openCookieSettings){event.preventDefault();window.openCookieSettings();}">Cookies</a></li>
+            <li><a href="/terms.html" class="hover:text-slate-900 transition" data-i18n="footer.legal">Terms of Use</a></li>
             <li><a href="https://deepvalues.ai/privacy.html" class="hover:text-slate-900 transition" data-i18n="footer.privacy">Privacy Policy</a></li>
           </ul>
         </div>
@@ -3480,6 +3484,8 @@
             body: JSON.stringify(payload)
           }).then(function () {
             hide(formWrap); show(success);
+            // GA4 conversion — fires only after a successful waitlist signup
+            if (window.gtag) gtag('event', 'waitlist_submit', { platform: platform || 'unspecified' });
           }).catch(function (err) {
             console.error('[waitlist] submission failed:', err);
             show(submitError);
