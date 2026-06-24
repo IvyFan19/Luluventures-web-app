@@ -1,10 +1,9 @@
 name: AWS S3 Deploy
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # Manual-only: run from the GitHub Actions tab → "AWS S3 Deploy" → "Run workflow".
+  # No longer auto-deploys on push/PR — deploys are done locally (build → aws s3 sync → CloudFront invalidate).
+  workflow_dispatch:
 
 jobs:
   deploy:
