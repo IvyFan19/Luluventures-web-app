@@ -508,17 +508,19 @@
          bg or text utilities) so dark mode can cleanly invert without an
          !important tug-of-war against the CDN utilities. Base = dark pill,
          white text (the light-mode look). */
-      .appstore-cta { background-color: #0a0e17; color: #ffffff; border: 1px solid rgba(255,255,255,0.22); }
-      .appstore-cta:hover { background-color: #1d1d1f; }
-      /* Official-style App Store badge (Apple lockup: a small top line above a
-         large "App Store", logo at the left). Shape + type live here; the fill
-         and text color come from .appstore-cta so the whole badge inverts in
-         dark mode (dark badge on light page → light badge on dark page). */
-      .appstore-badge { padding: 8px 16px; border-radius: 12px; text-decoration: none; line-height: 1; box-shadow: 0 6px 18px rgba(15, 23, 60, 0.12); }
-      .appstore-badge__logo { height: 26px; width: auto; flex: 0 0 auto; }
-      .appstore-badge__text { display: inline-flex; flex-direction: column; align-items: flex-start; }
-      .appstore-badge__top { font-size: 11px; font-weight: 400; letter-spacing: 0.02em; }
-      .appstore-badge__bottom { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; margin-top: 1px; }
+      /* Store badges (App Store + Google Play) — official-lockup layout kept in
+         a PILL that matches the other CTAs. Colors are owned here so each badge
+         inverts cleanly in dark mode (dark pill/white text on the light page →
+         light pill/dark text on the dark page). The Google Play triangle keeps
+         its own brand colors; only the Apple mark follows the text color. */
+      .store-badge { background-color: #0a0e17; color: #ffffff; border: 1px solid rgba(255,255,255,0.22);
+        padding: 9px 22px; border-radius: 999px; text-decoration: none; line-height: 1;
+        box-shadow: 0 6px 18px rgba(15, 23, 60, 0.12); cursor: pointer; }
+      .store-badge:hover { background-color: #1d1d1f; }
+      .store-badge__logo { height: 26px; width: auto; flex: 0 0 auto; }
+      .store-badge__text { display: inline-flex; flex-direction: column; align-items: flex-start; }
+      .store-badge__top { font-size: 11px; font-weight: 400; letter-spacing: 0.02em; }
+      .store-badge__bottom { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; margin-top: 1px; }
 
       @media (prefers-color-scheme: dark) {
         html, body { color: #f5f5f7; }
@@ -526,8 +528,8 @@
 
         /* App Store CTA: reverse to a light pill in dark mode (Apple
            convention) so it isn't a near-black button on a black page. */
-        .appstore-cta { background-color: #f5f5f7; color: #0a0e17; border-color: rgba(0,0,0,0.14); }
-        .appstore-cta:hover { background-color: #e2e2e7; }
+        .store-badge { background-color: #f5f5f7; color: #0a0e17; border-color: rgba(0,0,0,0.14); }
+        .store-badge:hover { background-color: #e2e2e7; }
 
         /* Tailwind text utilities → Apple grays */
         .text-slate-900 { color: #f5f5f7 !important; }
@@ -718,22 +720,12 @@
 
     <!-- ===== Mobile waitlist (trigger button + modal) ===== -->
     <style>
-      /* Hero secondary trigger — glass pill matching .pill-shadow (Sponsored by) in light mode */
-      .wl-trigger {
-        border: 0;
-        transition: transform 0.15s ease, background 0.15s ease;
-        cursor: pointer;
-      }
+      /* The Android waitlist trigger (#waitlistOpen) is now a Google Play
+         "Coming soon" badge and inherits the shared .store-badge styling
+         (pill shape + dark-mode inversion) — so no bespoke trigger CSS here.
+         (An #waitlistOpen id-rule would beat .store-badge and re-break the
+         dark-mode background, so we intentionally keep none.) */
       .wl-trigger:hover { transform: translateY(-1px); }
-      /* Dark mode: solid gray pill matching the subtitle text color (text-slate-600 → #a1a1a6) */
-      @media (prefers-color-scheme: dark) {
-        #waitlistOpen {
-          background: #a1a1a6 !important;
-          color: #0a192f !important;
-          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35) !important;
-        }
-        #waitlistOpen:hover { background: #86868b !important; }
-      }
 
       .wl-overlay {
         position: fixed;
@@ -983,30 +975,36 @@
               href="https://apps.apple.com/us/app/deepvalues/id6775568608"
               target="_blank"
               rel="noopener noreferrer"
-              class="appstore-cta appstore-badge inline-flex items-center gap-2.5 transition"
+              class="store-badge inline-flex items-center gap-2.5 transition"
               data-ga-event="appstore_download_click"
               aria-label="Download DeepValues on the App Store"
             >
-              <svg class="appstore-badge__logo" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+              <svg class="store-badge__logo" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
                 <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
               </svg>
-              <span class="appstore-badge__text">
-                <span class="appstore-badge__top" data-i18n="hero.appstore">Download on the</span>
-                <span class="appstore-badge__bottom">App Store</span>
+              <span class="store-badge__text">
+                <span class="store-badge__top" data-i18n="hero.appstore">Download on the</span>
+                <span class="store-badge__bottom">App Store</span>
               </span>
             </a>
             <button
               type="button"
               id="waitlistOpen"
-              class="wl-trigger text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 bg-white/70 backdrop-blur pill-shadow text-slate-800"
+              class="store-badge inline-flex items-center gap-2.5 transition"
               data-i18n-attr="aria-label:waitlist.cta"
+              aria-label="Join the Android waitlist"
               data-ga-event="waitlist_open"
             >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                <path d="M12 18h.01" />
+              <svg class="store-badge__logo" viewBox="30 336.7 120.9 129.2" aria-hidden="true">
+                <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z"/>
+                <path fill="#FF3333" d="M99.1,401.1l-64.2,64.7c1.5,0.2,3.2-0.2,5.2-1.3c4.2-2.3,48.8-26.7,79.1-43.3L99.1,401.1L99.1,401.1z"/>
+                <path fill="#48FF48" d="M99.1,401.1l20.1-20.2c0,0-74.6-40.7-79.1-43.1c-1.7-1-3.6-1.3-5.3-1L99.1,401.1z"/>
+                <path fill="#3BCCFF" d="M99.1,401.1l-64.3-64.3c-2.6,0.6-4.8,2.9-4.8,7.6c0,7.5,0,107.5,0,113.8c0,4.3,1.7,7.4,4.9,7.7L99.1,401.1z"/>
               </svg>
-              <span data-i18n="waitlist.cta">Join Android Waitlist</span>
+              <span class="store-badge__text">
+                <span class="store-badge__top" data-i18n="hero.gplay">Coming soon on</span>
+                <span class="store-badge__bottom">Google Play</span>
+              </span>
             </button>
           </div>
 
