@@ -504,14 +504,21 @@
          mockups stay light (a light phone on a dark page reads as a real
          device). The AI Intelligence panel is already dark and untouched.
          ================================================================== */
+      /* App Store CTA — colors owned here (the button carries NO Tailwind
+         bg or text utilities) so dark mode can cleanly invert without an
+         !important tug-of-war against the CDN utilities. Base = dark pill,
+         white text (the light-mode look). */
+      .appstore-cta { background-color: #0a0e17; color: #ffffff; }
+      .appstore-cta:hover { background-color: #1d1d1f; }
+
       @media (prefers-color-scheme: dark) {
         html, body { color: #f5f5f7; }
         body { background: #000000; }
 
         /* App Store CTA: reverse to a light pill in dark mode (Apple
            convention) so it isn't a near-black button on a black page. */
-        .appstore-cta { background-color: #f5f5f7 !important; color: #0a0e17 !important; }
-        .appstore-cta:hover { background-color: #e2e2e7 !important; }
+        .appstore-cta { background-color: #f5f5f7; color: #0a0e17; }
+        .appstore-cta:hover { background-color: #e2e2e7; }
 
         /* Tailwind text utilities → Apple grays */
         .text-slate-900 { color: #f5f5f7 !important; }
@@ -967,7 +974,7 @@
               href="https://apps.apple.com/us/app/deepvalues/id6775568608"
               target="_blank"
               rel="noopener noreferrer"
-              class="appstore-cta text-white text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 transition pill-shadow"
+              class="appstore-cta text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 transition pill-shadow"
               data-ga-event="appstore_download_click"
               aria-label="Download DeepValues on the App Store"
             >
