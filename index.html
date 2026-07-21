@@ -515,7 +515,7 @@
          its own brand colors; only the Apple mark follows the text color. */
       .store-badge { background-color: #0a0e17; color: #ffffff; border: 1px solid rgba(255,255,255,0.22);
         padding: 9px 22px; border-radius: 999px; text-decoration: none; line-height: 1;
-        box-shadow: 0 6px 18px rgba(15, 23, 60, 0.12); cursor: pointer; }
+        box-shadow: 0 6px 18px rgba(15, 23, 60, 0.12); cursor: pointer; justify-content: center; }
       .store-badge:hover { background-color: #1d1d1f; }
       .store-badge__logo { height: 26px; width: auto; flex: 0 0 auto; }
       .store-badge__text { display: inline-flex; flex-direction: column; align-items: flex-start; }
@@ -952,10 +952,10 @@
           </p>
 
           <!-- CTAs -->
-          <div class="mt-9 flex flex-col items-start gap-3">
+          <div class="mt-9 flex flex-col items-start gap-3 max-w-[240px]">
             <a
               href="https://app.deepvalues.ai"
-              class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2"
+              class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2 w-full"
               data-i18n-attr="aria-label:hero.cta"
               aria-label="Get Started"
               data-ga-event="get_started_click"
@@ -975,7 +975,7 @@
               href="https://apps.apple.com/us/app/deepvalues/id6775568608"
               target="_blank"
               rel="noopener noreferrer"
-              class="store-badge inline-flex items-center gap-2.5 transition"
+              class="store-badge inline-flex items-center gap-2.5 transition w-full"
               data-ga-event="appstore_download_click"
               aria-label="Download DeepValues on the App Store"
             >
@@ -990,7 +990,7 @@
             <button
               type="button"
               id="waitlistOpen"
-              class="store-badge inline-flex items-center gap-2.5 transition"
+              class="store-badge inline-flex items-center gap-2.5 transition w-full"
               data-i18n-attr="aria-label:waitlist.cta"
               aria-label="Join the Android waitlist"
               data-ga-event="waitlist_open"
