@@ -34,6 +34,22 @@ export function Footer({ lang = 'en', onChangeLang }: FooterProps) {
             </a>
           </div>
 
+          {/* Developers / API.
+              The Deep Values API has been live and self-serve since launch —
+              21 REST endpoints plus an MCP server — but nothing on this site
+              said so, and inside the app /developers was reachable only from
+              the pricing card. On 2026-08-19 a prospect emailed asking to
+              join an API waiting list that has never existed, because there
+              was no door to find. This is the door. */}
+          <a
+            href="https://app.deepvalues.ai/developers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-white/80 hover:text-white transition-colors"
+          >
+            {g('nav.developers')}
+          </a>
+
           <p className="text-xs text-white/80">
             DeepValues.AI &copy; {currentYear}
           </p>

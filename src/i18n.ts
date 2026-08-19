@@ -6,6 +6,7 @@ const translations = {
   'nav.about': { en: 'Mission', zh: '使命' },
   'nav.team': { en: 'Creator', zh: '创作者' },
   'nav.explore': { en: 'Get Started', zh: '立即体验' },
+  'nav.developers': { en: 'Developers', zh: '开发者' },
   'nav.signOut': { en: 'Sign Out', zh: '退出' },
 
   // Scene: Problem
