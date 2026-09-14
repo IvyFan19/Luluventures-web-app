@@ -19,7 +19,7 @@ const products = [
     image: '/images/icon-20.png',
     cta: {
       label: 'Download on App Store',
-      url: 'https://apps.apple.com/us/app/buffett-indicator/id6747404614',
+      url: 'https://apps.apple.com/app/id6747404614',
       icon: 'download',
     },
   },
