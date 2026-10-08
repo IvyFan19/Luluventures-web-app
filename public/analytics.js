@@ -79,15 +79,22 @@
       'box-shadow:0 14px 44px rgba(7,13,31,.20);padding:18px 20px;' +
       "font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.55;}" +
       '#dv-cc p{margin:0 0 14px;color:#3a3a3c;}' +
-      '#dv-cc a{color:#0e85ff;text-decoration:underline;text-underline-offset:2px;}' +
+      '#dv-cc a{color:#7a520f;text-decoration:underline;text-underline-offset:2px;}' +
       '#dv-cc .dv-cc-btns{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;}' +
       '#dv-cc button{font:inherit;font-weight:600;border-radius:999px;padding:9px 20px;cursor:pointer;border:1px solid transparent;transition:opacity .15s ease;}' +
       '#dv-cc button:hover{opacity:.88;}' +
       '#dv-cc .dv-cc-reject{background:transparent;border-color:#d0d0d4;color:#1d1d1f;}' +
-      '#dv-cc .dv-cc-accept{background:#0e85ff;color:#fff;}' +
+      // Gold with ink text: the product's action colour.
+      '#dv-cc .dv-cc-accept{background:#f4cc77;color:#1d1503;}' +
+      // Wide screens: dock bottom-right, clear of the hero's copy and CTA.
+      '@media (min-width:1024px){#dv-cc{left:auto;right:24px;bottom:24px;max-width:440px;margin:0;}}' +
+      // Phones: a compact bar instead of a card.
+      '@media (max-width:640px){' +
+      '#dv-cc{left:10px;right:10px;bottom:10px;padding:12px 14px;font-size:13px;line-height:1.45;border-radius:14px;}' +
+      '#dv-cc p{margin:0 0 10px;}#dv-cc button{padding:7px 16px;}}' +
       '@media (prefers-color-scheme:dark){' +
       '#dv-cc{background:#1d1d1f;color:#f5f5f7;border-color:rgba(255,255,255,.12);box-shadow:0 14px 44px rgba(0,0,0,.55);}' +
-      '#dv-cc p{color:#c7c7cc;}#dv-cc a{color:#2997ff;}' +
+      '#dv-cc p{color:#c7c7cc;}#dv-cc a{color:#f4cc77;}' +
       '#dv-cc .dv-cc-reject{border-color:rgba(255,255,255,.22);color:#f5f5f7;}}';
     document.head.appendChild(css);
   }
@@ -127,7 +134,25 @@
   // auto-show on localhost so the banner is testable before a real ID exists.
   // openCookieSettings() still force-shows it for testing/withdrawal anywhere.
   var isLocalhost = ['localhost', '127.0.0.1', '0.0.0.0'].indexOf(location.hostname) !== -1;
-  function maybeShow() { if ((hasRealId || isLocalhost) && !readChoice()) showBanner(); }
+  // On a phone the banner would sit on the hero's call to action, so it waits
+  // until the visitor has scrolled half a screen (or shows at once on a page
+  // too short to scroll that far). Nothing is stored before a choice either
+  // way, so showing it later costs no consent.
+  function scrolledPastHero() { return window.scrollY > window.innerHeight * 0.5; }
+  function tooShortToScroll() {
+    return document.documentElement.scrollHeight - window.innerHeight <= window.innerHeight * 0.5;
+  }
+  function maybeShow() {
+    if (!((hasRealId || isLocalhost) && !readChoice())) return;
+    var phone = window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+    if (!phone || scrolledPastHero() || tooShortToScroll()) { showBanner(); return; }
+    function onScroll() {
+      if (!scrolledPastHero()) return;
+      window.removeEventListener('scroll', onScroll);
+      if (!readChoice()) showBanner();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
   if (document.body) maybeShow();
   else document.addEventListener('DOMContentLoaded', maybeShow);
 })();
