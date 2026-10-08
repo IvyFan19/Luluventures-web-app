@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/deepvalues-diamond-icon.png" media="(prefers-color-scheme: light)" />
-    <link rel="icon" type="image/png" href="/images/deepvalues-diamond-icon-white.png" media="(prefers-color-scheme: dark)" />
+    <!-- The ginkgo mark is the App Store icon; /favicon.ico also answers the
+         browsers that request it without reading these tags. -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/png" sizes="128x128" href="/images/deepvalues-ginkgo-128.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DeepValues.AI — Wall Street works for Wall Street. Not for You.</title>
+    <title>DeepValues.AI — Wall Street works for Wall Street. Not for you.</title>
     <meta
       name="description"
-      content="DeepValues.AI is an AI-native financial assistant for individual investors — institutional-grade stock research, intrinsic-value calculators, and Smart Money tracking, all aligned with your interest."
+      content="DeepValues.AI shows what a company is worth by three valuation models, what 93 tracked investors bought and sold, and AI research briefings that show their work. Start with 3 free briefings."
     />
     <meta
       name="keywords"
@@ -23,16 +26,19 @@
     <meta name="apple-itunes-app" content="app-id=6775568608" />
     <meta property="og:site_name" content="DeepValues.AI" />
     <meta property="og:title" content="DeepValues.AI — AI-native financial assistant for individual investors" />
-    <meta property="og:description" content="DeepValues.AI is an AI-native financial assistant for individual investors — institutional-grade stock research, intrinsic-value calculators, and Smart Money tracking, all aligned with your interest." />
+    <meta property="og:description" content="DeepValues.AI shows what a company is worth by three valuation models, what 93 tracked investors bought and sold, and AI research briefings that show their work. Start with 3 free briefings." />
     <meta property="og:url" content="https://deepvalues.ai/" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://deepvalues.ai/images/deepvalues-icon-image-0701.png" />
-    <meta property="og:image:alt" content="DeepValues.AI — AI-native financial assistant" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="https://deepvalues.ai/images/deepvalues-appicon-1024.jpg" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="The DeepValues app icon: a gold ginkgo leaf" />
+    <!-- The image is the square app icon, so the small card shows it whole. -->
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@thedeepvalue" />
-    <meta name="twitter:title" content="DeepValues.AI — Wall Street works for Wall Street. Not for You." />
-    <meta name="twitter:description" content="AI-native financial assistant for individual investors — institutional-grade stock research, intrinsic-value calculators, and Smart Money tracking, all aligned with your interest." />
-    <meta name="twitter:image" content="https://deepvalues.ai/images/deepvalues-icon-image-0701.png" />
+    <meta name="twitter:title" content="DeepValues.AI — Wall Street works for Wall Street. Not for you." />
+    <meta name="twitter:description" content="DeepValues.AI shows what a company is worth by three valuation models, what 93 tracked investors bought and sold, and AI research briefings that show their work. Start with 3 free briefings." />
+    <meta name="twitter:image" content="https://deepvalues.ai/images/deepvalues-appicon-1024.jpg" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,7 +49,7 @@
           "name": "DeepValues.AI",
           "legalName": "LuLu Ventures LLC",
           "url": "https://deepvalues.ai/",
-          "logo": "https://deepvalues.ai/images/deepvalues-circle-icon.png",
+          "logo": "https://deepvalues.ai/images/deepvalues-appicon-1024.jpg",
           "description": "AI-native financial assistant for individual investors — institutional-grade stock research aligned only with the user's interest.",
           "sameAs": [
             "https://www.youtube.com/@TheDeepValues",
@@ -77,15 +83,15 @@
           "operatingSystem": "Web, iOS",
           "applicationCategory": "FinanceApplication",
           "applicationSubCategory": "Stock research",
-          "description": "AI-native financial assistant for individual investors. Multi-analyst stock research briefings, intrinsic value calculator, Smart Money 13F tracking of 29 legendary investors, Buffett Lens voice/text chat with citations, EDGAR-synced filings, and Sankey revenue-flow visualizations. No advertiser kickbacks, no promoted stocks, no conflicts of interest.",
+          "description": "AI-native financial assistant for individual investors. Multi-analyst AI research briefings, intrinsic value from three models with every input shown, Smart Money tracking of 93 investors (80 funds' 13F filings, plus the disclosures of 12 members of Congress and one official), Buffett Lens chat, SEC filings with AI summaries, and Sankey revenue-flow visualizations. No advertiser kickbacks, no promoted stocks, no conflicts of interest.",
           "url": "https://deepvalues.ai/",
-          "image": "https://deepvalues.ai/images/deepvalues-icon-image-0701.png",
+          "image": "https://deepvalues.ai/images/deepvalues-appicon-1024.jpg",
+          "installUrl": "https://apps.apple.com/app/id6775568608",
           "publisher": { "@id": "https://deepvalues.ai/#organization" },
           "offers": [
-            { "@type": "Offer", "name": "Basic", "price": "0", "priceCurrency": "USD", "description": "Free forever — 30 credits/week, 7-stock watchlist, 3 followed gurus, Buffett Lens (3 voice + unlimited text), Smart Money for every stock." },
-            { "@type": "Offer", "name": "Plus", "price": "9.99", "priceCurrency": "USD", "description": "$9.99/month, 7-day free trial — 15-stock watchlist, track 10 gurus, custom email alerts, unlimited Buffett Lens text." },
-            { "@type": "Offer", "name": "Pro", "price": "29.99", "priceCurrency": "USD", "description": "$29.99/month, 7-day free trial — 100 credits/week, up to 10 fresh briefings/month, unlimited watchlist, track ALL 29 gurus with real-time alerts, 30 min/month Buffett Lens voice." },
-            { "@type": "Offer", "name": "API", "price": "99.00", "priceCurrency": "USD", "description": "$99/month — 10,000 API requests/day, real-time guru webhooks, commercial license, full Pro UI access." }
+            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "9 credits at signup (3 fresh briefings), then 0.75 credits a week; unlimited watchlist; follow every guru." },
+            { "@type": "Offer", "name": "Plus, monthly", "price": "9.99", "priceCurrency": "USD", "description": "$9.99 a month, 7-day free trial for first-time subscribers; about 6 fresh briefings a month; every macro indicator with full history." },
+            { "@type": "Offer", "name": "Plus, yearly", "price": "99.99", "priceCurrency": "USD", "description": "$99.99 a year, 7-day free trial for first-time subscribers." }
           ]
         },
         {
@@ -110,7 +116,7 @@
             {
               "@type": "Question",
               "name": "What does a research briefing include?",
-              "acceptedAnswer": { "@type": "Answer", "text": "A typical briefing covers: business moat analysis, intrinsic value from three independent models (DCF, Owner Earnings, Damodaran method) cross-checked against peers, full financial history sourced from SEC filings, smart-money positioning (which of 29 tracked legendary investors hold the stock and how that has changed quarter over quarter), and a How-It-Makes-Money Sankey diagram. Every claim links back to the source filing or transcript." }
+              "acceptedAnswer": { "@type": "Answer", "text": "A team of AI research agents writes each briefing from SEC filings and market data. Analysts argue the bull case and the bear case; a portfolio manager weighs both and gives a stance (ADVOCATE, WATCH or AVOID) with a plan for what to monitor. Underneath sits the model: every input behind three valuation methods (free cash flow, Buffett's owner earnings and Damodaran's two-stage model), so you can check the work. Each briefing is dated, and a fresh one re-reads the latest filings and prices." }
             },
             {
               "@type": "Question",
@@ -125,7 +131,7 @@
             {
               "@type": "Question",
               "name": "What does DeepValues.AI cost?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Basic is free forever (30 credits per week, 7-stock watchlist, Buffett Lens text plus 3 voice queries). Plus is $9.99 per month with a 7-day free trial (15-stock watchlist, track 10 gurus, unlimited Buffett Lens text). Pro is $29.99 per month (100 credits/week, unlimited watchlist, all 29 gurus with real-time alerts, 30 minutes of voice per month). API access is $99 per month for developers and advisors. Credit top-up packs are available." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Free: 9 credits at signup, enough for 3 fresh briefings, then 0.75 credits a week (about one fresh briefing a month), with an unlimited watchlist and every guru. Plus: $9.99 a month or $99.99 a year, with a 7-day free trial for first-time subscribers and about 6 fresh briefings a month. A fresh briefing costs 3 credits; credit packs top up either plan, and the API is paid per call from the same credits. Current prices are always on the pricing page at https://app.deepvalues.ai/en/pricing." }
             },
             {
               "@type": "Question",
@@ -174,6 +180,20 @@
       };
     </script>
     <style>
+      /* Brand tokens. Gold is the product's action colour (the iOS identity);
+         bronze is the gold that stays readable as text on a light page. */
+      :root {
+        --gold: #f4cc77;
+        --gold-hover: #eebd55;
+        --gold-ink: #1d1503;
+        --gold-text: #7a520f;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --gold-text: #f4cc77;
+        }
+      }
+
       html {
         scroll-behavior: smooth;
       }
@@ -212,28 +232,78 @@
         line-height: 0.98;
       }
 
-      .headline-underline {
-        color: #ef4444;
+      /* Brand mark: the same ginkgo asset and wordmark in header and footer. */
+      .brand-mark {
+        display: block;
+        width: 32px;
+        height: 32px;
+        border-radius: 22%;
+      }
+      .brand-word {
+        font-family: 'Google Sans', sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+        line-height: 1;
       }
 
-      .pill-shadow {
-        box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.9) inset,
-          0 6px 16px rgba(15, 23, 60, 0.06);
+      .nav-login {
+        padding: 10px 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(15, 23, 60, 0.16);
+        color: #0a192f;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .nav-login:hover {
+        background: #ffffff;
+        border-color: rgba(15, 23, 60, 0.3);
       }
 
+      /* The one primary action on the page. */
       .cta-primary {
-        background: #0e85ff;
+        background: var(--gold);
+        color: var(--gold-ink);
         box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.25) inset,
-          0 10px 24px -8px rgba(14, 133, 255, 0.55);
+          0 1px 0 rgba(255, 255, 255, 0.35) inset,
+          0 10px 24px -10px rgba(148, 101, 21, 0.55);
         transition:
           transform 0.15s ease,
           background 0.15s ease;
       }
       .cta-primary:hover {
-        background: #006bd9;
+        background: var(--gold-hover);
         transform: translateY(-1px);
+      }
+      .cta-primary:focus-visible,
+      .nav-login:focus-visible,
+      .store-badge:focus-visible {
+        outline: 2px solid var(--gold-text);
+        outline-offset: 3px;
+      }
+
+      /* Proof lines under the hero CTA: facts the app's public pages state. */
+      .proof li {
+        position: relative;
+        padding-left: 18px;
+        font-size: 14.5px;
+        line-height: 1.45;
+        color: #475569;
+      }
+      .proof li::before {
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 0.45em;
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--gold);
+        box-shadow: 0 0 0 2px rgba(244, 204, 119, 0.28);
+      }
+
+      /* Text links in the dark AI panel. */
+      .ai-link:hover {
+        color: var(--gold);
       }
 
       .cta-secondary {
@@ -249,76 +319,44 @@
         transform: translateY(-1px);
       }
 
-      /* ===== Phone mockups ===== */
+      /* ===== Phones: current App Store screenshots in a device frame ===== */
       .phone {
-        width: 280px;
-        height: 580px;
+        --phone-w: 280px;
+        position: relative;
+        width: var(--phone-w);
+        margin: 0;
+        padding: 6px;
+        border-radius: calc(var(--phone-w) * 0.16);
         background: #0a0a0d;
-        border-radius: 44px;
-        padding: 7px;
         box-shadow:
           0 1px 0 rgba(255, 255, 255, 0.08) inset,
           0 0 0 1.5px rgba(40, 40, 50, 0.9),
           0 40px 80px -20px rgba(15, 23, 60, 0.45),
           0 20px 40px -20px rgba(15, 23, 60, 0.35);
-        position: relative;
       }
       .phone-screen {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 1178 / 2556;
+        border-radius: calc(var(--phone-w) * 0.135);
+        background: #000;
+      }
+      .phone-screen img {
+        display: block;
         width: 100%;
         height: 100%;
-        border-radius: 36px;
-        overflow: hidden;
-        position: relative;
+        object-fit: cover;
       }
-      .phone-notch {
+      /* Dynamic Island over the screenshot's empty status-bar middle. */
+      .phone-island {
         position: absolute;
-        top: 10px;
+        top: calc(6px + var(--phone-w) * 0.027);
         left: 50%;
         transform: translateX(-50%);
-        width: 96px;
-        height: 28px;
-        background: #000;
-        border-radius: 18px;
-        z-index: 10;
-      }
-      .phone-status {
-        position: absolute;
-        top: 14px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 26px;
-        font-size: 13px;
-        font-weight: 600;
-        z-index: 11;
-      }
-
-      /* Left (dark) phone content */
-      .phone-dark .phone-screen {
-        background: #000;
-        color: #fff;
-      }
-
-      /* Right (light) phone content */
-      .phone-light .phone-screen {
-        background: #f3f7f4;
-        color: #0a192f;
-      }
-
-      .pop-card {
-        background: #15171b;
-        border-radius: 24px;
-      }
-
-      .chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 14px;
+        width: 30%;
+        height: calc(var(--phone-w) * 0.085);
         border-radius: 999px;
-        font-weight: 600;
-        font-size: 13px;
+        background: #000;
       }
 
       .scroll-cue {
@@ -336,9 +374,48 @@
         }
       }
 
-      /* Make sure the layout doesn't crop the phones on smaller laptops */
+      /* Hero: two overlapping phones. They are sized and offset to stay
+         inside the column at every width. The clip on the hero is only a
+         safety net for very narrow screens; it sits on the full-width <main>
+         so it never cuts the phones' shadows inside the page. */
+      body > main {
+        overflow-x: clip;
+      }
       .phone-stage {
-        min-height: 640px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 680px;
+      }
+      .phone-stage .phone {
+        position: absolute;
+      }
+      .phone-stage .phone-back {
+        transform: translate(-92px, 18px) rotate(-8deg);
+      }
+      .phone-stage .phone-front {
+        transform: translate(104px, -18px) rotate(6deg);
+      }
+      @media (max-width: 639px) {
+        .phone-stage {
+          min-height: calc(44vw * 2.17 + 72px);
+        }
+        .phone-stage .phone {
+          --phone-w: 44vw;
+          padding: 4px;
+        }
+        .phone-stage .phone-back {
+          transform: translate(-15vw, 10px) rotate(-8deg);
+        }
+        .phone-stage .phone-front {
+          transform: translate(16vw, -10px) rotate(6deg);
+        }
+      }
+
+      /* Carousel phone */
+      .phone-slide {
+        --phone-w: min(260px, 66vw);
       }
 
       /* ===== AI Intelligence panel ===== */
@@ -504,19 +581,16 @@
       /* ==================================================================
          DARK MODE — Apple-style neutral palette, auto via prefers-color-scheme.
          Pure-black base (#000), layered grays for surfaces (#1d1d1f card,
-         #2c2c2e elevated), crisp #f5f5f7 text, #a1a1a6 secondary. Device
-         mockups stay light (a light phone on a dark page reads as a real
-         device). The AI Intelligence panel is already dark and untouched.
+         #2c2c2e elevated), crisp #f5f5f7 text, #a1a1a6 secondary. The
+         phones are App Store screenshots and look the same in both modes.
+         The AI Intelligence panel is already dark and untouched.
          ================================================================== */
-      /* App Store CTA — colors owned here (the button carries NO Tailwind
-         bg or text utilities) so dark mode can cleanly invert without an
-         !important tug-of-war against the CDN utilities. Base = dark pill,
-         white text (the light-mode look). */
-      /* Store badges (App Store + Google Play) — official-lockup layout kept in
-         a PILL that matches the other CTAs. Colors are owned here so each badge
-         inverts cleanly in dark mode (dark pill/white text on the light page →
-         light pill/dark text on the dark page). The Google Play triangle keeps
-         its own brand colors; only the Apple mark follows the text color. */
+      /* App Store badge — the secondary CTA. Official-lockup layout in a
+         pill. Colors are owned here (the badge carries NO Tailwind bg or text
+         utilities) so dark mode can invert it without an !important
+         tug-of-war against the CDN utilities: dark pill/white text on the
+         light page, light pill/dark text on the dark page. The Apple mark
+         follows the text color. */
       .store-badge { background-color: #0a0e17; color: #ffffff; border: 1px solid rgba(255,255,255,0.22);
         padding: 9px 22px; border-radius: 999px; text-decoration: none; line-height: 1;
         box-shadow: 0 6px 18px rgba(15, 23, 60, 0.12); cursor: pointer; justify-content: center; }
@@ -544,18 +618,17 @@
         .text-slate-400 { color: #6e6e73 !important; }
         .hover\:text-slate-900:hover { color: #ffffff !important; }
 
-        /* Brand wordmark "Deep" is very dark navy — lift to Apple blue */
-        nav span[style*="#003085"] { color: #2997ff !important; }
-
-        /* Brand diamond logo is pure black — invert to white so it stays visible on the dark nav */
-        nav .brand-logo { filter: invert(1); }
-
-        /* Sponsored-by pill */
-        .pill-shadow {
-          background: rgba(255,255,255,0.05) !important;
-          box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12) !important;
+        /* The ginkgo icon's dark ground needs an edge on a black page. */
+        .brand-mark { box-shadow: 0 0 0 1px rgba(255,255,255,0.16); }
+        .nav-login { color: #f5f5f7; border-color: rgba(255,255,255,0.22); }
+        .nav-login:hover { background: #1d1d1f; border-color: rgba(255,255,255,0.36); }
+        .proof li { color: #a1a1a6; }
+        .phone {
+          box-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.08) inset,
+            0 0 0 1.5px rgba(255, 255, 255, 0.16),
+            0 40px 80px -20px rgba(0, 0, 0, 0.7);
         }
-        .pill-shadow .text-slate-800 { color: #e8e8ed !important; }
 
         /* Features carousel — match the AI Intelligence panel (dark navy gradient + border + inset
            highlight) so both sections read as the same surface in dark mode. */
@@ -575,24 +648,13 @@
         }
         .fc-pill {
           background: rgba(255,255,255,0.06) !important;
-          border-color: rgba(41,151,255,0.35) !important;
-          color: #2997ff !important;
+          border-color: rgba(244,204,119,0.35) !important;
+          color: var(--gold) !important;
         }
         .fc-arrow { background: #1d1d1f !important; border-color: rgba(255,255,255,0.12) !important; color: #f5f5f7 !important; }
         .fc-arrow:hover { background: #2c2c2e !important; }
         .fc-dot { background: rgba(255,255,255,0.25) !important; }
         .fc-dot.active { background: rgba(255,255,255,0.85) !important; }
-
-        /* Light "Watchlist" phone mockups → dark (hero light phone + carousel slide 1).
-           The other mockups are already dark. */
-        .phone-light .phone-screen { background: #1c1c1e !important; color: #f5f5f7 !important; }
-        .fc-phone-screen[style*="#f3f7f4"] { background: #1c1c1e !important; color: #f5f5f7 !important; }
-        .phone-light .bg-white,
-        .fc-phone-screen[style*="#f3f7f4"] .bg-white { background-color: #2a2a2c !important; }
-        .phone-light .bg-slate-100,
-        .fc-phone-screen[style*="#f3f7f4"] .bg-slate-100 { background-color: #2c2c2e !important; }
-        .phone-light .border-slate-100,
-        .fc-phone-screen[style*="#f3f7f4"] .border-slate-100 { border-color: rgba(255,255,255,0.08) !important; }
 
         /* FAQ */
         #faq { background: #000000 !important; }
@@ -604,34 +666,14 @@
         #faq .faq-item summary::after { color: #a1a1a6 !important; }
         #faq .faq-item .faq-answer { color: #c7c7cc !important; }
 
-        /* Pricing — section uses inline styles, so override by attribute match */
-        #pricing { background: #000000 !important; color: #f5f5f7 !important; }
-        #pricing [style*="color: #1d1d1f"] { color: #f5f5f7 !important; }
-        #pricing [style*="color: #6e6e73"] { color: #a1a1a6 !important; }
-        #pricing [style*="color: #94959b"] { color: #86868b !important; }
-        #pricing [style*="background: #ffffff"] { background: #1d1d1f !important; }
-        #pricing [style*="background: #fafafa"] { background: #161617 !important; }
-        #pricing [style*="border: 1px solid #e2e2e4"] { border-color: rgba(255,255,255,0.10) !important; }
-        #pricing .free-first-hero { background: #1d1d1f !important; border-color: rgba(255,255,255,0.10) !important; }
-        #pricing .free-first-hero h3 { color: #f5f5f7 !important; }
-        #pricing .free-first-hero p.sub { color: #a1a1a6 !important; }
-        #pricing .free-first-hero p.hint { color: #86868b !important; }
-        #pricing details.pricing-details summary { color: #a1a1a6 !important; border-color: rgba(255,255,255,0.20) !important; }
-        #pricing details.pricing-details summary:hover { color: #ffffff !important; background: #1d1d1f !important; }
-        /* Pro card is already dark (#1d1d1f) — elevate it so it still stands out */
-        #pricing [style*="background: #1d1d1f"] { background: #2c2c2e !important; border-color: #2c2c2e !important; }
-
         /* Footer (index.html footer is bg-white — flip it to black) */
         footer.bg-white { background-color: #000000 !important; }
         footer .border-t,
         footer.border-t { border-color: rgba(255,255,255,0.10) !important; }
-        footer span[style*="#003085"] { color: #2997ff !important; }
         footer a[style*="rgba(15,23,60,0.04)"] {
           background: rgba(255,255,255,0.06) !important;
           border-color: rgba(255,255,255,0.12) !important;
         }
-
-        .headline-underline { color: #ff6b6b; }
       }
 
       .fc-pill {
@@ -643,43 +685,9 @@
         font-size: 14px;
         font-weight: 600;
         background: rgba(255, 255, 255, 0.55);
-        border: 1px solid rgba(14, 133, 255, 0.25);
-        color: #0e85ff;
+        border: 1px solid rgba(148, 101, 21, 0.3);
+        color: var(--gold-text);
         backdrop-filter: blur(4px);
-      }
-
-      /* Carousel phone (slightly smaller than hero phone) */
-      .fc-phone {
-        width: 260px;
-        height: 540px;
-        background: #0a0a0d;
-        border-radius: 40px;
-        padding: 6px;
-        box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.08) inset,
-          0 0 0 1.5px rgba(40, 40, 50, 0.9),
-          0 30px 60px -20px rgba(15, 23, 60, 0.35),
-          0 12px 32px -16px rgba(15, 23, 60, 0.25);
-        position: relative;
-      }
-      .fc-phone-screen {
-        width: 100%;
-        height: 100%;
-        border-radius: 34px;
-        overflow: hidden;
-        position: relative;
-        background: #ffffff;
-      }
-      .fc-phone-notch {
-        position: absolute;
-        top: 9px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 86px;
-        height: 24px;
-        background: #000;
-        border-radius: 16px;
-        z-index: 10;
       }
 
       /* ===== Locale switcher dropdown (now in footer; opens upward) ===== */
@@ -717,185 +725,40 @@
       .locale-item:hover { background: rgba(15, 23, 60, 0.05); }
       .locale-item .locale-name { font-weight: 600; margin-right: 6px; }
       .locale-item .locale-region { color: #6e6e73; font-size: 13px; flex: 1; }
-      .locale-item .locale-check { color: #0e85ff; font-weight: 700; opacity: 0; margin-left: 8px; }
+      .locale-item .locale-check { color: var(--gold-text); font-weight: 700; opacity: 0; margin-left: 8px; }
       .locale-item.active .locale-check { opacity: 1; }
     </style>
     <script src="/i18n.js" defer></script>
 
-    <!-- ===== Mobile waitlist (trigger button + modal) ===== -->
-    <style>
-      /* The Android waitlist trigger (#waitlistOpen) is now a Google Play
-         "Coming soon" badge and inherits the shared .store-badge styling
-         (pill shape + dark-mode inversion) — so no bespoke trigger CSS here.
-         (An #waitlistOpen id-rule would beat .store-badge and re-break the
-         dark-mode background, so we intentionally keep none.) */
-      .wl-trigger:hover { transform: translateY(-1px); }
-
-      .wl-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 90;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        background: rgba(10, 15, 25, 0.55);
-        backdrop-filter: blur(4px);
-      }
-      .wl-overlay.wl-open { display: flex; }
-      .wl-card {
-        width: 100%;
-        max-width: 440px;
-        max-height: calc(100vh - 32px);
-        overflow-y: auto;
-        background: #ffffff;
-        border-radius: 28px;
-        padding: 28px;
-        box-shadow: 0 30px 80px -20px rgba(15, 23, 60, 0.45);
-        position: relative;
-      }
-      .wl-close {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        width: 32px;
-        height: 32px;
-        border: 0;
-        border-radius: 9999px;
-        background: transparent;
-        color: #6e6e73;
-        font-size: 22px;
-        line-height: 1;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .wl-close:hover { background: rgba(15, 23, 60, 0.06); color: #1d1d1f; }
-      .wl-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 12px;
-        font-weight: 600;
-        color: #0e85ff;
-        border: 1px solid rgba(14, 133, 255, 0.35);
-        border-radius: 9999px;
-        padding: 5px 12px;
-      }
-      .wl-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #0a192f; margin: 0; }
-      .wl-title-spaced { margin-top: 18px; }
-      .wl-sub { font-size: 14px; line-height: 1.55; color: #6e6e73; margin: 8px 0 0; }
-      .wl-label { font-size: 12px; font-weight: 600; color: #6e6e73; margin: 18px 0 8px; }
-      .wl-input {
-        width: 100%;
-        border: 1px solid rgba(15, 23, 60, 0.14);
-        border-radius: 9999px;
-        padding: 12px 16px;
-        font-size: 15px;
-        color: #0a192f;
-        background: #f7f8fb;
-        font-family: inherit;
-      }
-      .wl-input:focus {
-        outline: none;
-        border-color: #0e85ff;
-        box-shadow: 0 0 0 3px rgba(14, 133, 255, 0.15);
-      }
-      .wl-chips { display: flex; gap: 8px; }
-      .wl-chip {
-        flex: 1;
-        text-align: center;
-        border: 1px solid rgba(15, 23, 60, 0.14);
-        border-radius: 9999px;
-        padding: 9px 0;
-        font-size: 13px;
-        font-weight: 600;
-        color: #6e6e73;
-        background: transparent;
-        cursor: pointer;
-        font-family: inherit;
-      }
-      .wl-chip:hover { border-color: rgba(15, 23, 60, 0.3); }
-      .wl-chip.sel { border-color: #0e85ff; color: #0e85ff; background: rgba(14, 133, 255, 0.08); }
-      .wl-primary {
-        width: 100%;
-        margin-top: 20px;
-        border: 0;
-        border-radius: 9999px;
-        padding: 13px;
-        font-size: 15px;
-        font-weight: 700;
-        color: #ffffff;
-        background: #0e85ff;
-        cursor: pointer;
-        font-family: inherit;
-        transition: background 0.15s ease;
-      }
-      .wl-primary:hover { background: #006bd9; }
-      .wl-primary:disabled { opacity: 0.6; cursor: default; }
-      .wl-error { color: #dc2626; font-size: 13px; margin-top: 8px; }
-      .wl-success { text-align: center; padding: 8px 0; }
-      .wl-success-ic {
-        width: 56px; height: 56px;
-        border-radius: 9999px;
-        background: #0e85ff;
-        color: #fff;
-        display: flex; align-items: center; justify-content: center;
-        margin: 0 auto 16px;
-        font-size: 28px;
-      }
-      .wl-hide { display: none !important; }
-
-      @media (prefers-color-scheme: dark) {
-        .wl-card { background: #1d1d1f; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6); }
-        .wl-title { color: #f5f5f7; }
-        .wl-sub, .wl-label { color: #a1a1a6; }
-        .wl-close { color: #a1a1a6; }
-        .wl-close:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
-        .wl-badge { color: #2997ff; border-color: rgba(41, 151, 255, 0.4); }
-        .wl-input { background: #2c2c2e; border-color: rgba(255, 255, 255, 0.12); color: #f5f5f7; }
-        .wl-chip { border-color: rgba(255, 255, 255, 0.14); color: #a1a1a6; }
-        .wl-chip.sel { border-color: #2997ff; color: #2997ff; background: rgba(41, 151, 255, 0.12); }
-      }
-    </style>
   </head>
   <body>
     <!-- ==================== NAV ==================== -->
     <header class="max-w-[1280px] mx-auto px-6 lg:px-10 pt-6">
       <nav class="flex items-center justify-between">
         <div class="flex items-center gap-10">
-          <!-- Logo -->
-          <a href="/" class="flex items-center gap-1.5">
-            <img
-              src="/images/deepvalues-diamond-icon.png"
-              alt="DeepValues logo"
-              width="28"
-              height="28"
-              class="object-contain brand-logo"
-            />
-            <span class="text-[22px] tracking-tight text-slate-700" style="font-family: 'Google Sans', sans-serif; font-weight: 700;">DeepValues.AI</span>
+          <!-- Logo: the ginkgo mark (the App Store icon), same asset as the footer -->
+          <a href="/" class="flex items-center gap-2.5">
+            <img src="/images/deepvalues-ginkgo-128.png" alt="" width="32" height="32" class="brand-mark" />
+            <span class="brand-word text-slate-900">DeepValues.AI</span>
           </a>
 
-          <!-- Menu -->
+          <!-- Menu: pricing and the API live in the app, the single source -->
           <ul class="hidden md:flex items-center gap-8 text-[15px] text-slate-700">
             <li><a href="#app" class="hover:text-slate-900 transition" data-i18n="nav.values">Values</a></li>
             <li><a href="#ai-intelligence" class="hover:text-slate-900 transition" data-i18n="nav.intelligence">Intelligence</a></li>
-            <li><a href="#pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
-            <li><a href="/api.html" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
+            <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
+            <li><a href="https://app.deepvalues.ai/developers" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
           </ul>
         </div>
 
-        <div class="flex items-center gap-4">
-          <a
-            href="https://app.deepvalues.ai"
-            class="cta-primary text-white text-[15px] font-semibold px-6 py-3 rounded-full"
-            data-i18n="nav.login"
-            data-ga-event="login_click"
-          >
-            Login / Sign Up
-          </a>
-        </div>
+        <a
+          href="https://app.deepvalues.ai/login?mode=signin"
+          class="nav-login text-[15px] font-semibold"
+          data-i18n="nav.login"
+          data-ga-event="login_click"
+        >
+          Log in
+        </a>
       </nav>
     </header>
 
@@ -904,50 +767,16 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <!-- LEFT: copy -->
         <div class="lg:col-span-6">
-          <!-- Supported by Microsoft, Amazon pill -->
-          <div class="inline-flex items-center gap-2.5 bg-white/70 backdrop-blur pill-shadow rounded-full pl-4 pr-5 py-2">
-            <span class="text-[11px] font-bold uppercase tracking-[1.5px] text-slate-600" data-i18n="hero.sponsoredBy"
-              >Sponsored by</span
-            >
-
-            <!-- Microsoft -->
-            <span class="inline-flex items-center gap-1.5">
-              <img
-                src="/images/microsoft-icon.png"
-                alt="Microsoft"
-                class="h-3.5 w-auto object-contain"
-              />
-              <span class="text-[14px] font-semibold text-slate-800">Microsoft</span>
-            </span>
-
-            <!-- Amazon Web Services -->
-            <span class="inline-flex items-center gap-1.5">
-              <picture>
-                <!-- Dark mode: white "aws" lettering so it stays visible on the dark pill -->
-                <source media="(prefers-color-scheme: dark)" srcset="/images/aws-con-dark.png" />
-                <img
-                  src="/images/aws-con.webp"
-                  alt="Amazon"
-                  class="h-5 w-auto object-contain"
-                />
-              </picture>
-              <span class="text-[14px] font-semibold text-slate-800">Amazon</span>
-            </span>
-          </div>
-
           <!-- Headline -->
-          <h1 class="headline mt-7 text-[44px] sm:text-[56px] lg:text-[68px]" data-i18n-html="hero.headlineHtml">
-            <span class="text-slate-900">
-              Wall Street works for
-              <span class="headline-underline">Wall Street</span>,
-            </span>
+          <h1 class="headline text-[44px] sm:text-[56px] lg:text-[68px]" data-i18n-html="hero.headlineHtml">
+            <span class="text-slate-900">Wall Street works for Wall Street.</span>
             <br />
-            <span class="text-slate-900">Not for </span><span style="color: #0e85ff;">You</span><span class="text-slate-900">.</span>
+            <span class="text-slate-900">Not for you.</span>
           </h1>
 
           <!-- Sub-headline: answers the headline's "works for Wall Street" -->
           <p class="mt-6 text-[22px] sm:text-[26px] font-bold text-slate-900" data-i18n-html="hero.subheadline">
-            <span style="color: #0e85ff;">DeepValues.AI</span> works for you.
+            DeepValues.AI works for you.
           </p>
 
           <!-- Subtitle -->
@@ -955,21 +784,16 @@
             The AI-native financial assistant that brings institutional-grade research, intrinsic-value tools, and Smart Money tracking to everyday investors — so you make better decisions.
           </p>
 
-          <!-- CTAs -->
-          <div class="mt-9 flex flex-col items-start gap-3 max-w-[240px]">
+          <!-- CTAs: one primary action (a free account); the App Store is the secondary -->
+          <div class="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3">
             <a
-              href="https://app.deepvalues.ai"
-              class="cta-primary text-white text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2 w-full"
+              href="https://app.deepvalues.ai/login?mode=signup&amp;ref=deepvalues.ai&amp;src=hero"
+              class="cta-primary text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2"
               data-i18n-attr="aria-label:hero.cta"
-              aria-label="Get Started"
+              aria-label="Get 3 free briefings"
               data-ga-event="get_started_click"
             >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect width="20" height="14" x="2" y="3" rx="2" />
-                <line x1="8" x2="16" y1="21" y2="21" />
-                <line x1="12" x2="12" y1="17" y2="21" />
-              </svg>
-              <span data-i18n="hero.cta">Get Started</span>
+              <span data-i18n="hero.cta">Get 3 free briefings</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="13 6 19 12 13 18" />
@@ -979,7 +803,7 @@
               href="https://apps.apple.com/app/id6775568608"
               target="_blank"
               rel="noopener noreferrer"
-              class="store-badge inline-flex items-center gap-2.5 transition w-full"
+              class="store-badge inline-flex items-center gap-2.5 transition"
               data-ga-event="appstore_download_click"
               aria-label="Download DeepValues on the App Store"
             >
@@ -991,492 +815,49 @@
                 <span class="store-badge__bottom">App Store</span>
               </span>
             </a>
-            <button
-              type="button"
-              id="waitlistOpen"
-              class="store-badge inline-flex items-center gap-2.5 transition w-full"
-              data-i18n-attr="aria-label:waitlist.cta"
-              aria-label="Join the Android waitlist"
-              data-ga-event="waitlist_open"
-            >
-              <svg class="store-badge__logo" viewBox="30 336.7 120.9 129.2" aria-hidden="true">
-                <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z"/>
-                <path fill="#FF3333" d="M99.1,401.1l-64.2,64.7c1.5,0.2,3.2-0.2,5.2-1.3c4.2-2.3,48.8-26.7,79.1-43.3L99.1,401.1L99.1,401.1z"/>
-                <path fill="#48FF48" d="M99.1,401.1l20.1-20.2c0,0-74.6-40.7-79.1-43.1c-1.7-1-3.6-1.3-5.3-1L99.1,401.1z"/>
-                <path fill="#3BCCFF" d="M99.1,401.1l-64.3-64.3c-2.6,0.6-4.8,2.9-4.8,7.6c0,7.5,0,107.5,0,113.8c0,4.3,1.7,7.4,4.9,7.7L99.1,401.1z"/>
-              </svg>
-              <span class="store-badge__text">
-                <span class="store-badge__top" data-i18n="hero.gplay">Coming soon on</span>
-                <span class="store-badge__bottom">Google Play</span>
-              </span>
-            </button>
           </div>
+          <p class="mt-3 text-[14px] leading-[1.5] text-slate-500 max-w-[460px]" data-i18n="hero.ctaNote">
+            9 free credits at signup, enough for 3 fresh briefings. No credit card.
+          </p>
+
+          <!-- Proof: facts the app's own public pages state (/gurus, /today, the App Store listing) -->
+          <ul class="proof mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 max-w-[560px] list-none">
+            <li data-i18n="proof.investors">93 investors tracked, from Buffett to Congress</li>
+            <li data-i18n="proof.filings">Every 13F read the day it lands</li>
+            <li data-i18n="proof.models">Three valuation models, math shown</li>
+            <li data-i18n="proof.languages">In 20 languages</li>
+          </ul>
 
         </div>
 
-        <!-- RIGHT: phones -->
+        <!-- RIGHT: the app as it ships today (App Store screenshots, iOS 1.18) -->
         <div class="lg:col-span-6">
-          <div class="phone-stage relative flex items-center justify-center">
-            <!-- Left/back phone (checkout) -->
-            <div
-              class="phone phone-dark absolute"
-              style="transform: rotate(-9deg) translate(-90px, 10px)"
-            >
-              <div class="phone-notch"></div>
+          <div class="phone-stage">
+            <figure class="phone phone-back">
               <div class="phone-screen">
-                <!-- status bar -->
-                <div class="phone-status text-white">
-                  <span>9:41</span>
-                  <span class="flex items-center gap-1">
-                    <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-                      <rect x="0" y="3" width="3" height="4" rx="0.5" fill="white" />
-                      <rect x="4" y="2" width="3" height="6" rx="0.5" fill="white" />
-                      <rect x="8" y="1" width="3" height="8" rx="0.5" fill="white" />
-                      <rect x="12" y="0" width="3" height="10" rx="0.5" fill="white" />
-                    </svg>
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                      <path
-                        d="M1 4.5C2.5 3 4.5 2 7 2C9.5 2 11.5 3 13 4.5"
-                        stroke="white"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M3.5 6.5C4.5 5.5 5.7 5 7 5C8.3 5 9.5 5.5 10.5 6.5"
-                        stroke="white"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                      />
-                      <circle cx="7" cy="8.5" r="0.9" fill="white" />
-                    </svg>
-                    <span class="inline-block w-5 h-2 border border-white rounded-[2px] relative">
-                      <span class="absolute inset-0.5 bg-white rounded-[1px]"></span>
-                    </span>
-                  </span>
-                </div>
-
-                <!-- Statement tabs -->
-                <div class="absolute left-3 right-3 top-[46px] flex items-end gap-4 text-[12px] border-b border-white/10 pb-1.5">
-                  <span class="font-bold text-white relative">Income<span class="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white"></span></span>
-                  <span class="text-white/45">Cash Flow</span>
-                  <span class="text-white/45">Balance Sheet</span>
-                </div>
-
-                <!-- Chart card -->
-                <div class="absolute left-3 right-3 top-[82px] rounded-2xl p-2.5" style="background: #1c1d20;">
-                  <!-- Range tabs -->
-                  <div class="flex items-center justify-between text-[10px]">
-                    <div class="flex gap-3">
-                      <span class="font-bold text-white relative pb-0.5">5Y<span class="absolute -bottom-0 left-0 w-3 h-[1.5px] bg-white"></span></span>
-                      <span class="text-white/45">ALL</span>
-                    </div>
-                    <div class="flex gap-3">
-                      <span class="text-white/45">Quarterly</span>
-                      <span class="font-bold text-white relative pb-0.5">Yearly<span class="absolute -bottom-0 left-0 right-0 h-[1.5px] bg-white"></span></span>
-                    </div>
-                  </div>
-
-                  <!-- Legend -->
-                  <div class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[8px] text-white/75 leading-tight">
-                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#8b7ee8;"></span>Revenue</span>
-                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#22d3ee;"></span>Net Income</span>
-                    <span class="flex items-center gap-1">
-                      <svg width="10" height="6" viewBox="0 0 10 6"><line x1="0" y1="3" x2="10" y2="3" stroke="#f59e0b" stroke-width="1.4"/><circle cx="5" cy="3" r="1.4" fill="#f59e0b"/></svg>
-                      Net Margin
-                    </span>
-                    <span class="flex items-center gap-1"><span class="inline-block w-2 h-2 rounded-sm" style="background:#34d399;"></span>FCF</span>
-                    <span class="flex items-center gap-1">
-                      <svg width="10" height="6" viewBox="0 0 10 6"><line x1="0" y1="3" x2="10" y2="3" stroke="#ec4899" stroke-width="1.4"/><circle cx="5" cy="3" r="1.4" fill="#ec4899"/></svg>
-                      FCF Margin
-                    </span>
-                  </div>
-
-                  <!-- Chart SVG -->
-                  <svg viewBox="0 0 240 150" class="mt-2 w-full" preserveAspectRatio="none">
-                    <!-- Grid lines -->
-                    <line x1="22" y1="20"  x2="218" y2="20"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
-                    <line x1="22" y1="55"  x2="218" y2="55"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
-                    <line x1="22" y1="90"  x2="218" y2="90"  stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
-                    <line x1="22" y1="125" x2="218" y2="125" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2"/>
-
-                    <!-- Y-axis left labels -->
-                    <text x="0" y="22"  font-size="7" fill="#9ca3af">$435B</text>
-                    <text x="0" y="57"  font-size="7" fill="#9ca3af">$300B</text>
-                    <text x="0" y="92"  font-size="7" fill="#9ca3af">$150B</text>
-                    <text x="0" y="127" font-size="7" fill="#9ca3af">$0</text>
-                    <!-- Y-axis right labels -->
-                    <text x="220" y="22"  font-size="7" fill="#9ca3af">35%</text>
-                    <text x="220" y="48"  font-size="7" fill="#9ca3af">27%</text>
-                    <text x="220" y="86"  font-size="7" fill="#9ca3af">18%</text>
-                    <text x="220" y="111" font-size="7" fill="#9ca3af">9%</text>
-                    <text x="220" y="127" font-size="7" fill="#9ca3af">0%</text>
-
-                    <!-- Bars: 5 periods × 3 series. baseline y=125 -->
-                    <!-- '22 -->
-                    <rect x="32"  y="63"  width="6" height="62" fill="#8b7ee8" rx="1"/>
-                    <rect x="39"  y="111" width="6" height="14" fill="#22d3ee" rx="1"/>
-                    <rect x="46"  y="111" width="6" height="14" fill="#34d399" rx="1"/>
-                    <!-- '23 -->
-                    <rect x="71"  y="51"  width="6" height="74" fill="#8b7ee8" rx="1"/>
-                    <rect x="78"  y="106" width="6" height="19" fill="#22d3ee" rx="1"/>
-                    <rect x="85"  y="109" width="6" height="16" fill="#34d399" rx="1"/>
-                    <!-- '24 -->
-                    <rect x="110" y="37"  width="6" height="88" fill="#8b7ee8" rx="1"/>
-                    <rect x="117" y="102" width="6" height="23" fill="#22d3ee" rx="1"/>
-                    <rect x="124" y="108" width="6" height="17" fill="#34d399" rx="1"/>
-                    <!-- '25 -->
-                    <rect x="149" y="25"  width="6" height="100" fill="#8b7ee8" rx="1"/>
-                    <rect x="156" y="94"  width="6" height="31" fill="#22d3ee" rx="1"/>
-                    <rect x="163" y="108" width="6" height="17" fill="#34d399" rx="1"/>
-                    <!-- TTM -->
-                    <rect x="188" y="26"  width="6" height="99" fill="#8b7ee8" rx="1"/>
-                    <rect x="195" y="95"  width="6" height="30" fill="#22d3ee" rx="1"/>
-                    <rect x="202" y="111" width="6" height="14" fill="#34d399" rx="1"/>
-
-                    <!-- Net margin line (orange) -->
-                    <polyline points="41,76 80,57 119,40 158,29 197,30" fill="none" stroke="#f59e0b" stroke-width="1.6" stroke-linejoin="round"/>
-                    <g fill="#1c1d20" stroke="#f59e0b" stroke-width="1.4">
-                      <circle cx="41"  cy="76" r="2.2"/>
-                      <circle cx="80"  cy="57" r="2.2"/>
-                      <circle cx="119" cy="40" r="2.2"/>
-                      <circle cx="158" cy="29" r="2.2"/>
-                      <circle cx="197" cy="30" r="2.2"/>
-                    </g>
-
-                    <!-- FCF margin line (pink) -->
-                    <polyline points="41,78 80,75 119,80 158,86 197,90" fill="none" stroke="#ec4899" stroke-width="1.6" stroke-linejoin="round"/>
-                    <g fill="#1c1d20" stroke="#ec4899" stroke-width="1.4">
-                      <circle cx="41"  cy="78" r="2.2"/>
-                      <circle cx="80"  cy="75" r="2.2"/>
-                      <circle cx="119" cy="80" r="2.2"/>
-                      <circle cx="158" cy="86" r="2.2"/>
-                      <circle cx="197" cy="90" r="2.2"/>
-                    </g>
-
-                    <!-- X-axis labels -->
-                    <text x="34"  y="142" font-size="7" fill="#9ca3af">'22</text>
-                    <text x="73"  y="142" font-size="7" fill="#9ca3af">'23</text>
-                    <text x="112" y="142" font-size="7" fill="#9ca3af">'24</text>
-                    <text x="151" y="142" font-size="7" fill="#9ca3af">'25</text>
-                    <text x="188" y="142" font-size="7" fill="#9ca3af">TTM</text>
-                  </svg>
-                </div>
-
-                <!-- Metric chips -->
-                <div class="absolute left-3 right-3 top-[330px] flex flex-wrap gap-1">
-                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#241f4a; color:#a89cff;">Revenue</span>
-                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#0e3a44; color:#5ee0f0;">Net Income</span>
-                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#3a2a10; color:#f5b14b;">Net Margin</span>
-                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#10301f; color:#5fdfa6;">Free Cash Flow</span>
-                  <span class="text-[8px] font-bold rounded-md px-1.5 py-0.5" style="background:#3a1428; color:#f06bb0;">FCF Margin</span>
-                </div>
-
-                <!-- Intrinsic Value title -->
-                <p class="absolute left-3 right-3 top-[368px] text-[13px] font-extrabold text-white">
-                  Intrinsic Value Calculator
-                </p>
-
-                <!-- Method tabs -->
-                <div class="absolute left-3 right-3 top-[392px] flex items-center gap-3 text-[10px] border-b border-white/10 pb-1.5">
-                  <span class="font-bold text-white relative">Cash Flow<span class="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-white"></span></span>
-                  <span class="text-white/45">Buffett</span>
-                  <span class="text-white/45">Damodaran</span>
-                </div>
-
-                <!-- Valuation slider -->
-                <div class="absolute left-3 right-3 top-[428px]">
-                  <div class="relative h-3 rounded-full" style="background: linear-gradient(90deg, #2bd17e 0%, #f5d04a 50%, #ef4444 100%);">
-                    <!-- Cash Flow marker (~35%) -->
-                    <div class="absolute -top-1.5" style="left: 32%;">
-                      <div class="w-1 h-6 bg-white rounded-full"></div>
-                    </div>
-                    <!-- Current price marker (right end) -->
-                    <div class="absolute -top-1.5" style="right: 0;">
-                      <div class="w-1 h-6 bg-white rounded-full"></div>
-                    </div>
-                  </div>
-                  <!-- $135 callout above the cash flow marker -->
-                  <div class="absolute -top-9 rounded-lg px-2 py-1 border border-white/15" style="left: 18%; background:#1c1d20;">
-                    <p class="text-[10px] font-extrabold text-white leading-none">$135</p>
-                    <p class="text-[7px] text-white/55 leading-none mt-0.5">Cash Flow Method</p>
-                  </div>
-                  <!-- $401 callout above the current price marker -->
-                  <div class="absolute -top-9 rounded-lg px-2 py-1 border" style="right: -4px; background:#1c1d20; border-color:#ef4444;">
-                    <p class="text-[10px] font-extrabold leading-none" style="color:#ef4444;">$401</p>
-                    <p class="text-[7px] leading-none mt-0.5" style="color:#ef4444;">Current Price</p>
-                  </div>
-                  <!-- Conservative / Optimistic labels -->
-                  <div class="mt-2 flex items-center justify-between text-[8px]">
-                    <div>
-                      <p class="font-bold leading-none" style="color:#2bd17e;">$73</p>
-                      <p class="leading-none mt-0.5" style="color:#2bd17e;">Conservative</p>
-                    </div>
-                    <div style="margin-left: 28%;">
-                      <p class="font-bold leading-none" style="color:#e4b800;">$284</p>
-                      <p class="leading-none mt-0.5" style="color:#e4b800;">Optimistic</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- How we estimated it -->
-                <div class="absolute left-3 right-3 top-[504px] border-t border-white/10 pt-2">
-                  <p class="text-[8px] font-bold tracking-[1px] text-white/55">HOW WE ESTIMATED IT</p>
-                  <div class="mt-1 flex items-start justify-between gap-2">
-                    <p class="text-[8px] text-white/60 leading-tight">Open to see the detailed calculation steps for the current method.</p>
-                    <span class="text-white/55 text-[12px] leading-none">+</span>
-                  </div>
-                </div>
+                <img
+                  src="/images/app/macro-buffett-indicator.webp"
+                  width="560"
+                  height="1215"
+                  decoding="async"
+                  alt="The DeepValues iPhone app: the Buffett Indicator gauge on the Macro tab"
+                />
               </div>
-            </div>
-
-            <!-- Right/front phone (switch & save) -->
-            <div
-              class="phone phone-light absolute"
-              style="transform: rotate(7deg) translate(110px, -30px)"
-            >
-              <div class="phone-notch"></div>
+              <span class="phone-island" aria-hidden="true"></span>
+            </figure>
+            <figure class="phone phone-front">
               <div class="phone-screen">
-                <!-- status bar -->
-                <div class="phone-status text-slate-900">
-                  <span>9:41</span>
-                  <span class="flex items-center gap-1">
-                    <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
-                      <rect x="0" y="3" width="3" height="4" rx="0.5" fill="#0A192F" />
-                      <rect x="4" y="2" width="3" height="6" rx="0.5" fill="#0A192F" />
-                      <rect x="8" y="1" width="3" height="8" rx="0.5" fill="#0A192F" />
-                      <rect x="12" y="0" width="3" height="10" rx="0.5" fill="#0A192F" />
-                    </svg>
-                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                      <path
-                        d="M1 4.5C2.5 3 4.5 2 7 2C9.5 2 11.5 3 13 4.5"
-                        stroke="#0A192F"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M3.5 6.5C4.5 5.5 5.7 5 7 5C8.3 5 9.5 5.5 10.5 6.5"
-                        stroke="#0A192F"
-                        stroke-width="1.2"
-                        stroke-linecap="round"
-                      />
-                      <circle cx="7" cy="8.5" r="0.9" fill="#0A192F" />
-                    </svg>
-                    <span class="inline-block w-5 h-2 border border-slate-900 rounded-[2px] relative">
-                      <span class="absolute inset-0.5 bg-slate-900 rounded-[1px]"></span>
-                    </span>
-                  </span>
-                </div>
-
-                <!-- Watchlist header -->
-                <div class="absolute left-4 right-4 top-[52px]">
-                  <h3 class="text-[22px] font-extrabold text-slate-900">Watchlist</h3>
-                </div>
-
-                <!-- Search bar -->
-                <div class="absolute left-4 right-4 top-[96px]">
-                  <div class="bg-slate-100 rounded-full px-3 py-2 flex items-center gap-2">
-                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-                      <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.5" />
-                      <path d="M11 11l3 3" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" />
-                    </svg>
-                    <span class="text-[10px] text-slate-400">Search stocks to add or delete</span>
-                  </div>
-                </div>
-
-                <!-- Stock list -->
-                <div class="absolute left-4 right-4 top-[136px] space-y-2.5">
-                  <!-- AAPL -->
-                  <div class="flex items-center justify-between">
-                    <div class="flex-shrink-0">
-                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AAPL</p>
-                      <p class="text-[9px] text-slate-400">Apple Inc.</p>
-                    </div>
-                    <div class="flex gap-1">
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                        <p class="text-[10px] font-bold text-orange-500">36.1</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                        <p class="text-[10px] font-bold text-emerald-500">171.4%</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                        <p class="text-[10px] font-bold text-emerald-500">83.2%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- MSFT -->
-                  <div class="flex items-center justify-between">
-                    <div class="flex-shrink-0">
-                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">MSFT</p>
-                      <p class="text-[9px] text-slate-400">MICROSOFT...</p>
-                    </div>
-                    <div class="flex gap-1">
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                        <p class="text-[10px] font-bold text-orange-500">24.3</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                        <p class="text-[10px] font-bold text-emerald-500">33.3%</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                        <p class="text-[10px] font-bold text-emerald-500">32.4%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- GOOGL -->
-                  <div class="flex items-center justify-between">
-                    <div class="flex-shrink-0">
-                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">GOOGL</p>
-                      <p class="text-[9px] text-slate-400">Alphabet Inc.</p>
-                    </div>
-                    <div class="flex gap-1">
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                        <p class="text-[10px] font-bold text-orange-500">30.6</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                        <p class="text-[10px] font-bold text-emerald-500">35.7%</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                        <p class="text-[10px] font-bold text-emerald-500">27.3%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- AMZN -->
-                  <div class="flex items-center justify-between">
-                    <div class="flex-shrink-0">
-                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AMZN</p>
-                      <p class="text-[9px] text-slate-400">AMAZON INC</p>
-                    </div>
-                    <div class="flex gap-1">
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                        <p class="text-[10px] font-bold text-orange-500">32.1</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                        <p class="text-[10px] font-bold text-emerald-500">22.3%</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                        <p class="text-[10px] font-bold text-emerald-500">18.5%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- JNJ -->
-                  <div class="flex items-center justify-between">
-                    <div class="flex-shrink-0">
-                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">JNJ</p>
-                      <p class="text-[9px] text-slate-400">Johnson &amp; J.</p>
-                    </div>
-                    <div class="flex gap-1">
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                        <p class="text-[10px] font-bold text-orange-500">26.6</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                        <p class="text-[10px] font-bold text-emerald-500">35.0%</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                        <p class="text-[10px] font-bold text-emerald-500">25.3%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- V -->
-                  <div class="flex items-center justify-between">
-                    <div class="flex-shrink-0">
-                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">V</p>
-                      <p class="text-[9px] text-slate-400">VISA INC.</p>
-                    </div>
-                    <div class="flex gap-1">
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                        <p class="text-[10px] font-bold text-orange-500">32.6</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                        <p class="text-[10px] font-bold text-emerald-500">52.1%</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                        <p class="text-[10px] font-bold text-emerald-500">42.3%</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- WMT -->
-                  <div class="flex items-center justify-between">
-                    <div class="flex-shrink-0">
-                      <p class="text-[12px] font-extrabold text-slate-900 leading-tight">WMT</p>
-                      <p class="text-[9px] text-slate-400">Walmart Inc.</p>
-                    </div>
-                    <div class="flex gap-1">
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                        <p class="text-[10px] font-bold text-rose-500">48.5</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                        <p class="text-[10px] font-bold text-emerald-500">23.0%</p>
-                      </div>
-                      <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                        <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                        <p class="text-[10px] font-bold text-emerald-500">17.8%</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- bottom tab bar -->
-                <div
-                  class="absolute bottom-0 left-0 right-0 h-14 bg-white border-t border-slate-100 flex items-center justify-around px-2"
-                >
-                  <div class="flex flex-col items-center gap-0.5" style="color: #0e85ff;">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <path d="M3 14V8M8 14V4M13 14V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                    </svg>
-                    <span class="text-[9px] font-semibold">Values</span>
-                  </div>
-                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <rect x="3" y="5" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5" />
-                      <circle cx="7" cy="9" r="0.9" fill="currentColor" />
-                      <circle cx="11" cy="9" r="0.9" fill="currentColor" />
-                      <path d="M9 2v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                      <circle cx="9" cy="2" r="0.8" fill="currentColor" />
-                    </svg>
-                    <span class="text-[9px]">Intelligence</span>
-                  </div>
-                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <path d="M3 4h12v8H7l-4 3V4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                    </svg>
-                    <span class="text-[9px]">Feedback</span>
-                  </div>
-                  <div class="flex flex-col items-center gap-0.5 text-slate-400">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1.5" />
-                      <circle cx="9" cy="7.5" r="2" stroke="currentColor" stroke-width="1.5" />
-                      <path d="M4.5 14.5c1-1.8 2.7-2.8 4.5-2.8s3.5 1 4.5 2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                    </svg>
-                    <span class="text-[9px]">Me</span>
-                  </div>
-                </div>
+                <img
+                  src="/images/app/intrinsic-value-nvda.webp"
+                  width="560"
+                  height="1215"
+                  fetchpriority="high"
+                  decoding="async"
+                  alt="The DeepValues iPhone app: NVIDIA's intrinsic value by the Buffett method, next to its price"
+                />
               </div>
-            </div>
+              <span class="phone-island" aria-hidden="true"></span>
+            </figure>
           </div>
         </div>
       </div>
@@ -1530,9 +911,6 @@
             <div id="fcDots" class="flex items-center gap-2" role="tablist">
               <button class="fc-dot active" data-index="0" aria-label="Slide 1"></button>
               <button class="fc-dot" data-index="1" aria-label="Slide 2"></button>
-              <button class="fc-dot" data-index="2" aria-label="Slide 3"></button>
-              <button class="fc-dot" data-index="3" aria-label="Slide 4"></button>
-              <button class="fc-dot" data-index="4" aria-label="Slide 5"></button>
             </div>
             <button id="fcNext" class="fc-arrow" aria-label="Next feature">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -1551,293 +929,26 @@
         <!-- Stage -->
         <div class="fc-stage mt-12 relative">
           <div id="fcTrack" class="fc-track">
-            <!-- ===== SLIDE 1: Values Watchlist ===== -->
-            <article class="fc-slide fc-gradient-1">
-              <div
-                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
-              >
-                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
-                  <div class="fc-phone">
-                    <div class="fc-phone-notch"></div>
-                    <div class="fc-phone-screen" style="background:#f3f7f4; color:#0a192f;">
-                      <div class="absolute left-4 right-4 top-[48px]">
-                        <h4 class="text-[22px] font-extrabold text-slate-900">Watchlist</h4>
-                      </div>
-                      <!-- search -->
-                      <div class="absolute left-4 right-4 top-[88px]">
-                        <div class="bg-white rounded-full px-3 py-2 flex items-center gap-2 border border-slate-100">
-                          <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-                            <circle cx="7" cy="7" r="5" stroke="#94A3B8" stroke-width="1.5" />
-                            <path d="M11 11l3 3" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" />
-                          </svg>
-                          <span class="text-[10px] text-slate-400">Search to add stocks</span>
-                        </div>
-                      </div>
-                      <!-- list -->
-                      <div class="absolute left-4 right-4 top-[128px] space-y-2.5">
-                        <!-- AAPL -->
-                        <div class="flex items-center justify-between">
-                          <div>
-                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">AAPL</p>
-                            <p class="text-[9px] text-slate-400">Apple Inc.</p>
-                          </div>
-                          <div class="flex gap-1">
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                              <p class="text-[10px] font-bold text-orange-500">36.1</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                              <p class="text-[10px] font-bold text-emerald-500">171%</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                              <p class="text-[10px] font-bold text-emerald-500">83.2%</p>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- MSFT -->
-                        <div class="flex items-center justify-between">
-                          <div>
-                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">MSFT</p>
-                            <p class="text-[9px] text-slate-400">Microsoft</p>
-                          </div>
-                          <div class="flex gap-1">
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                              <p class="text-[10px] font-bold text-orange-500">24.3</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                              <p class="text-[10px] font-bold text-emerald-500">33.3%</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                              <p class="text-[10px] font-bold text-emerald-500">32.4%</p>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- GOOGL -->
-                        <div class="flex items-center justify-between">
-                          <div>
-                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">GOOGL</p>
-                            <p class="text-[9px] text-slate-400">Alphabet Inc.</p>
-                          </div>
-                          <div class="flex gap-1">
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                              <p class="text-[10px] font-bold text-orange-500">30.6</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                              <p class="text-[10px] font-bold text-emerald-500">35.7%</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                              <p class="text-[10px] font-bold text-emerald-500">27.3%</p>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- V -->
-                        <div class="flex items-center justify-between">
-                          <div>
-                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">V</p>
-                            <p class="text-[9px] text-slate-400">Visa Inc.</p>
-                          </div>
-                          <div class="flex gap-1">
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                              <p class="text-[10px] font-bold text-orange-500">32.6</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                              <p class="text-[10px] font-bold text-emerald-500">52.1%</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                              <p class="text-[10px] font-bold text-emerald-500">42.3%</p>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- JNJ -->
-                        <div class="flex items-center justify-between">
-                          <div>
-                            <p class="text-[12px] font-extrabold text-slate-900 leading-tight">JNJ</p>
-                            <p class="text-[9px] text-slate-400">Johnson & J.</p>
-                          </div>
-                          <div class="flex gap-1">
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">P/E</p>
-                              <p class="text-[10px] font-bold text-orange-500">26.6</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROE</p>
-                              <p class="text-[10px] font-bold text-emerald-500">35.0%</p>
-                            </div>
-                            <div class="bg-white border border-slate-100 rounded-md px-1.5 py-1 text-center w-[42px]">
-                              <p class="text-[7px] font-bold text-slate-500">ROIC</p>
-                              <p class="text-[10px] font-bold text-emerald-500">25.3%</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
-                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]" data-i18n="features.slide1.title">
-                    Values Watchlist
-                  </h3>
-                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
-                    <span class="fc-pill" data-i18n="features.slide1.pill1"
-                      >Build Your Lens
-                    </span>
-                    <span class="fc-pill" data-i18n="features.slide1.pill2"
-                      >Judge by Color
-                    </span>
-                    <span class="fc-pill" data-i18n="features.slide1.pill3"
-                      >One-Glance Compare
-                    </span>
-                  </div>
-                  <ul
-                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
-                  >
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide1.bullet1">Intrinsic-value investors aren't price-watchers — we're value-watchers.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide1.bullet2">Each value is colored against the thresholds Buffett, Munger, Greenblatt, and other legends actually used.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide1.bullet3">Your whole watchlist resolves into a verdict at a glance.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            <!-- ===== SLIDE 2: Intrinsic Value ===== -->
+            <!-- ===== SLIDE 1: Intrinsic Value ===== -->
             <article class="fc-slide fc-gradient-2">
               <div
                 class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
               >
-                <!-- Phone -->
+                <!-- Phone: App Store screenshot -->
                 <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
-                  <div class="fc-phone">
-                    <div class="fc-phone-notch"></div>
-                    <div class="fc-phone-screen" style="background:#0a0a0d; color:#fff;">
-                      <!-- header -->
-                      <div class="absolute left-0 right-0 top-[44px] px-5">
-                        <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">DEEP VALUE</p>
-                        <p class="mt-1 text-[20px] font-extrabold text-white">Intrinsic Value</p>
-                      </div>
-                      <!-- method tabs -->
-                      <div
-                        class="absolute left-5 right-5 top-[112px] flex items-center gap-4 text-[11px] border-b border-white/10 pb-2"
-                      >
-                        <span class="font-bold text-white relative"
-                          >Cash Flow<span
-                            class="absolute -bottom-2 left-0 right-0 h-[2px] bg-white"
-                          ></span
-                        ></span>
-                        <span class="text-white/45">Buffett</span>
-                        <span class="text-white/45">Damodaran</span>
-                      </div>
-                      <!-- valuation slider -->
-                      <div class="absolute left-5 right-5 top-[170px]">
-                        <div
-                          class="relative h-3 rounded-full"
-                          style="background: linear-gradient(90deg, #2bd17e 0%, #f5d04a 50%, #ef4444 100%);"
-                        >
-                          <div class="absolute -top-1.5" style="left: 30%;">
-                            <div class="w-1 h-6 bg-white rounded-full"></div>
-                          </div>
-                          <div class="absolute -top-1.5" style="right: 0;">
-                            <div class="w-1 h-6 bg-white rounded-full"></div>
-                          </div>
-                        </div>
-                        <div
-                          class="absolute -top-10 rounded-lg px-2 py-1 border border-white/15"
-                          style="left: 14%; background: #1c1d20;"
-                        >
-                          <p class="text-[11px] font-extrabold text-white leading-none">$135</p>
-                          <p class="text-[8px] text-white/55 leading-none mt-0.5">Fair Value</p>
-                        </div>
-                        <div
-                          class="absolute -top-10 rounded-lg px-2 py-1 border"
-                          style="right: -4px; background: #1c1d20; border-color: #ef4444;"
-                        >
-                          <p class="text-[11px] font-extrabold leading-none" style="color: #ef4444;">$401</p>
-                          <p class="text-[8px] leading-none mt-0.5" style="color: #ef4444;">Current</p>
-                        </div>
-                        <div class="mt-3 flex items-center justify-between text-[9px]">
-                          <div>
-                            <p class="font-bold leading-none" style="color: #2bd17e;">$73</p>
-                            <p class="leading-none mt-0.5" style="color: #2bd17e;">Conservative</p>
-                          </div>
-                          <div style="margin-left: 28%;">
-                            <p class="font-bold leading-none" style="color: #e4b800;">$284</p>
-                            <p class="leading-none mt-0.5" style="color: #e4b800;">Optimistic</p>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- summary cards -->
-                      <div class="absolute left-5 right-5 top-[270px] space-y-2">
-                        <div
-                          class="rounded-2xl p-3 flex items-center justify-between"
-                          style="background: #15171b;"
-                        >
-                          <div>
-                            <p class="text-[9px] text-white/55 leading-none">DCF Estimate</p>
-                            <p class="mt-1 text-[16px] font-extrabold text-white">$135.20</p>
-                          </div>
-                          <span
-                            class="text-[10px] font-bold rounded-md px-2 py-1"
-                            style="background: #10301f; color: #5fdfa6;"
-                            >−66%</span
-                          >
-                        </div>
-                        <div
-                          class="rounded-2xl p-3 flex items-center justify-between"
-                          style="background: #15171b;"
-                        >
-                          <div>
-                            <p class="text-[9px] text-white/55 leading-none">Owner Earnings</p>
-                            <p class="mt-1 text-[16px] font-extrabold text-white">$148.70</p>
-                          </div>
-                          <span
-                            class="text-[10px] font-bold rounded-md px-2 py-1"
-                            style="background: #10301f; color: #5fdfa6;"
-                            >−63%</span
-                          >
-                        </div>
-                        <div
-                          class="rounded-2xl p-3 flex items-center justify-between"
-                          style="background: #15171b;"
-                        >
-                          <div>
-                            <p class="text-[9px] text-white/55 leading-none">Damodaran Method</p>
-                            <p class="mt-1 text-[16px] font-extrabold text-white">$162.40</p>
-                          </div>
-                          <span
-                            class="text-[10px] font-bold rounded-md px-2 py-1"
-                            style="background: #10301f; color: #5fdfa6;"
-                            >−60%</span
-                          >
-                        </div>
-                      </div>
-                      <!-- footnote -->
-                      <div class="absolute left-5 right-5 bottom-5 border-t border-white/10 pt-2">
-                        <p class="text-[8px] font-bold tracking-[1px] text-white/55">HOW WE ESTIMATED IT</p>
-                        <p class="text-[8px] text-white/55 mt-1 leading-tight">
-                          Three independent models cross-checked with peer benchmarks.
-                        </p>
-                      </div>
+                  <figure class="phone phone-slide">
+                    <div class="phone-screen">
+                      <img
+                        src="/images/app/intrinsic-value-nvda.webp"
+                        width="560"
+                        height="1215"
+                        loading="lazy"
+                        decoding="async"
+                        alt="The DeepValues iPhone app: NVIDIA's intrinsic value by the Buffett method, next to its price"
+                      />
                     </div>
-                  </div>
+                    <span class="phone-island" aria-hidden="true"></span>
+                  </figure>
                 </div>
                 <!-- Copy -->
                 <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
@@ -1845,15 +956,9 @@
                     Intrinsic Value Calculator
                   </h3>
                   <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
-                    <span class="fc-pill" data-i18n="features.slide2.pill1"
-                      >Margin of Safety
-                    </span>
-                    <span class="fc-pill" data-i18n="features.slide2.pill2"
-                      >Three Models
-                    </span>
-                    <span class="fc-pill" data-i18n="features.slide2.pill3"
-                      >Cross-Checked
-                    </span>
+                    <span class="fc-pill" data-i18n="features.slide2.pill1">Margin of Safety</span>
+                    <span class="fc-pill" data-i18n="features.slide2.pill2">Three Models</span>
+                    <span class="fc-pill" data-i18n="features.slide2.pill3">Math Shown</span>
                   </div>
                   <ul
                     class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
@@ -1864,7 +969,7 @@
                     </li>
                     <li class="flex items-start gap-3">
                       <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide2.bullet2">Three independent valuations — DCF, Owner Earnings, and Damodaran — cross-checked against peers.</span>
+                      <span data-i18n="features.slide2.bullet2">Three independent valuations — free cash flow (DCF), Buffett's owner earnings, and Damodaran — with every input shown.</span>
                     </li>
                     <li class="flex items-start gap-3">
                       <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
@@ -1875,227 +980,36 @@
               </div>
             </article>
 
-            <!-- ===== SLIDE 3: Financials Deep Dive ===== -->
-            <article class="fc-slide fc-gradient-3">
-              <div
-                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
-              >
-                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
-                  <div class="fc-phone">
-                    <div class="fc-phone-notch"></div>
-                    <div class="fc-phone-screen" style="background:#0a0a0d; color:#fff;">
-                      <div
-                        class="absolute left-4 right-4 top-[44px] flex items-end gap-4 text-[12px] border-b border-white/10 pb-2"
-                      >
-                        <span class="font-bold text-white relative"
-                          >Income<span
-                            class="absolute -bottom-2 left-0 right-0 h-[2px] bg-white"
-                          ></span
-                        ></span>
-                        <span class="text-white/45">Cash Flow</span>
-                        <span class="text-white/45">Balance Sheet</span>
-                      </div>
-                      <div
-                        class="absolute left-4 right-4 top-[90px] rounded-2xl p-3"
-                        style="background: #1c1d20;"
-                      >
-                        <div class="flex items-center justify-between text-[10px]">
-                          <div class="flex gap-3">
-                            <span class="font-bold text-white relative pb-0.5"
-                              >5Y<span class="absolute -bottom-0 left-0 w-3 h-[1.5px] bg-white"></span
-                            ></span>
-                            <span class="text-white/45">ALL</span>
-                          </div>
-                          <div class="flex gap-3">
-                            <span class="text-white/45">Quarterly</span>
-                            <span class="font-bold text-white relative pb-0.5"
-                              >Yearly<span class="absolute -bottom-0 left-0 right-0 h-[1.5px] bg-white"></span
-                            ></span>
-                          </div>
-                        </div>
-                        <div
-                          class="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[8px] text-white/75 leading-tight"
-                        >
-                          <span class="flex items-center gap-1"
-                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #8b7ee8;"></span>Revenue</span
-                          >
-                          <span class="flex items-center gap-1"
-                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #22d3ee;"></span>Net Income</span
-                          >
-                          <span class="flex items-center gap-1"
-                            ><span class="inline-block w-2 h-2 rounded-sm" style="background: #34d399;"></span>FCF</span
-                          >
-                        </div>
-                        <svg viewBox="0 0 240 150" class="mt-2 w-full" preserveAspectRatio="none">
-                          <line x1="22" y1="20" x2="218" y2="20" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
-                          <line x1="22" y1="55" x2="218" y2="55" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
-                          <line x1="22" y1="90" x2="218" y2="90" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
-                          <line x1="22" y1="125" x2="218" y2="125" stroke="#ffffff" stroke-opacity="0.08" stroke-dasharray="2,2" />
-                          <text x="0" y="22" font-size="7" fill="#9ca3af">$435B</text>
-                          <text x="0" y="57" font-size="7" fill="#9ca3af">$300B</text>
-                          <text x="0" y="92" font-size="7" fill="#9ca3af">$150B</text>
-                          <text x="0" y="127" font-size="7" fill="#9ca3af">$0</text>
-                          <rect x="32" y="63" width="6" height="62" fill="#8b7ee8" rx="1" />
-                          <rect x="39" y="111" width="6" height="14" fill="#22d3ee" rx="1" />
-                          <rect x="46" y="111" width="6" height="14" fill="#34d399" rx="1" />
-                          <rect x="71" y="51" width="6" height="74" fill="#8b7ee8" rx="1" />
-                          <rect x="78" y="106" width="6" height="19" fill="#22d3ee" rx="1" />
-                          <rect x="85" y="109" width="6" height="16" fill="#34d399" rx="1" />
-                          <rect x="110" y="37" width="6" height="88" fill="#8b7ee8" rx="1" />
-                          <rect x="117" y="102" width="6" height="23" fill="#22d3ee" rx="1" />
-                          <rect x="124" y="108" width="6" height="17" fill="#34d399" rx="1" />
-                          <rect x="149" y="25" width="6" height="100" fill="#8b7ee8" rx="1" />
-                          <rect x="156" y="94" width="6" height="31" fill="#22d3ee" rx="1" />
-                          <rect x="163" y="108" width="6" height="17" fill="#34d399" rx="1" />
-                          <rect x="188" y="26" width="6" height="99" fill="#8b7ee8" rx="1" />
-                          <rect x="195" y="95" width="6" height="30" fill="#22d3ee" rx="1" />
-                          <rect x="202" y="111" width="6" height="14" fill="#34d399" rx="1" />
-                          <polyline
-                            points="41,76 80,57 119,40 158,29 197,30"
-                            fill="none"
-                            stroke="#f59e0b"
-                            stroke-width="1.6"
-                            stroke-linejoin="round"
-                          />
-                          <text x="34" y="142" font-size="7" fill="#9ca3af">'22</text>
-                          <text x="73" y="142" font-size="7" fill="#9ca3af">'23</text>
-                          <text x="112" y="142" font-size="7" fill="#9ca3af">'24</text>
-                          <text x="151" y="142" font-size="7" fill="#9ca3af">'25</text>
-                          <text x="188" y="142" font-size="7" fill="#9ca3af">TTM</text>
-                        </svg>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[340px] grid grid-cols-3 gap-2">
-                        <div class="rounded-lg p-2" style="background: #15171b;">
-                          <p class="text-[8px] text-white/55 leading-none">Revenue</p>
-                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$394B</p>
-                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+8.1% YoY</p>
-                        </div>
-                        <div class="rounded-lg p-2" style="background: #15171b;">
-                          <p class="text-[8px] text-white/55 leading-none">Net Income</p>
-                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$103B</p>
-                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+11.4% YoY</p>
-                        </div>
-                        <div class="rounded-lg p-2" style="background: #15171b;">
-                          <p class="text-[8px] text-white/55 leading-none">FCF</p>
-                          <p class="mt-1 text-[12px] font-extrabold text-white leading-none">$108B</p>
-                          <p class="mt-1 text-[8px]" style="color: #5fdfa6;">+9.6% YoY</p>
-                        </div>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[420px] rounded-2xl p-3" style="background: #15171b;">
-                        <p class="text-[9px] font-bold tracking-[1px] text-white/55">5-YEAR TREND</p>
-                        <p class="mt-1 text-[11px] text-white leading-snug">
-                          Revenue compounding at <span class="font-bold">11.2%</span>. Net
-                          margin expanding from 21% to 26%.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
-                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]" data-i18n="features.slide3.title">
-                    Financials Deep Dive
-                  </h3>
-                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
-                    <span class="fc-pill" data-i18n="features.slide3.pill1"
-                      >Whole-Life Data
-                    </span>
-                    <span class="fc-pill" data-i18n="features.slide3.pill2"
-                      >Official Data Source
-                    </span>
-                    <span class="fc-pill" data-i18n="features.slide3.pill3"
-                      >Easy to Track
-                    </span>
-                  </div>
-                  <ul
-                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
-                  >
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide3.bullet1">The truth about a business is in its full financial history.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide3.bullet2">Every income, expense, cash flow, and balance-sheet line — the company's full history, sourced straight from SEC filings.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide3.bullet3">Easy to watch, easy to track.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            <!-- ===== SLIDE 4: Smart Money & Gurus ===== -->
+            <!-- ===== SLIDE 2: Smart Money & Gurus ===== -->
             <article class="fc-slide fc-gradient-4">
               <div
                 class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
               >
+                <!-- Phone: App Store screenshot -->
                 <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
-                  <div class="fc-phone">
-                    <div class="fc-phone-notch"></div>
-                    <div class="fc-phone-screen" style="background:#0b0d12; color:#fff;">
-                      <div class="absolute left-4 right-4 top-[48px]">
-                        <div class="flex items-center gap-2">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                            <path d="M2 5l3 2.5L8 2l3 5.5L14 5l-1 7H3L2 5z" stroke="#22d3ee" stroke-width="1.3" stroke-linejoin="round"/>
-                          </svg>
-                          <h4 class="text-[16px] font-extrabold text-white">Smart Money</h4>
-                        </div>
-                        <p class="mt-1 text-[9px] text-white/55">What tracked gurus did with this stock last quarter.</p>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[108px]">
-                        <p class="text-[12px] font-extrabold text-white leading-tight">17 of 29 tracked gurus hold this stock.</p>
-                        <div class="mt-2 flex items-baseline gap-2">
-                          <span class="text-[9px] uppercase tracking-wider text-white/40">Combined</span>
-                          <span class="text-[16px] font-extrabold text-white">$38.3B</span>
-                          <span class="text-[9px] font-bold text-emerald-400">+40% QoQ</span>
-                        </div>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[180px] rounded-xl border border-white/10" style="background: rgba(255,255,255,0.03);">
-                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/10">
-                          <span class="text-[7.5px] uppercase tracking-wider text-white/40">Manager</span>
-                          <div class="flex gap-4">
-                            <span class="text-[7.5px] uppercase tracking-wider text-white/40">Position</span>
-                            <span class="text-[7.5px] uppercase tracking-wider text-white/40 w-[42px] text-right">Δ QoQ</span>
-                          </div>
-                        </div>
-                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
-                          <div class="flex items-center gap-1.5"><span style="color:#22c55e;">▲</span><span class="text-[10px] font-bold text-white">Warren Buffett</span></div>
-                          <div class="flex gap-4"><span class="text-[10px] font-bold text-white">$15.6B</span><span class="text-[10px] font-bold text-emerald-400 w-[42px] text-right">+204%</span></div>
-                        </div>
-                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
-                          <div class="flex items-center gap-1.5"><span style="color:#ef4444;">▽</span><span class="text-[10px] font-bold text-white">Ken Griffin</span></div>
-                          <div class="flex gap-4"><span class="text-[10px] font-bold text-white">$10.2B</span><span class="text-[10px] font-bold text-red-400 w-[42px] text-right">−5%</span></div>
-                        </div>
-                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
-                          <div class="flex items-center gap-1.5"><span style="color:#94a3b8;">●</span><span class="text-[10px] font-bold text-white">Chase Coleman</span></div>
-                          <div class="flex gap-4"><span class="text-[10px] font-bold text-white">$3.1B</span><span class="text-[10px] font-bold text-white/55 w-[42px] text-right">flat</span></div>
-                        </div>
-                        <div class="flex items-center justify-between px-3 py-2 border-b border-white/5">
-                          <div class="flex items-center gap-1.5"><span style="color:#22c55e;">▲</span><span class="text-[10px] font-bold text-white">Israel Englander</span></div>
-                          <div class="flex gap-4"><span class="text-[10px] font-bold text-white">$3.0B</span><span class="text-[10px] font-bold text-emerald-400 w-[42px] text-right">+7%</span></div>
-                        </div>
-                        <div class="flex items-center justify-between px-3 py-2">
-                          <div class="flex items-center gap-1.5"><span style="color:#22c55e;">▲</span><span class="text-[10px] font-bold text-white">Two Sigma</span></div>
-                          <div class="flex gap-4"><span class="text-[10px] font-bold text-white">$1.4B</span><span class="text-[10px] font-bold text-emerald-400 w-[42px] text-right">+833%</span></div>
-                        </div>
-                      </div>
-                      <div class="absolute left-4 right-4 bottom-[24px] flex items-center justify-between">
-                        <span class="text-[8px] text-white/40">Plus 12 more tracked gurus</span>
-                        <span class="text-[8px] font-bold" style="color:#22d3ee;">See all →</span>
-                      </div>
+                  <figure class="phone phone-slide">
+                    <div class="phone-screen">
+                      <img
+                        src="/images/app/guru-portfolio-buffett.webp"
+                        width="560"
+                        height="1215"
+                        loading="lazy"
+                        decoding="async"
+                        alt="The DeepValues iPhone app: Warren Buffett's 13F portfolio, with the positions added and trimmed last quarter"
+                      />
                     </div>
-                  </div>
+                    <span class="phone-island" aria-hidden="true"></span>
+                  </figure>
                 </div>
+                <!-- Copy -->
                 <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
                   <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]" data-i18n="features.slide4.title">
                     Smart Money &amp; Gurus
                   </h3>
                   <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
-                    <span class="fc-pill" data-i18n="features.slide4.pill1">Track 29 Gurus</span>
+                    <span class="fc-pill" data-i18n="features.slide4.pill1">93 Investors Tracked</span>
                     <span class="fc-pill" data-i18n="features.slide4.pill2">Quarterly 13F Sync</span>
-                    <span class="fc-pill" data-i18n="features.slide4.pill3">Sector &amp; Style Filters</span>
+                    <span class="fc-pill" data-i18n="features.slide4.pill3">Style Filters</span>
                   </div>
                   <ul
                     class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
@@ -2110,98 +1024,7 @@
                     </li>
                     <li class="flex items-start gap-3">
                       <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide4.bullet3">Tap a name to read their full thesis and follow their next move.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-
-            <!-- ===== SLIDE 5: Filings & Earnings ===== -->
-            <article class="fc-slide fc-gradient-5">
-              <div
-                class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-8 lg:px-16 py-12 lg:py-16"
-              >
-                <div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
-                  <div class="fc-phone">
-                    <div class="fc-phone-notch"></div>
-                    <div class="fc-phone-screen" style="background:#0b0d12; color:#fff;">
-                      <div class="absolute left-4 right-4 top-[48px]">
-                        <h4 class="text-[15px] font-extrabold text-white">Recent SEC Filings</h4>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[80px]">
-                        <div class="rounded-lg border border-white/10 px-3 py-2.5 flex items-center gap-2.5" style="background: rgba(255,255,255,0.03);">
-                          <span class="rounded px-1.5 py-0.5 text-[9px] font-extrabold text-slate-900" style="background:#f59e0b;">8-K</span>
-                          <div class="flex-1 min-w-0">
-                            <p class="text-[11px] font-extrabold text-white leading-tight">Current event report</p>
-                            <p class="text-[9px] text-white/45">Filed May 10, 2026</p>
-                          </div>
-                          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        </div>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[138px]">
-                        <div class="rounded-lg border border-white/10 px-3 py-2.5 flex items-center gap-2.5" style="background: rgba(255,255,255,0.03);">
-                          <span class="rounded px-1.5 py-0.5 text-[9px] font-extrabold text-slate-900" style="background:#22d3ee;">10-Q</span>
-                          <div class="flex-1 min-w-0">
-                            <p class="text-[11px] font-extrabold text-white leading-tight">Quarterly report</p>
-                            <p class="text-[9px] text-white/45">Filed Apr 29, 2026</p>
-                          </div>
-                          <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        </div>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[200px]">
-                        <p class="text-[8px] text-white/40">Source: SEC EDGAR · synced hourly</p>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[228px]">
-                        <h4 class="text-[15px] font-extrabold text-white">Latest Earnings Call</h4>
-                      </div>
-                      <div class="absolute left-4 right-4 top-[260px] rounded-xl border border-white/10 p-3" style="background: rgba(255,255,255,0.03);">
-                        <div class="flex items-center gap-2">
-                          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 9a5 5 0 0110 0v3a1.5 1.5 0 01-1.5 1.5H10v-4h1V9a3 3 0 00-6 0v.5h1v4H5A1.5 1.5 0 013.5 12V9H3z" fill="#22d3ee"/></svg>
-                          <p class="text-[10px] font-extrabold text-white">GOOGL latest quarter earnings</p>
-                        </div>
-                        <p class="mt-0.5 text-[8.5px] text-white/45">Filed Apr 29, 2026</p>
-                        <div class="mt-2.5 space-y-1.5">
-                          <div class="rounded-md px-2 py-1.5 flex items-center justify-between" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.25);">
-                            <div class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-sm" style="background:#fca5a5;"></span><span class="text-[9px] font-bold text-white">Listen on YouTube</span></div>
-                            <svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L4 12" stroke="#fca5a5" stroke-width="1.5"/></svg>
-                          </div>
-                          <div class="rounded-md px-2 py-1.5 flex items-center justify-between" style="background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25);">
-                            <div class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-sm" style="background:#fbbf24;"></span><span class="text-[9px] font-bold text-white">Transcript on Seeking Alpha</span></div>
-                            <svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L4 12" stroke="#fbbf24" stroke-width="1.5"/></svg>
-                          </div>
-                          <div class="rounded-md px-2 py-1.5 flex items-center justify-between" style="background: rgba(124,210,255,0.08); border: 1px solid rgba(124,210,255,0.25);">
-                            <div class="flex items-center gap-1.5"><span class="inline-block w-3 h-3 rounded-sm" style="background:#7cd2ff;"></span><span class="text-[9px] font-bold text-white">Alphabet Inc. IR page</span></div>
-                            <svg width="9" height="9" viewBox="0 0 16 16" fill="none"><path d="M6 3h7v7M13 3L4 12" stroke="#7cd2ff" stroke-width="1.5"/></svg>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left">
-                  <h3 class="text-[32px] lg:text-[40px] font-extrabold text-slate-900 leading-[1.1]" data-i18n="features.slide5.title">
-                    Filings &amp; Earnings
-                  </h3>
-                  <div class="mt-5 flex flex-wrap justify-center lg:justify-start gap-2">
-                    <span class="fc-pill" data-i18n="features.slide5.pill1">EDGAR Synced Hourly</span>
-                    <span class="fc-pill" data-i18n="features.slide5.pill2">Earnings Replay</span>
-                    <span class="fc-pill" data-i18n="features.slide5.pill3">One-Click Sources</span>
-                  </div>
-                  <ul
-                    class="mt-6 space-y-3 text-[17px] leading-[1.6] text-slate-600 max-w-[480px] mx-auto lg:mx-0 list-none"
-                  >
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide5.bullet1">Every 8-K, 10-Q, and 10-K lands within an hour of EDGAR — never miss a filing.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide5.bullet2">Jump straight to the earnings audio, transcript, and investor relations page.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                      <span class="mt-[10px] inline-block w-1.5 h-1.5 rounded-full bg-slate-900 shrink-0"></span>
-                      <span data-i18n="features.slide5.bullet3">We don't host the audio — links open YouTube, Seeking Alpha, or the company's IR, so the source stays original.</span>
+                      <span data-i18n="features.slide4.bullet3">Tap a name to see the whole portfolio, and follow their next move.</span>
                     </li>
                   </ul>
                 </div>
@@ -2273,8 +1096,8 @@
                     <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70" data-i18n="intelligence.slide1.desc">
                       Generated on-demand for any company.
                     </p>
-                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
-                      Watch a sample
+                    <a href="https://www.youtube.com/@TheDeepValues" target="_blank" rel="noopener noreferrer" class="ai-link mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white transition">
+                      Watch briefings on YouTube
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                   </div>
@@ -2300,11 +1123,11 @@
                               </svg>
                             </div>
                           </div>
-                          <button class="absolute inset-0 flex items-center justify-center" aria-label="Play video">
+                          <a href="https://www.youtube.com/@TheDeepValues" target="_blank" rel="noopener noreferrer" class="absolute inset-0 flex items-center justify-center" aria-label="Watch DeepValues briefings on YouTube">
                             <span class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.25);">
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3l8 5-8 5V3z" fill="white"/></svg>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3l8 5-8 5V3z" fill="white"/></svg>
                             </span>
-                          </button>
+                          </a>
                           <div class="absolute bottom-3 left-4 rounded-md px-2.5 py-1 text-[10px] font-extrabold text-white" style="border:1px solid rgba(255,255,255,0.25);">deepvalues.ai</div>
                         </div>
                       </div>
@@ -2313,7 +1136,7 @@
                       <div class="ai-card p-4">
                         <p class="text-[10px] font-bold tracking-[1.5px] text-white/55">ALSO AVAILABLE</p>
                         <div class="mt-2.5 grid grid-cols-2 gap-2">
-                          <a href="#" class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2);">
+                          <div class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2);">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(248,113,113,0.18);">
                               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 1.5h6l4 4V14a.5.5 0 01-.5.5h-9A.5.5 0 013 14V2a.5.5 0 010-.5z" stroke="#fca5a5" stroke-width="1.3" stroke-linejoin="round"/>
@@ -2323,10 +1146,10 @@
                             </div>
                             <div class="flex-1 min-w-0">
                               <p class="text-[11.5px] font-semibold text-white truncate">PDF Research</p>
-                              <p class="text-[9px] font-bold" style="color:#fca5a5;">Download →</p>
+                              <p class="text-[9px] font-bold" style="color:#fca5a5;">In the app</p>
                             </div>
-                          </a>
-                          <a href="#" class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(95,223,166,0.06); border: 1px solid rgba(95,223,166,0.2);">
+                          </div>
+                          <div class="flex items-center gap-2.5 rounded-xl px-2.5 py-2" style="background: rgba(95,223,166,0.06); border: 1px solid rgba(95,223,166,0.2);">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: rgba(95,223,166,0.18);">
                               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                                 <path d="M2 9a6 6 0 0112 0v3a1.5 1.5 0 01-1.5 1.5H12v-5h1V9a5 5 0 00-10 0v-.5h1v5h-.5A1.5 1.5 0 011 12V9z" fill="#5fdfa6"/>
@@ -2334,9 +1157,9 @@
                             </div>
                             <div class="flex-1 min-w-0">
                               <p class="text-[11.5px] font-semibold text-white truncate">Audio Report</p>
-                              <p class="text-[9px] font-bold" style="color:#5fdfa6;">Listen →</p>
+                              <p class="text-[9px] font-bold" style="color:#5fdfa6;">In the app</p>
                             </div>
-                          </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -2357,7 +1180,7 @@
                     <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70" data-i18n="intelligence.slide2.desc">
                       Voice or text. Always with sources.
                     </p>
-                    <a href="https://app.deepvalues.ai" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
+                    <a href="https://app.deepvalues.ai/login?mode=signup&amp;ref=deepvalues.ai&amp;src=lens" class="ai-link mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white transition">
                       Try Buffett Lens
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
@@ -2385,10 +1208,10 @@
                         <p class="mt-2 text-[11.5px] text-white/55 leading-snug">
                           Grounded in GOOGL's financials, valuation, and recent SEC filings.
                         </p>
-                        <button class="mt-3 w-full rounded-lg py-1.5 text-[12px] font-bold flex items-center justify-center gap-1.5" style="background: rgba(95,223,166,0.1); color:#5fdfa6; border: 1px solid rgba(95,223,166,0.35);">
+                        <div class="mt-3 w-full rounded-lg py-1.5 text-[12px] font-bold flex items-center justify-center gap-1.5" style="background: rgba(95,223,166,0.1); color:#5fdfa6; border: 1px solid rgba(95,223,166,0.35);">
                           <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><rect x="5" y="1" width="4" height="8" rx="2" fill="#5fdfa6"/><path d="M3 7c0 2.2 1.8 4 4 4M11 7c0 2.2-1.8 4-4 4M7 11v2M5 13h4" stroke="#5fdfa6" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg>
                           Start Voice Q&amp;A
-                        </button>
+                        </div>
                         <div class="mt-2.5 space-y-1.5">
                           <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">Is GOOGL cheap right now?</div>
                           <div class="rounded-lg px-2.5 py-1.5 text-[11px] text-white/80" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">What's the bear case for GOOGL?</div>
@@ -2396,9 +1219,9 @@
                         </div>
                         <div class="mt-2.5 flex items-center gap-2 rounded-full pl-3 pr-1 py-1" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);">
                           <span class="flex-1 text-[11px] text-white/45">Ask about GOOGL…</span>
-                          <button class="w-6 h-6 rounded-full flex items-center justify-center" style="background: rgba(34,211,238,0.18);">
-                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l6-3-1.5 6L5 6.5 2 5z" fill="#22d3ee"/></svg>
-                          </button>
+                          <span class="w-6 h-6 rounded-full flex items-center justify-center" style="background: rgba(34,211,238,0.18);">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 5l6-3-1.5 6L5 6.5 2 5z" fill="#22d3ee"/></svg>
+                          </span>
                         </div>
                       </div>
 
@@ -2412,9 +1235,9 @@
                         </div>
                         <p class="mt-1 ml-6 text-[9px] text-white/45">Filed Apr 29, 2026</p>
                         <div class="mt-2.5 grid grid-cols-3 gap-1.5 text-[10px] font-semibold">
-                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(248,113,113,0.1); color:#fca5a5; border: 1px solid rgba(248,113,113,0.2);">▶ YouTube</a>
-                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(251,191,36,0.1); color:#fbbf24; border: 1px solid rgba(251,191,36,0.2);">Transcript</a>
-                          <a href="#" class="rounded-md py-1.5 text-center" style="background: rgba(124,210,255,0.1); color:#7cd2ff; border: 1px solid rgba(124,210,255,0.2);">IR page</a>
+                          <span class="rounded-md py-1.5 text-center" style="background: rgba(248,113,113,0.1); color:#fca5a5; border: 1px solid rgba(248,113,113,0.2);">▶ YouTube</span>
+                          <span class="rounded-md py-1.5 text-center" style="background: rgba(251,191,36,0.1); color:#fbbf24; border: 1px solid rgba(251,191,36,0.2);">Transcript</span>
+                          <span class="rounded-md py-1.5 text-center" style="background: rgba(124,210,255,0.1); color:#7cd2ff; border: 1px solid rgba(124,210,255,0.2);">IR page</span>
                         </div>
                       </div>
                     </div>
@@ -2435,8 +1258,8 @@
                     <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70" data-i18n="intelligence.slide3.desc">
                       Reads every filing and call — conviction in minutes.
                     </p>
-                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
-                      See a sample report
+                    <a href="https://app.deepvalues.ai/en/company/KO/briefing?ref=deepvalues.ai&amp;src=sample-ko" class="ai-link mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white transition">
+                      Read a sample briefing
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                   </div>
@@ -2448,7 +1271,7 @@
                             <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">AI VERDICT</span>
                             <span class="text-[10px] font-bold text-white/80">Alphabet Inc. (GOOGL)</span>
                           </div>
-                          <span class="text-[10px] font-bold rounded-md px-2 py-0.5" style="background: rgba(95, 223, 166, 0.18); color:#5fdfa6;">Fairly valued</span>
+                          <span class="text-[10px] font-bold rounded-md px-2 py-0.5" style="background: rgba(95, 223, 166, 0.18); color:#5fdfa6;">WATCH</span>
                         </div>
                         <p class="mt-3 text-[15px] font-semibold leading-snug text-white">
                           Premium franchise trading near DCF fair value. Watch for a better entry on macro pullbacks.
@@ -2511,8 +1334,8 @@
                     <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70" data-i18n="intelligence.slide4.desc">
                       Distilled to what moves the thesis.
                     </p>
-                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
-                      See a sample report
+                    <a href="https://app.deepvalues.ai/en/company/NVDA/briefing?ref=deepvalues.ai&amp;src=sample-nvda" class="ai-link mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white transition">
+                      Read a sample briefing
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                   </div>
@@ -2523,13 +1346,6 @@
                         <div class="flex items-center justify-between">
                           <span class="text-[10px] font-bold tracking-[1.5px] text-white/55">Q4 2025 EARNINGS CALL · 92 MIN</span>
                           <span class="text-[10px] font-bold text-white/80">GOOGL</span>
-                        </div>
-                        <div class="mt-3 pl-3 border-l-2" style="border-color:#7cd2ff;">
-                          <p class="text-[12.5px] text-white/85 italic leading-snug">
-                            "Cloud reached profitability for a third straight quarter, and AI
-                            Overviews are driving deeper engagement across Search."
-                          </p>
-                          <p class="mt-1 text-[10px] text-white/45">— Sundar Pichai, CEO</p>
                         </div>
                         <ul class="mt-4 space-y-1.5">
                           <li class="text-[11.5px] text-white/80 flex items-start gap-2"><span class="mt-1 inline-block w-1 h-1 rounded-full shrink-0" style="background:#5fdfa6;"></span>Cloud revenue +28% YoY — second straight quarter of accel.</li>
@@ -2556,7 +1372,7 @@
                             </div>
                           </div>
                         </div>
-                        <p class="mt-2 text-[9px] text-white/40">Source: SEC EDGAR · synced hourly</p>
+                        <p class="mt-2 text-[9px] text-white/40">Source: SEC EDGAR</p>
                       </div>
 
                       <!-- Flags strip -->
@@ -2589,8 +1405,8 @@
                     <p class="mt-6 max-w-[480px] text-[17px] leading-[1.65] text-white/70" data-i18n="intelligence.slide5.desc">
                       Every metric, in peer context.
                     </p>
-                    <a href="#" class="mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white hover:text-cyan-200 transition">
-                      See a sample report
+                    <a href="https://app.deepvalues.ai/en/company/KO/briefing?ref=deepvalues.ai&amp;src=sample-ko" class="ai-link mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-white transition">
+                      Read a sample briefing
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                   </div>
@@ -2801,7 +1617,7 @@
       #faq .faq-item summary::after { content: '+'; font-size: 24px; color: #6e6e73; font-weight: 300; line-height: 1; transition: transform 0.2s ease; flex-shrink: 0; }
       #faq .faq-item[open] summary::after { content: '−'; }
       #faq .faq-item .faq-answer { margin: 16px 0 4px; color: #3a3a3c; line-height: 1.65; font-size: 16px; }
-      #faq .faq-item .faq-answer a { color: #0e85ff; text-decoration: underline; text-underline-offset: 2px; }
+      #faq .faq-item .faq-answer a { color: var(--gold-text); text-decoration: underline; text-underline-offset: 2px; }
     </style>
     <section id="faq" aria-label="Frequently asked questions">
       <h2 class="faq-heading" data-i18n="faq.heading">Frequently asked questions</h2>
@@ -2821,7 +1637,7 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q4">What does a research briefing include?</summary>
-          <p class="faq-answer" data-i18n="faq.a4">A typical briefing covers: business moat analysis, intrinsic value from three independent models (DCF, Owner Earnings, Damodaran method) cross-checked against peers, full financial history sourced from SEC filings, smart-money positioning (which of 29 tracked legendary investors hold the stock and how that's changed quarter over quarter), and a How-It-Makes-Money Sankey diagram. Every claim links back to the source filing or transcript.</p>
+          <p class="faq-answer" data-i18n="faq.a4">A team of AI research agents writes each briefing from SEC filings and market data. Analysts argue the bull case and the bear case; a portfolio manager weighs both and gives a stance (ADVOCATE, WATCH or AVOID) with a plan for what to monitor. Underneath sits the model: every input behind three valuation methods (free cash flow, Buffett's owner earnings and Damodaran's two-stage model), so you can check the work. Each briefing is dated, and a fresh one re-reads the latest filings and prices.</p>
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q5">What is Buffett Lens?</summary>
@@ -2833,341 +1649,11 @@
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q7">What does it cost?</summary>
-          <p class="faq-answer" data-i18n="faq.a7">Basic is free forever (30 credits per week, 7-stock watchlist, Buffett Lens text plus 3 voice queries). Plus is $9.99/month with a 7-day free trial (15-stock watchlist, track 10 gurus, unlimited Buffett Lens text). Pro is $29.99/month (100 credits/week, unlimited watchlist, all 29 gurus with real-time alerts, 30 minutes of voice per month). API access is $99/month for developers and advisors. Credit top-up packs are available.</p>
+          <p class="faq-answer" data-i18n-html="faq.a7Html">Free: 9 credits at signup, enough for 3 fresh briefings, then 0.75 credits a week (about one fresh briefing a month), with an unlimited watchlist and every guru. Plus: $9.99 a month or $99.99 a year, with a 7-day free trial for first-time subscribers and about 6 fresh briefings a month. A fresh briefing costs 3 credits; credit packs top up either plan, and the API is paid per call from the same credits. Current prices are always on the <a href="https://app.deepvalues.ai/en/pricing">pricing page</a>.</p>
         </details>
         <details class="faq-item">
           <summary data-i18n="faq.q8">Is my data private?</summary>
           <p class="faq-answer" data-i18n="faq.a8">Yes. We don't sell personal data. We don't use your inputs or chats to train any AI model (ours or our vendors'). Voice audio is never stored — it's streamed to Microsoft Azure for real-time transcription only, then discarded. You can export or delete your account in one click. Full details in the <a href="https://deepvalues.ai/privacy.html">Privacy Policy</a>.</p>
-        </details>
-      </div>
-    </section>
-
-    <!-- ==================== PRICING ==================== -->
-    <style>
-      #pricing .pricing-grid,
-      #pricing .credit-grid {
-        display: grid;
-        gap: 20px;
-      }
-      #pricing .pricing-grid { grid-template-columns: repeat(4, 1fr); }
-      #pricing .credit-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-      @media (max-width: 960px) {
-        #pricing .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-        #pricing .credit-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-      @media (max-width: 560px) {
-        #pricing .pricing-grid { grid-template-columns: 1fr; }
-        #pricing .credit-grid { grid-template-columns: 1fr; }
-      }
-
-      /* Free-first hero + disclosure for the full pricing grid */
-      #pricing .free-first-hero {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 56px 40px;
-        background: #ffffff;
-        border: 1px solid #e2e2e4;
-        border-radius: 24px;
-        text-align: center;
-        box-shadow: 0 1px 0 rgba(15, 23, 60, 0.03);
-      }
-      #pricing .free-first-hero .badge {
-        display: inline-block;
-        padding: 6px 14px;
-        background: rgba(95, 223, 166, 0.14);
-        color: #047857;
-        border-radius: 999px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-      #pricing .free-first-hero h3 {
-        font-size: 32px;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        margin: 20px 0 12px;
-        color: #0a192f;
-        line-height: 1.15;
-      }
-      #pricing .free-first-hero p.sub {
-        font-size: 16px;
-        color: #6e6e73;
-        max-width: 480px;
-        margin: 0 auto 28px;
-        line-height: 1.55;
-      }
-      #pricing .free-first-hero a.cta {
-        display: inline-block;
-        padding: 14px 32px;
-        background: #0e85ff;
-        color: #ffffff;
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 600;
-        border-radius: 999px;
-        transition: background 0.15s ease, transform 0.15s ease;
-      }
-      #pricing .free-first-hero a.cta:hover { background: #006bd9; transform: translateY(-1px); }
-      #pricing .free-first-hero p.hint {
-        font-size: 13px;
-        color: #94959b;
-        margin: 16px 0 0;
-      }
-      #pricing details.pricing-details { margin-top: 48px; }
-      #pricing details.pricing-details summary {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        max-width: 360px;
-        margin: 0 auto;
-        cursor: pointer;
-        list-style: none;
-        font-size: 14px;
-        font-weight: 600;
-        color: #6e6e73;
-        padding: 12px 24px;
-        border-radius: 999px;
-        background: transparent;
-        border: 1px solid #d2d2d6;
-        transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-      }
-      #pricing details.pricing-details summary::-webkit-details-marker { display: none; }
-      #pricing details.pricing-details summary:hover { color: #0a192f; border-color: #94959b; background: #ffffff; }
-      #pricing details.pricing-details summary::after {
-        content: '⌄';
-        font-size: 14px;
-        line-height: 1;
-        transition: transform 0.2s ease;
-      }
-      #pricing details.pricing-details[open] summary::after { transform: rotate(180deg) translateY(2px); }
-      #pricing details.pricing-details > .pricing-details-body { margin-top: 48px; }
-    </style>
-    <section id="pricing" style="
-      background: #f5f5f7;
-      padding: 96px 24px;
-      font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-      color: #1d1d1f;
-    ">
-      <div style="max-width: 1120px; margin: 0 auto;">
-        <header style="text-align: center; margin-bottom: 64px;">
-          <h2 style="
-            font-size: 40px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin: 0 0 16px;
-            line-height: 1.1;
-          " data-i18n="pricing.headline">Pricing aligned with your interest.</h2>
-          <p style="
-            font-size: 18px;
-            color: #6e6e73;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-          " data-i18n="pricing.subhead">Pay for the research you actually run. No advertiser kickbacks,
-          no promoted stocks, no conflict of interest, no surprise charges.</p>
-        </header>
-
-        <!-- Free-first hero: primary CTA + free-forever badge -->
-        <div class="free-first-hero">
-          <span class="badge" data-i18n="pricing.hero.badge">Free forever · No card required</span>
-          <h3 data-i18n="pricing.hero.title">Start with Basic — free forever.</h3>
-          <p class="sub" data-i18n="pricing.hero.sub">30 credits a week, a 7-stock watchlist, Buffett Lens text chat, and Smart Money for every stock. Enough to actually do real research.</p>
-          <a class="cta" href="https://app.deepvalues.ai" data-i18n="pricing.hero.cta" data-ga-event="pricing_cta_click">Get started free →</a>
-          <p class="hint" data-i18n="pricing.hero.hint">No credit card. Upgrade anytime when you outgrow it.</p>
-        </div>
-
-        <!-- All paid plans + credit packs tucked behind a disclosure -->
-        <details class="pricing-details">
-          <summary data-i18n="pricing.details.label">See Plus, Pro, and API plans</summary>
-          <div class="pricing-details-body">
-
-        <!-- 4-tier grid -->
-        <div class="pricing-grid">
-          <!-- FREE -->
-          <article style="
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 32px 24px;
-            border: 1px solid #e2e2e4;
-          ">
-            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;" data-i18n="pricing.basic.name">Basic (Free)</h3>
-            <p style="font-size: 13px; color: #6e6e73; margin: 0 0 24px;" data-i18n="pricing.basic.desc">Get a feel for Deep Values.</p>
-            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$0</div>
-            <div style="font-size: 13px; color: #6e6e73; margin-bottom: 32px;" data-i18n="pricing.basic.priceUnit">forever free</div>
-            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
-              <li data-i18n="pricing.basic.feature1">· 30 credits / week</li>
-              <li data-i18n="pricing.basic.feature2">· 7-stock watchlist</li>
-              <li data-i18n="pricing.basic.feature3">· Follow 3 gurus</li>
-              <li data-i18n="pricing.basic.feature4">· Buffett Lens: 3 voice + unlimited text</li>
-              <li data-i18n="pricing.basic.feature5">· Smart Money for every stock</li>
-            </ul>
-          </article>
-
-          <!-- PLUS -->
-          <article style="
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 32px 24px;
-            border: 1px solid #e2e2e4;
-          ">
-            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;" data-i18n="pricing.plus.name">Plus</h3>
-            <p style="font-size: 13px; color: #6e6e73; margin: 0 0 24px;" data-i18n="pricing.plus.desc">For regular use.</p>
-            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$9.99</div>
-            <div style="font-size: 13px; color: #6e6e73; margin-bottom: 32px;" data-i18n="pricing.plus.priceUnit">/ month · 7-day free trial</div>
-            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
-              <li data-i18n="pricing.plus.feature1">· Everything in Basic</li>
-              <li data-i18n="pricing.plus.feature2">· 15-stock watchlist</li>
-              <li data-i18n="pricing.plus.feature3">· Track 10 gurus</li>
-              <li data-i18n="pricing.plus.feature4">· Custom email alerts</li>
-              <li data-i18n="pricing.plus.feature5">· Unlimited Buffett Lens text</li>
-            </ul>
-          </article>
-
-          <!-- PRO — featured -->
-          <article style="
-            background: #1d1d1f;
-            color: #ffffff;
-            border-radius: 16px;
-            padding: 32px 24px;
-            border: 1px solid #1d1d1f;
-            position: relative;
-          ">
-            <span style="
-              position: absolute;
-              top: -10px;
-              left: 50%;
-              transform: translateX(-50%);
-              background: #08c4e4;
-              color: #0b0d10;
-              font-size: 11px;
-              font-weight: 700;
-              padding: 4px 12px;
-              border-radius: 999px;
-              letter-spacing: 0.5px;
-            " data-i18n="pricing.pro.badge">MOST POPULAR</span>
-            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;" data-i18n="pricing.pro.name">Pro</h3>
-            <p style="font-size: 13px; color: #b0b0b8; margin: 0 0 24px;" data-i18n="pricing.pro.desc">Serious research.</p>
-            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$29.99</div>
-            <div style="font-size: 13px; color: #b0b0b8; margin-bottom: 32px;" data-i18n="pricing.pro.priceUnit">/ month · 7-day free trial</div>
-            <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 1.7;">
-              <li data-i18n="pricing.pro.feature1">· Everything in Plus</li>
-              <li data-i18n="pricing.pro.feature2">· 100 credits / week</li>
-              <li data-i18n="pricing.pro.feature3">· Up to 10 fresh briefings / month</li>
-              <li data-i18n="pricing.pro.feature4">· Unlimited watchlist</li>
-              <li data-i18n="pricing.pro.feature5">· Track ALL 29 gurus, real-time alerts</li>
-              <li data-i18n="pricing.pro.feature6">· Buffett Lens voice: 30 min / month</li>
-            </ul>
-          </article>
-
-          <!-- API -->
-          <article style="
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 32px 24px;
-            border: 1px solid #e2e2e4;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-          ">
-            <span style="
-              position: absolute;
-              top: -10px;
-              left: 50%;
-              transform: translateX(-50%);
-              background: #ffffff;
-              color: #6e6e73;
-              font-size: 11px;
-              font-weight: 700;
-              padding: 4px 12px;
-              border-radius: 999px;
-              letter-spacing: 0.5px;
-              border: 1px solid #e2e2e4;
-            " data-i18n="pricing.api.comingSoon">COMING SOON</span>
-            <h3 style="font-size: 18px; font-weight: 600; margin: 0 0 8px;" data-i18n="pricing.api.name">API</h3>
-            <p style="font-size: 13px; color: #6e6e73; margin: 0 0 24px;" data-i18n="pricing.api.desc">For developers and advisors.</p>
-            <div style="font-size: 36px; font-weight: 700; margin-bottom: 4px;">$99</div>
-            <div style="font-size: 13px; color: #6e6e73; margin-bottom: 32px;" data-i18n="pricing.api.priceUnit">/ month</div>
-            <ul style="list-style: none; padding: 0; margin: 0 0 24px; font-size: 14px; line-height: 1.7;">
-              <li data-i18n="pricing.api.feature1">· 10,000 requests / day</li>
-              <li data-i18n="pricing.api.feature2">· Bundle, Smart Money, IV, Indicators, Digest endpoints</li>
-              <li data-i18n="pricing.api.feature3">· Real-time guru webhooks</li>
-              <li data-i18n="pricing.api.feature4">· Commercial license included</li>
-              <li data-i18n="pricing.api.feature5">· Full Pro UI access</li>
-              <li data-i18n="pricing.api.feature6">· AI briefings billed per use</li>
-            </ul>
-            <a
-              href="mailto:team@deepvalues.ai?subject=API%20Waitlist&body=Please%20add%20me%20to%20the%20Deep%20Values%20API%20waiting%20list."
-              style="
-                margin-top: auto;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background: #1d1d1f;
-                color: #ffffff;
-                font-size: 14px;
-                font-weight: 600;
-                padding: 12px 20px;
-                border-radius: 999px;
-                text-decoration: none;
-                transition: background 0.15s ease;
-              "
-              onmouseover="this.style.background='#2c2c2e'"
-              onmouseout="this.style.background='#1d1d1f'"
-              data-i18n="pricing.api.cta"
-            >Join the waiting list</a>
-          </article>
-        </div>
-
-        <!-- Credit packs row -->
-        <div style="margin-top: 80px;">
-          <h3 style="font-size: 20px; font-weight: 600; margin: 0 0 8px; text-align: center;" data-i18n="pricing.credits.heading">Credit packs</h3>
-          <p style="font-size: 14px; color: #6e6e73; text-align: center; margin: 0 0 32px;" data-i18n="pricing.credits.intro">
-            Top up any plan whenever you need to. Plus members get an extra 10% on packs; Pro members get 15%.
-          </p>
-          <div class="credit-grid">
-            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
-              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;" data-i18n="pricing.credits.starter.name">Starter</div>
-              <div style="font-size: 22px; font-weight: 700;">$20</div>
-              <div style="font-size: 12px; color: #6e6e73;" data-i18n="pricing.credits.starter.desc">20 credits</div>
-            </div>
-            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
-              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;" data-i18n="pricing.credits.standard.name">Standard</div>
-              <div style="font-size: 22px; font-weight: 700;">$50</div>
-              <div style="font-size: 12px; color: #6e6e73;" data-i18n="pricing.credits.standard.desc">55 credits (+10%)</div>
-            </div>
-            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
-              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;" data-i18n="pricing.credits.power.name">Power</div>
-              <div style="font-size: 22px; font-weight: 700;">$100</div>
-              <div style="font-size: 12px; color: #6e6e73;" data-i18n="pricing.credits.power.desc">120 credits (+20%)</div>
-            </div>
-            <div style="background: #ffffff; border-radius: 12px; padding: 20px; border: 1px solid #e2e2e4; text-align: center;">
-              <div style="font-size: 14px; color: #6e6e73; margin-bottom: 8px;" data-i18n="pricing.credits.bulk.name">Bulk</div>
-              <div style="font-size: 22px; font-weight: 700;">$250</div>
-              <div style="font-size: 12px; color: #6e6e73;" data-i18n="pricing.credits.bulk.desc">320 credits (+28%)</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Honest-money note -->
-        <div style="
-          max-width: 720px;
-          margin: 80px auto 0;
-          text-align: center;
-          font-size: 14px;
-          color: #6e6e73;
-          line-height: 1.7;
-        ">
-          <p data-i18n="pricing.honest">The credits you spend are the actual cost of running a multi-analyst AI research pipeline on your behalf. No advertiser kickbacks. No promoted stocks. No affiliate links inside our briefings. The product works only as well as it's useful to you — because that's the only way we make money.</p>
-        </div>
-
-          </div>
         </details>
       </div>
     </section>
@@ -3177,8 +1663,9 @@
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-12">
         <!-- Brand wordmark + social icons (same row, vertically centered) -->
         <div class="pb-6 flex flex-wrap items-center gap-6">
-          <a href="/" class="inline-block tracking-tight" style="font-family: 'Google Sans', sans-serif; font-weight: 700; font-size: 32px; line-height: 1;">
-            <span style="color: #003085;">Deep</span><span style="color: #019dde;">Values.AI</span>
+          <a href="/" class="flex items-center gap-2.5">
+            <img src="/images/deepvalues-ginkgo-128.png" alt="" width="32" height="32" class="brand-mark" />
+            <span class="brand-word text-slate-900">DeepValues.AI</span>
           </a>
           <div class="flex items-center gap-4">
             <a href="https://www.youtube.com/@TheDeepValues" target="_blank" rel="noopener noreferrer"
@@ -3218,8 +1705,14 @@
         <!-- Top row (above divider): nav links on the left -->
         <div class="pb-3">
           <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-slate-700">
+            <li><a href="https://apps.apple.com/app/id6775568608" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.apps">iPhone app</a></li>
+            <li>
+              <span data-i18n="footer.androidWeb">Android &amp; web:</span>
+              <a href="https://app.deepvalues.ai/login?ref=deepvalues.ai&amp;src=footer" class="underline underline-offset-2 hover:text-slate-900 transition">app.deepvalues.ai</a>
+            </li>
+            <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
+            <li><a href="https://app.deepvalues.ai/developers" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
             <li><a href="mailto:team@deepvalues.ai" class="hover:text-slate-900 transition" data-i18n="footer.contact">Contact</a></li>
-            <li><a href="#" class="hover:text-slate-900 transition" data-i18n="footer.apps">Apps</a></li>
           </ul>
         </div>
 
@@ -3268,42 +1761,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- ==================== MOBILE WAITLIST MODAL ==================== -->
-    <div class="wl-overlay" id="waitlistOverlay" role="dialog" aria-modal="true" aria-labelledby="wlTitle">
-      <div class="wl-card" id="waitlistCard">
-        <button type="button" class="wl-close" id="waitlistClose" data-i18n-attr="aria-label:waitlist.close" aria-label="Close">&times;</button>
-
-        <!-- Form (single step) -->
-        <div id="wlForm">
-          <span class="wl-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-              <path d="M12 18h.01" />
-            </svg>
-            <span data-i18n="waitlist.badge">Android · coming soon</span>
-          </span>
-
-          <h2 class="wl-title wl-title-spaced" id="wlTitle" data-i18n="waitlist.title">Get DeepValues for Android</h2>
-          <p class="wl-sub" data-i18n="waitlist.sub">DeepValues is live on iPhone — the Android app is coming next. Drop your email and we'll notify you the moment it's ready.</p>
-
-          <p class="wl-label" data-i18n="waitlist.email.label">Email</p>
-          <input type="email" id="wlEmail" class="wl-input" autocomplete="email" inputmode="email" placeholder="you@example.com" data-i18n-attr="placeholder:waitlist.email.ph" />
-          <p class="wl-error wl-hide" id="wlEmailError" data-i18n="waitlist.invalidEmail">Please enter a valid email address.</p>
-
-          <p class="wl-error wl-hide" id="wlSubmitError" data-i18n="waitlist.error">Something went wrong. Please try again.</p>
-          <button type="button" class="wl-primary" id="wlSubmit" data-i18n="waitlist.submit">Join the waitlist</button>
-        </div>
-
-        <!-- Success -->
-        <div id="wlSuccess" class="wl-success wl-hide">
-          <div class="wl-success-ic" aria-hidden="true">&#10003;</div>
-          <h2 class="wl-title" data-i18n="waitlist.success.title">You're on the list!</h2>
-          <p class="wl-sub" data-i18n="waitlist.success.sub">We'll email you the moment the app launches. We appreciate your trust in DeepValues.AI.</p>
-          <button type="button" class="wl-primary" id="wlDone" data-i18n="waitlist.close">Close</button>
-        </div>
-      </div>
-    </div>
 
     <script>
       (function () {
@@ -3420,117 +1877,6 @@
         track.addEventListener('pointercancel', function () { startX = null; });
       })();
 
-      // ===== Mobile waitlist modal =====
-      (function () {
-        // Google Apps Script Web App URL (ends in /exec). See WAITLIST_SETUP.md.
-        var WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz_u-IvVfcysQuzrcZsNUqqMqmxP8-jh1i0jrMyVmBB4l1E__8AhV6QnINdTumxZ3zLSw/exec';
-
-        var overlay = document.getElementById('waitlistOverlay');
-        var openBtn = document.getElementById('waitlistOpen');
-        if (!overlay || !openBtn) return;
-
-        var closeBtn = document.getElementById('waitlistClose');
-        var formWrap = document.getElementById('wlForm');
-        var success = document.getElementById('wlSuccess');
-        var emailInput = document.getElementById('wlEmail');
-        var emailError = document.getElementById('wlEmailError');
-        var submitError = document.getElementById('wlSubmitError');
-        var submitBtn = document.getElementById('wlSubmit');
-        var doneBtn = document.getElementById('wlDone');
-        var chips = Array.prototype.slice.call(document.querySelectorAll('.wl-chip'));
-
-        var platform = '';
-        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        function show(el) { el.classList.remove('wl-hide'); }
-        function hide(el) { el.classList.add('wl-hide'); }
-
-        function reset() {
-          show(formWrap); hide(success);
-          hide(emailError); hide(submitError);
-          emailInput.value = '';
-          platform = '';
-          chips.forEach(function (c) { c.classList.remove('sel'); });
-        }
-
-        function open() {
-          reset();
-          overlay.classList.add('wl-open');
-          document.body.style.overflow = 'hidden';
-          setTimeout(function () { emailInput.focus(); }, 60);
-        }
-        function close() {
-          overlay.classList.remove('wl-open');
-          document.body.style.overflow = '';
-        }
-
-        openBtn.addEventListener('click', open);
-        closeBtn.addEventListener('click', close);
-        if (doneBtn) doneBtn.addEventListener('click', close);
-        overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape' && overlay.classList.contains('wl-open')) close();
-        });
-
-        chips.forEach(function (chip) {
-          chip.addEventListener('click', function () {
-            var val = chip.getAttribute('data-platform');
-            if (platform === val) { platform = ''; chip.classList.remove('sel'); return; }
-            platform = val;
-            chips.forEach(function (c) { c.classList.toggle('sel', c === chip); });
-          });
-        });
-
-        function submit() {
-          hide(emailError); hide(submitError);
-
-          if (!EMAIL_RE.test((emailInput.value || '').trim())) {
-            show(emailError);
-            emailInput.focus();
-            return;
-          }
-
-          if (!WAITLIST_ENDPOINT) {
-            console.error('[waitlist] WAITLIST_ENDPOINT is not set — see WAITLIST_SETUP.md');
-            show(submitError);
-            return;
-          }
-
-          var payload = {
-            email: (emailInput.value || '').trim(),
-            platform: platform || 'android',
-            feedback: '',
-            locale: document.documentElement.getAttribute('lang') || 'en',
-            source: 'hero-modal',
-            submittedAt: new Date().toISOString(),
-            pageUrl: location.href,
-            userAgent: navigator.userAgent
-          };
-
-          submitBtn.disabled = true;
-
-          // Apps Script Web Apps don't return CORS headers, so we POST with
-          // no-cors + a text/plain body to avoid a preflight. The response is
-          // opaque, so a resolved fetch is treated as success.
-          fetch(WAITLIST_ENDPOINT, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(payload)
-          }).then(function () {
-            hide(formWrap); show(success);
-            // GA4 conversion — fires only after a successful waitlist signup
-            if (window.gtag) gtag('event', 'waitlist_submit', { platform: platform || 'android' });
-          }).catch(function (err) {
-            console.error('[waitlist] submission failed:', err);
-            show(submitError);
-          }).finally(function () {
-            submitBtn.disabled = false;
-          });
-        }
-        submitBtn.addEventListener('click', submit);
-        emailInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
-      })();
     </script>
   </body>
 </html>

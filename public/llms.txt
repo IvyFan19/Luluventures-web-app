@@ -10,31 +10,36 @@ The brand premise: Wall Street works for Wall Street, not for you. DeepValues.AI
 
 - **AI Research Briefings**: On-demand multi-analyst reports for any US-listed stock. The pipeline reads filings, transcripts, and market data, then writes a fully-sourced briefing.
 - **Buffett Lens**: Voice and text chat with an AI grounded in a company's public disclosures. Every answer cites its sources.
-- **Smart Money tracking**: 29 tracked legendary investors (Buffett, Munger, Griffin, Coleman, Englander, Two Sigma, etc.) — their 13F holdings, quarter-over-quarter deltas, and the boldest moves each quarter.
+- **Smart Money tracking**: 93 tracked investors — 80 funds' 13F filings (Warren Buffett, Bill Ackman, Joel Greenblatt, Duan Yongping, Ken Griffin, Ray Dalio and more), plus 12 members of Congress (STOCK Act disclosures) and one official (OGE disclosures). Their holdings, quarter-over-quarter changes, and where the money moved each quarter.
 - **Values Watchlist**: Personal watchlist with color-coded value metrics (P/E, ROE, ROIC, intrinsic value) judged against the thresholds Buffett, Munger, Greenblatt, and other legends actually used.
-- **Filings & Earnings**: Hourly EDGAR sync. Every 8-K, 10-Q, and 10-K lands within an hour. One-click to earnings audio, transcripts, and IR pages.
+- **Filings & Earnings**: A company's 10-K, 10-Q, 8-K and proxy filings, each with a plain-English AI summary, plus a recap of the latest earnings call.
 - **Financials Deep Dive**: Full company financial history sourced directly from SEC filings — every income line, cash-flow line, balance-sheet line, with cross-period comparison.
 - **How It Makes Money**: AI-generated Sankey-diagram revenue breakdown — segment revenue, cost of revenue, operating expenses, taxes, all the way to net income, in one view.
-- **Intrinsic Value Calculator**: Three independent valuation models — DCF, Owner Earnings, and Damodaran — cross-checked against peers.
+- **Intrinsic Value Calculator**: Three independent valuation models — free cash flow (DCF), Buffett's owner earnings, and Damodaran's two-stage model — with every input shown.
+- **Macro gauges**: The Buffett Indicator and Shiller PE on every plan; Plus adds VIX, AAII sentiment, the 10-year Treasury and the Fed balance sheet, with full history.
 
 ## Pricing
 
-- **Basic (Free)** — 30 credits/week, 7-stock watchlist, follow 3 gurus, Buffett Lens (3 voice + unlimited text), Smart Money for every stock.
-- **Plus — $9.99/month** — 15-stock watchlist, track 10 gurus, custom email alerts, unlimited Buffett Lens text. 7-day free trial.
-- **Pro — $29.99/month** — 100 credits/week, up to 10 fresh briefings/month, unlimited watchlist, track ALL 29 gurus with real-time alerts, Buffett Lens voice 30 min/month. 7-day free trial.
-- **API — $99/month** — 10,000 requests/day to Bundle, Smart Money, Intrinsic Value, Indicators, Digest endpoints; real-time guru webhooks; commercial license. AI briefings billed per use.
-- **Credit packs** available for top-ups (Starter $20, Standard $50, Power $100, Bulk $250).
+The source of truth is the pricing page: https://app.deepvalues.ai/en/pricing
+
+- **Free** — 9 credits at signup, enough for 3 fresh briefings, then 0.75 credits a week (about one fresh briefing a month). Unlimited watchlist, every guru with a weekly email digest, the Buffett Indicator and Shiller PE, Buffett Lens, filings and AI filing summaries.
+- **Plus — $9.99/month or $99.99/year** — 7-day free trial for first-time subscribers. About 6 fresh briefings a month (4 credits every week), a realtime email alert when a guru you follow moves, and every macro indicator with full history.
+- **Credits** — a fresh briefing costs 3 credits; opening one someone already ran costs 0.25. Credit packs top up either plan.
+- **API and MCP server** — live, paid per call from the same credits, no subscription. Docs, per-call prices and keys: https://app.deepvalues.ai/developers. MCP server: https://app.deepvalues.ai/api/mcp
 
 ## Languages
 
-The marketing site is available in 12 languages: English, Simplified Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
+The app (iPhone and web) is available in 20 languages. The marketing site is available in 12: English, Simplified Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
 
 ## Pages
 
-- [Home](https://deepvalues.ai/) — Product overview, features, pricing
+- [Home](https://deepvalues.ai/) — Product overview and features
 - [Privacy Policy](https://deepvalues.ai/privacy.html) — Data handling, sub-processors (AWS, OpenAI, Anthropic, Microsoft Azure Speech, Cloudflare, Google Workspace), AI/automated-processing disclosures
-- [API documentation](https://deepvalues.ai/api.html) — Developer API references
-- [Application](https://app.deepvalues.ai/) — The actual product (login required)
+- [Pricing](https://app.deepvalues.ai/en/pricing) — Free, Plus and credit packs
+- [Sample briefing](https://app.deepvalues.ai/en/company/KO/briefing) — A public Deep Value briefing (Coca-Cola)
+- [API and MCP server](https://app.deepvalues.ai/developers) — Docs, per-call prices, keys
+- [Web app](https://app.deepvalues.ai/login) — The product on the web
+- [iPhone app](https://apps.apple.com/app/id6775568608) — DeepValues on the App Store
 - [Terms of Use](https://app.deepvalues.ai/terms) — Terms of service
 
 ## Social and Media
