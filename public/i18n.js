@@ -1,7 +1,9 @@
 // Lightweight i18n for the static landing pages.
 // Loads /locales/<code>.json on demand, swaps any element with
-// data-i18n / data-i18n-html, persists choice in localStorage,
-// and auto-detects from navigator.language on first visit.
+// data-i18n / data-i18n-html, and follows the browser's language list
+// (navigator.languages) on every visit. Only a language the visitor picks in
+// the switcher is remembered (localStorage dv_locale_choice); an auto-detected
+// one never is, so a change of system/browser language takes effect at once.
 (function () {
   var LOCALES = {
     'en':     { name: 'English',    region: 'United States', code: 'EN' },
@@ -18,7 +20,10 @@
     'es-ES':  { name: 'Español',    region: 'España',        code: 'ES' }
   };
   var DEFAULT_LOCALE = 'en';
-  var STORAGE_KEY = 'dv_locale';
+  // The old key 'dv_locale' also stored auto-detected languages, which froze every
+  // visitor in their first-visit language: it is ignored (and removed) from now on.
+  var STORAGE_KEY = 'dv_locale_choice';
+  try { localStorage.removeItem('dv_locale'); } catch (e) {}
   var cache = {};
 
   function detectLocale() {
@@ -88,9 +93,11 @@
     });
   }
 
-  function setLocale(locale) {
+  function setLocale(locale, remember) {
     if (!LOCALES[locale]) locale = DEFAULT_LOCALE;
-    try { localStorage.setItem(STORAGE_KEY, locale); } catch (e) {}
+    if (remember) {
+      try { localStorage.setItem(STORAGE_KEY, locale); } catch (e) {}
+    }
     document.documentElement.setAttribute('lang', locale.split('-')[0]);
     return Promise.all([
       loadTranslations(locale),
@@ -124,17 +131,21 @@
     menu.addEventListener('click', function (e) {
       var item = e.target.closest('[data-locale-option]');
       if (!item) return;
-      setLocale(item.getAttribute('data-locale-option'));
+      setLocale(item.getAttribute('data-locale-option'), true);   // an explicit pick is remembered
       menu.classList.remove('open');
     });
   }
 
   // Expose for debugging / programmatic use
-  window.__i18n = { setLocale: setLocale, getLocales: function () { return LOCALES; } };
+  window.__i18n = {
+    setLocale: setLocale, detect: detectLocale, getLocales: function () { return LOCALES; },
+    // forget an explicit pick and follow the browser again
+    reset: function () { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} return setLocale(detectLocale(), false); }
+  };
 
   function start() {
     initSwitcher();
-    setLocale(detectLocale());
+    setLocale(detectLocale(), false);
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start);
