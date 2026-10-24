@@ -71,6 +71,13 @@
           "name": "DeepValues.AI",
           "publisher": { "@id": "https://deepvalues.ai/#organization" },
           "inLanguage": "en",
+          "hasPart": {
+            "@type": "WebSite",
+            "@id": "https://research.deepvalues.ai/#website",
+            "url": "https://research.deepvalues.ai/",
+            "name": "DeepValues Research",
+            "license": "https://creativecommons.org/licenses/by/4.0/"
+          },
           "potentialAction": {
             "@type": "SearchAction",
             "target": "https://app.deepvalues.ai/?q={search_term_string}",
@@ -656,6 +663,14 @@
         .fc-dot { background: rgba(255,255,255,0.25) !important; }
         .fc-dot.active { background: rgba(255,255,255,0.85) !important; }
 
+        /* Research (same ground as the FAQ) */
+        #research { background: #000000 !important; }
+        #research .rs-heading { color: #f5f5f7 !important; }
+        #research .rs-subtitle, #research .rs-agents { color: #a1a1a6 !important; }
+        #research .rs-link { background: #1d1d1f !important; border-color: rgba(255,255,255,0.10) !important; color: #f5f5f7 !important; }
+        #research .rs-link:hover { background: #2c2c2e !important; }
+        #research .rs-cta { background: #f5f5f7 !important; color: #000000 !important; }
+        #research .rs-agents a { color: #f5f5f7 !important; }
         /* FAQ */
         #faq { background: #000000 !important; }
         #faq .faq-heading { color: #f5f5f7 !important; }
@@ -746,6 +761,7 @@
           <ul class="hidden md:flex items-center gap-8 text-[15px] text-slate-700">
             <li><a href="#app" class="hover:text-slate-900 transition" data-i18n="nav.values">Values</a></li>
             <li><a href="#ai-intelligence" class="hover:text-slate-900 transition" data-i18n="nav.intelligence">Intelligence</a></li>
+            <li><a href="https://research.deepvalues.ai/" class="hover:text-slate-900 transition" data-i18n="nav.research">Research</a></li>
             <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
             <li><a href="https://app.deepvalues.ai/developers" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
           </ul>
@@ -1604,6 +1620,34 @@
       </div>
     </section>
 
+    <!-- ==================== RESEARCH (research.deepvalues.ai) ==================== -->
+    <style>
+      #research { background: #ffffff; padding: 96px 24px 80px; font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif; }
+      #research .rs-heading { font-size: 40px; font-weight: 700; letter-spacing: -1px; color: #0a192f; text-align: center; margin: 0 0 16px; line-height: 1.1; }
+      #research .rs-subtitle { font-size: 18px; color: #6e6e73; max-width: 620px; margin: 0 auto 40px; text-align: center; line-height: 1.5; }
+      #research .rs-links { list-style: none; max-width: 920px; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+      #research .rs-link { display: block; background: #fafafa; border: 1px solid #e2e2e4; border-radius: 16px; padding: 18px 24px; font-weight: 600; font-size: 17px; color: #0a192f; text-decoration: none; transition: background 0.15s ease; }
+      #research .rs-link:hover { background: #f5f5f7; }
+      #research .rs-actions { text-align: center; margin-top: 32px; }
+      #research .rs-cta { display: inline-block; background: #0a192f; color: #ffffff; font-weight: 600; font-size: 16px; padding: 14px 28px; border-radius: 999px; text-decoration: none; }
+      #research .rs-agents { font-size: 14px; color: #6e6e73; text-align: center; margin: 20px auto 0; max-width: 620px; line-height: 1.5; }
+      #research .rs-agents a { color: #0a192f; text-decoration: underline; text-underline-offset: 2px; }
+    </style>
+    <section id="research" aria-label="Free, open research">
+      <h2 class="rs-heading" data-i18n="research.heading">Free, open research</h2>
+      <p class="rs-subtitle" data-i18n="research.subtitle">Buffett-style company reports in English and 中文, market memos, investor studies and value-investing principles, published daily on DeepValues Research. CC BY 4.0: read, cite, reuse.</p>
+      <ul class="rs-links">
+        <li><a class="rs-link" href="https://research.deepvalues.ai/company/" data-i18n="research.links.companies">Companies A–Z</a></li>
+        <li><a class="rs-link" href="https://research.deepvalues.ai/market/" data-i18n="research.links.market">Market memos</a></li>
+        <li><a class="rs-link" href="https://research.deepvalues.ai/gurus/" data-i18n="research.links.gurus">Gurus</a></li>
+        <li><a class="rs-link" href="https://research.deepvalues.ai/principles/" data-i18n="research.links.principles">Principles</a></li>
+        <li><a class="rs-link" href="https://research.deepvalues.ai/buffett-archive/" data-i18n="research.links.buffett">Buffett Archive</a></li>
+        <li><a class="rs-link" href="https://research.deepvalues.ai/personal-finance/" data-i18n="research.links.personalFinance">Personal finance</a></li>
+      </ul>
+      <p class="rs-actions"><a class="rs-cta" href="https://research.deepvalues.ai/" data-i18n="research.cta">Browse all research</a></p>
+      <p class="rs-agents"><a href="https://research.deepvalues.ai/for-agents/" data-i18n="research.agents">For AI agents: llms.txt, index.json and markdown twins at research.deepvalues.ai/for-agents/</a></p>
+    </section>
+
     <!-- ==================== FAQ ==================== -->
     <style>
       #faq { background: #ffffff; padding: 96px 24px; font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif; }
@@ -1710,6 +1754,7 @@
               <span data-i18n="footer.androidWeb">Android &amp; web:</span>
               <a href="https://app.deepvalues.ai/login?ref=deepvalues.ai&amp;src=footer" class="underline underline-offset-2 hover:text-slate-900 transition">app.deepvalues.ai</a>
             </li>
+            <li><a href="https://research.deepvalues.ai/" class="hover:text-slate-900 transition" data-i18n="nav.research">Research</a></li>
             <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
             <li><a href="https://app.deepvalues.ai/developers" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
             <li><a href="mailto:team@deepvalues.ai" class="hover:text-slate-900 transition" data-i18n="footer.contact">Contact</a></li>
