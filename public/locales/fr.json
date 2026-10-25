@@ -1,6 +1,7 @@
 {
   "nav.pricing": "Tarifs",
   "nav.api": "API",
+  "api.bodyHtml": "L’API DeepValues est en ligne : vous payez à l’appel, avec les mêmes crédits que dans l’app, sans abonnement. La documentation, les tarifs et les clés d’API sont sur la <a href=\"https://app.deepvalues.ai/fr/developers\"><strong>page développeurs</strong></a>, et les agents IA peuvent se connecter via le serveur MCP à l’adresse <code>https://app.deepvalues.ai/api/mcp</code>.",
   "nav.compliance": "Conformité",
   "nav.faq": "FAQ",
   "nav.docs": "Docs",
@@ -11,7 +12,7 @@
   "hero.headlineHtml": "<span class=\"text-slate-900\">Wall Street travaille pour Wall Street.</span><br><span class=\"text-slate-900\">Pas pour vous.</span>",
   "hero.subheadline": "DeepValues.AI travaille pour vous.",
   "hero.subtitle": "L'assistant financier nourri par l'IA qui apporte la recherche de niveau institutionnel, les outils de valeur intrinsèque et le suivi du Smart Money aux investisseurs particuliers — pour que vous preniez de meilleures décisions.",
-  "hero.cta": "Obtenez 3 briefings gratuits",
+  "hero.cta": "Commencer",
   "hero.ctaNote": "9 crédits offerts à l'inscription, de quoi lancer 3 nouveaux briefings. Sans carte bancaire.",
   "proof.investors": "93 investisseurs suivis, de Buffett au Congrès",
   "proof.filings": "Chaque 13F lu le jour même de sa publication",

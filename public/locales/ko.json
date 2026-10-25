@@ -1,6 +1,7 @@
 {
   "nav.pricing": "요금제",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API가 공개되었습니다. 앱과 같은 크레딧으로 호출마다 결제하며 구독은 필요 없습니다. 문서, 요금, API 키는 <a href=\"https://app.deepvalues.ai/ko/developers\"><strong>개발자 페이지</strong></a>에 있고, AI 에이전트는 MCP 서버 <code>https://app.deepvalues.ai/api/mcp</code>로 연결할 수 있습니다.",
   "nav.compliance": "규정 준수",
   "nav.faq": "자주 묻는 질문",
   "nav.docs": "문서",
@@ -11,7 +12,7 @@
   "hero.headlineHtml": "<span class=\"text-slate-900\">월스트리트는 월스트리트를 위해 일합니다.</span><br><span class=\"text-slate-900\">당신을 위해서가 아닙니다.</span>",
   "hero.subheadline": "DeepValues.AI는 당신을 위해 일합니다.",
   "hero.subtitle": "기관 수준의 리서치, 내재가치 분석 도구, 스마트 머니 추적을 일반 투자자에게 제공하는 AI 네이티브 금융 어시스턴트 — 더 나은 결정을 내릴 수 있도록 돕습니다.",
-  "hero.cta": "무료 브리핑 3회 받기",
+  "hero.cta": "시작하기",
   "hero.ctaNote": "가입 시 무료 크레딧 9개, 새 브리핑 3회에 충분합니다. 신용카드 불필요.",
   "proof.investors": "버핏부터 미국 의회까지, 투자자 93명 추적",
   "proof.filings": "모든 13F를 공개 당일에 분석",

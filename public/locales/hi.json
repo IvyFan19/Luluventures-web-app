@@ -1,6 +1,7 @@
 {
   "nav.pricing": "मूल्य निर्धारण",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API अब उपलब्ध है: ऐप वाले ही क्रेडिट से हर कॉल का भुगतान, कोई सब्सक्रिप्शन नहीं। दस्तावेज़, कीमतें और API कुंजियाँ <a href=\"https://app.deepvalues.ai/hi/developers\"><strong>डेवलपर पेज</strong></a> पर हैं, और AI एजेंट <code>https://app.deepvalues.ai/api/mcp</code> पर MCP सर्वर से जुड़ सकते हैं।",
   "nav.compliance": "अनुपालन",
   "nav.faq": "अक्सर पूछे जाने वाले प्रश्न",
   "nav.docs": "दस्तावेज़",
@@ -11,7 +12,7 @@
   "hero.headlineHtml": "<span class=\"text-slate-900\">वॉल स्ट्रीट वॉल स्ट्रीट के लिए काम करती है,</span><br><span class=\"text-slate-900\">आपके लिए नहीं।</span>",
   "hero.subheadline": "DeepValues.AI आपके लिए काम करता है।",
   "hero.subtitle": "AI-निर्मित वित्तीय सहायक जो संस्थागत-स्तर की रिसर्च, आंतरिक-मूल्य टूल और स्मार्ट मनी ट्रैकिंग को आम निवेशकों तक पहुँचाता है — ताकि आप बेहतर निर्णय ले सकें।",
-  "hero.cta": "3 मुफ़्त ब्रीफ़िंग पाएँ",
+  "hero.cta": "शुरू करें",
   "hero.ctaNote": "साइन अप पर 9 मुफ़्त क्रेडिट, 3 नई ब्रीफ़िंग के लिए काफ़ी। कोई क्रेडिट कार्ड नहीं।",
   "proof.investors": "93 निवेशकों पर नज़र, Buffett से लेकर अमेरिकी कांग्रेस तक",
   "proof.filings": "हर 13F उसी दिन पढ़ा जाता है जिस दिन वह आता है",
