@@ -1,6 +1,7 @@
 {
   "nav.pricing": "料金",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API は公開中です。アプリと同じクレジットから呼び出しごとに支払い、サブスクリプションは不要です。ドキュメント、料金、API キーは<a href=\"https://app.deepvalues.ai/ja/developers\"><strong>開発者ページ</strong></a>にあります。AI エージェントは MCP サーバー <code>https://app.deepvalues.ai/api/mcp</code> から接続できます。",
   "nav.compliance": "コンプライアンス",
   "nav.faq": "よくある質問",
   "nav.docs": "ドキュメント",

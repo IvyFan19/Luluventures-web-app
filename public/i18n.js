@@ -244,7 +244,7 @@
     } catch (e) {}
   }
 
-  // A page whose body is not translated (privacy, terms, api) marks its switcher
+  // A page whose body is not translated (privacy, terms) marks its switcher
   // data-locale-target="/": there a pick is remembered and opens the translated landing page.
   function pick(code, mount) {
     var target = mount.getAttribute('data-locale-target');

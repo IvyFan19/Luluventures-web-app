@@ -1,6 +1,7 @@
 {
   "nav.pricing": "मूल्य निर्धारण",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API अब उपलब्ध है: ऐप वाले ही क्रेडिट से हर कॉल का भुगतान, कोई सब्सक्रिप्शन नहीं। दस्तावेज़, कीमतें और API कुंजियाँ <a href=\"https://app.deepvalues.ai/hi/developers\"><strong>डेवलपर पेज</strong></a> पर हैं, और AI एजेंट <code>https://app.deepvalues.ai/api/mcp</code> पर MCP सर्वर से जुड़ सकते हैं।",
   "nav.compliance": "अनुपालन",
   "nav.faq": "अक्सर पूछे जाने वाले प्रश्न",
   "nav.docs": "दस्तावेज़",

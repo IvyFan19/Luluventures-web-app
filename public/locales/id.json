@@ -1,6 +1,7 @@
 {
   "nav.pricing": "Harga",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API sudah aktif: bayar per panggilan dengan kredit yang sama seperti di aplikasi, tanpa langganan. Dokumentasi, harga, dan kunci API ada di <a href=\"https://app.deepvalues.ai/id/developers\"><strong>halaman pengembang</strong></a>, dan agen AI dapat terhubung melalui server MCP di <code>https://app.deepvalues.ai/api/mcp</code>.",
   "nav.compliance": "Kepatuhan",
   "nav.faq": "FAQ",
   "nav.docs": "Dokumentasi",

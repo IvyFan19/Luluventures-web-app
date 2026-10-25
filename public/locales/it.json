@@ -1,6 +1,7 @@
 {
   "nav.pricing": "Prezzi",
   "nav.api": "API",
+  "api.bodyHtml": "L’API di DeepValues è attiva: si paga a chiamata con gli stessi crediti dell’app, senza abbonamento. Documentazione, prezzi e chiavi API sono nella <a href=\"https://app.deepvalues.ai/it/developers\"><strong>pagina per sviluppatori</strong></a>, e gli agenti IA possono collegarsi tramite il server MCP all’indirizzo <code>https://app.deepvalues.ai/api/mcp</code>.",
   "nav.compliance": "Conformità",
   "nav.faq": "FAQ",
   "nav.docs": "Documentazione",

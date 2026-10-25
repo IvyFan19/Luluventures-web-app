@@ -1,6 +1,7 @@
 {
   "nav.pricing": "Pricing",
   "nav.api": "API",
+  "api.bodyHtml": "The DeepValues API is live, paid per call from the same credits as the app, with no subscription. Docs, prices and API keys are on the <a href=\"https://app.deepvalues.ai/developers\"><strong>developer page</strong></a>, and AI agents can connect through the MCP server at <code>https://app.deepvalues.ai/api/mcp</code>.",
   "nav.compliance": "Compliance",
   "nav.faq": "FAQ",
   "nav.docs": "Docs",

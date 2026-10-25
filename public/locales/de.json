@@ -1,6 +1,7 @@
 {
   "nav.pricing": "Preise",
   "nav.api": "API",
+  "api.bodyHtml": "Die DeepValues API ist live: Bezahlt wird pro Aufruf aus denselben Credits wie in der App, ohne Abo. Dokumentation, Preise und API-Schlüssel finden Sie auf der <a href=\"https://app.deepvalues.ai/de/developers\"><strong>Entwicklerseite</strong></a>, und KI-Agenten verbinden sich über den MCP-Server unter <code>https://app.deepvalues.ai/api/mcp</code>.",
   "nav.compliance": "Compliance",
   "nav.faq": "FAQ",
   "nav.docs": "Dokumentation",

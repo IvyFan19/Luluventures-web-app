@@ -1,6 +1,7 @@
 {
   "nav.pricing": "价格",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API 已上线，按次付费，与 App 共用同一份点数，无需订阅。文档、价格和 API 密钥都在<a href=\"https://app.deepvalues.ai/zh/developers\"><strong>开发者页面</strong></a>；AI 智能体可以通过 MCP 服务器 <code>https://app.deepvalues.ai/api/mcp</code> 接入。",
   "nav.compliance": "合规",
   "nav.faq": "常见问题",
   "nav.docs": "文档",

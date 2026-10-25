@@ -1,6 +1,7 @@
 {
   "nav.pricing": "價格",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API 已上線，按次付費，與 App 共用同一份點數，無需訂閱。文件、價格和 API 金鑰都在<a href=\"https://app.deepvalues.ai/zh-Hant/developers\"><strong>開發者頁面</strong></a>；AI 代理可透過 MCP 伺服器 <code>https://app.deepvalues.ai/api/mcp</code> 連線。",
   "nav.compliance": "合規",
   "nav.faq": "常見問題",
   "nav.docs": "文件",

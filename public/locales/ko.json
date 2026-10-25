@@ -1,6 +1,7 @@
 {
   "nav.pricing": "요금제",
   "nav.api": "API",
+  "api.bodyHtml": "DeepValues API가 공개되었습니다. 앱과 같은 크레딧으로 호출마다 결제하며 구독은 필요 없습니다. 문서, 요금, API 키는 <a href=\"https://app.deepvalues.ai/ko/developers\"><strong>개발자 페이지</strong></a>에 있고, AI 에이전트는 MCP 서버 <code>https://app.deepvalues.ai/api/mcp</code>로 연결할 수 있습니다.",
   "nav.compliance": "규정 준수",
   "nav.faq": "자주 묻는 질문",
   "nav.docs": "문서",
