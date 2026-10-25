@@ -32,3 +32,13 @@ v.api.reset();
 check('reset follows the browser again', v.html, 'fr');
 v = visit(['en-US', 'en', 'zh-CN'], {});
 check("owner's Chrome order (en first) -> en", v.html, 'en');
+
+// Key parity: every locale file carries exactly the keys en.json carries (a nav label or a
+// section heading added in English only would fall back to English in every other language).
+const localesDir = path.join(__dirname, '..', 'public', 'locales');
+const enKeys = Object.keys(JSON.parse(fs.readFileSync(path.join(localesDir, 'en.json'), 'utf8'))).sort();
+fs.readdirSync(localesDir).filter((f) => f.endsWith('.json') && f !== 'en.json').sort().forEach((f) => {
+  const keys = Object.keys(JSON.parse(fs.readFileSync(path.join(localesDir, f), 'utf8'))).sort();
+  const missing = enKeys.filter((k) => !keys.includes(k)), extra = keys.filter((k) => !enKeys.includes(k));
+  check(f + ' has the same keys as en.json', missing.concat(extra).join(',') || 'same', 'same');
+});

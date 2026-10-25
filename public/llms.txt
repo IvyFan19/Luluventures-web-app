@@ -42,11 +42,29 @@ The app (iPhone and web) is available in 20 languages. The marketing site is ava
 - [iPhone app](https://apps.apple.com/app/id6775568608) — DeepValues on the App Store
 - [Terms of Use](https://app.deepvalues.ai/terms) — Terms of service
 
-## Social and Media
+## Related properties
 
-- YouTube channel: https://www.youtube.com/@TheDeepValues
-- Apple Podcasts: https://podcasts.apple.com/us/podcast/deep-values/id1811057697
-- Spotify: https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9
+- [DeepValues web app](https://app.deepvalues.ai) — the product on the web
+- [DeepValues for iPhone](https://apps.apple.com/us/app/deepvalues/id6775568608)
+- [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614) — market-valuation gauge
+- [Bubble Watch for Android](https://play.google.com/store/apps/details?id=com.luluventures.buffett) — the Buffett Indicator on Android
+- [DeepValues Research](https://research.deepvalues.ai/) — free Buffett-style company reports, market memos and investor studies, CC BY 4.0. For agents: https://research.deepvalues.ai/for-agents/ and https://research.deepvalues.ai/llms.txt
+- [Developer API, MCP server and x402](https://app.deepvalues.ai/developers)
+
+## Podcasts
+
+- All shows (Apple Podcasts channel): https://podcasts.apple.com/us/channel/deepvalues/id6826606342
+- Deep Values (investing, English): Apple https://podcasts.apple.com/us/podcast/id1811057697 · Spotify https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9
+- 深度价值 (investing, Chinese): Apple https://podcasts.apple.com/us/podcast/id1813017485 · Spotify https://open.spotify.com/show/4pkWVzv9g4msNzlYLUhnm5
+- Deep Values Frontier (AI, English): Apple https://podcasts.apple.com/us/podcast/id6826607834 · Spotify https://open.spotify.com/show/2FlcJXyfpOMhbSFhxYRSqu
+- 深度價值前沿 (AI, Chinese): Apple https://podcasts.apple.com/us/podcast/id6826608491 · Spotify https://open.spotify.com/show/1TZVwfAXxvl4rhCDftD2QV
+- Deep Value Intelligence (English): Apple https://podcasts.apple.com/us/podcast/id1814712395
+- 深度价值情报站 (Chinese): Apple https://podcasts.apple.com/us/podcast/id1815091981 · Spotify https://open.spotify.com/show/4njZmucbNiefdXqwXQDEuX
+
+## Video and social
+
+- YouTube, Deep Value Investing (investing, English and Chinese): https://www.youtube.com/@TheDeepValues
+- YouTube, Deep Values Frontier (AI, English and Chinese): https://www.youtube.com/@deep-values
 - X (Twitter): https://x.com/thedeepvalue
 
 ## Company
