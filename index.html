@@ -20,6 +20,20 @@
     <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0e17" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href="https://deepvalues.ai/" />
+    <!-- One document, rendered client-side: each language is the same page with ?lang=xx -->
+    <link rel="alternate" hreflang="en" href="https://deepvalues.ai/?lang=en" />
+    <link rel="alternate" hreflang="de" href="https://deepvalues.ai/?lang=de" />
+    <link rel="alternate" hreflang="es-419" href="https://deepvalues.ai/?lang=es-419" />
+    <link rel="alternate" hreflang="es-ES" href="https://deepvalues.ai/?lang=es-ES" />
+    <link rel="alternate" hreflang="fr" href="https://deepvalues.ai/?lang=fr" />
+    <link rel="alternate" hreflang="hi" href="https://deepvalues.ai/?lang=hi" />
+    <link rel="alternate" hreflang="id" href="https://deepvalues.ai/?lang=id" />
+    <link rel="alternate" hreflang="it" href="https://deepvalues.ai/?lang=it" />
+    <link rel="alternate" hreflang="ja" href="https://deepvalues.ai/?lang=ja" />
+    <link rel="alternate" hreflang="ko" href="https://deepvalues.ai/?lang=ko" />
+    <link rel="alternate" hreflang="pt-BR" href="https://deepvalues.ai/?lang=pt-BR" />
+    <link rel="alternate" hreflang="zh" href="https://deepvalues.ai/?lang=zh" />
+    <link rel="alternate" hreflang="x-default" href="https://deepvalues.ai/" />
     <!-- Smart App Banner: Safari on iPhone shows a native "Open in the App Store"
          strip above the page — the one install path that needs no marketing copy.
          No storefront in the id, so every visitor lands on their own store. -->
@@ -253,6 +267,9 @@
         border: 1px solid rgba(15, 23, 60, 0.16);
         color: #0a192f;
         transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      @media (max-width: 480px) {
+        .nav-login { padding: 10px 16px; white-space: nowrap; }
       }
       .nav-login:hover {
         background: #ffffff;
@@ -689,46 +706,9 @@
         color: var(--gold-text);
         backdrop-filter: blur(4px);
       }
-
-      /* ===== Locale switcher dropdown (now in footer; opens upward) ===== */
-      .locale-switcher { position: relative; }
-      .locale-menu {
-        display: none;
-        position: absolute;
-        bottom: calc(100% + 8px);
-        left: 0;
-        width: 280px;
-        max-height: 480px;
-        overflow-y: auto;
-        background: #fff;
-        border: 1px solid rgba(15, 23, 60, 0.1);
-        border-radius: 16px;
-        box-shadow: 0 12px 36px -8px rgba(15, 23, 60, 0.22);
-        padding: 8px;
-        z-index: 50;
-      }
-      .locale-menu.open { display: block; }
-      .locale-item {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 10px 12px;
-        border-radius: 10px;
-        background: transparent;
-        border: 0;
-        font-size: 14px;
-        cursor: pointer;
-        text-align: left;
-        color: #1d1d1f;
-        transition: background 0.15s ease;
-      }
-      .locale-item:hover { background: rgba(15, 23, 60, 0.05); }
-      .locale-item .locale-name { font-weight: 600; margin-right: 6px; }
-      .locale-item .locale-region { color: #6e6e73; font-size: 13px; flex: 1; }
-      .locale-item .locale-check { color: var(--gold-text); font-weight: 700; opacity: 0; margin-left: 8px; }
-      .locale-item.active .locale-check { opacity: 1; }
+      /* The language switcher (header + footer) is rendered and styled by /i18n.js. */
     </style>
-    <script src="/i18n.js?v=3b99638" defer></script>
+    <script src="/i18n.js?v=ad54053" defer></script>
 
   </head>
   <body>
@@ -751,14 +731,18 @@
           </ul>
         </div>
 
-        <a
-          href="https://app.deepvalues.ai/login?mode=signin"
-          class="nav-login text-[15px] font-semibold"
-          data-i18n="nav.login"
-          data-ga-event="login_click"
-        >
-          Log in
-        </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Language switcher: rendered by /i18n.js (native language names, remembered pick) -->
+          <div data-locale-switcher data-locale-placement="header"></div>
+          <a
+            href="https://app.deepvalues.ai/login?mode=signin"
+            class="nav-login text-[15px] font-semibold"
+            data-i18n="nav.login"
+            data-ga-event="login_click"
+          >
+            Log in
+          </a>
+        </div>
       </nav>
     </header>
 
@@ -1721,37 +1705,7 @@
 
         <!-- Bottom row (below divider): language switcher | © | legal links -->
         <div class="grid grid-cols-3 items-center pt-3 text-[14px] text-slate-500">
-          <div class="locale-switcher">
-            <button
-              id="localeTrigger"
-              type="button"
-              class="flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition"
-              aria-label="Change language"
-              aria-haspopup="listbox"
-            >
-              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <circle cx="10" cy="10" r="7.4" stroke="currentColor" stroke-width="1.6" />
-                <path
-                  d="M2.6 10h14.8M10 2.6c2 2.2 3.1 4.8 3.1 7.4 0 2.6-1.1 5.2-3.1 7.4M10 2.6c-2 2.2-3.1 4.8-3.1 7.4 0 2.6 1.1 5.2 3.1 7.4"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span data-locale-current>EN</span>
-              <svg width="9" height="9" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path
-                  d="M3 7.5L6 4.5L9 7.5"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-            <div id="localeMenu" class="locale-menu" role="listbox"></div>
-          </div>
+          <div data-locale-switcher data-locale-placement="footer"></div>
           <div class="text-center">© 2026 LULU VENTURES LLC</div>
           <ul class="flex flex-wrap items-center justify-end gap-x-8 gap-y-2">
             <li><a href="/privacy.html#cookies" class="hover:text-slate-900 transition" data-i18n="footer.cookies" onclick="if(window.openCookieSettings){event.preventDefault();window.openCookieSettings();}">Cookies</a></li>

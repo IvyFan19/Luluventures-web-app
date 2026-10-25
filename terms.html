@@ -162,6 +162,7 @@
         [style*="color: #1d1d1f"] { color: #f5f5f7 !important; }
       }
     </style>
+    <script src="/i18n.js?v=ad54053" defer></script>
   </head>
   <body>
     <!-- ==================== NAV ==================== -->
@@ -183,9 +184,12 @@
             <li><a href="/" class="hover:text-slate-900 transition">Back to home</a></li>
           </ul>
         </div>
-        <a href="https://app.deepvalues.ai/login?mode=signin" class="text-white text-[15px] font-semibold px-6 py-3 rounded-full" style="background: #0e85ff;">
-          Login
-        </a>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div data-locale-switcher data-locale-placement="header" data-locale-target="/"></div>
+          <a href="https://app.deepvalues.ai/login?mode=signin" class="text-white text-[15px] font-semibold px-4 sm:px-6 py-3 rounded-full" style="background: #0e85ff;">
+            Login
+          </a>
+        </div>
       </nav>
     </header>
 
