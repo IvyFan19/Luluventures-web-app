@@ -76,6 +76,11 @@
       header {
         padding-top: 24px;
       }
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
       .brand {
         display: inline-flex;
         align-items: center;
@@ -139,13 +144,15 @@
         color: var(--muted);
       }
     </style>
+    <script src="/i18n.js?v=ad54053" defer></script>
   </head>
   <body>
-    <header class="wrap">
+    <header class="wrap site-header">
       <a href="/" class="brand">
         <img src="/images/deepvalues-ginkgo-128.png" alt="" width="32" height="32" />
         <span>DeepValues.AI</span>
       </a>
+      <div data-locale-switcher data-locale-placement="header" data-locale-target="/"></div>
     </header>
 
     <main class="wrap">
