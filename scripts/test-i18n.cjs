@@ -18,7 +18,7 @@ function visit(langs, store) {
 const check = (name, got, want) => { console.log((got === want ? 'PASS ' : 'FAIL ') + name + ': ' + got + (got === want ? '' : ' (want ' + want + ')')); if (got !== want) process.exitCode = 1; };
 let store = {};
 let v = visit(['zh-TW', 'en'], store);
-check('first visit, Chinese browser -> zh', v.html, 'zh');
+check('first visit, Taiwan Chinese browser -> zh-Hant', v.html, 'zh-Hant');
 check('auto-detected language is not saved', JSON.stringify(store), '{}');
 store = { dv_locale: 'en' };
 v = visit(['zh-CN', 'en'], store);

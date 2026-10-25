@@ -2,7 +2,7 @@
 //  1. static: every page with the site header carries the switcher mount inside <header>,
 //     every page loads /i18n.js, index.html has hreflang alternates for all locales + x-default;
 //  2. data: every locale file has a native-name entry in LOCALES (and no stray entries);
-//  3. ?lang= / ?hl= URL override resolves, is remembered, and beats a stored pick;
+//  3. ?lang= / ?hl= URL override resolves, holds for the visit only (sessionStorage), and beats a stored pick;
 //  4. DOM (jsdom): header + footer switchers render 12 native names, stay in sync, open/close
 //     with the keyboard, update <html lang>, and persist the choice.
 const fs = require('fs'), path = require('path'), vm = require('vm');
@@ -18,20 +18,21 @@ const src = read('public/i18n.js');
 // ---- load LOCALES from the real script ----
 function boot(opts) {
   opts = opts || {};
-  const data = opts.store || {};
+  const data = opts.store || {}, sdata = opts.session || {};
   const ls = { getItem: (k) => (k in data ? data[k] : null), setItem: (k, v) => { data[k] = String(v); }, removeItem: (k) => { delete data[k]; } };
+  const ss = { getItem: (k) => (k in sdata ? sdata[k] : null), setItem: (k, v) => { sdata[k] = String(v); }, removeItem: (k) => { delete sdata[k]; } };
   const attrs = {};
   const html = { setAttribute: (k, v) => { attrs[k] = v; } };
   const win = {};
   const langs = opts.langs || ['en-US'];
   vm.runInNewContext(src, {
-    window: win, localStorage: ls, navigator: { languages: langs, language: langs[0] },
+    window: win, localStorage: ls, sessionStorage: ss, navigator: { languages: langs, language: langs[0] },
     location: { search: opts.search || '', pathname: '/', hash: '' },
     history: { replaceState() {} }, URLSearchParams,
     document: { readyState: 'complete', documentElement: html, getElementById: () => null, querySelector: () => null, querySelectorAll: () => [], addEventListener() {} },
     fetch: () => Promise.resolve({ ok: false, json: () => ({}) }), Promise, Object, console, decodeURIComponent, setTimeout,
   });
-  return { api: win.__i18n, store: data, attrs };
+  return { api: win.__i18n, store: data, session: sdata, attrs };
 }
 
 // ---- 1. static markup ----
@@ -52,9 +53,9 @@ const locales = boot().api.getLocales();
 const codes = Object.keys(locales).sort();
 const files = fs.readdirSync(path.join(root, 'public', 'locales')).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', '')).sort();
 check('LOCALES covers exactly the locale files', codes, files);
-const wantLabels = { en: 'English', de: 'Deutsch', 'es-419': 'Español (LatAm)', 'es-ES': 'Español (España)', fr: 'Français', hi: 'हिन्दी', id: 'Bahasa Indonesia', it: 'Italiano', ja: '日本語', ko: '한국어', 'pt-BR': 'Português (BR)', zh: '中文' };
+const wantLabels = { en: 'English', de: 'Deutsch', 'es-419': 'Español (LatAm)', 'es-ES': 'Español (España)', fr: 'Français', hi: 'हिन्दी', id: 'Bahasa Indonesia', it: 'Italiano', ja: '日本語', ko: '한국어', 'pt-BR': 'Português (BR)', zh: '简体中文', 'zh-Hant': '繁體中文' };
 check('native name for every locale', codes.map((c) => [c, locales[c].label]), Object.keys(wantLabels).sort().map((c) => [c, wantLabels[c]]));
-check('every locale has a short code', codes.every((c) => /^[A-Z]{2}$/.test(locales[c].code)), true);
+check('every locale has a short code', codes.every((c) => /^([A-Z]{2}|繁)$/.test(locales[c].code)), true);
 
 // ---- hreflang in index.html ----
 const hreflangs = [...index.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]]);
@@ -71,6 +72,9 @@ check('?hl=ja resolves', lang('?hl=ja', ['en-US']).detected, 'ja');
 check('?lang=pt -> pt-BR', lang('?lang=pt', ['en-US']).detected, 'pt-BR');
 check('?lang=es_MX -> es-419', lang('?lang=es_MX', ['en-US']).detected, 'es-419');
 check('?lang=ZH-hans -> zh', lang('?x=1&lang=ZH-hans', ['en-US']).detected, 'zh');
+check('?lang=zh-TW -> zh-Hant', lang('?lang=zh-TW', ['en-US']).detected, 'zh-Hant');
+check('Hong Kong / Taiwan / Hant phones -> zh-Hant', ['zh-HK', 'zh-TW', 'zh-Hant-TW', 'zh-MO'].map((t) => lang('', [t]).detected), ['zh-Hant', 'zh-Hant', 'zh-Hant', 'zh-Hant']);
+check('mainland / Singapore / Hans phones -> zh', ['zh-CN', 'zh-SG', 'zh-Hans-CN', 'zh'].map((t) => lang('', [t]).detected), ['zh', 'zh', 'zh', 'zh']);
 check('?lang=es-ES keeps Spain', lang('?lang=es-ES', ['en-US']).detected, 'es-ES');
 check('?lang=xx (unsupported) falls back to the browser', lang('?lang=xx', ['fr-FR']).detected, 'fr');
 check('URL override beats a remembered pick', lang('?lang=ko', ['en-US'], { dv_locale_choice: 'de' }).detected, 'ko');
@@ -84,7 +88,10 @@ check('no URL override, no pick: browser language', lang('', ['it-IT']).detected
 }
 {
   const b = boot({ search: '?lang=pt-BR' });
-  check('?lang= sets the full <html lang> tag and remembers the URL pick', [b.attrs.lang, b.store.dv_locale_choice], ['pt-BR', 'pt-BR']);
+  check('?lang= sets the full <html lang> tag for this visit only', [b.attrs.lang, b.store.dv_locale_choice, b.session.dv_locale_choice_visit], ['pt-BR', undefined, 'pt-BR']);
+  const next = boot({ session: { dv_locale_choice_visit: 'pt-BR' }, langs: ['de-DE'] });
+  check('the visit language carries to the next page of the visit', next.api.detect(), 'pt-BR');
+  check('a new visit follows the phone again', boot({ langs: ['de-DE'] }).api.detect(), 'de');
 }
 {
   const b = boot({ langs: ['de-DE'] });
@@ -115,17 +122,17 @@ const key = (w, el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key:
   await tick();
   const d = w.document;
   check('DOM: two switchers rendered', d.querySelectorAll('.locale-trigger').length, 2);
-  check('DOM: 12 native names in the header menu', [...d.querySelectorAll('#h .locale-name')].map((e) => e.textContent), Object.values(wantLabels));
+  check('DOM: Automatic + 13 native names in the header menu', [...d.querySelectorAll('#h .locale-name')].map((e) => e.textContent), ['Automatic'].concat(Object.values(wantLabels)));
   check('DOM: trigger starts as EN', d.querySelector('#h [data-locale-current]').textContent, 'EN');
   const trig = d.querySelector('#h .locale-trigger'), menu = d.querySelector('#h .locale-menu');
   check('DOM: trigger a11y attributes', [trig.getAttribute('aria-haspopup'), trig.getAttribute('aria-expanded')], ['listbox', 'false']);
   trig.click();
   check('DOM: click opens the menu', [menu.classList.contains('open'), trig.getAttribute('aria-expanded')], [true, 'true']);
-  check('DOM: focus lands on the active option', d.activeElement.getAttribute('data-locale-option'), 'en');
+  check('DOM: focus lands on the active option (Automatic until a pick)', d.activeElement.getAttribute('data-locale-option'), 'auto');
   key(w, d.activeElement, 'ArrowDown');
-  check('DOM: ArrowDown moves to the next option', d.activeElement.getAttribute('data-locale-option'), 'de');
+  check('DOM: ArrowDown moves to the next option', d.activeElement.getAttribute('data-locale-option'), 'en');
   key(w, d.activeElement, 'End');
-  check('DOM: End moves to the last option', d.activeElement.getAttribute('data-locale-option'), 'zh');
+  check('DOM: End moves to the last option', d.activeElement.getAttribute('data-locale-option'), 'zh-Hant');
   key(w, d.activeElement, 'Escape');
   check('DOM: Escape closes and returns focus to the trigger', [menu.classList.contains('open'), d.activeElement === trig], [false, true]);
   trig.click();
@@ -146,10 +153,17 @@ const key = (w, el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key:
   // ?lang=ja on arrival; then an explicit pick drops the param so a reload does not undo it
   const w2 = dom('https://deepvalues.ai/?lang=ja&utm_source=x');
   await tick();
-  check('DOM: ?lang=ja renders Japanese and remembers it', [w2.document.documentElement.lang, w2.localStorage.getItem('dv_locale_choice'), w2.document.querySelector('#h [data-locale-current]').textContent], ['ja', 'ja', 'JA']);
+  check('DOM: ?lang=ja renders Japanese for this visit, nothing remembered', [w2.document.documentElement.lang, w2.localStorage.getItem('dv_locale_choice'), w2.sessionStorage.getItem('dv_locale_choice_visit'), w2.document.querySelector('#h [data-locale-current]').textContent], ['ja', null, 'ja', 'JA']);
   w2.document.querySelector('#h .locale-trigger').click();
   w2.document.querySelector('#h [data-locale-option="en"]').click();
   await tick();
   check('DOM: a pick removes ?lang= but keeps other params', w2.location.search, '?utm_source=x');
   check('DOM: the pick sticks', w2.localStorage.getItem('dv_locale_choice'), 'en');
+  check('DOM: a pick ticks that language, not Automatic', w2.document.querySelector('#h .active').dataset.localeOption, 'en');
+  // "Automatic" forgets the pick and follows the device language again
+  w2.document.querySelector('#h .locale-trigger').click();
+  w2.document.querySelector('#h [data-locale-option="auto"]').click();
+  await tick();
+  check('DOM: Automatic forgets the pick', [w2.localStorage.getItem('dv_locale_choice'), w2.sessionStorage.getItem('dv_locale_choice_visit')], [null, null]);
+  check('DOM: Automatic is ticked again', w2.document.querySelector('#h .active').dataset.localeOption, 'auto');
 })().catch((e) => { console.log('FAIL DOM tests crashed: ' + e.stack); process.exitCode = 1; });
