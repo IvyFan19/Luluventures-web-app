@@ -67,8 +67,19 @@
           "description": "AI-native financial assistant for individual investors — institutional-grade stock research aligned only with the user's interest.",
           "sameAs": [
             "https://www.youtube.com/@TheDeepValues",
-            "https://podcasts.apple.com/us/podcast/deep-values/id1811057697",
+            "https://www.youtube.com/@deep-values",
+            "https://podcasts.apple.com/us/channel/deepvalues/id6826606342",
+            "https://podcasts.apple.com/us/podcast/id1811057697",
+            "https://podcasts.apple.com/us/podcast/id1813017485",
+            "https://podcasts.apple.com/us/podcast/id6826607834",
+            "https://podcasts.apple.com/us/podcast/id6826608491",
+            "https://podcasts.apple.com/us/podcast/id1814712395",
+            "https://podcasts.apple.com/us/podcast/id1815091981",
             "https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9",
+            "https://open.spotify.com/show/4pkWVzv9g4msNzlYLUhnm5",
+            "https://open.spotify.com/show/2FlcJXyfpOMhbSFhxYRSqu",
+            "https://open.spotify.com/show/1TZVwfAXxvl4rhCDftD2QV",
+            "https://open.spotify.com/show/4njZmucbNiefdXqwXQDEuX",
             "https://x.com/thedeepvalue"
           ],
           "contactPoint": {
@@ -1713,14 +1724,14 @@
                 <path d="M13 17a1 1 0 1 0-2 0l.5 4.5a.5.5 0 1 0 1 0Z"/>
               </svg>
             </a>
-            <a href="https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9?si=YsWJodQKS7CEMq5Twdh_8Q" target="_blank" rel="noopener noreferrer"
+            <a href="https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center justify-center transition-colors text-slate-500 hover:text-[#1DB954]"
                aria-label="Spotify">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12C24 5.4 18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
               </svg>
             </a>
-            <a href="https://x.com/thedeepvalue?s=21" target="_blank" rel="noopener noreferrer"
+            <a href="https://x.com/thedeepvalue" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center justify-center transition-colors text-slate-500 hover:text-black"
                aria-label="X (Twitter)">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -1730,20 +1741,62 @@
           </div>
         </div>
 
-        <!-- Top row (above divider): nav links on the left -->
-        <div class="pb-3">
-          <ul class="flex flex-wrap items-center gap-x-8 gap-y-2 text-[15px] text-slate-700">
-            <li><a href="https://apps.apple.com/app/id6775568608" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.apps">iPhone app</a></li>
-            <li>
-              <span data-i18n="footer.androidWeb">Android &amp; web:</span>
-              <a href="https://app.deepvalues.ai/login?ref=deepvalues.ai&amp;src=footer" class="underline underline-offset-2 hover:text-slate-900 transition">app.deepvalues.ai</a>
-            </li>
-            <li><a href="https://research.deepvalues.ai/" class="hover:text-slate-900 transition" data-i18n="nav.research">Research</a></li>
-            <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
-            <li><a href="https://app.deepvalues.ai/developers" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
-            <li><a href="mailto:team@deepvalues.ai" class="hover:text-slate-900 transition" data-i18n="footer.contact">Contact</a></li>
-          </ul>
-        </div>
+        <!-- Cross-reference hub: Products · Research · Listen · Watch · Developers.
+             Same link set as app.deepvalues.ai, research.deepvalues.ai and dvi.deepvalues.ai.
+             Show and channel names stay in their own language. -->
+        <nav aria-label="DeepValues products and channels" class="pb-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-8 text-[14px] text-slate-700">
+          <div>
+            <h2 class="text-[13px] font-semibold uppercase tracking-wide text-slate-900 mb-3" data-i18n="footer.col.products">Products</h2>
+            <ul class="space-y-2">
+              <li><a href="https://app.deepvalues.ai/login?ref=deepvalues.ai&amp;src=footer" class="hover:text-slate-900 transition" data-i18n="footer.webApp">Web app</a></li>
+              <li><a href="https://apps.apple.com/us/app/deepvalues/id6775568608" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.iphoneApp">DeepValues for iPhone</a></li>
+              <li><a href="https://apps.apple.com/us/app/buffett-indicator/id6747404614" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.buffettIndicator">Buffett Indicator (iPhone)</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.luluventures.buffett" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.bubbleWatch">Bubble Watch (Android)</a></li>
+              <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-[13px] font-semibold uppercase tracking-wide text-slate-900 mb-3" data-i18n="footer.col.research">Research</h2>
+            <ul class="space-y-2">
+              <li><a href="https://research.deepvalues.ai/" class="hover:text-slate-900 transition" data-i18n="footer.researchSite">Free research (CC BY 4.0)</a></li>
+              <li><a href="https://research.deepvalues.ai/company/" class="hover:text-slate-900 transition" data-i18n="research.links.companies">Companies A–Z</a></li>
+              <li><a href="https://research.deepvalues.ai/market/" class="hover:text-slate-900 transition" data-i18n="research.links.market">Market memos</a></li>
+              <li><a href="https://research.deepvalues.ai/for-agents/" class="hover:text-slate-900 transition" data-i18n="footer.forAgents">For AI agents</a></li>
+            </ul>
+          </div>
+          <div class="col-span-2 md:col-span-1">
+            <h2 class="text-[13px] font-semibold uppercase tracking-wide text-slate-900 mb-3" data-i18n="footer.col.listen">Listen</h2>
+            <ul class="space-y-2">
+              <li><a href="https://podcasts.apple.com/us/channel/deepvalues/id6826606342" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.allShows">All shows on Apple Podcasts</a></li>
+              <li><span class="text-slate-900">Deep Values</span> <span class="text-slate-500"><a href="https://podcasts.apple.com/us/podcast/id1811057697" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Apple</a> · <a href="https://open.spotify.com/show/2XDn2NMbbfvrJiqk9xAqR9" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Spotify</a></span></li>
+              <li><span class="text-slate-900">深度价值</span> <span class="text-slate-500"><a href="https://podcasts.apple.com/us/podcast/id1813017485" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Apple</a> · <a href="https://open.spotify.com/show/4pkWVzv9g4msNzlYLUhnm5" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Spotify</a></span></li>
+              <li><span class="text-slate-900">Deep Values Frontier</span> <span class="text-slate-500"><a href="https://podcasts.apple.com/us/podcast/id6826607834" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Apple</a> · <a href="https://open.spotify.com/show/2FlcJXyfpOMhbSFhxYRSqu" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Spotify</a></span></li>
+              <li><span class="text-slate-900">深度價值前沿</span> <span class="text-slate-500"><a href="https://podcasts.apple.com/us/podcast/id6826608491" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Apple</a> · <a href="https://open.spotify.com/show/1TZVwfAXxvl4rhCDftD2QV" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Spotify</a></span></li>
+              <li><span class="text-slate-900">Deep Value Intelligence</span> <span class="text-slate-500"><a href="https://podcasts.apple.com/us/podcast/id1814712395" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Apple</a></span></li>
+              <li><span class="text-slate-900">深度价值情报站</span> <span class="text-slate-500"><a href="https://podcasts.apple.com/us/podcast/id1815091981" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Apple</a> · <a href="https://open.spotify.com/show/4njZmucbNiefdXqwXQDEuX" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-slate-900 transition">Spotify</a></span></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-[13px] font-semibold uppercase tracking-wide text-slate-900 mb-3" data-i18n="footer.col.watch">Watch</h2>
+            <ul class="space-y-2">
+              <li><a href="https://www.youtube.com/@TheDeepValues" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition">Deep Value Investing</a></li>
+              <li><a href="https://www.youtube.com/@deep-values" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition">Deep Values Frontier (AI)</a></li>
+            </ul>
+            <h2 class="text-[13px] font-semibold uppercase tracking-wide text-slate-900 mt-6 mb-3" data-i18n="footer.col.follow">Follow</h2>
+            <ul class="space-y-2">
+              <li><a href="https://x.com/thedeepvalue" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition">X @thedeepvalue</a></li>
+              <li><a href="mailto:team@deepvalues.ai" class="hover:text-slate-900 transition" data-i18n="footer.contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-[13px] font-semibold uppercase tracking-wide text-slate-900 mb-3" data-i18n="footer.col.developers">Developers</h2>
+            <ul class="space-y-2">
+              <li><a href="https://app.deepvalues.ai/developers" class="hover:text-slate-900 transition">API · MCP · x402</a></li>
+              <li><a href="https://research.deepvalues.ai/llms.txt" class="hover:text-slate-900 transition">Research llms.txt</a></li>
+              <li><a href="/llms.txt" class="hover:text-slate-900 transition">deepvalues.ai/llms.txt</a></li>
+            </ul>
+          </div>
+        </nav>
 
         <!-- Divider -->
         <div class="border-t border-slate-900/10"></div>
