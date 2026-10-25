@@ -48,7 +48,7 @@ The app (iPhone and web) is available in 20 languages. The marketing site is ava
 - [DeepValues for iPhone](https://apps.apple.com/us/app/deepvalues/id6775568608)
 - [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614) — market-valuation gauge
 - [Bubble Watch for Android](https://play.google.com/store/apps/details?id=com.luluventures.buffett) — the Buffett Indicator on Android
-- [DeepValues Research](https://research.deepvalues.ai/) — free Buffett-style company reports, market memos and investor studies, CC BY 4.0. For agents: https://research.deepvalues.ai/for-agents/ and https://research.deepvalues.ai/llms.txt
+- [DeepValues Research](https://research.deepvalues.ai/) — open-source Buffett-style company reports, market memos and investor studies, CC BY 4.0. For agents: https://research.deepvalues.ai/for-agents/ and https://research.deepvalues.ai/llms.txt
 - [Developer API, MCP server and x402](https://app.deepvalues.ai/developers)
 
 ## Podcasts
