@@ -4,8 +4,10 @@
 // (navigator.languages) on every visit. Only a language the visitor picks in
 // the switcher is remembered (localStorage dv_locale_choice); an auto-detected
 // one never is, so a change of system/browser language takes effect at once.
-// A link can force a language with ?lang=ja (or ?hl=ja); that counts as an
-// explicit pick. Order: URL parameter > remembered pick > browser languages.
+// A link can force a language with ?lang=ja (or ?hl=ja) for that visit only
+// (sessionStorage): one shared or search-result link must never freeze a reader in
+// a language their phone is not set to. "Automatic" in the switcher forgets a pick.
+// Order: URL parameter > this visit's URL language > remembered pick > browser languages.
 //
 // The language switcher is rendered here, once, into every element marked
 // [data-locale-switcher] (header and footer), so all mount points share one
@@ -25,13 +27,19 @@
     'ja':     { label: '日本語',            code: 'JA' },
     'ko':     { label: '한국어',            code: 'KO' },
     'pt-BR':  { label: 'Português (BR)',   code: 'PT' },
-    'zh':     { label: '中文',              code: 'ZH' }
+    'zh':     { label: '简体中文',          code: 'ZH' },
+    'zh-Hant': { label: '繁體中文',         code: '繁' }
   };
+  // The switcher's first row: follow the device language (no pick remembered).
+  var AUTO_LABEL = { 'en': 'Automatic', 'de': 'Automatisch', 'es-419': 'Automático', 'es-ES': 'Automático', 'fr': 'Automatique',
+    'hi': 'स्वचालित', 'id': 'Otomatis', 'it': 'Automatico', 'ja': '自動', 'ko': '자동', 'pt-BR': 'Automático',
+    'zh': '自动（跟随系统）', 'zh-Hant': '自動（跟隨系統）' };
   var RTL = { ar: 1, he: 1, fa: 1, ur: 1 };
   var DEFAULT_LOCALE = 'en';
   // The old key 'dv_locale' also stored auto-detected languages, which froze every
   // visitor in their first-visit language: it is ignored (and removed) from now on.
   var STORAGE_KEY = 'dv_locale_choice';
+  var VISIT_KEY = 'dv_locale_choice_visit';
   try { localStorage.removeItem('dv_locale'); } catch (e) {}
   var cache = {};
 
@@ -44,7 +52,8 @@
     if (exact) return exact;
     // Spanish: Spain stays Spain, everything else gets LatAm
     if (raw === 'es' || raw.indexOf('es-') === 0) return 'es-419';
-    // Chinese: simplified for now
+    // Chinese: Traditional for Taiwan / Hong Kong / Macau and the Hant script, Simplified otherwise
+    if (/^zh-(hant|tw|hk|mo)/.test(raw)) return 'zh-Hant';
     if (raw === 'zh' || raw.indexOf('zh-') === 0) return 'zh';
     // Portuguese: BR for now
     if (raw === 'pt' || raw.indexOf('pt-') === 0) return 'pt-BR';
@@ -68,16 +77,33 @@
     var forced = urlOverride();
     if (forced) return forced;
 
+    var visit = null;
+    try { visit = sessionStorage.getItem(VISIT_KEY); } catch (e) {}
+    if (visit && LOCALES[visit]) return visit;
+
+    var stored = storedPick();
+    if (stored) return stored;
+    return browserLocale();
+  }
+
+  function storedPick() {
     var stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    if (stored && LOCALES[stored]) return stored;
+    return stored && LOCALES[stored] ? stored : null;
+  }
 
-    var browser = navigator.languages || [navigator.language || 'en'];
+  function browserLocale() {
+    var browser = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
     for (var i = 0; i < browser.length; i++) {
       var found = resolveTag(browser[i]);
       if (found) return found;
     }
     return DEFAULT_LOCALE;
+  }
+
+  function forgetPick() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    try { sessionStorage.removeItem(VISIT_KEY); } catch (e) {}
   }
 
   function loadTranslations(locale) {
@@ -128,7 +154,8 @@
     '.locale-item{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 12px;border-radius:10px;background:transparent;border:0;font:inherit;font-size:15px;font-weight:600;text-align:start;cursor:pointer;color:var(--dv-ls-fg)}' +
     '.locale-item:hover{background:var(--dv-ls-hover)}' +
     '.locale-item .locale-check{color:var(--dv-ls-accent);font-weight:700;opacity:0;margin-inline-start:8px}' +
-    '.locale-item.active .locale-check{opacity:1}';
+    '.locale-item.active .locale-check{opacity:1}' +
+    '.locale-item.locale-auto{border-bottom:1px solid var(--dv-ls-menu-border);border-radius:10px 10px 0 0;margin-bottom:4px}';
 
   var GLOBE =
     '<svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false">' +
@@ -171,10 +198,16 @@
       el.setAttribute('aria-label', 'Language: ' + meta.label);
       el.setAttribute('title', meta.label);
     });
+    var auto = !storedPick();   // "Automatic" stays ticked until the visitor picks a language
     document.querySelectorAll('[data-locale-option]').forEach(function (el) {
-      var isActive = el.getAttribute('data-locale-option') === locale;
+      var code = el.getAttribute('data-locale-option');
+      var isActive = auto ? code === 'auto' : code === locale;
       el.classList.toggle('active', isActive);
       el.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if (code === 'auto') {
+        var name = el.querySelector('.locale-name');
+        if (name) name.textContent = AUTO_LABEL[locale] || AUTO_LABEL.en;
+      }
     });
   }
 
@@ -187,6 +220,7 @@
   function setLocale(locale, remember) {
     if (!LOCALES[locale]) locale = DEFAULT_LOCALE;
     if (remember) {
+      try { sessionStorage.removeItem(VISIT_KEY); } catch (e) {}
       try { localStorage.setItem(STORAGE_KEY, locale); } catch (e) {}
     }
     applyDocumentLocale(locale);
@@ -214,6 +248,13 @@
   // data-locale-target="/": there a pick is remembered and opens the translated landing page.
   function pick(code, mount) {
     var target = mount.getAttribute('data-locale-target');
+    if (code === 'auto') {
+      forgetPick();
+      dropUrlOverride();
+      if (target) { location.href = target; return; }
+      setLocale(browserLocale(), false);
+      return;
+    }
     if (target) {
       // Untranslated page: remember the pick, then show the landing page in that language.
       try { localStorage.setItem(STORAGE_KEY, code); } catch (e) {}
@@ -232,6 +273,10 @@
         GLOBE + '<span data-locale-current>' + LOCALES[currentLocale].code + '</span>' + CARET +
       '</button>' +
       '<div id="' + id + '" class="locale-menu" role="listbox" aria-label="Language">' +
+      '<button type="button" role="option" class="locale-item locale-auto" tabindex="-1" aria-selected="false" data-locale-option="auto">' +
+        '<span class="locale-name">' + (AUTO_LABEL[currentLocale] || AUTO_LABEL.en) + '</span>' +
+        '<span class="locale-check" aria-hidden="true">✓</span>' +
+      '</button>' +
       Object.keys(LOCALES).map(function (code) {
         return '<button type="button" role="option" class="locale-item" tabindex="-1" aria-selected="false" data-locale-option="' + code + '" lang="' + code + '">' +
           '<span class="locale-name">' + LOCALES[code].label + '</span>' +
@@ -289,24 +334,33 @@
     document.addEventListener('click', function () { closeMenus(); });
   }
 
+  // index.html's <head> snippet marks <html class="i18n-pending"> for a visitor who will not read English, so the
+  // English text never flashes before the swap; this lifts it (the snippet also lifts it after 2.5 s on its own).
+  function revealPage() {
+    try { document.documentElement.classList.remove('i18n-pending'); } catch (e) {}
+  }
+
   // Expose for debugging / programmatic use
   window.__i18n = {
     setLocale: setLocale, detect: detectLocale, resolve: resolveTag, getLocales: function () { return LOCALES; },
     // forget an explicit pick and follow the browser again
-    reset: function () { try { localStorage.removeItem(STORAGE_KEY); } catch (e) {} return setLocale(detectLocale(), false); }
+    reset: function () { forgetPick(); return setLocale(detectLocale(), false); }
   };
 
   function start() {
     var locale = detectLocale();
-    // ?lang=xx is an explicit pick (campaign and research-site links): remember it like a switcher choice.
-    var forced = urlOverride();
+    // ?lang=xx (hreflang, campaign and research-site links) holds for this visit, never as a remembered pick.
+    if (urlOverride()) {
+      try { sessionStorage.setItem(VISIT_KEY, locale); } catch (e) {}
+    }
     currentLocale = locale;
     initSwitcher();
     if (document.querySelector('[data-locale-target]')) {
       updateSwitcherUI(locale);   // untranslated page: only the picker shows the language
+      revealPage();
       return;
     }
-    setLocale(locale, !!forced);
+    setLocale(locale, false).then(revealPage, revealPage);
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start);

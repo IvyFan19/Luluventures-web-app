@@ -2,6 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- A visitor whose language is not English never sees the English text flash before /i18n.js swaps it:
+         translatable text stays hidden until the swap (i18n.js lifts the class; at most 2.5 s regardless). -->
+    <script>
+      (function () {
+        try {
+          var m = /[?&](?:lang|hl)=([^&#]*)/i.exec(location.search), l = m ? decodeURIComponent(m[1]) : null;
+          if (!l) { try { l = sessionStorage.getItem('dv_locale_choice_visit') || localStorage.getItem('dv_locale_choice'); } catch (e) {} }
+          if (!l) l = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+          if (!/^en\b/i.test(l)) {
+            var d = document.documentElement;
+            d.classList.add('i18n-pending');
+            setTimeout(function () { d.classList.remove('i18n-pending'); }, 2500);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <style>.i18n-pending [data-i18n], .i18n-pending [data-i18n-html] { visibility: hidden; }</style>
     <!-- The ginkgo mark is the App Store icon; /favicon.ico also answers the
          browsers that request it without reading these tags. -->
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
@@ -33,6 +50,7 @@
     <link rel="alternate" hreflang="ko" href="https://deepvalues.ai/?lang=ko" />
     <link rel="alternate" hreflang="pt-BR" href="https://deepvalues.ai/?lang=pt-BR" />
     <link rel="alternate" hreflang="zh" href="https://deepvalues.ai/?lang=zh" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://deepvalues.ai/?lang=zh-Hant" />
     <link rel="alternate" hreflang="x-default" href="https://deepvalues.ai/" />
     <!-- Smart App Banner: Safari on iPhone shows a native "Open in the App Store"
          strip above the page — the one install path that needs no marketing copy.
