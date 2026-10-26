@@ -1700,7 +1700,9 @@
          Works without JavaScript: the form posts there and the server redirects back with
          ?letter=check-inbox#letter or ?letter=error#letter. With JavaScript (the memo script at
          the bottom of this page) it posts JSON and answers inline. The name and the three
-         bullets follow what the Monday email contains (apps/next/lib/email/weekly). -->
+         bullets follow what the Saturday public edition contains (apps/next/lib/email/weekly).
+         The consent line (letter.consent) must match apps/next/lib/letter/copy.ts word for word:
+         the server stores that sentence as what the subscriber agreed to. -->
     <style>
       #letter { padding: 24px 24px 96px; background: #ffffff; font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif; scroll-margin-top: 24px; }
       #letter .lt-card { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 32px; padding: 40px 28px; border-radius: 28px;
@@ -1727,6 +1729,7 @@
       .lt-fine { margin: 12px 0 0; font-size: 13.5px; line-height: 1.5; color: #6e6e73; }
       .lt-fine a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
       .lt-fine a:hover { color: #0a192f; }
+      .lt-consent { color: #3a3a3c; }
       .lt-status { margin: 12px 0 0; font-size: 15px; line-height: 1.45; font-weight: 600; }
       .lt-status[hidden] { display: none; }
       .lt-status--ok { color: #1f6f43; }
@@ -1761,6 +1764,7 @@
         .lt-input::placeholder { color: #6e6e73; }
         .lt-input:focus { border-color: #f4cc77; box-shadow: 0 0 0 3px rgba(244, 204, 119, 0.25); }
         .lt-fine, .ft-letter-blurb { color: #a1a1a6; }
+        .lt-consent { color: #c7c7cc; }
         .lt-fine a:hover { color: #f5f5f7; }
         .lt-status--ok { color: #7ad3a0; }
         .lt-status--error { color: #ff8a80; }
@@ -1778,7 +1782,7 @@
             <span data-i18n="letter.eyebrow">Free weekly memo</span>
           </p>
           <h2 id="letterHeading" class="lt-heading" data-i18n="letter.name">Margin of Safety Memo</h2>
-          <p class="lt-promise" data-i18n="letter.promise">One email every Monday: what the great investors did, where the market stands, and the week’s research, in plain language.</p>
+          <p class="lt-promise" data-i18n="letter.promise">One email every Saturday: what the great investors did, where the market stands, and the week’s research, in plain language.</p>
           <ul class="lt-bullets">
             <li data-i18n="letter.bullet1">What the great investors bought and sold, from their 13F filings</li>
             <li data-i18n="letter.bullet2">The market’s temperature: Buffett Indicator, Shiller PE, VIX and the 10-year yield</li>
@@ -1789,7 +1793,7 @@
           <form class="lt-form" data-letter-form data-src="landing-section" action="https://app.deepvalues.ai/api/letter/subscribe" method="post">
             <label class="lt-label" for="letterEmail" data-i18n="letter.emailLabel">Email address</label>
             <div class="lt-row">
-              <input id="letterEmail" class="lt-input" type="email" name="email" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="you@example.com" aria-describedby="letterFine letterStatus" />
+              <input id="letterEmail" class="lt-input" type="email" name="email" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="you@example.com" aria-describedby="letterConsent letterFine letterStatus" />
               <button type="submit" class="lt-button cta-primary" data-ga-event="memo_subscribe_submit"><span data-i18n="letter.button">Subscribe</span></button>
             </div>
             <div class="lt-hp" aria-hidden="true">
@@ -1802,11 +1806,12 @@
               <span class="lt-msg" data-msg="check-inbox" data-i18n="letter.checkInbox" hidden>Almost done: check your inbox and tap the link to confirm.</span>
               <span class="lt-msg" data-msg="error" data-i18n="letter.error" hidden>Something went wrong on our side. Please try again in a minute.</span>
             </p>
+            <!-- Consent: word for word the sentence the server stores (lib/letter/copy.ts LETTER_CONSENT) -->
+            <p id="letterConsent" class="lt-fine lt-consent" data-i18n="letter.consent">Send me the DeepValues Margin of Safety Memo, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</p>
             <p id="letterFine" class="lt-fine">
-              <span data-i18n="letter.fine">Free · every Monday · no account needed · unsubscribe anytime</span>
-              · <a href="/privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+              <span data-i18n="letter.fine">Free · every Saturday · no account needed · unsubscribe anytime</span>
+              · <a href="/privacy.html#memo" data-i18n="footer.privacy">Privacy Policy</a>
             </p>
-            <p class="lt-fine" data-i18n="letter.disclaimer">Information only, not investment advice.</p>
           </form>
         </div>
       </div>
@@ -1914,12 +1919,12 @@
         <div class="ft-letter">
           <div>
             <p class="ft-letter-title" data-i18n="letter.name">Margin of Safety Memo</p>
-            <p class="ft-letter-blurb" data-i18n="letter.footerBlurb">The free weekly memo for value investors, every Monday. No account needed.</p>
+            <p class="ft-letter-blurb" data-i18n="letter.footerBlurb">The free weekly memo for value investors, every Saturday. No account needed.</p>
           </div>
           <form class="lt-form" data-letter-form data-src="landing-footer" action="https://app.deepvalues.ai/api/letter/subscribe" method="post">
             <label class="sr-only" for="footerLetterEmail" data-i18n="letter.emailLabel">Email address</label>
             <div class="lt-row">
-              <input id="footerLetterEmail" class="lt-input" type="email" name="email" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="you@example.com" aria-describedby="footerLetterStatus" />
+              <input id="footerLetterEmail" class="lt-input" type="email" name="email" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="you@example.com" aria-describedby="footerLetterConsent footerLetterStatus" />
               <button type="submit" class="lt-button cta-primary" data-ga-event="memo_subscribe_submit"><span data-i18n="letter.button">Subscribe</span></button>
             </div>
             <div class="lt-hp" aria-hidden="true">
@@ -1932,6 +1937,7 @@
               <span class="lt-msg" data-msg="check-inbox" data-i18n="letter.checkInbox" hidden>Almost done: check your inbox and tap the link to confirm.</span>
               <span class="lt-msg" data-msg="error" data-i18n="letter.error" hidden>Something went wrong on our side. Please try again in a minute.</span>
             </p>
+            <p id="footerLetterConsent" class="lt-fine lt-consent"><span data-i18n="letter.consent">Send me the DeepValues Margin of Safety Memo, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</span> <a href="/privacy.html#memo" data-i18n="footer.privacy">Privacy Policy</a></p>
           </form>
         </div>
 
