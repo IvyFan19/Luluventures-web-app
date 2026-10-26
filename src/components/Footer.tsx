@@ -50,6 +50,11 @@ export function Footer({ lang = 'en', onChangeLang }: FooterProps) {
             {g('nav.developers')}
           </a>
 
+          {/* The free weekly memo: email-only signup on the landing page. */}
+          <a href="/#letter" className="text-xs text-white/80 hover:text-white transition-colors">
+            {g('footer.memo')}
+          </a>
+
           <p className="text-xs text-white/80">
             DeepValues.AI &copy; {currentYear}
           </p>
