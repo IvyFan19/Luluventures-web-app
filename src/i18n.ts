@@ -7,6 +7,7 @@ const translations = {
   'nav.team': { en: 'Creator', zh: '创作者' },
   'nav.explore': { en: 'Get Started', zh: '立即体验' },
   'nav.developers': { en: 'Developers', zh: '开发者' },
+  'footer.memo': { en: 'Free weekly memo', zh: '免费每周备忘录' },
   'nav.signOut': { en: 'Sign Out', zh: '退出' },
 
   // Scene: Problem

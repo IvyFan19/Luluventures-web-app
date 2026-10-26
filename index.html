@@ -713,8 +713,9 @@
         #research { background: #000000 !important; }
         #research .rs-heading { color: #f5f5f7 !important; }
         #research .rs-subtitle, #research .rs-agents { color: #a1a1a6 !important; }
-        #research .rs-link { background: #1d1d1f !important; border-color: rgba(255,255,255,0.10) !important; color: #f5f5f7 !important; }
-        #research .rs-link:hover { background: #2c2c2e !important; }
+        #research .rs-tile, #research .rs-chip { background: #1d1d1f !important; border-color: rgba(255,255,255,0.10) !important; color: #f5f5f7 !important; }
+        #research .rs-tile:hover, #research .rs-chip:hover { background: #2c2c2e !important; }
+        #research .rs-tile-desc { color: #a1a1a6 !important; }
         #research .rs-cta { background: #f5f5f7 !important; color: #000000 !important; }
         #research .rs-agents a { color: #f5f5f7 !important; }
         /* FAQ */
@@ -770,7 +771,7 @@
           <ul class="hidden md:flex items-center gap-8 text-[15px] text-slate-700">
             <li><a href="#app" class="hover:text-slate-900 transition" data-i18n="nav.values">Values</a></li>
             <li><a href="#ai-intelligence" class="hover:text-slate-900 transition" data-i18n="nav.intelligence">Intelligence</a></li>
-            <li><a href="https://research.deepvalues.ai/" class="hover:text-slate-900 transition" data-i18n="nav.research">Research</a></li>
+            <li><a href="https://research.deepvalues.ai/?src=landing-nav" class="hover:text-slate-900 transition" data-i18n="nav.research">Research</a></li>
             <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
             <li><a href="https://app.deepvalues.ai/developers" class="hover:text-slate-900 transition" data-i18n="nav.api">API</a></li>
           </ul>
@@ -813,8 +814,8 @@
             The AI-native financial assistant that brings institutional-grade research, intrinsic-value tools, and Smart Money tracking to everyday investors — so you make better decisions.
           </p>
 
-          <!-- CTAs: one primary action (a free account); the App Store is the secondary -->
-          <div class="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <!-- CTAs: one primary action (a free account); the App Store and the free memo are the quiet secondaries -->
+          <div class="mt-9 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3">
             <a
               href="https://app.deepvalues.ai/login?mode=signup&amp;ref=deepvalues.ai&amp;src=hero"
               class="cta-primary text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2"
@@ -843,6 +844,11 @@
                 <span class="store-badge__top" data-i18n="hero.appstore">Download on the</span>
                 <span class="store-badge__bottom">App Store</span>
               </span>
+            </a>
+            <!-- Quiet secondary: the free weekly memo, email only (scrolls to #letter) -->
+            <a href="#letter" class="cta-memo" data-letter-jump="landing-hero" data-ga-event="memo_cta_click">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><polyline points="3 7 12 13 21 7" /></svg>
+              <span data-i18n="hero.memoCta">Get the free weekly memo</span>
             </a>
           </div>
           <p class="mt-3 text-[14px] leading-[1.5] text-slate-500 max-w-[460px]" data-i18n="hero.ctaNote">
@@ -1634,31 +1640,181 @@
     </section>
 
     <!-- ==================== RESEARCH (research.deepvalues.ai) ==================== -->
+    <!-- Counts are the live site's own (2026-10-26: 309 companies, 104 investor studies, 38 principles chapters);
+         "300+" stays true as the site grows. Every link carries src=landing-research. -->
     <style>
       #research { background: #ffffff; padding: 96px 24px 80px; font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif; }
+      #research .rs-eyebrow { display: block; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-text); margin: 0 0 14px; }
       #research .rs-heading { font-size: 40px; font-weight: 700; letter-spacing: -1px; color: #0a192f; text-align: center; margin: 0 0 16px; line-height: 1.1; }
-      #research .rs-subtitle { font-size: 18px; color: #6e6e73; max-width: 620px; margin: 0 auto 40px; text-align: center; line-height: 1.5; }
-      #research .rs-links { list-style: none; max-width: 920px; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-      #research .rs-link { display: block; background: #fafafa; border: 1px solid #e2e2e4; border-radius: 16px; padding: 18px 24px; font-weight: 600; font-size: 17px; color: #0a192f; text-decoration: none; transition: background 0.15s ease; }
-      #research .rs-link:hover { background: #f5f5f7; }
+      #research .rs-subtitle { font-size: 18px; color: #6e6e73; max-width: 640px; margin: 0 auto 40px; text-align: center; line-height: 1.5; }
+      #research .rs-tiles { list-style: none; max-width: 980px; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+      #research .rs-tile { display: flex; flex-direction: column; gap: 8px; height: 100%; background: #fafafa; border: 1px solid #e2e2e4; border-radius: 20px; padding: 24px; color: #0a192f; text-decoration: none; transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease; }
+      #research .rs-tile:hover { background: #f5f5f7; border-color: rgba(148, 101, 21, 0.35); transform: translateY(-1px); }
+      #research .rs-tile:focus-visible, #research .rs-chip:focus-visible, #research .rs-cta:focus-visible { outline: 2px solid var(--gold-text); outline-offset: 3px; }
+      #research .rs-tile-title { font-weight: 700; font-size: 19px; line-height: 1.25; }
+      #research .rs-tile-title::after { content: ' →'; color: var(--gold-text); }
+      #research .rs-tile-desc { font-size: 15.5px; line-height: 1.5; color: #6e6e73; }
+      #research .rs-chips { list-style: none; max-width: 980px; margin: 20px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+      #research .rs-chip { display: inline-block; padding: 8px 16px; border-radius: 999px; border: 1px solid #e2e2e4; background: #ffffff; font-size: 15px; font-weight: 600; color: #0a192f; text-decoration: none; transition: background 0.15s ease; }
+      #research .rs-chip:hover { background: #f5f5f7; }
       #research .rs-actions { text-align: center; margin-top: 32px; }
       #research .rs-cta { display: inline-block; background: #0a192f; color: #ffffff; font-weight: 600; font-size: 16px; padding: 14px 28px; border-radius: 999px; text-decoration: none; }
       #research .rs-agents { font-size: 14px; color: #6e6e73; text-align: center; margin: 20px auto 0; max-width: 620px; line-height: 1.5; }
       #research .rs-agents a { color: #0a192f; text-decoration: underline; text-underline-offset: 2px; }
     </style>
-    <section id="research" aria-label="Open-source research">
-      <h2 class="rs-heading" data-i18n="research.heading">Open-source research</h2>
-      <p class="rs-subtitle" data-i18n="research.subtitle">Buffett-style company reports in English and 中文, market memos, investor studies and value-investing principles, published daily on DeepValues Research. CC BY 4.0: read, cite, reuse.</p>
-      <ul class="rs-links">
-        <li><a class="rs-link" href="https://research.deepvalues.ai/company/" data-i18n="research.links.companies">Companies A–Z</a></li>
-        <li><a class="rs-link" href="https://research.deepvalues.ai/market/" data-i18n="research.links.market">Market memos</a></li>
-        <li><a class="rs-link" href="https://research.deepvalues.ai/gurus/" data-i18n="research.links.gurus">Gurus</a></li>
-        <li><a class="rs-link" href="https://research.deepvalues.ai/principles/" data-i18n="research.links.principles">Principles</a></li>
-        <li><a class="rs-link" href="https://research.deepvalues.ai/buffett-archive/" data-i18n="research.links.buffett">Buffett Archive</a></li>
-        <li><a class="rs-link" href="https://research.deepvalues.ai/personal-finance/" data-i18n="research.links.personalFinance">Personal finance</a></li>
+    <section id="research" aria-labelledby="researchHeading">
+      <p class="rs-eyebrow">DeepValues Research</p>
+      <h2 id="researchHeading" class="rs-heading" data-i18n="research.heading">Open research on 300+ companies</h2>
+      <p class="rs-subtitle" data-i18n="research.subtitle">Free, open-source company research in plain language: Buffett-style reports in English and 中文, updated daily. CC BY 4.0: read, cite, reuse.</p>
+      <ul class="rs-tiles">
+        <li>
+          <a class="rs-tile" href="https://research.deepvalues.ai/company/?src=landing-research">
+            <span class="rs-tile-title" data-i18n="research.links.companies">Companies A–Z</span>
+            <span class="rs-tile-desc" data-i18n="research.tiles.companies">Buffett-style reports on 300+ companies: the business, its moat, what it is worth.</span>
+          </a>
+        </li>
+        <li>
+          <a class="rs-tile" href="https://research.deepvalues.ai/gurus/?src=landing-research">
+            <span class="rs-tile-title" data-i18n="research.links.gurus">Gurus</span>
+            <span class="rs-tile-desc" data-i18n="research.tiles.gurus">How great investors think, from Buffett and Munger to Li Lu and Howard Marks: frameworks, letters, portfolio moves.</span>
+          </a>
+        </li>
+        <li>
+          <a class="rs-tile" href="https://research.deepvalues.ai/principles/?src=landing-research">
+            <span class="rs-tile-title" data-i18n="research.links.principles">Principles</span>
+            <span class="rs-tile-desc" data-i18n="research.tiles.principles">A beginner-to-advanced course on valuation, accounting and discipline.</span>
+          </a>
+        </li>
       </ul>
-      <p class="rs-actions"><a class="rs-cta" href="https://research.deepvalues.ai/" data-i18n="research.cta">Browse all research</a></p>
+      <ul class="rs-chips">
+        <li><a class="rs-chip" href="https://research.deepvalues.ai/market/?src=landing-research" data-i18n="research.links.market">Market memos</a></li>
+        <li><a class="rs-chip" href="https://research.deepvalues.ai/buffett-archive/?src=landing-research" data-i18n="research.links.buffett">Buffett Archive</a></li>
+        <li><a class="rs-chip" href="https://research.deepvalues.ai/personal-finance/?src=landing-research" data-i18n="research.links.personalFinance">Personal finance</a></li>
+      </ul>
+      <p class="rs-actions"><a class="rs-cta" href="https://research.deepvalues.ai/?src=landing-research" data-i18n="research.cta" data-ga-event="research_browse_click">Browse the research</a></p>
       <p class="rs-agents"><a href="https://research.deepvalues.ai/for-agents/" data-i18n="research.agents">For AI agents: llms.txt, index.json and markdown twins at research.deepvalues.ai/for-agents/</a></p>
+    </section>
+
+    <!-- ==================== WEEKLY MEMO SIGNUP (Margin of Safety Memo) ==================== -->
+    <!-- Email-only, double opt-in signup handled by app.deepvalues.ai (POST /api/letter/subscribe).
+         Works without JavaScript: the form posts there and the server redirects back with
+         ?letter=check-inbox#letter or ?letter=error#letter. With JavaScript (the memo script at
+         the bottom of this page) it posts JSON and answers inline. The name and the three
+         bullets follow what the Saturday public edition contains (apps/next/lib/email/weekly).
+         The consent line (letter.consent) must match apps/next/lib/letter/copy.ts word for word:
+         the server stores that sentence as what the subscriber agreed to. -->
+    <style>
+      #letter { padding: 24px 24px 96px; background: #ffffff; font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif; scroll-margin-top: 24px; }
+      #letter .lt-card { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 32px; padding: 40px 28px; border-radius: 28px;
+        background: linear-gradient(135deg, #fffaf0 0%, #fbf3e1 55%, #f6ead0 100%); border: 1px solid rgba(148, 101, 21, 0.22);
+        box-shadow: 0 30px 60px -36px rgba(148, 101, 21, 0.45); }
+      @media (min-width: 900px) { #letter .lt-card { grid-template-columns: 1.1fr 1fr; gap: 48px; padding: 56px; align-items: center; } }
+      @media (max-width: 479px) { #letter { padding-left: 16px; padding-right: 16px; } #letter .lt-card { padding: 32px 20px; gap: 24px; } #letter .lt-panel { padding: 20px; } }
+      #letter .lt-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-text); margin: 0 0 12px; }
+      #letter .lt-heading { font-size: 36px; font-weight: 700; letter-spacing: -0.8px; line-height: 1.1; color: #0a192f; margin: 0 0 14px; }
+      @media (min-width: 640px) { #letter .lt-heading { font-size: 40px; } }
+      #letter .lt-promise { font-size: 18px; line-height: 1.5; color: #3a3a3c; margin: 0 0 20px; }
+      #letter .lt-bullets { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+      #letter .lt-bullets li { position: relative; padding-left: 26px; font-size: 16px; line-height: 1.45; color: #3a3a3c; }
+      #letter .lt-bullets li::before { content: ''; position: absolute; left: 4px; top: 0.45em; width: 9px; height: 9px; border-radius: 999px; background: var(--gold); box-shadow: 0 0 0 3px rgba(244, 204, 119, 0.3); }
+      #letter .lt-panel { background: #ffffff; border: 1px solid rgba(15, 23, 60, 0.08); border-radius: 20px; padding: 24px; box-shadow: 0 10px 30px -18px rgba(15, 23, 60, 0.25); }
+      .lt-label { display: block; font-size: 14px; font-weight: 600; color: #0a192f; margin: 0 0 8px; }
+      .lt-row { display: flex; flex-direction: column; gap: 10px; }
+      @media (min-width: 480px) { .lt-row { flex-direction: row; } }
+      .lt-input { flex: 1 1 auto; min-width: 0; width: 100%; font: inherit; font-size: 16px; color: #0a192f; background: #ffffff; border: 1px solid rgba(15, 23, 60, 0.2); border-radius: 999px; padding: 13px 18px; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+      .lt-input::placeholder { color: #8e8e93; }
+      .lt-input:focus { outline: none; border-color: #946515; box-shadow: 0 0 0 3px rgba(244, 204, 119, 0.45); }
+      .lt-button { flex: 0 0 auto; font: inherit; font-size: 16px; font-weight: 700; padding: 13px 24px; border-radius: 999px; border: 0; cursor: pointer; white-space: nowrap; }
+      .lt-button[disabled] { opacity: 0.65; cursor: progress; }
+      .lt-fine { margin: 12px 0 0; font-size: 13.5px; line-height: 1.5; color: #6e6e73; }
+      .lt-fine a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+      .lt-fine a:hover { color: #0a192f; }
+      .lt-consent { color: #3a3a3c; }
+      .lt-status { margin: 12px 0 0; font-size: 15px; line-height: 1.45; font-weight: 600; }
+      .lt-status[hidden] { display: none; }
+      .lt-status--ok { color: #1f6f43; }
+      .lt-status--error { color: #b3261e; }
+      /* Honeypot: off-screen for sighted visitors, aria-hidden and untabbable for everyone else. */
+      .lt-hp { position: absolute !important; left: -10000px !important; top: auto !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+
+      /* Hero: the quiet secondary action next to "Get Started". */
+      .cta-memo { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(148, 101, 21, 0.4);
+        background: rgba(255, 255, 255, 0.55); color: var(--gold-text); font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap;
+        transition: background 0.15s ease, border-color 0.15s ease; }
+      .cta-memo:hover { background: #ffffff; border-color: rgba(148, 101, 21, 0.65); }
+      .cta-memo:focus-visible { outline: 2px solid var(--gold-text); outline-offset: 3px; }
+
+      /* Footer: compact signup row. */
+      .ft-letter { display: grid; grid-template-columns: 1fr; gap: 14px; align-items: center; padding: 20px 0 28px; margin-bottom: 8px; border-bottom: 1px solid rgba(15, 23, 60, 0.1); }
+      @media (min-width: 900px) { .ft-letter { grid-template-columns: 1fr minmax(380px, 460px); gap: 32px; } }
+      .ft-letter-title { font-size: 16px; font-weight: 700; color: #0a192f; margin: 0; }
+      .ft-letter-blurb { font-size: 14px; color: #6e6e73; margin: 4px 0 0; line-height: 1.45; }
+      .ft-letter .lt-input { padding: 11px 16px; font-size: 15px; }
+      .ft-letter .lt-button { padding: 11px 20px; font-size: 15px; }
+      .ft-letter .lt-status { font-size: 14px; }
+
+      @media (prefers-color-scheme: dark) {
+        #letter { background: #000000; }
+        #letter .lt-card { background: linear-gradient(180deg, #17130b 0%, #0f0c07 100%); border-color: rgba(244, 204, 119, 0.22); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8); }
+        #letter .lt-heading { color: #f5f5f7; }
+        #letter .lt-promise, #letter .lt-bullets li { color: #d2d2d7; }
+        #letter .lt-panel { background: #1d1d1f; border-color: rgba(255, 255, 255, 0.10); box-shadow: none; }
+        .lt-label, .ft-letter-title { color: #f5f5f7; }
+        .lt-input { background: #000000; color: #f5f5f7; border-color: rgba(255, 255, 255, 0.22); }
+        .lt-input::placeholder { color: #6e6e73; }
+        .lt-input:focus { border-color: #f4cc77; box-shadow: 0 0 0 3px rgba(244, 204, 119, 0.25); }
+        .lt-fine, .ft-letter-blurb { color: #a1a1a6; }
+        .lt-consent { color: #c7c7cc; }
+        .lt-fine a:hover { color: #f5f5f7; }
+        .lt-status--ok { color: #7ad3a0; }
+        .lt-status--error { color: #ff8a80; }
+        .cta-memo { background: transparent; border-color: rgba(244, 204, 119, 0.45); }
+        .cta-memo:hover { background: rgba(244, 204, 119, 0.08); border-color: rgba(244, 204, 119, 0.7); }
+        .ft-letter { border-color: rgba(255, 255, 255, 0.10); }
+        #research .rs-eyebrow { color: var(--gold); }
+      }
+    </style>
+    <section id="letter" aria-labelledby="letterHeading">
+      <div class="lt-card">
+        <div>
+          <p class="lt-eyebrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><polyline points="3 7 12 13 21 7" /></svg>
+            <span data-i18n="letter.eyebrow">Free weekly memo</span>
+          </p>
+          <h2 id="letterHeading" class="lt-heading" data-i18n="letter.name">Margin of Safety Memo</h2>
+          <p class="lt-promise" data-i18n="letter.promise">One email every Saturday: what the great investors did, where the market stands, and the week’s research, in plain language.</p>
+          <ul class="lt-bullets">
+            <li data-i18n="letter.bullet1">What the great investors bought and sold, from their 13F filings</li>
+            <li data-i18n="letter.bullet2">The market’s temperature: Buffett Indicator, Shiller PE, VIX and the 10-year yield</li>
+            <li data-i18n="letter.bullet3">The week’s videos, podcasts and research in one place</li>
+          </ul>
+        </div>
+        <div class="lt-panel">
+          <form class="lt-form" data-letter-form data-src="landing-section" action="https://app.deepvalues.ai/api/letter/subscribe" method="post">
+            <label class="lt-label" for="letterEmail" data-i18n="letter.emailLabel">Email address</label>
+            <div class="lt-row">
+              <input id="letterEmail" class="lt-input" type="email" name="email" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="you@example.com" aria-describedby="letterConsent letterFine letterStatus" />
+              <button type="submit" class="lt-button cta-primary" data-ga-event="memo_subscribe_submit"><span data-i18n="letter.button">Subscribe</span></button>
+            </div>
+            <div class="lt-hp" aria-hidden="true">
+              <label>Website <input type="text" name="website" value="" tabindex="-1" autocomplete="off" /></label>
+            </div>
+            <input type="hidden" name="locale" value="en" />
+            <input type="hidden" name="src" value="landing-section" />
+            <input type="hidden" name="return_to" value="https://deepvalues.ai/" />
+            <p id="letterStatus" class="lt-status" role="status" aria-live="polite" hidden>
+              <span class="lt-msg" data-msg="check-inbox" data-i18n="letter.checkInbox" hidden>Almost done: check your inbox and tap the link to confirm.</span>
+              <span class="lt-msg" data-msg="error" data-i18n="letter.error" hidden>Something went wrong on our side. Please try again in a minute.</span>
+            </p>
+            <!-- Consent: word for word the sentence the server stores (lib/letter/copy.ts LETTER_CONSENT) -->
+            <p id="letterConsent" class="lt-fine lt-consent" data-i18n="letter.consent">Send me the DeepValues Margin of Safety Memo, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</p>
+            <p id="letterFine" class="lt-fine">
+              <span data-i18n="letter.fine">Free · every Saturday · no account needed · unsubscribe anytime</span>
+              · <a href="/privacy.html#memo" data-i18n="footer.privacy">Privacy Policy</a>
+            </p>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- ==================== FAQ ==================== -->
@@ -1757,6 +1913,32 @@
             </svg>
             </a>
           </div>
+        </div>
+
+        <!-- Compact memo signup (same endpoint and behaviour as the #letter section) -->
+        <div class="ft-letter">
+          <div>
+            <p class="ft-letter-title" data-i18n="letter.name">Margin of Safety Memo</p>
+            <p class="ft-letter-blurb" data-i18n="letter.footerBlurb">The free weekly memo for value investors, every Saturday. No account needed.</p>
+          </div>
+          <form class="lt-form" data-letter-form data-src="landing-footer" action="https://app.deepvalues.ai/api/letter/subscribe" method="post">
+            <label class="sr-only" for="footerLetterEmail" data-i18n="letter.emailLabel">Email address</label>
+            <div class="lt-row">
+              <input id="footerLetterEmail" class="lt-input" type="email" name="email" required autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="you@example.com" aria-describedby="footerLetterConsent footerLetterStatus" />
+              <button type="submit" class="lt-button cta-primary" data-ga-event="memo_subscribe_submit"><span data-i18n="letter.button">Subscribe</span></button>
+            </div>
+            <div class="lt-hp" aria-hidden="true">
+              <label>Website <input type="text" name="website" value="" tabindex="-1" autocomplete="off" /></label>
+            </div>
+            <input type="hidden" name="locale" value="en" />
+            <input type="hidden" name="src" value="landing-footer" />
+            <input type="hidden" name="return_to" value="https://deepvalues.ai/" />
+            <p id="footerLetterStatus" class="lt-status" role="status" aria-live="polite" hidden>
+              <span class="lt-msg" data-msg="check-inbox" data-i18n="letter.checkInbox" hidden>Almost done: check your inbox and tap the link to confirm.</span>
+              <span class="lt-msg" data-msg="error" data-i18n="letter.error" hidden>Something went wrong on our side. Please try again in a minute.</span>
+            </p>
+            <p id="footerLetterConsent" class="lt-fine lt-consent"><span data-i18n="letter.consent">Send me the DeepValues Margin of Safety Memo, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</span> <a href="/privacy.html#memo" data-i18n="footer.privacy">Privacy Policy</a></p>
+          </form>
         </div>
 
         <!-- Cross-reference hub: Products · Research · Listen · Watch · Developers.
@@ -1877,6 +2059,9 @@
 
         // Keyboard navigation when the carousel is in view
         document.addEventListener('keydown', function (e) {
+          // Never steal the arrow keys from a form field (the memo email inputs).
+          var t = e.target;
+          if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
           if (e.key === 'ArrowLeft') go(-1);
           else if (e.key === 'ArrowRight') go(1);
         });
@@ -1945,6 +2130,164 @@
           startX = null;
         });
         track.addEventListener('pointercancel', function () { startX = null; });
+      })();
+
+      // ===== Margin of Safety Memo signup (#letter section + footer) =====
+      // Progressive enhancement over a plain form POST: with JavaScript the form posts JSON to
+      // app.deepvalues.ai and answers inline; without it the server redirects back here with
+      // ?letter=check-inbox#letter or ?letter=error#letter, which this script also shows.
+      // The endpoint answers "check-inbox" for every accepted address (it never reveals whether
+      // one is already subscribed); the confirmation email completes the double opt-in.
+      (function () {
+        var ENDPOINT = 'https://app.deepvalues.ai/api/letter/subscribe';
+        var forms = Array.prototype.slice.call(document.querySelectorAll('[data-letter-form]'));
+        if (!forms.length) return;
+
+        // The page's current language, as /i18n.js set it on <html lang>.
+        function pageLocale() {
+          return document.documentElement.getAttribute('lang') || 'en';
+        }
+
+        // Where the server should send a no-JS (or fallback) submit back to: this page, clean.
+        function returnTo() {
+          try {
+            var url = new URL(location.href);
+            url.searchParams.delete('letter');
+            url.hash = '';
+            return url.toString();
+          } catch (e) {
+            return 'https://deepvalues.ai/';
+          }
+        }
+
+        // A campaign or referral code this visit arrived with, passed through as `ref`.
+        function refParam() {
+          try {
+            var params = new URLSearchParams(location.search);
+            return params.get('ref') || params.get('utm_source') || '';
+          } catch (e) {
+            return '';
+          }
+        }
+
+        function field(form, name) {
+          return form.querySelector('[name="' + name + '"]');
+        }
+
+        function showStatus(form, state) {
+          var status = form.querySelector('.lt-status');
+          if (!status) return;
+          var any = false;
+          Array.prototype.forEach.call(status.querySelectorAll('.lt-msg'), function (msg) {
+            var on = msg.getAttribute('data-msg') === state;
+            msg.hidden = !on;
+            if (on) any = true;
+          });
+          status.hidden = !any;
+          status.classList.toggle('lt-status--ok', state === 'check-inbox');
+          status.classList.toggle('lt-status--error', state === 'error');
+        }
+
+        function track(name) {
+          try { if (window.gtag) window.gtag('event', name); } catch (e) {}
+        }
+
+        // Fill the fields a plain submit carries, so a fallback POST matches the JSON one.
+        function prepare(form) {
+          var ref = refParam();
+          field(form, 'locale').value = pageLocale();
+          field(form, 'src').value = form.getAttribute('data-src') || 'landing-section';
+          field(form, 'return_to').value = returnTo();
+          var refInput = field(form, 'ref');
+          if (ref) {
+            if (!refInput) {
+              refInput = document.createElement('input');
+              refInput.type = 'hidden';
+              refInput.name = 'ref';
+              form.appendChild(refInput);
+            }
+            refInput.value = ref.slice(0, 120);
+          }
+        }
+
+        forms.forEach(function (form) {
+          var button = form.querySelector('button[type="submit"]');
+          var email = field(form, 'email');
+
+          form.addEventListener('submit', function (e) {
+            prepare(form);
+            if (!window.fetch || form.getAttribute('data-native') === '1') return;   // plain POST
+            e.preventDefault();
+            if (form.getAttribute('aria-busy') === 'true') return;
+            var body = {
+              email: String(email.value || '').trim(),
+              locale: field(form, 'locale').value,
+              src: field(form, 'src').value,
+              website: field(form, 'website').value
+            };
+            var ref = field(form, 'ref');
+            if (ref && ref.value) body.ref = ref.value;
+
+            form.setAttribute('aria-busy', 'true');
+            if (button) button.disabled = true;
+            showStatus(form, null);
+
+            fetch(ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(body),
+              credentials: 'omit',
+              mode: 'cors'
+            })
+              .then(function (res) {
+                return res.json().catch(function () { return {}; }).then(function (data) {
+                  if (res.ok && data && data.status === 'check-inbox') {
+                    showStatus(form, 'check-inbox');
+                    email.value = '';
+                    track('memo_subscribe_check_inbox');
+                  } else {
+                    showStatus(form, 'error');
+                    track('memo_subscribe_error');
+                  }
+                });
+              }, function () {
+                // Network or CORS failure before any answer: fall back to the plain form POST,
+                // which the server answers with a redirect back to this page.
+                form.setAttribute('data-native', '1');
+                form.submit();
+              })
+              .then(function () {
+                form.removeAttribute('aria-busy');
+                if (button) button.disabled = false;
+              });
+          });
+        });
+
+        // The hero's "free weekly memo" button: count that signup as the hero's, then focus the field.
+        Array.prototype.forEach.call(document.querySelectorAll('[data-letter-jump]'), function (link) {
+          link.addEventListener('click', function () {
+            var sectionForm = document.querySelector('#letter [data-letter-form]');
+            if (!sectionForm) return;
+            sectionForm.setAttribute('data-src', link.getAttribute('data-letter-jump') || 'landing-hero');
+            var input = field(sectionForm, 'email');
+            // Focus once the smooth scroll is under way, without a second jump.
+            if (input) setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); } }, 450);
+          });
+        });
+
+        // Back from a plain POST: ?letter=check-inbox|error → show it on the section form, then
+        // drop the parameter so a reload or a shared link does not show it again.
+        try {
+          var params = new URLSearchParams(location.search);
+          var state = params.get('letter');
+          if (state === 'check-inbox' || state === 'error') {
+            var target = document.querySelector('#letter [data-letter-form]') || forms[0];
+            showStatus(target, state);
+            params.delete('letter');
+            var qs = params.toString();
+            history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + (location.hash || ''));
+          }
+        } catch (e) {}
       })();
 
     </script>
