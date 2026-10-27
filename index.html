@@ -848,7 +848,7 @@
             <!-- Quiet secondary: the free weekly memo, email only (scrolls to #letter) -->
             <a href="#letter" class="cta-memo" data-letter-jump="landing-hero" data-ga-event="memo_cta_click">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><polyline points="3 7 12 13 21 7" /></svg>
-              <span data-i18n="hero.memoCta">Get the free weekly memo</span>
+              <span data-i18n="hero.memoCta">Get the free weekly email</span>
             </a>
           </div>
           <p class="mt-3 text-[14px] leading-[1.5] text-slate-500 max-w-[460px]" data-i18n="hero.ctaNote">
@@ -1695,7 +1695,7 @@
       <p class="rs-agents"><a href="https://research.deepvalues.ai/for-agents/" data-i18n="research.agents">For AI agents: llms.txt, index.json and markdown twins at research.deepvalues.ai/for-agents/</a></p>
     </section>
 
-    <!-- ==================== WEEKLY MEMO SIGNUP (Margin of Safety Memo) ==================== -->
+    <!-- ==================== WEEKLY MEMO SIGNUP (Margin of Safety Weekly) ==================== -->
     <!-- Email-only, double opt-in signup handled by app.deepvalues.ai (POST /api/letter/subscribe).
          Works without JavaScript: the form posts there and the server redirects back with
          ?letter=check-inbox#letter or ?letter=error#letter. With JavaScript (the memo script at
@@ -1779,9 +1779,9 @@
         <div>
           <p class="lt-eyebrow">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><polyline points="3 7 12 13 21 7" /></svg>
-            <span data-i18n="letter.eyebrow">Free weekly memo</span>
+            <span data-i18n="letter.eyebrow">Free weekly email</span>
           </p>
-          <h2 id="letterHeading" class="lt-heading" data-i18n="letter.name">Margin of Safety Memo</h2>
+          <h2 id="letterHeading" class="lt-heading" data-i18n="letter.name">Margin of Safety Weekly</h2>
           <p class="lt-promise" data-i18n="letter.promise">One email every Saturday: what the great investors did, where the market stands, and the week’s research, in plain language.</p>
           <ul class="lt-bullets">
             <li data-i18n="letter.bullet1">What the great investors bought and sold, from their 13F filings</li>
@@ -1807,7 +1807,7 @@
               <span class="lt-msg" data-msg="error" data-i18n="letter.error" hidden>Something went wrong on our side. Please try again in a minute.</span>
             </p>
             <!-- Consent: word for word the sentence the server stores (lib/letter/copy.ts LETTER_CONSENT) -->
-            <p id="letterConsent" class="lt-fine lt-consent" data-i18n="letter.consent">Send me the DeepValues Margin of Safety Memo, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</p>
+            <p id="letterConsent" class="lt-fine lt-consent" data-i18n="letter.consent">Send me the DeepValues Margin of Safety Weekly, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</p>
             <p id="letterFine" class="lt-fine">
               <span data-i18n="letter.fine">Free · every Saturday · no account needed · unsubscribe anytime</span>
               · <a href="/privacy.html#memo" data-i18n="footer.privacy">Privacy Policy</a>
@@ -1918,8 +1918,8 @@
         <!-- Compact memo signup (same endpoint and behaviour as the #letter section) -->
         <div class="ft-letter">
           <div>
-            <p class="ft-letter-title" data-i18n="letter.name">Margin of Safety Memo</p>
-            <p class="ft-letter-blurb" data-i18n="letter.footerBlurb">The free weekly memo for value investors, every Saturday. No account needed.</p>
+            <p class="ft-letter-title" data-i18n="letter.name">Margin of Safety Weekly</p>
+            <p class="ft-letter-blurb" data-i18n="letter.footerBlurb">The free weekly email for value investors, every Saturday. No account needed.</p>
           </div>
           <form class="lt-form" data-letter-form data-src="landing-footer" action="https://app.deepvalues.ai/api/letter/subscribe" method="post">
             <label class="sr-only" for="footerLetterEmail" data-i18n="letter.emailLabel">Email address</label>
@@ -1937,7 +1937,7 @@
               <span class="lt-msg" data-msg="check-inbox" data-i18n="letter.checkInbox" hidden>Almost done: check your inbox and tap the link to confirm.</span>
               <span class="lt-msg" data-msg="error" data-i18n="letter.error" hidden>Something went wrong on our side. Please try again in a minute.</span>
             </p>
-            <p id="footerLetterConsent" class="lt-fine lt-consent"><span data-i18n="letter.consent">Send me the DeepValues Margin of Safety Memo, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</span> <a href="/privacy.html#memo" data-i18n="footer.privacy">Privacy Policy</a></p>
+            <p id="footerLetterConsent" class="lt-fine lt-consent"><span data-i18n="letter.consent">Send me the DeepValues Margin of Safety Weekly, one email every Saturday. I can unsubscribe at any time. Information only, not investment advice.</span> <a href="/privacy.html#memo" data-i18n="footer.privacy">Privacy Policy</a></p>
           </form>
         </div>
 
@@ -2132,7 +2132,7 @@
         track.addEventListener('pointercancel', function () { startX = null; });
       })();
 
-      // ===== Margin of Safety Memo signup (#letter section + footer) =====
+      // ===== Margin of Safety Weekly signup (#letter section + footer) =====
       // Progressive enhancement over a plain form POST: with JavaScript the form posts JSON to
       // app.deepvalues.ai and answers inline; without it the server redirects back here with
       // ?letter=check-inbox#letter or ?letter=error#letter, which this script also shows.

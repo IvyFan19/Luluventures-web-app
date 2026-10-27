@@ -13,7 +13,7 @@
   "hero.subheadline": "DeepValues.AI trabaja para ti.",
   "hero.subtitle": "El asistente financiero nativo de IA que lleva la investigación de nivel institucional, las herramientas de valor intrínseco y el seguimiento del Smart Money a los inversionistas de a pie — para que tomes mejores decisiones.",
   "hero.cta": "Comenzar",
-  "hero.memoCta": "Recibe el memo semanal gratis",
+  "hero.memoCta": "Recibe el correo semanal gratis",
   "hero.ctaNote": "9 créditos gratis al registrarte, suficientes para 3 briefings nuevos. Sin tarjeta de crédito.",
   "proof.investors": "93 inversionistas seguidos, de Buffett al Congreso",
   "proof.filings": "Cada 13F, leído el mismo día en que se publica",
@@ -106,8 +106,8 @@
   "faq.a7Html": "Gratis: 9 créditos al registrarte, suficientes para 3 briefings nuevos, y luego 0.75 créditos por semana (más o menos un briefing nuevo al mes), con watchlist ilimitada y todos los gurús. Plus: $9.99 al mes o $99.99 al año, con 7 días de prueba gratis si te suscribes por primera vez y unos 6 briefings nuevos al mes. Un briefing nuevo cuesta 3 créditos; los paquetes de créditos recargan cualquiera de los dos planes, y la API se paga por llamada con los mismos créditos. Los precios vigentes siempre están en la <a href=\"https://app.deepvalues.ai/es/pricing\">página de precios</a>.",
   "faq.q8": "¿Mis datos son privados?",
   "faq.a8": "Sí. No vendemos datos personales. No usamos tus entradas ni chats para entrenar ningún modelo de IA (ni nuestro ni de nuestros proveedores). El audio de voz nunca se almacena — se transmite a Microsoft Azure solo para transcripción en tiempo real y luego se descarta. Puedes exportar o eliminar tu cuenta con un clic. Todos los detalles están en la Política de Privacidad.",
-  "letter.eyebrow": "Memo semanal gratis",
-  "letter.name": "Memo Margen de seguridad",
+  "letter.eyebrow": "Correo semanal gratis",
+  "letter.name": "Semanario Margen de seguridad",
   "letter.promise": "Un correo cada sábado: qué hicieron los grandes inversores, dónde está el mercado y la investigación de la semana, en lenguaje claro.",
   "letter.bullet1": "Qué compraron y vendieron los grandes inversores, según sus reportes 13F",
   "letter.bullet2": "La temperatura del mercado: Indicador Buffett, PER de Shiller, VIX y el rendimiento a 10 años",
@@ -115,9 +115,9 @@
   "letter.emailLabel": "Correo electrónico",
   "letter.button": "Suscribirme",
   "letter.fine": "Gratis · cada sábado · sin crear cuenta · cancela cuando quieras",
-  "letter.consent": "Envíenme el Memo Margen de seguridad de DeepValues, un correo cada sábado. Puedo cancelar la suscripción en cualquier momento. Solo información, no es asesoría de inversión.",
+  "letter.consent": "Envíenme el Semanario Margen de seguridad de DeepValues, un correo cada sábado. Puedo cancelar la suscripción en cualquier momento. Solo información, no es asesoría de inversión.",
   "letter.checkInbox": "Ya casi: revisa tu bandeja de entrada y toca el enlace para confirmar.",
   "letter.error": "Algo falló de nuestro lado. Vuelve a intentarlo en un minuto.",
-  "letter.footerBlurb": "El memo semanal gratis para inversores en valor, cada sábado. Sin crear cuenta.",
-  "letter.footerLink": "Memo semanal gratis"
+  "letter.footerBlurb": "El correo semanal gratis para inversores en valor, cada sábado. Sin crear cuenta.",
+  "letter.footerLink": "Correo semanal gratis"
 }

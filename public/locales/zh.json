@@ -13,7 +13,7 @@
   "hero.subheadline": "DeepValues.AI 为你而工作。",
   "hero.subtitle": "这款 AI 原生的金融助手，将机构级研究、内在价值工具与聪明钱追踪带给每一位普通投资者 —— 让你做出更明智的决策。",
   "hero.cta": "立即开始",
-  "hero.memoCta": "免费订阅每周备忘录",
+  "hero.memoCta": "免费订阅每周邮件",
   "hero.ctaNote": "注册即送 9 点数，足够生成 3 份全新简报。无需信用卡。",
   "proof.investors": "追踪 93 位投资者，从巴菲特到美国国会",
   "proof.filings": "每份 13F 在发布当天读完",
@@ -106,8 +106,8 @@
   "faq.a7Html": "免费版：注册即送 9 点数，足够生成 3 份全新简报；之后每周 0.75 点数（大约每月一份新简报），观察清单不限数量，可关注所有投资大师。Plus：每月 $9.99 或每年 $99.99，首次订阅可享 7 天免费试用，每月约 6 份新简报。一份新简报需要 3 点数；点数包可为任一方案充值，API 也从同一点数中按次计费。最新价格请以<a href=\"https://app.deepvalues.ai/zh/pricing\">定价页面</a>为准。",
   "faq.q8": "我的数据安全吗？",
   "faq.a8": "安全。我们不出售个人数据。我们不会使用你的输入或对话内容来训练任何 AI 模型（无论是我们自己的还是供应商的）。语音音频永不存储 —— 仅以流式方式传送至 Microsoft Azure 用于实时转写，随后即被丢弃。你可以一键导出或删除你的账户。完整细节请参阅隐私政策。",
-  "letter.eyebrow": "免费每周备忘录",
-  "letter.name": "安全边际备忘录",
+  "letter.eyebrow": "免费每周邮件",
+  "letter.name": "安全边际周报",
   "letter.promise": "每周六一封邮件：伟大投资者做了什么、市场处在什么位置、本周有哪些研究，用平实的语言讲清楚。",
   "letter.bullet1": "伟大投资者买了什么、卖了什么，来自他们的 13F 持仓报告",
   "letter.bullet2": "市场温度：巴菲特指标、席勒市盈率、VIX 与 10 年期美债收益率",
@@ -115,9 +115,9 @@
   "letter.emailLabel": "电子邮件",
   "letter.button": "订阅",
   "letter.fine": "免费 · 每周六 · 无需注册账户 · 随时退订",
-  "letter.consent": "请每周六给我发送一封 DeepValues 安全边际备忘录。我可以随时退订。仅供参考，不构成投资建议。",
+  "letter.consent": "请每周六给我发送一封 DeepValues 安全边际周报。我可以随时退订。仅供参考，不构成投资建议。",
   "letter.checkInbox": "还差一步：请到邮箱点击确认链接。",
   "letter.error": "我们这边出了点问题，请稍后再试。",
-  "letter.footerBlurb": "写给价值投资者的免费每周备忘录，每周六送达，无需注册账户。",
-  "letter.footerLink": "免费每周备忘录"
+  "letter.footerBlurb": "写给价值投资者的免费每周邮件，每周六送达，无需注册账户。",
+  "letter.footerLink": "免费每周邮件"
 }
