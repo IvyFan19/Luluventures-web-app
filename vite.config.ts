@@ -4,8 +4,9 @@ import react from '@vitejs/plugin-react';
 
 // Dev-only: serve /app and /app/* (no file extension) from app.html, mirroring
 // the CloudFront rewrite that's expected in production for the React SPA.
-// Also serves the extensionless /privacy/buffett-indicator clean URL from its
-// directory index, mirroring how S3/CloudFront resolves it in production.
+// Also serves the extensionless /privacy/buffett-indicator and /buffett-indicator
+// clean URLs from their directory index, mirroring how S3/CloudFront resolves
+// them in production.
 const appHtmlRewrite = (): Plugin => ({
   name: 'app-html-rewrite',
   configureServer(server) {
@@ -17,6 +18,8 @@ const appHtmlRewrite = (): Plugin => ({
         req.url = '/app.html' + url.slice(pathOnly.length);
       } else if (pathOnly === '/privacy/buffett-indicator') {
         req.url = '/privacy/buffett-indicator/index.html' + url.slice(pathOnly.length);
+      } else if (pathOnly === '/buffett-indicator') {
+        req.url = '/buffett-indicator/index.html' + url.slice(pathOnly.length);
       }
       next();
     });
@@ -42,6 +45,8 @@ export default defineConfig({
         terms: resolve(__dirname, 'terms.html'),
         // App-specific privacy policy (Buffett Indicator iOS / Bubble Watch Android)
         'privacy-buffett-indicator': resolve(__dirname, 'privacy/buffett-indicator/index.html'),
+        // Landing page for the Buffett Indicator app (iOS) / Bubble Watch (Android)
+        'buffett-indicator': resolve(__dirname, 'buffett-indicator/index.html'),
         // Static API references landing page
         api: resolve(__dirname, 'api.html'),
       },

@@ -40,12 +40,14 @@ The app (iPhone and web) is available in 20 languages. The marketing site is ava
 - [API and MCP server](https://app.deepvalues.ai/developers) — Docs, per-call prices, keys
 - [Web app](https://app.deepvalues.ai/login) — The product on the web
 - [iPhone app](https://apps.apple.com/app/id6775568608) — DeepValues on the App Store
+- [Buffett Indicator app](https://deepvalues.ai/buffett-indicator/) — The Buffett Indicator (US market cap / GDP) and Shiller PE (CAPE) gauges as a standalone app: Buffett Indicator on iPhone, Bubble Watch on Android
 - [Terms of Use](https://app.deepvalues.ai/terms) — Terms of service
 
 ## Related properties
 
 - [DeepValues web app](https://app.deepvalues.ai) — the product on the web
 - [DeepValues for iPhone](https://apps.apple.com/us/app/deepvalues/id6775568608)
+- [Buffett Indicator app home page](https://deepvalues.ai/buffett-indicator/) — what the two gauges mean, features, FAQ and store links for both platforms
 - [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614) — market-valuation gauge
 - [Bubble Watch for Android](https://play.google.com/store/apps/details?id=com.luluventures.buffett) — the Buffett Indicator on Android
 - [DeepValues Research](https://research.deepvalues.ai/) — open-source Buffett-style company reports, market memos and investor studies, CC BY 4.0. For agents: https://research.deepvalues.ai/for-agents/ and https://research.deepvalues.ai/llms.txt
