@@ -13,7 +13,7 @@
   "hero.subheadline": "DeepValues.AI bekerja untuk Anda.",
   "hero.subtitle": "Asisten keuangan berbasis AI yang menghadirkan riset berkualitas institusional, alat nilai intrinsik, dan pelacakan Smart Money kepada investor sehari-hari — agar Anda membuat keputusan yang lebih baik.",
   "hero.cta": "Mulai",
-  "hero.memoCta": "Dapatkan memo mingguan gratis",
+  "hero.memoCta": "Dapatkan email mingguan gratis",
   "hero.ctaNote": "9 kredit gratis saat mendaftar, cukup untuk 3 briefing baru. Tanpa kartu kredit.",
   "proof.investors": "93 investor dilacak, dari Buffett hingga Kongres AS",
   "proof.filings": "Setiap 13F dibaca di hari yang sama saat terbit",
@@ -106,8 +106,8 @@
   "faq.a7Html": "Gratis: 9 kredit saat mendaftar, cukup untuk 3 briefing baru, lalu 0,75 kredit per minggu (sekitar satu briefing baru per bulan), dengan watchlist tanpa batas dan semua guru. Plus: $9.99 per bulan atau $99.99 per tahun, dengan uji coba gratis 7 hari untuk pelanggan baru dan sekitar 6 briefing baru per bulan. Satu briefing baru memakai 3 kredit; paket kredit bisa mengisi saldo di kedua paket, dan API dibayar per panggilan dari kredit yang sama. Harga terbaru selalu ada di <a href=\"https://app.deepvalues.ai/id/pricing\">halaman harga</a>.",
   "faq.q8": "Apakah data saya privat?",
   "faq.a8": "Ya. Kami tidak menjual data pribadi. Kami tidak menggunakan input atau chat Anda untuk melatih model AI mana pun (milik kami maupun vendor kami). Audio suara tidak pernah disimpan — hanya di-stream ke Microsoft Azure untuk transkripsi real-time, lalu dibuang. Anda bisa mengekspor atau menghapus akun Anda dengan satu klik. Detail lengkap ada di Kebijakan Privasi.",
-  "letter.eyebrow": "Memo mingguan gratis",
-  "letter.name": "Memo Margin Keamanan",
+  "letter.eyebrow": "Email mingguan gratis",
+  "letter.name": "Mingguan Margin Keamanan",
   "letter.promise": "Satu email setiap Sabtu: apa yang dilakukan para investor hebat, di mana posisi pasar, dan riset minggu ini, dalam bahasa sederhana.",
   "letter.bullet1": "Apa yang dibeli dan dijual para investor hebat, dari laporan 13F mereka",
   "letter.bullet2": "Suhu pasar: Indikator Buffett, PE Shiller, VIX, dan imbal hasil 10 tahun",
@@ -115,9 +115,9 @@
   "letter.emailLabel": "Alamat email",
   "letter.button": "Berlangganan",
   "letter.fine": "Gratis · setiap Sabtu · tanpa akun · berhenti kapan saja",
-  "letter.consent": "Kirimi saya Memo Margin Keamanan dari DeepValues, satu email setiap Sabtu. Saya dapat berhenti berlangganan kapan saja. Hanya informasi, bukan saran investasi.",
+  "letter.consent": "Kirimi saya Mingguan Margin Keamanan dari DeepValues, satu email setiap Sabtu. Saya dapat berhenti berlangganan kapan saja. Hanya informasi, bukan saran investasi.",
   "letter.checkInbox": "Hampir selesai: cek kotak masuk Anda dan ketuk tautannya untuk konfirmasi.",
   "letter.error": "Ada yang salah di pihak kami. Silakan coba lagi sebentar lagi.",
-  "letter.footerBlurb": "Memo mingguan gratis untuk investor nilai, setiap Sabtu. Tanpa akun.",
-  "letter.footerLink": "Memo mingguan gratis"
+  "letter.footerBlurb": "Email mingguan gratis untuk investor nilai, setiap Sabtu. Tanpa akun.",
+  "letter.footerLink": "Email mingguan gratis"
 }

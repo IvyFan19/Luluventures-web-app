@@ -13,7 +13,7 @@
   "hero.subheadline": "DeepValues.AI travaille pour vous.",
   "hero.subtitle": "L'assistant financier nourri par l'IA qui apporte la recherche de niveau institutionnel, les outils de valeur intrinsèque et le suivi du Smart Money aux investisseurs particuliers — pour que vous preniez de meilleures décisions.",
   "hero.cta": "Commencer",
-  "hero.memoCta": "Recevoir le mémo hebdo gratuit",
+  "hero.memoCta": "Recevoir la lettre hebdo gratuite",
   "hero.ctaNote": "9 crédits offerts à l'inscription, de quoi lancer 3 nouveaux briefings. Sans carte bancaire.",
   "proof.investors": "93 investisseurs suivis, de Buffett au Congrès",
   "proof.filings": "Chaque 13F lu le jour même de sa publication",
@@ -106,8 +106,8 @@
   "faq.a7Html": "Gratuit : 9 crédits à l'inscription, de quoi lancer 3 nouveaux briefings, puis 0,75 crédit par semaine (environ un nouveau briefing par mois), avec une liste de suivi illimitée et tous les gourous. Plus : 9,99 $ par mois ou 99,99 $ par an, avec 7 jours d'essai gratuit pour un premier abonnement et environ 6 nouveaux briefings par mois. Un nouveau briefing coûte 3 crédits ; les packs de crédits rechargent l'une ou l'autre formule, et l'API se paie à l'appel avec les mêmes crédits. Les prix à jour sont toujours sur la <a href=\"https://app.deepvalues.ai/fr/pricing\">page des tarifs</a>.",
   "faq.q8": "Mes données sont-elles privées ?",
   "faq.a8": "Oui. Nous ne vendons pas de données personnelles. Nous n'utilisons ni vos saisies ni vos conversations pour entraîner aucun modèle d'IA (le nôtre ou ceux de nos fournisseurs). L'audio vocal n'est jamais conservé — il est transmis en flux à Microsoft Azure uniquement pour la transcription en temps réel, puis supprimé. Vous pouvez exporter ou supprimer votre compte en un clic. Tous les détails dans la Politique de confidentialité.",
-  "letter.eyebrow": "Mémo hebdo gratuit",
-  "letter.name": "Mémo Marge de sécurité",
+  "letter.eyebrow": "Lettre hebdo gratuite",
+  "letter.name": "Hebdo Marge de sécurité",
   "letter.promise": "Un e-mail chaque samedi : ce qu’ont fait les grands investisseurs, où en est le marché et la recherche de la semaine, en langage clair.",
   "letter.bullet1": "Ce que les grands investisseurs ont acheté et vendu, d’après leurs déclarations 13F",
   "letter.bullet2": "La température du marché : Indicateur Buffett, PER de Shiller, VIX et le taux US à 10 ans",
@@ -115,9 +115,9 @@
   "letter.emailLabel": "Adresse e-mail",
   "letter.button": "S’abonner",
   "letter.fine": "Gratuit · chaque samedi · sans compte · désabonnement à tout moment",
-  "letter.consent": "Envoyez-moi le Mémo Marge de sécurité de DeepValues, un e-mail chaque samedi. Je peux me désabonner à tout moment. À titre informatif uniquement, pas un conseil en investissement.",
+  "letter.consent": "Envoyez-moi l’Hebdo Marge de sécurité de DeepValues, un e-mail chaque samedi. Je peux me désabonner à tout moment. À titre informatif uniquement, pas un conseil en investissement.",
   "letter.checkInbox": "Presque terminé : ouvrez votre boîte mail et touchez le lien pour confirmer.",
   "letter.error": "Un problème est survenu de notre côté. Réessayez dans une minute.",
-  "letter.footerBlurb": "Le mémo hebdo gratuit pour les investisseurs value, chaque samedi. Sans compte.",
-  "letter.footerLink": "Mémo hebdo gratuit"
+  "letter.footerBlurb": "La lettre hebdo gratuite pour les investisseurs value, chaque samedi. Sans compte.",
+  "letter.footerLink": "Lettre hebdo gratuite"
 }

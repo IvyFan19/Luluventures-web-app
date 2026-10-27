@@ -13,7 +13,7 @@
   "hero.subheadline": "DeepValues.AI arbeitet für dich.",
   "hero.subtitle": "Der KI-native Finanzassistent, der institutionelle Recherche, Tools zur Ermittlung des inneren Werts und Smart-Money-Tracking zu Privatanlegern bringt – damit du bessere Entscheidungen triffst.",
   "hero.cta": "Jetzt starten",
-  "hero.memoCta": "Gratis-Wochenmemo erhalten",
+  "hero.memoCta": "Kostenlosen Wochenbrief erhalten",
   "hero.ctaNote": "9 kostenlose Credits bei der Anmeldung, genug für 3 neue Briefings. Keine Kreditkarte.",
   "proof.investors": "93 Investoren im Blick, von Buffett bis zum US-Kongress",
   "proof.filings": "Jeder 13F-Bericht noch am Tag der Einreichung gelesen",
@@ -106,8 +106,8 @@
   "faq.a7Html": "Kostenlos: 9 Credits bei der Anmeldung, genug für 3 neue Briefings, danach 0,75 Credits pro Woche (etwa ein neues Briefing im Monat), mit unbegrenzter Watchlist und allen Gurus. Plus: 9,99 $ im Monat oder 99,99 $ im Jahr, mit 7 Tagen kostenlosem Test für Erstabonnenten und etwa 6 neuen Briefings im Monat. Ein neues Briefing kostet 3 Credits; Credit-Pakete stocken beide Tarife auf, und die API wird pro Aufruf aus denselben Credits bezahlt. Aktuelle Preise stehen immer auf der <a href=\"https://app.deepvalues.ai/de/pricing\">Preisseite</a>.",
   "faq.q8": "Sind meine Daten privat?",
   "faq.a8": "Ja. Wir verkaufen keine personenbezogenen Daten. Wir nutzen deine Eingaben oder Chats nicht, um irgendein KI-Modell zu trainieren (weder unsere noch die unserer Anbieter). Sprachaufnahmen werden niemals gespeichert – sie werden nur in Echtzeit zur Transkription an Microsoft Azure gestreamt und danach verworfen. Du kannst deinen Account mit einem Klick exportieren oder löschen. Alle Details findest du in der Datenschutzerklärung.",
-  "letter.eyebrow": "Kostenloses Wochenmemo",
-  "letter.name": "Sicherheitsmarge-Memo",
+  "letter.eyebrow": "Kostenloser Wochenbrief",
+  "letter.name": "Sicherheitsmarge Wochenbrief",
   "letter.promise": "Jeden Samstag eine E-Mail: was die großen Investoren getan haben, wo der Markt steht und die Analysen der Woche, in klarer Sprache.",
   "letter.bullet1": "Was die großen Investoren gekauft und verkauft haben, aus ihren 13F-Meldungen",
   "letter.bullet2": "Die Temperatur des Marktes: Buffett-Indikator, Shiller-KGV, VIX und die 10-jährige Rendite",
@@ -115,9 +115,9 @@
   "letter.emailLabel": "E-Mail-Adresse",
   "letter.button": "Abonnieren",
   "letter.fine": "Kostenlos · jeden Samstag · kein Konto nötig · jederzeit abbestellbar",
-  "letter.consent": "Sendet mir das DeepValues Sicherheitsmarge-Memo, jeden Samstag eine E-Mail. Ich kann es jederzeit abbestellen. Nur zur Information, keine Anlageberatung.",
+  "letter.consent": "Sendet mir den DeepValues Sicherheitsmarge Wochenbrief, jeden Samstag eine E-Mail. Ich kann es jederzeit abbestellen. Nur zur Information, keine Anlageberatung.",
   "letter.checkInbox": "Fast geschafft: Öffne dein Postfach und tippe auf den Link, um zu bestätigen.",
   "letter.error": "Bei uns ist etwas schiefgelaufen. Bitte versuche es in einer Minute noch einmal.",
-  "letter.footerBlurb": "Das kostenlose Wochenmemo für Value-Investoren, jeden Samstag. Kein Konto nötig.",
-  "letter.footerLink": "Kostenloses Wochenmemo"
+  "letter.footerBlurb": "Der kostenlose Wochenbrief für Value-Investoren, jeden Samstag. Kein Konto nötig.",
+  "letter.footerLink": "Kostenloser Wochenbrief"
 }
