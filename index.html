@@ -120,6 +120,7 @@
           "image": "https://deepvalues.ai/images/deepvalues-appicon-1024.jpg",
           "installUrl": "https://apps.apple.com/app/id6775568608",
           "publisher": { "@id": "https://deepvalues.ai/#organization" },
+          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": 5, "bestRating": 5, "worstRating": 1 },
           "offers": [
             { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "description": "9 credits at signup (3 fresh briefings), then 0.75 credits a week; unlimited watchlist; follow every guru." },
             { "@type": "Offer", "name": "Plus, monthly", "price": "9.99", "priceCurrency": "USD", "description": "$9.99 a month, 7-day free trial for first-time subscribers; about 6 fresh briefings a month; every macro indicator with full history." },
@@ -835,6 +836,12 @@
           </div>
           <p class="mt-3 text-[14px] leading-[1.5] text-slate-500 max-w-[460px]" data-i18n="hero.ctaNote">
             9 free credits at signup, enough for 3 fresh briefings. No credit card.
+          </p>
+          <!-- App Store rating, US storefront, as of 2026-10-30 (itunes.apple.com/lookup?id=6775568608&country=us:
+               averageUserRating 5, userRatingCount 5). Hard-coded: when it changes, update this line,
+               hero.rating in public/locales/*.json and the SoftwareApplication aggregateRating in the JSON-LD above together. -->
+          <p class="mt-2 text-[14px] leading-[1.5] text-slate-500 max-w-[460px]">
+            <a href="https://apps.apple.com/us/app/deepvalues/id6775568608" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="hero.rating">5.0 ★ · 5 ratings on the App Store</a>
           </p>
 
           <!-- Proof: facts the app's own public pages state (/gurus, /today, the App Store listing) -->

@@ -86,6 +86,7 @@
             "https://deepvalues.ai/images/buffett-indicator/ios-05_shiller.webp"
           ],
           "offers": { "@type": "Offer", "price": "9.99", "priceCurrency": "USD", "url": "https://apps.apple.com/us/app/buffett-indicator/id6747404614" },
+          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": 10, "bestRating": 5, "worstRating": 1 },
           "publisher": { "@id": "https://deepvalues.ai/#organization" },
           "sameAs": ["https://apps.apple.com/us/app/buffett-indicator/id6747404614"]
         },
@@ -156,7 +157,7 @@
             {
               "@type": "Question",
               "name": "Is it free?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Bubble Watch on Android is free to download and shows a small banner ad. Buffett Indicator on iPhone is a one-time paid download with no ads and no subscription; the App Store shows the price in your country." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Bubble Watch on Android is free to download and shows a small banner ad. Buffett Indicator on iPhone is a one-time paid download with no ads and no subscription: $9.99 one-time in the US App Store; other countries see their local price." }
             },
             {
               "@type": "Question",
@@ -724,6 +725,12 @@
           <p class="hero-note" data-i18n="bi.heroNote">
             iPhone: Buffett Indicator, a one-time paid download with no ads. Android: Bubble Watch, free with a small banner ad.
           </p>
+          <!-- App Store rating, US storefront, as of 2026-10-30 (itunes.apple.com/lookup?id=6747404614&country=us:
+               averageUserRating 4.9, userRatingCount 10, price 9.99 USD). Hard-coded: when it changes, update this line,
+               bi.rating / bi.faq.a4 in public/locales/*.json, the FAQ below and the iOS MobileApplication JSON-LD together. -->
+          <p class="hero-note">
+            <a href="https://apps.apple.com/us/app/buffett-indicator/id6747404614" target="_blank" rel="noopener noreferrer" data-i18n="bi.rating">4.9 ★ · 10 ratings on the App Store</a>
+          </p>
         </div>
         <div class="hero-shot">
           <img
@@ -877,7 +884,7 @@
           </details>
           <details>
             <summary data-i18n="bi.faq.q4">Is it free?</summary>
-            <p data-i18n="bi.faq.a4">Bubble Watch on Android is free to download and shows a small banner ad. Buffett Indicator on iPhone is a one-time paid download with no ads and no subscription; the App Store shows the price in your country.</p>
+            <p data-i18n="bi.faq.a4">Bubble Watch on Android is free to download and shows a small banner ad. Buffett Indicator on iPhone is a one-time paid download with no ads and no subscription: $9.99 one-time in the US App Store; other countries see their local price.</p>
           </details>
           <details>
             <summary data-i18n="bi.faq.q5">Which phones does it run on?</summary>
