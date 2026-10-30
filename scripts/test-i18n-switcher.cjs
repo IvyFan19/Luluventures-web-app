@@ -1,6 +1,6 @@
 // Language switcher tests: `npm run test:i18n` (runs after scripts/test-i18n.cjs).
 //  1. static: every page with the site header carries the switcher mount inside <header>,
-//     every page loads /i18n.js, index.html has hreflang alternates for all locales + x-default;
+//     every page loads /i18n.js, no page declares hreflang alternates (one URL per page, translated client-side);
 //  2. data: every locale file has a native-name entry in LOCALES (and no stray entries);
 //  3. ?lang= / ?hl= URL override resolves, holds for the visit only (sessionStorage), and beats a stored pick;
 //  4. DOM (jsdom): header + footer switchers render 12 native names, stay in sync, open/close
@@ -57,13 +57,14 @@ const wantLabels = { en: 'English', de: 'Deutsch', 'es-419': 'Español (LatAm)',
 check('native name for every locale', codes.map((c) => [c, locales[c].label]), Object.keys(wantLabels).sort().map((c) => [c, wantLabels[c]]));
 check('every locale has a short code', codes.every((c) => /^([A-Z]{2}|繁)$/.test(locales[c].code)), true);
 
-// ---- hreflang in index.html ----
-const hreflangs = [...index.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => [m[1], m[2]]);
-check('index.html hreflang: all locales + x-default',
-  hreflangs.map((h) => h[0]).sort(), codes.concat('x-default').sort());
-check('index.html hreflang hrefs point at ?lang=xx',
-  hreflangs.filter((h) => h[0] !== 'x-default').every((h) => h[1] === 'https://deepvalues.ai/?lang=' + h[0]), true);
-check('index.html hreflang x-default is the bare URL', (hreflangs.find((h) => h[0] === 'x-default') || [])[1], 'https://deepvalues.ai/');
+// ---- no hreflang: ?lang=xx serves the same English HTML as the canonical URL, so the pages
+// declare one canonical each and no alternates (Google only pairs hreflang between distinct canonical URLs).
+['index.html', 'buffett-indicator/index.html'].forEach((f) => {
+  const html = read(f);
+  check(f + ': no hreflang alternates', /hreflang=/.test(html), false);
+  check(f + ': exactly one canonical', (html.match(/<link rel="canonical"/g) || []).length, 1);
+});
+check('sitemap.xml: no per-language alternates', /xhtml:link|hreflang=/.test(read('public/sitemap.xml')), false);
 
 // ---- 3. URL override ----
 const lang = (search, langs, store) => { const b = boot({ search, langs, store }); return { detected: b.api.detect(), store: b.store, attrs: b.attrs }; };
