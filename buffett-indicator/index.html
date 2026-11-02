@@ -588,9 +588,9 @@
       }
       .faq details {
         border-bottom: 1px solid var(--rule);
-        padding: 18px 0;
       }
       .faq summary {
+        padding: 18px 0;
         cursor: pointer;
         font-family: 'Google Sans', sans-serif;
         font-size: 19px;
@@ -612,7 +612,7 @@
         content: '–';
       }
       .faq p {
-        margin: 10px 0 0;
+        margin: -8px 0 18px;
         font-size: 17px;
         line-height: 1.6;
         color: var(--body);
@@ -658,6 +658,29 @@
       }
       footer a:hover {
         color: var(--ink);
+      }
+
+      /* Thumb-sized links on phones. */
+      @media (max-width: 767px) {
+        .brand {
+          min-height: 44px;
+        }
+        .hero-note a {
+          display: inline-block;
+          padding: 12px 0;
+          margin: -12px 0;
+        }
+        .more a.go {
+          padding: 12px 0;
+          margin: 4px 0 -12px;
+        }
+        footer .row {
+          gap: 0 18px;
+        }
+        footer .row a {
+          display: inline-block;
+          padding: 13px 0;
+        }
       }
     </style>
     <script src="/i18n.js?v=ad54053" defer></script>

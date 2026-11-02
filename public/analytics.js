@@ -91,7 +91,7 @@
       // Phones: a compact bar instead of a card.
       '@media (max-width:640px){' +
       '#dv-cc{left:10px;right:10px;bottom:10px;padding:12px 14px;font-size:13px;line-height:1.45;border-radius:14px;}' +
-      '#dv-cc p{margin:0 0 10px;}#dv-cc button{padding:7px 16px;}}' +
+      '#dv-cc p{margin:0 0 10px;}#dv-cc button{padding:7px 16px;min-height:44px;}}' +
       '@media (prefers-color-scheme:dark){' +
       '#dv-cc{background:#1d1d1f;color:#f5f5f7;border-color:rgba(255,255,255,.12);box-shadow:0 14px 44px rgba(0,0,0,.55);}' +
       '#dv-cc p{color:#c7c7cc;}#dv-cc a{color:#f4cc77;}' +
