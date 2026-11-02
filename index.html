@@ -112,13 +112,13 @@
         {
           "@type": "SoftwareApplication",
           "name": "DeepValues.AI",
-          "operatingSystem": "Web, iOS",
+          "operatingSystem": "Web, iOS, Android",
           "applicationCategory": "FinanceApplication",
           "applicationSubCategory": "Stock research",
           "description": "AI-native financial assistant for individual investors. Multi-analyst AI research briefings, intrinsic value from three models with every input shown, Smart Money tracking of 93 investors (80 funds' 13F filings, plus the disclosures of 12 members of Congress and one official), Buffett Lens chat, SEC filings with AI summaries, and Sankey revenue-flow visualizations. No advertiser kickbacks, no promoted stocks, no conflicts of interest.",
           "url": "https://deepvalues.ai/",
           "image": "https://deepvalues.ai/images/deepvalues-appicon-1024.jpg",
-          "installUrl": "https://apps.apple.com/app/id6775568608",
+          "installUrl": ["https://apps.apple.com/app/id6775568608", "https://play.google.com/store/apps/details?id=app.deepvalues.android"],
           "publisher": { "@id": "https://deepvalues.ai/#organization" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": 5, "bestRating": 5, "worstRating": 1 },
           "offers": [
@@ -635,6 +635,10 @@
       .store-badge__text { display: inline-flex; flex-direction: column; align-items: flex-start; }
       .store-badge__top { font-size: 11px; font-weight: 400; letter-spacing: 0.02em; }
       .store-badge__bottom { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; margin-top: 1px; }
+      /* Google's own badge reads brand first in these languages ("Google Play で手に入れよう"), so the small line goes under it. */
+      html[lang="ja"] .store-badge--play .store-badge__text,
+      html[lang="ko"] .store-badge--play .store-badge__text,
+      html[lang="zh-Hant"] .store-badge--play .store-badge__text { flex-direction: column-reverse; }
 
       @media (prefers-color-scheme: dark) {
         html, body { color: #f5f5f7; }
@@ -797,7 +801,7 @@
             The AI-native financial assistant that brings institutional-grade research, intrinsic-value tools, and Smart Money tracking to everyday investors — so you make better decisions.
           </p>
 
-          <!-- CTAs: one primary action (a free account); the App Store and the free memo are the quiet secondaries -->
+          <!-- CTAs: one primary action (a free account); the two app stores and the free memo are the quiet secondaries -->
           <div class="mt-9 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3">
             <a
               href="https://app.deepvalues.ai/login?mode=signup&amp;ref=deepvalues.ai&amp;src=hero"
@@ -826,6 +830,26 @@
               <span class="store-badge__text">
                 <span class="store-badge__top" data-i18n="hero.appstore">Download on the</span>
                 <span class="store-badge__bottom">App Store</span>
+              </span>
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=app.deepvalues.android"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="store-badge store-badge--play inline-flex items-center gap-2.5 transition"
+              data-ga-event="playstore_download_click"
+              data-i18n-attr="aria-label:hero.playAria"
+              aria-label="Get DeepValues on Google Play"
+            >
+              <svg class="store-badge__logo" viewBox="13.29 9.52 30.7 34.3" aria-hidden="true">
+                <path fill="#eb3131" d="m27.622 25.899-14.194 15.066c5.34e-4 0.0031 0.0016 0.0057 0.0021 0.0089 0.43532 1.636 1.9296 2.8406 3.703 2.8406 0.70892 0 1.3745-0.19166 1.9453-0.52812l0.04533-0.02656 15.978-9.22-7.479-8.141" />
+                <path fill="#f6b60b" d="m41.983 23.334-0.0136-0.0093-6.8982-3.999-7.7717 6.9156 7.7987 7.7977 6.8618-3.9592c1.203-0.64945 2.0197-1.9177 2.0197-3.3802 0-1.452-0.80571-2.7139-1.9968-3.3655" />
+                <path fill="#5778c5" d="m13.426 12.37c-0.08533 0.31466-0.13018 0.64425-0.13018 0.98651v26.623c0 0.34162 0.04432 0.67233 0.13072 0.98587l14.684-14.681-14.684-13.914" />
+                <path fill="#3bad49" d="m27.727 26.668 7.3473-7.3451-15.96-9.2534c-0.58012-0.34746-1.2572-0.54799-1.9817-0.54799-1.7734 0-3.2697 1.2068-3.7051 2.8447-5.34e-4 0.0016-5.34e-4 0.0027-5.34e-4 0.0041l14.3 14.298" />
+              </svg>
+              <span class="store-badge__text">
+                <span class="store-badge__top" data-i18n="hero.playTop">Get it on</span>
+                <span class="store-badge__bottom" data-i18n="hero.playBottom">Google Play</span>
               </span>
             </a>
             <!-- Quiet secondary: the free weekly memo, email only (scrolls to #letter) -->
@@ -1939,6 +1963,7 @@
             <ul class="space-y-2">
               <li><a href="https://app.deepvalues.ai/login?ref=deepvalues.ai&amp;src=footer" class="hover:text-slate-900 transition" data-i18n="footer.webApp">Web app</a></li>
               <li><a href="https://apps.apple.com/us/app/deepvalues/id6775568608" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.iphoneApp">DeepValues for iPhone</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=app.deepvalues.android" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.androidApp">DeepValues for Android</a></li>
               <li><a href="/buffett-indicator/" class="hover:text-slate-900 transition" data-i18n="footer.buffettPage">Buffett Indicator app</a></li>
               <li><a href="https://apps.apple.com/us/app/buffett-indicator/id6747404614" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.buffettIndicator">Buffett Indicator (iPhone)</a></li>
               <li><a href="https://play.google.com/store/apps/details?id=com.luluventures.buffett" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.bubbleWatch">Bubble Watch (Android)</a></li>

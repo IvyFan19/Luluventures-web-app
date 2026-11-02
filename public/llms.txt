@@ -29,7 +29,7 @@ The source of truth is the pricing page: https://app.deepvalues.ai/en/pricing
 
 ## Languages
 
-The app (iPhone and web) is available in 20 languages. The marketing site is available in 12: English, Simplified Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
+The app (iPhone, Android and web) is available in 20 languages. The marketing site is available in 12: English, Simplified Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
 
 ## Pages
 
@@ -40,6 +40,7 @@ The app (iPhone and web) is available in 20 languages. The marketing site is ava
 - [API and MCP server](https://app.deepvalues.ai/developers) — Docs, per-call prices, keys
 - [Web app](https://app.deepvalues.ai/login) — The product on the web
 - [iPhone app](https://apps.apple.com/app/id6775568608) — DeepValues on the App Store
+- [Android app](https://play.google.com/store/apps/details?id=app.deepvalues.android) — DeepValues on Google Play
 - [Buffett Indicator app](https://deepvalues.ai/buffett-indicator/) — The Buffett Indicator (US market cap / GDP) and Shiller PE (CAPE) gauges as a standalone app: Buffett Indicator on iPhone, Bubble Watch on Android
 - [Terms of Use](https://app.deepvalues.ai/terms) — Terms of service
 
@@ -47,6 +48,7 @@ The app (iPhone and web) is available in 20 languages. The marketing site is ava
 
 - [DeepValues web app](https://app.deepvalues.ai) — the product on the web
 - [DeepValues for iPhone](https://apps.apple.com/us/app/deepvalues/id6775568608)
+- [DeepValues for Android](https://play.google.com/store/apps/details?id=app.deepvalues.android)
 - [Buffett Indicator app home page](https://deepvalues.ai/buffett-indicator/) — what the two gauges mean, features, FAQ and store links for both platforms
 - [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614) — market-valuation gauge
 - [Bubble Watch for Android](https://play.google.com/store/apps/details?id=com.luluventures.buffett) — the Buffett Indicator on Android
