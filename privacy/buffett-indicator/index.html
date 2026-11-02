@@ -48,7 +48,6 @@
       href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       html { scroll-behavior: smooth; }
       body {
@@ -180,6 +179,8 @@
         footer a.w-10 { width: 44px; height: 44px; }
       }
     </style>
+    <!-- Last in <head>: Tailwind's utilities override the styles above. -->
+    <link rel="stylesheet" href="/src/legal.css" />
   </head>
   <body>
     <!-- ==================== NAV ==================== -->
