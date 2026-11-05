@@ -31,6 +31,10 @@ The source of truth is the pricing page: https://app.deepvalues.ai/en/pricing
 
 The app (iPhone, Android and web) is available in 20 languages. The marketing site is available in 12: English, Simplified Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
 
+## Topics covered
+
+Value investing; intrinsic value (discounted cash flow, owner earnings, two-stage models); margin of safety; stock valuation of US-listed companies; Warren Buffett and Charlie Munger's principles; 13F holdings of tracked investors; the Buffett Indicator (market cap / GDP) and Shiller PE (CAPE); SEC filings (10-K, 10-Q, 8-K) explained in plain English. Chinese-language coverage: 價值投資、巴菲特、內在價值、安全邊際、美股分析。
+
 ## Pages
 
 - [Home](https://deepvalues.ai/) — Product overview and features
