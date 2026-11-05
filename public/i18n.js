@@ -83,7 +83,17 @@
 
     var stored = storedPick();
     if (stored) return stored;
+    // A prerendered translated page (/zh-hant/) marks <html data-page-locale>: without a URL language or an
+    // explicit pick it stays in its own language instead of following the browser.
+    var page = pageLocale();
+    if (page) return page;
     return browserLocale();
+  }
+
+  function pageLocale() {
+    var root = document.documentElement;
+    var page = root && root.getAttribute ? root.getAttribute('data-page-locale') : null;
+    return page && LOCALES[page] ? page : null;
   }
 
   function storedPick() {

@@ -22,7 +22,7 @@ function boot(opts) {
   const ls = { getItem: (k) => (k in data ? data[k] : null), setItem: (k, v) => { data[k] = String(v); }, removeItem: (k) => { delete data[k]; } };
   const ss = { getItem: (k) => (k in sdata ? sdata[k] : null), setItem: (k, v) => { sdata[k] = String(v); }, removeItem: (k) => { delete sdata[k]; } };
   const attrs = {};
-  const html = { setAttribute: (k, v) => { attrs[k] = v; } };
+  const html = { setAttribute: (k, v) => { attrs[k] = v; }, getAttribute: (k) => (k === 'data-page-locale' ? opts.pageLocale || null : null) };
   const win = {};
   const langs = opts.langs || ['en-US'];
   vm.runInNewContext(src, {
@@ -57,14 +57,22 @@ const wantLabels = { en: 'English', de: 'Deutsch', 'es-419': 'Español (LatAm)',
 check('native name for every locale', codes.map((c) => [c, locales[c].label]), Object.keys(wantLabels).sort().map((c) => [c, wantLabels[c]]));
 check('every locale has a short code', codes.every((c) => /^([A-Z]{2}|繁)$/.test(locales[c].code)), true);
 
-// ---- no hreflang: ?lang=xx serves the same English HTML as the canonical URL, so the pages
-// declare one canonical each and no alternates (Google only pairs hreflang between distinct canonical URLs).
-['index.html', 'buffett-indicator/index.html'].forEach((f) => {
-  const html = read(f);
-  check(f + ': no hreflang alternates', /hreflang=/.test(html), false);
-  check(f + ': exactly one canonical', (html.match(/<link rel="canonical"/g) || []).length, 1);
-});
-check('sitemap.xml: no per-language alternates', /xhtml:link|hreflang=/.test(read('public/sitemap.xml')), false);
+// ---- hreflang: ?lang=xx serves the same English HTML as the canonical URL, so only distinct URLs pair up.
+// The landing page and its prerendered Traditional Chinese copy (/zh-hant/) declare each other (+ x-default);
+// every other page declares one canonical and no alternates.
+const LANDING_ALTS = ['en|https://deepvalues.ai/', 'zh-Hant|https://deepvalues.ai/zh-hant/', 'x-default|https://deepvalues.ai/'];
+const alts = (html) => [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + '|' + m[2]);
+check('index.html: en / zh-Hant / x-default alternates', alts(read('index.html')), LANDING_ALTS);
+check('index.html: exactly one canonical', (read('index.html').match(/<link rel="canonical"/g) || []).length, 1);
+check('buffett-indicator/index.html: no hreflang alternates', /hreflang=/.test(read('buffett-indicator/index.html')), false);
+check('buffett-indicator/index.html: exactly one canonical', (read('buffett-indicator/index.html').match(/<link rel="canonical"/g) || []).length, 1);
+check('sitemap.xml: both landing URLs with alternates', ['<loc>https://deepvalues.ai/</loc>', '<loc>https://deepvalues.ai/zh-hant/</loc>'].every((u) => read('public/sitemap.xml').includes(u)) && (read('public/sitemap.xml').match(/<xhtml:link /g) || []).length, 6);
+
+// ---- prerendered page (/zh-hant/): its own language unless the URL or an explicit pick says otherwise ----
+check('zh-Hant page, English browser -> zh-Hant', boot({ pageLocale: 'zh-Hant', langs: ['en-US'] }).api.detect(), 'zh-Hant');
+check('zh-Hant page, explicit pick en wins', boot({ pageLocale: 'zh-Hant', store: { dv_locale_choice: 'en' } }).api.detect(), 'en');
+check('zh-Hant page, ?lang=ja wins', boot({ pageLocale: 'zh-Hant', search: '?lang=ja' }).api.detect(), 'ja');
+check('English page still follows the browser', boot({ langs: ['zh-TW'] }).api.detect(), 'zh-Hant');
 
 // ---- 3. URL override ----
 const lang = (search, langs, store) => { const b = boot({ search, langs, store }); return { detected: b.api.detect(), store: b.store, attrs: b.attrs }; };

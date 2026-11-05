@@ -7,10 +7,12 @@
     <script>
       (function () {
         try {
+          // A prerendered page (/zh-hant/) already holds its language: only a URL or remembered pick can change it.
+          var p = document.documentElement.getAttribute('data-page-locale') || 'en';
           var m = /[?&](?:lang|hl)=([^&#]*)/i.exec(location.search), l = m ? decodeURIComponent(m[1]) : null;
           if (!l) { try { l = sessionStorage.getItem('dv_locale_choice_visit') || localStorage.getItem('dv_locale_choice'); } catch (e) {} }
-          if (!l) l = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
-          if (!/^en\b/i.test(l)) {
+          if (!l) l = p !== 'en' ? p : (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+          if (l.toLowerCase().indexOf(p.toLowerCase()) !== 0) {
             var d = document.documentElement;
             d.classList.add('i18n-pending');
             setTimeout(function () { d.classList.remove('i18n-pending'); }, 2500);
@@ -37,8 +39,12 @@
     <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0e17" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href="https://deepvalues.ai/" />
-    <!-- One document, translated client-side: ?lang=xx serves this same English HTML, so there are
-         no per-language URLs to declare with hreflang (Google only pairs hreflang between canonical URLs). -->
+    <!-- Translated client-side by /i18n.js (?lang=xx keeps this English HTML). Traditional Chinese also has its
+         own prerendered URL, /zh-hant/ (built by vite.config.ts from public/locales/zh-Hant.json); both pages
+         declare the pair, and both copies carry these same tags. -->
+    <link rel="alternate" hreflang="en" href="https://deepvalues.ai/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://deepvalues.ai/zh-hant/" />
+    <link rel="alternate" hreflang="x-default" href="https://deepvalues.ai/" />
     <!-- Smart App Banner: Safari on iPhone shows a native "Open in the App Store"
          strip above the page — the one install path that needs no marketing copy.
          No storefront in the id, so every visitor lands on their own store. -->
@@ -735,7 +741,7 @@
       }
       /* The language switcher (header + footer) is rendered and styled by /i18n.js. */
     </style>
-    <script src="/i18n.js?v=29c28de" defer></script>
+    <script src="/i18n.js?v=ff126b1" defer></script>
 
     <!-- Last in <head>: Tailwind's utilities override the styles above. -->
     <link rel="stylesheet" href="/src/landing.css" />
