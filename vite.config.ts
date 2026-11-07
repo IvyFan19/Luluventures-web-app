@@ -74,9 +74,9 @@ export default defineConfig({
         // Static legal pages
         privacy: resolve(__dirname, 'privacy.html'),
         terms: resolve(__dirname, 'terms.html'),
-        // App-specific privacy policy (Buffett Indicator iOS / Bubble Watch Android)
+        // App-specific privacy policy (Buffett Indicator iOS / Buffett Indicator & Shiller PE Android)
         'privacy-buffett-indicator': resolve(__dirname, 'privacy/buffett-indicator/index.html'),
-        // Landing page for the Buffett Indicator app (iOS) / Bubble Watch (Android)
+        // Landing page for the Buffett Indicator app (iOS) / Buffett Indicator & Shiller PE (Android)
         'buffett-indicator': resolve(__dirname, 'buffett-indicator/index.html'),
         // Static API references landing page
         api: resolve(__dirname, 'api.html'),
