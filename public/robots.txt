@@ -3,10 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /mock-wallstreet.html
-Disallow: /mock-bg-choices.html
-Disallow: /demo-v2-aurora.html
-Disallow: /pitch-deck.html
 
 # --- Major AI crawlers (explicitly allowed) ---
 
