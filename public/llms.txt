@@ -38,6 +38,7 @@ Value investing; intrinsic value (discounted cash flow, owner earnings, two-stag
 ## Pages
 
 - [Home](https://deepvalues.ai/) — Product overview and features
+- [Intrinsic value calculator](https://deepvalues.ai/intrinsic-value-calculator/) — A two-stage discounted cash flow (DCF) calculator that runs in the browser, with the formula and each year's math shown. Also in Simplified Chinese (/zh/intrinsic-value-calculator/) and Traditional Chinese (/zh-hant/intrinsic-value-calculator/)
 - [Privacy Policy](https://deepvalues.ai/privacy.html) — Data handling, sub-processors (AWS, OpenAI, Anthropic, Microsoft Azure Speech, Cloudflare, Google Workspace), AI/automated-processing disclosures
 - [Pricing](https://app.deepvalues.ai/en/pricing) — Free, Plus and credit packs
 - [Sample briefing](https://app.deepvalues.ai/en/company/KO/briefing) — A public Deep Value briefing (Coca-Cola)

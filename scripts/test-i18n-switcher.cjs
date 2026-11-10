@@ -66,7 +66,18 @@ check('index.html: en / zh-Hant / x-default alternates', alts(read('index.html')
 check('index.html: exactly one canonical', (read('index.html').match(/<link rel="canonical"/g) || []).length, 1);
 check('buffett-indicator/index.html: no hreflang alternates', /hreflang=/.test(read('buffett-indicator/index.html')), false);
 check('buffett-indicator/index.html: exactly one canonical', (read('buffett-indicator/index.html').match(/<link rel="canonical"/g) || []).length, 1);
-check('sitemap.xml: both landing URLs with alternates', ['<loc>https://deepvalues.ai/</loc>', '<loc>https://deepvalues.ai/zh-hant/</loc>'].every((u) => read('public/sitemap.xml').includes(u)) && (read('public/sitemap.xml').match(/<xhtml:link /g) || []).length, 6);
+// Sitemap: count the alternates inside each <url> block, so one page's set cannot hide another's.
+const sitemapAlts = (loc) => {
+  const block = read('public/sitemap.xml').split('<url>').find((b) => b.includes('<loc>' + loc + '</loc>')) || '';
+  return (block.match(/<xhtml:link /g) || []).length;
+};
+check('sitemap.xml: both landing URLs with alternates', ['https://deepvalues.ai/', 'https://deepvalues.ai/zh-hant/'].map(sitemapAlts), [3, 3]);
+// The calculator and its two prerendered Chinese copies declare each other (+ x-default), in the page and the sitemap.
+const CALC_ALTS = ['en|https://deepvalues.ai/intrinsic-value-calculator/', 'zh-Hans|https://deepvalues.ai/zh/intrinsic-value-calculator/', 'zh-Hant|https://deepvalues.ai/zh-hant/intrinsic-value-calculator/', 'x-default|https://deepvalues.ai/intrinsic-value-calculator/'];
+check('intrinsic-value-calculator/index.html: en / zh-Hans / zh-Hant / x-default alternates', alts(read('intrinsic-value-calculator/index.html')), CALC_ALTS);
+check('intrinsic-value-calculator/index.html: exactly one canonical', (read('intrinsic-value-calculator/index.html').match(/<link rel="canonical"/g) || []).length, 1);
+check('sitemap.xml: the three calculator URLs with alternates', CALC_ALTS.slice(0, 3).map((a) => sitemapAlts(a.split('|')[1])), [4, 4, 4]);
+check('sitemap.xml: no alternates outside those five URLs', (read('public/sitemap.xml').match(/<xhtml:link /g) || []).length, 18);
 
 // ---- prerendered page (/zh-hant/): its own language unless the URL or an explicit pick says otherwise ----
 check('zh-Hant page, English browser -> zh-Hant', boot({ pageLocale: 'zh-Hant', langs: ['en-US'] }).api.detect(), 'zh-Hant');

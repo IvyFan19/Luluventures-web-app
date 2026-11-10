@@ -12,7 +12,9 @@ import { JSDOM } from 'jsdom';
  * @param {string} html      built English index.html
  * @param {Record<string,string>} strings  the locale's i18n strings (public/locales/<locale>.json)
  * @param {{ locale: string, url: string, homeUrl: string, title: string, description: string,
- *           ogLocale: string, appDescription: string }} opts
+ *           ogLocale: string, appDescription: string, homeHref?: string }} opts
+ *   homeHref: where the logo links (default: this page's own path, right for a translated landing page;
+ *   a sub-page such as the calculator passes the landing page of its language)
  * @returns {string} the translated document
  */
 export function renderLocalePage(html, strings, opts) {
@@ -41,7 +43,8 @@ export function renderLocalePage(html, strings, opts) {
   });
 
   // The logo links home: on this page "home" is the translated landing page
-  doc.querySelectorAll('a[href="/"]').forEach((a) => a.setAttribute('href', new URL(opts.url).pathname));
+  const homeHref = opts.homeHref ?? new URL(opts.url).pathname;
+  doc.querySelectorAll('a[href="/"]').forEach((a) => a.setAttribute('href', homeHref));
 
   // Head
   doc.title = opts.title;
@@ -87,7 +90,7 @@ export function renderLocalePage(html, strings, opts) {
         });
       }
     }
-    graph.push({
+    const webPage = {
       '@type': 'WebPage',
       '@id': `${opts.url}#webpage`,
       url: opts.url,
@@ -95,7 +98,18 @@ export function renderLocalePage(html, strings, opts) {
       description: opts.description,
       inLanguage: opts.locale,
       isPartOf: { '@id': `${opts.homeUrl}#website` },
-    });
+    };
+    // A page that already describes itself as a WebPage (the calculator) gets that node replaced, not a second one
+    const existing = graph.findIndex((node) => node['@type'] === 'WebPage');
+    if (existing >= 0) graph[existing] = webPage;
+    else graph.push(webPage);
+    for (const node of graph) {
+      if (node['@type'] === 'WebApplication') {
+        node.url = opts.url;
+        node.inLanguage = opts.locale;
+        node.isPartOf = { '@id': webPage['@id'] };
+      }
+    }
     ld.textContent = `\n${JSON.stringify(data, null, 2)}\n`;
   }
 
