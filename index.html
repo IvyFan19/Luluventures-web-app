@@ -48,7 +48,7 @@
     <!-- Smart App Banner: Safari on iPhone shows a native "Open in the App Store"
          strip above the page — the one install path that needs no marketing copy.
          No storefront in the id, so every visitor lands on their own store. -->
-    <meta name="apple-itunes-app" content="app-id=6775568608" />
+    <meta name="apple-itunes-app" content="app-id=6775568608, affiliate-data=ct=landing_banner" />
     <meta property="og:site_name" content="DeepValues.AI" />
     <meta property="og:title" content="DeepValues.AI — AI-native financial assistant for individual investors" />
     <meta property="og:description" content="DeepValues.AI shows what a company is worth by three valuation models, what 93 tracked investors bought and sold, and AI research briefings that show their work. Start with 3 free briefings." />
@@ -124,7 +124,7 @@
           "description": "AI-native financial assistant for individual investors. Multi-analyst AI research briefings, intrinsic value from three models with every input shown, Smart Money tracking of 93 investors (80 funds' 13F filings, plus the disclosures of 12 members of Congress and one official), Buffett Lens chat, SEC filings with AI summaries, and Sankey revenue-flow visualizations. No advertiser kickbacks, no promoted stocks, no conflicts of interest.",
           "url": "https://deepvalues.ai/",
           "image": "https://deepvalues.ai/images/deepvalues-appicon-1024.jpg",
-          "installUrl": ["https://apps.apple.com/app/id6775568608", "https://play.google.com/store/apps/details?id=app.deepvalues.android"],
+          "installUrl": ["https://apps.apple.com/app/id6775568608?ct=landing_schema", "https://play.google.com/store/apps/details?id=app.deepvalues.android"],
           "publisher": { "@id": "https://deepvalues.ai/#organization" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": 5, "bestRating": 5, "worstRating": 1 },
           "offers": [
@@ -820,7 +820,7 @@
               </svg>
             </a>
             <a
-              href="https://apps.apple.com/app/id6775568608"
+              href="https://apps.apple.com/app/id6775568608?ct=landing_hero"
               target="_blank"
               rel="noopener noreferrer"
               class="store-badge inline-flex items-center gap-2.5 transition"
@@ -868,7 +868,7 @@
                averageUserRating 5, userRatingCount 5). Hard-coded: when it changes, update this line,
                hero.rating in public/locales/*.json and the SoftwareApplication aggregateRating in the JSON-LD above together. -->
           <p class="mt-2 text-[14px] leading-[1.5] text-slate-500 max-w-[460px]">
-            <a href="https://apps.apple.com/us/app/deepvalues/id6775568608" target="_blank" rel="noopener noreferrer" class="hero-rating hover:text-slate-900 transition" data-i18n="hero.rating">5.0 ★ · 5 ratings on the App Store</a>
+            <a href="https://apps.apple.com/us/app/deepvalues/id6775568608?ct=landing_hero_rating" target="_blank" rel="noopener noreferrer" class="hero-rating hover:text-slate-900 transition" data-i18n="hero.rating">5.0 ★ · 5 ratings on the App Store</a>
           </p>
 
           <!-- Proof: facts the app's own public pages state (/gurus, /today, the App Store listing) -->
@@ -1966,10 +1966,10 @@
             <h2 class="text-[13px] font-semibold uppercase tracking-wide text-slate-900 mb-3" data-i18n="footer.col.products">Products</h2>
             <ul class="space-y-2">
               <li><a href="https://app.deepvalues.ai/login?ref=deepvalues.ai&amp;src=footer" class="hover:text-slate-900 transition" data-i18n="footer.webApp">Web app</a></li>
-              <li><a href="https://apps.apple.com/us/app/deepvalues/id6775568608" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.iphoneApp">DeepValues for iPhone</a></li>
+              <li><a href="https://apps.apple.com/us/app/deepvalues/id6775568608?ct=landing_footer" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.iphoneApp">DeepValues for iPhone</a></li>
               <li><a href="https://play.google.com/store/apps/details?id=app.deepvalues.android" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.androidApp">DeepValues for Android</a></li>
               <li><a href="/buffett-indicator/" class="hover:text-slate-900 transition" data-i18n="footer.buffettPage">Buffett Indicator app</a></li>
-              <li><a href="https://apps.apple.com/us/app/buffett-indicator/id6747404614" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.buffettIndicator">Buffett Indicator (iPhone)</a></li>
+              <li><a href="https://apps.apple.com/us/app/buffett-indicator/id6747404614?ct=landing_footer" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.buffettIndicator">Buffett Indicator (iPhone)</a></li>
               <li><a href="https://play.google.com/store/apps/details?id=com.luluventures.bubblewatch.android" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.bubbleWatch">Buffett Indicator &amp; Shiller PE (Android)</a></li>
               <li><a href="https://app.deepvalues.ai/en/pricing" class="hover:text-slate-900 transition" data-i18n="nav.pricing">Pricing</a></li>
             </ul>
