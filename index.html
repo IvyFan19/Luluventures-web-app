@@ -267,8 +267,14 @@
         color: #0a192f;
         transition: background 0.15s ease, border-color 0.15s ease;
       }
+      /* Phones: keep the wordmark, the language switcher and Log In on one row in the longer languages. */
       @media (max-width: 480px) {
-        .nav-login { padding: 10px 16px; }
+        .nav-login { padding: 9px 13px; font-size: 14px; }
+        .brand-word { font-size: 19px; }
+      }
+      @media (max-width: 380px) {
+        .nav-login { padding: 8px 9px; font-size: 13px; }
+        .brand-word { font-size: 15px; }
       }
       .nav-login:hover {
         background: #ffffff;
@@ -836,7 +842,7 @@
               </span>
             </a>
             <a
-              href="https://play.google.com/store/apps/details?id=app.deepvalues.android"
+              href="https://play.google.com/store/apps/details?id=app.deepvalues.android&amp;referrer=ref%3Ddeepvalues.ai%26src%3Dhero%26utm_source%3Ddeepvalues.ai%26utm_medium%3Dlanding%26utm_campaign%3Dhero"
               target="_blank"
               rel="noopener noreferrer"
               class="store-badge store-badge--play inline-flex items-center gap-2.5 transition"
@@ -1758,6 +1764,8 @@
       .cta-memo { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 999px; border: 1px solid rgba(148, 101, 21, 0.4);
         background: rgba(255, 255, 255, 0.55); color: var(--gold-text); font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap;
         transition: background 0.15s ease, border-color 0.15s ease; }
+      /* The longer translations wrap inside the pill instead of running past the edge of a phone screen. */
+      @media (max-width: 480px) { .cta-memo { max-width: 100%; white-space: normal; text-align: left; line-height: 1.3; } .cta-memo svg { flex: none; } }
       .cta-memo:hover { background: #ffffff; border-color: rgba(148, 101, 21, 0.65); }
       .cta-memo:focus-visible { outline: 2px solid var(--gold-text); outline-offset: 3px; }
 
@@ -1888,6 +1896,69 @@
       </div>
     </section>
 
+    <!-- ==================== CLOSING CALL TO ACTION ==================== -->
+    <style>
+      #closing-cta { background: #faf7f0; padding: 80px 24px; text-align: center; font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif; border-top: 1px solid rgba(15, 23, 60, 0.08); }
+      #closing-cta h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.8px; color: #0a192f; margin: 0; line-height: 1.15; }
+      #closing-cta .closing-actions { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+      #closing-cta .closing-note { margin: 18px 0 0; font-size: 14px; color: #6e6e73; }
+      @media (max-width: 640px) { #closing-cta { padding: 56px 20px; } #closing-cta h2 { font-size: 28px; } }
+      @media (prefers-color-scheme: dark) {
+        #closing-cta { background: #0d1320; border-top-color: rgba(255, 255, 255, 0.08); }
+        #closing-cta h2 { color: #f1f5f9; }
+        #closing-cta .closing-note { color: #94a3b8; }
+      }
+    </style>
+    <section id="closing-cta" aria-labelledby="closing-cta-heading">
+      <h2 id="closing-cta-heading" data-i18n="hero.subheadline">DeepValues.AI works for you.</h2>
+      <div class="closing-actions">
+        <a
+          href="https://app.deepvalues.ai/login?mode=signup&amp;ref=deepvalues.ai&amp;src=closing"
+          class="cta-primary text-[16px] font-semibold px-7 py-3.5 rounded-full inline-flex items-center justify-center gap-2"
+          data-ga-event="get_started_closing_click"
+        >
+          <span data-i18n="hero.cta">Get Started</span>
+        </a>
+        <a
+              href="https://apps.apple.com/app/id6775568608?ct=landing_closing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="store-badge inline-flex items-center gap-2.5 transition"
+              data-ga-event="appstore_download_closing_click"
+              aria-label="Download DeepValues on the App Store"
+            >
+              <svg class="store-badge__logo" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+              </svg>
+              <span class="store-badge__text">
+                <span class="store-badge__top" data-i18n="hero.appstore">Download on the</span>
+                <span class="store-badge__bottom">App Store</span>
+              </span>
+            </a>
+        <a
+              href="https://play.google.com/store/apps/details?id=app.deepvalues.android&amp;referrer=ref%3Ddeepvalues.ai%26src%3Dclosing%26utm_source%3Ddeepvalues.ai%26utm_medium%3Dlanding%26utm_campaign%3Dclosing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="store-badge store-badge--play inline-flex items-center gap-2.5 transition"
+              data-ga-event="playstore_download_closing_click"
+              data-i18n-attr="aria-label:hero.playAria"
+              aria-label="Get DeepValues on Google Play"
+            >
+              <svg class="store-badge__logo" viewBox="13.29 9.52 30.7 34.3" aria-hidden="true">
+                <path fill="#eb3131" d="m27.622 25.899-14.194 15.066c5.34e-4 0.0031 0.0016 0.0057 0.0021 0.0089 0.43532 1.636 1.9296 2.8406 3.703 2.8406 0.70892 0 1.3745-0.19166 1.9453-0.52812l0.04533-0.02656 15.978-9.22-7.479-8.141" />
+                <path fill="#f6b60b" d="m41.983 23.334-0.0136-0.0093-6.8982-3.999-7.7717 6.9156 7.7987 7.7977 6.8618-3.9592c1.203-0.64945 2.0197-1.9177 2.0197-3.3802 0-1.452-0.80571-2.7139-1.9968-3.3655" />
+                <path fill="#5778c5" d="m13.426 12.37c-0.08533 0.31466-0.13018 0.64425-0.13018 0.98651v26.623c0 0.34162 0.04432 0.67233 0.13072 0.98587l14.684-14.681-14.684-13.914" />
+                <path fill="#3bad49" d="m27.727 26.668 7.3473-7.3451-15.96-9.2534c-0.58012-0.34746-1.2572-0.54799-1.9817-0.54799-1.7734 0-3.2697 1.2068-3.7051 2.8447-5.34e-4 0.0016-5.34e-4 0.0027-5.34e-4 0.0041l14.3 14.298" />
+              </svg>
+              <span class="store-badge__text">
+                <span class="store-badge__top" data-i18n="hero.playTop">Get it on</span>
+                <span class="store-badge__bottom" data-i18n="hero.playBottom">Google Play</span>
+              </span>
+            </a>
+      </div>
+      <p class="closing-note" data-i18n="hero.ctaNote">9 free credits at signup, enough for 3 fresh briefings. No credit card.</p>
+    </section>
+
     <!-- ==================== FOOTER ==================== -->
     <footer class="border-t border-slate-900/10 text-slate-700 bg-white">
       <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-12">
@@ -1967,7 +2038,7 @@
             <ul class="space-y-2">
               <li><a href="https://app.deepvalues.ai/login?ref=deepvalues.ai&amp;src=footer" class="hover:text-slate-900 transition" data-i18n="footer.webApp">Web app</a></li>
               <li><a href="https://apps.apple.com/us/app/deepvalues/id6775568608" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.iphoneApp">DeepValues for iPhone</a></li>
-              <li><a href="https://play.google.com/store/apps/details?id=app.deepvalues.android" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.androidApp">DeepValues for Android</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=app.deepvalues.android&amp;referrer=ref%3Ddeepvalues.ai%26src%3Dfooter%26utm_source%3Ddeepvalues.ai%26utm_medium%3Dlanding%26utm_campaign%3Dfooter" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.androidApp">DeepValues for Android</a></li>
               <li><a href="/buffett-indicator/" class="hover:text-slate-900 transition" data-i18n="footer.buffettPage">Buffett Indicator app</a></li>
               <li><a href="https://apps.apple.com/us/app/buffett-indicator/id6747404614" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.buffettIndicator">Buffett Indicator (iPhone)</a></li>
               <li><a href="https://play.google.com/store/apps/details?id=com.luluventures.bubblewatch.android" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 transition" data-i18n="footer.bubbleWatch">Buffett Indicator &amp; Shiller PE (Android)</a></li>
@@ -2309,6 +2380,43 @@
         } catch (e) {}
       })();
 
+    </script>
+    <script>
+      // A visitor who arrived with ?ref= or ?utm_source= keeps that source on the way to sign-up and to Google Play,
+      // so a partner or campaign link is not recorded as plain "deepvalues.ai". App Store links are left alone.
+      (function () {
+        try {
+          var KEY = 'dv_landing_src';
+          var clean = function (v) { v = (v || '').toLowerCase(); return /^[a-z0-9_.-]{1,48}$/.test(v) ? v : ''; };
+          var q = new URLSearchParams(window.location.search);
+          var ref = clean(q.get('ref') || q.get('utm_source'));
+          var src = clean(q.get('src') || q.get('utm_campaign'));
+          if (ref) {
+            try { sessionStorage.setItem(KEY, JSON.stringify({ ref: ref, src: src })); } catch (e) {}
+          } else {
+            try { var saved = JSON.parse(sessionStorage.getItem(KEY) || 'null'); if (saved) { ref = clean(saved.ref); src = clean(saved.src); } } catch (e) {}
+          }
+          // Invite links (ref=invite...) are handled by the app itself; never rewrite them here.
+          if (!ref || ref === 'deepvalues.ai' || ref.indexOf('invite') === 0) return;
+          var links = document.querySelectorAll('a[href^="https://app.deepvalues.ai/"], a[href^="https://play.google.com/store/apps/details?id=app.deepvalues.android"]');
+          for (var i = 0; i < links.length; i++) {
+            var u = new URL(links[i].href);
+            if (u.hostname === 'play.google.com') {
+              var r = new URLSearchParams(u.searchParams.get('referrer') || '');
+              var place = r.get('src') || 'landing';
+              r.set('ref', ref); r.set('src', src || clean('landing-' + place) || 'landing');
+              r.set('utm_source', ref); if (src) r.set('utm_campaign', src);
+              u.searchParams.set('referrer', r.toString());
+            } else {
+              if (!u.searchParams.get('ref')) continue;
+              var where = u.searchParams.get('src') || 'landing';
+              u.searchParams.set('ref', ref);
+              u.searchParams.set('src', src || clean('landing-' + where) || 'landing');
+            }
+            links[i].href = u.toString();
+          }
+        } catch (e) {}
+      })();
     </script>
   </body>
 </html>
