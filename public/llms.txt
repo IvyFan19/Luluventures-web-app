@@ -10,7 +10,7 @@ The brand premise: Wall Street works for Wall Street, not for you. DeepValues.AI
 
 - **AI Research Briefings**: On-demand multi-analyst reports for any US-listed stock. The pipeline reads filings, transcripts, and market data, then writes a fully-sourced briefing.
 - **Buffett Lens**: Voice and text chat with an AI grounded in a company's public disclosures. Every answer cites its sources.
-- **Smart Money tracking**: 93 tracked investors — 80 funds' 13F filings (Warren Buffett, Bill Ackman, Joel Greenblatt, Duan Yongping, Ken Griffin, Ray Dalio and more), plus 12 members of Congress (STOCK Act disclosures) and one official (OGE disclosures). Their holdings, quarter-over-quarter changes, and where the money moved each quarter.
+- **Smart Money tracking**: 121 tracked investors — funds' 13F filings (Warren Buffett, Bill Ackman, Joel Greenblatt, Duan Yongping, Ken Griffin, Ray Dalio and more), plus members of Congress (STOCK Act disclosures) and officials (OGE disclosures). Their holdings, quarter-over-quarter changes, and where the money moved each quarter.
 - **Values Watchlist**: Personal watchlist with color-coded value metrics (P/E, ROE, ROIC, intrinsic value) judged against the thresholds Buffett, Munger, Greenblatt, and other legends actually used.
 - **Filings & Earnings**: A company's 10-K, 10-Q, 8-K and proxy filings, each with a plain-English AI summary, plus a recap of the latest earnings call.
 - **Financials Deep Dive**: Full company financial history sourced directly from SEC filings — every income line, cash-flow line, balance-sheet line, with cross-period comparison.
@@ -29,7 +29,7 @@ The source of truth is the pricing page: https://app.deepvalues.ai/en/pricing
 
 ## Languages
 
-The app (iPhone, Android and web) is available in 20 languages. The marketing site is available in 12: English, Simplified Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
+The app (iPhone, Android and web) is available in 20 languages. The marketing site is available in 13: English, Simplified Chinese, Traditional Chinese, French, German, Hindi, Indonesian, Italian, Japanese, Korean, Brazilian Portuguese, Latin American Spanish, European Spanish. Language auto-detected from the browser; users can switch manually.
 
 ## Topics covered
 
@@ -38,6 +38,7 @@ Value investing; intrinsic value (discounted cash flow, owner earnings, two-stag
 ## Pages
 
 - [Home](https://deepvalues.ai/) — Product overview and features
+- [Intrinsic value calculator](https://deepvalues.ai/intrinsic-value-calculator/) — A two-stage discounted cash flow (DCF) calculator that runs in the browser, with the formula and each year's math shown. Also in Simplified Chinese (/zh/intrinsic-value-calculator/) and Traditional Chinese (/zh-hant/intrinsic-value-calculator/)
 - [Privacy Policy](https://deepvalues.ai/privacy.html) — Data handling, sub-processors (AWS, OpenAI, Anthropic, Microsoft Azure Speech, Cloudflare, Google Workspace), AI/automated-processing disclosures
 - [Pricing](https://app.deepvalues.ai/en/pricing) — Free, Plus and credit packs
 - [Sample briefing](https://app.deepvalues.ai/en/company/KO/briefing) — A public Deep Value briefing (Coca-Cola)

@@ -19,6 +19,36 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://deepvalues.ai/" />
   </url>
   <url>
+    <loc>https://deepvalues.ai/intrinsic-value-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deepvalues.ai/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://deepvalues.ai/zh/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://deepvalues.ai/zh-hant/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deepvalues.ai/intrinsic-value-calculator/" />
+  </url>
+  <url>
+    <loc>https://deepvalues.ai/zh/intrinsic-value-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deepvalues.ai/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://deepvalues.ai/zh/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://deepvalues.ai/zh-hant/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deepvalues.ai/intrinsic-value-calculator/" />
+  </url>
+  <url>
+    <loc>https://deepvalues.ai/zh-hant/intrinsic-value-calculator/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://deepvalues.ai/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://deepvalues.ai/zh/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://deepvalues.ai/zh-hant/intrinsic-value-calculator/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://deepvalues.ai/intrinsic-value-calculator/" />
+  </url>
+  <url>
     <loc>https://deepvalues.ai/buffett-indicator/</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>

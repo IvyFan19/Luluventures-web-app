@@ -11,7 +11,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "test:i18n": "node scripts/test-i18n.cjs && node scripts/test-i18n-switcher.cjs"
+    "test:i18n": "node scripts/test-i18n.cjs && node scripts/test-i18n-switcher.cjs",
+    "test:dcf": "node scripts/test-dcf.cjs"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^6.11.2",

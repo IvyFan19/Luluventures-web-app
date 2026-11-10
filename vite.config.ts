@@ -22,6 +22,8 @@ const appHtmlRewrite = (): Plugin => ({
         req.url = '/privacy/buffett-indicator/index.html' + url.slice(pathOnly.length);
       } else if (pathOnly === '/buffett-indicator') {
         req.url = '/buffett-indicator/index.html' + url.slice(pathOnly.length);
+      } else if (pathOnly === '/intrinsic-value-calculator') {
+        req.url = '/intrinsic-value-calculator/index.html' + url.slice(pathOnly.length);
       }
       next();
     });
@@ -52,14 +54,52 @@ const zhHantLanding = (): Plugin => ({
         description: strings['hero.subtitle'],
         ogLocale: 'zh_TW',
         appDescription: strings['hero.subtitle'],
-      }),
+      })
+        // The footer link to the calculator goes to its Traditional Chinese copy
+        .replaceAll('href="/intrinsic-value-calculator/"', 'href="/zh-hant/intrinsic-value-calculator/"'),
     });
+  },
+});
+
+// Build-only: emit the intrinsic value calculator prerendered in Simplified and Traditional Chinese
+// (/zh/intrinsic-value-calculator/ and /zh-hant/intrinsic-value-calculator/), the same way as the
+// landing page above. The English page is the Vite input; the calculator script is language-neutral.
+const CALCULATOR_PATH = 'intrinsic-value-calculator/';
+const CALCULATOR_LOCALES = [
+  // The landing page has no prerendered Simplified Chinese copy, so that logo link asks for it by URL
+  { locale: 'zh', file: 'zh', dir: 'zh', ogLocale: 'zh_CN', homeHref: '/?lang=zh' },
+  { locale: 'zh-Hant', file: 'zh-Hant', dir: 'zh-hant', ogLocale: 'zh_TW', homeHref: '/zh-hant/' },
+];
+const calculatorLocales = (): Plugin => ({
+  name: 'calculator-locales',
+  apply: 'build',
+  enforce: 'post',
+  generateBundle(_options, bundle) {
+    const page = bundle[`${CALCULATOR_PATH}index.html`];
+    if (!page || page.type !== 'asset') return;
+    for (const { locale, file, dir, ogLocale, homeHref } of CALCULATOR_LOCALES) {
+      const strings = JSON.parse(readFileSync(resolve(__dirname, `public/locales/${file}.json`), 'utf8'));
+      this.emitFile({
+        type: 'asset',
+        fileName: `${dir}/${CALCULATOR_PATH}index.html`,
+        source: renderLocalePage(String(page.source), strings, {
+          locale,
+          url: `https://deepvalues.ai/${dir}/${CALCULATOR_PATH}`,
+          homeUrl: 'https://deepvalues.ai/',
+          title: strings['calc.metaTitle'],
+          description: strings['calc.metaDescription'],
+          ogLocale,
+          appDescription: strings['calc.metaDescription'],
+          homeHref,
+        }),
+      });
+    }
   },
 });
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), appHtmlRewrite(), zhHantLanding()],
+  plugins: [react(), appHtmlRewrite(), zhHantLanding(), calculatorLocales()],
   base: '/',
   optimizeDeps: {
     exclude: ['lucide-react'],
@@ -80,6 +120,8 @@ export default defineConfig({
         'buffett-indicator': resolve(__dirname, 'buffett-indicator/index.html'),
         // Static API references landing page
         api: resolve(__dirname, 'api.html'),
+        // Intrinsic value calculator: a static two-stage DCF that runs in the browser (public/dcf.js)
+        'intrinsic-value-calculator': resolve(__dirname, 'intrinsic-value-calculator/index.html'),
       },
     },
   },
