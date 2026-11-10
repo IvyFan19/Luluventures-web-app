@@ -7,12 +7,13 @@
 // canonical, Open Graph / Twitter tags and JSON-LD. No new copy is written here: every visible
 // string comes from the locale file; the few head strings are passed in by the caller.
 import { JSDOM } from 'jsdom';
+import { relabelCampaigns } from './app-store-campaign.mjs';
 
 /**
  * @param {string} html      built English index.html
  * @param {Record<string,string>} strings  the locale's i18n strings (public/locales/<locale>.json)
  * @param {{ locale: string, url: string, homeUrl: string, title: string, description: string,
- *           ogLocale: string, appDescription: string }} opts
+ *           ogLocale: string, appDescription: string, campaignPrefix?: [string, string] }} opts
  * @returns {string} the translated document
  */
 export function renderLocalePage(html, strings, opts) {
@@ -99,5 +100,8 @@ export function renderLocalePage(html, strings, opts) {
     ld.textContent = `\n${JSON.stringify(data, null, 2)}\n`;
   }
 
-  return dom.serialize();
+  // App Store campaign tokens: this page reports under its own names (ct=landing_hero becomes
+  // ct=landing_zh_hant_hero), so App Analytics can tell the two landing pages apart
+  const out = dom.serialize();
+  return opts.campaignPrefix ? relabelCampaigns(out, ...opts.campaignPrefix) : out;
 }

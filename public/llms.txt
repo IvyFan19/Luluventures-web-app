@@ -43,7 +43,7 @@ Value investing; intrinsic value (discounted cash flow, owner earnings, two-stag
 - [Sample briefing](https://app.deepvalues.ai/en/company/KO/briefing) — A public Deep Value briefing (Coca-Cola)
 - [API and MCP server](https://app.deepvalues.ai/developers) — Docs, per-call prices, keys
 - [Web app](https://app.deepvalues.ai/login) — The product on the web
-- [iPhone app](https://apps.apple.com/app/id6775568608) — DeepValues on the App Store
+- [iPhone app](https://apps.apple.com/app/id6775568608?ct=landing_llms_txt) — DeepValues on the App Store
 - [Android app](https://play.google.com/store/apps/details?id=app.deepvalues.android) — DeepValues on Google Play
 - [Buffett Indicator app](https://deepvalues.ai/buffett-indicator/) — The Buffett Indicator (US market cap / GDP) and Shiller PE (CAPE) gauges as a standalone app: Buffett Indicator on iPhone, Buffett Indicator & Shiller PE on Android
 - [Terms of Use](https://app.deepvalues.ai/terms) — Terms of service
@@ -51,10 +51,10 @@ Value investing; intrinsic value (discounted cash flow, owner earnings, two-stag
 ## Related properties
 
 - [DeepValues web app](https://app.deepvalues.ai) — the product on the web
-- [DeepValues for iPhone](https://apps.apple.com/us/app/deepvalues/id6775568608)
+- [DeepValues for iPhone](https://apps.apple.com/us/app/deepvalues/id6775568608?ct=landing_llms_txt)
 - [DeepValues for Android](https://play.google.com/store/apps/details?id=app.deepvalues.android)
 - [Buffett Indicator app home page](https://deepvalues.ai/buffett-indicator/) — what the two gauges mean, features, FAQ and store links for both platforms
-- [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614) — market-valuation gauge
+- [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614?ct=landing_llms_txt) — market-valuation gauge
 - [Buffett Indicator & Shiller PE for Android](https://play.google.com/store/apps/details?id=com.luluventures.bubblewatch.android) — the Buffett Indicator on Android
 - [DeepValues Research](https://research.deepvalues.ai/) — open-source Buffett-style company reports, market memos and investor studies, CC BY 4.0. For agents: https://research.deepvalues.ai/for-agents/ and https://research.deepvalues.ai/llms.txt
 - [Developer API, MCP server and x402](https://app.deepvalues.ai/developers)

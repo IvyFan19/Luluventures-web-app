@@ -1,8 +1,9 @@
 import { resolve } from 'path';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
-import { readFileSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { renderLocalePage } from './scripts/prerender-locale.mjs';
+import { APP_STORE_PROVIDER_TOKEN, addProviderToken } from './scripts/app-store-campaign.mjs';
 
 // Dev-only: serve /app and /app/* (no file extension) from app.html, mirroring
 // the CloudFront rewrite that's expected in production for the React SPA.
@@ -52,14 +53,28 @@ const zhHantLanding = (): Plugin => ({
         description: strings['hero.subtitle'],
         ogLocale: 'zh_TW',
         appDescription: strings['hero.subtitle'],
+        campaignPrefix: ['landing_', 'landing_zh_hant_'],
       }),
     });
   },
 });
 
+// App Store links in the pages and in llms.txt carry a campaign token (ct=<surface>). Once the App Store
+// Connect provider token is filled in (scripts/app-store-campaign.mjs), the build adds pt=<token> to each of
+// them; with the token empty this plugin changes nothing.
+const appStoreProviderToken = (): Plugin => ({
+  name: 'app-store-provider-token',
+  transformIndexHtml: (html) => addProviderToken(html, APP_STORE_PROVIDER_TOKEN),
+  closeBundle() {
+    const llms = resolve(__dirname, 'dist/llms.txt');
+    if (!APP_STORE_PROVIDER_TOKEN || !existsSync(llms)) return;
+    writeFileSync(llms, addProviderToken(readFileSync(llms, 'utf8'), APP_STORE_PROVIDER_TOKEN));
+  },
+});
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), appHtmlRewrite(), zhHantLanding()],
+  plugins: [react(), appHtmlRewrite(), appStoreProviderToken(), zhHantLanding()],
   base: '/',
   optimizeDeps: {
     exclude: ['lucide-react'],
