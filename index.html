@@ -116,6 +116,16 @@
           }
         },
         {
+          "@type": "VideoObject",
+          "name": "DeepValues: A Research Team for Everyone",
+          "description": "A 56-second tour of DeepValues: the Buffett Indicator and Shiller P/E, intrinsic value for any stock by the Buffett method, research reports that read the filings, what great investors own from their 13F filings, and macro alerts.",
+          "thumbnailUrl": "https://deepvalues.ai/images/app/film-poster.webp",
+          "uploadDate": "2026-11-13T09:07:35-08:00",
+          "duration": "PT56S",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/wNy-jOSGZ5M",
+          "contentUrl": "https://www.youtube.com/watch?v=wNy-jOSGZ5M"
+        },
+        {
           "@type": "SoftwareApplication",
           "name": "DeepValues.AI",
           "operatingSystem": "Web, iOS, Android",
@@ -928,6 +938,51 @@
         </div>
       </div>
     </main>
+
+    <!-- ==================== THE FILM ==================== -->
+    <!-- The 56-second product film (youtu.be/wNy-jOSGZ5M). The poster is our own image; YouTube's player
+         loads only after a click, from the no-cookie host, so the page stays light and sets no third-party cookie. -->
+    <section id="film" class="mt-16 lg:mt-24" aria-labelledby="filmHeading">
+      <div class="max-w-[1080px] mx-auto px-6 lg:px-10 text-center">
+        <p class="film-eyebrow" data-i18n="film.eyebrow">The film</p>
+        <h2 id="filmHeading" class="fc-headline mt-3 text-[32px] sm:text-[40px] lg:text-[44px] text-slate-900" data-i18n="film.heading">
+          DeepValues in 56 seconds
+        </h2>
+        <div class="film-frame mt-8" id="filmFrame">
+          <button type="button" class="film-play" id="filmPlay" data-ga-event="film_play_click" data-i18n-attr="aria-label:film.playAria" aria-label="Play the DeepValues film">
+            <img
+              src="/images/app/film-poster.webp"
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+              alt="DeepValues, a research team for everyone, on iPad, Mac and iPhone"
+            />
+            <span class="film-play__btn" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l11.1-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z" /></svg>
+            </span>
+            <span class="film-play__time" aria-hidden="true">0:56</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <script>
+      // Swap the poster for the player on the first click (falls back to opening YouTube).
+      (function () {
+        var btn = document.getElementById('filmPlay');
+        var frame = document.getElementById('filmFrame');
+        if (!btn || !frame) return;
+        btn.addEventListener('click', function () {
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/wNy-jOSGZ5M?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+          f.title = 'DeepValues: A Research Team for Everyone';
+          f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
+          f.allowFullscreen = true;
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          frame.replaceChildren(f);
+        });
+      })();
+    </script>
 
     <!-- ==================== FEATURES CAROUSEL ==================== -->
     <section id="app" class="mt-24 lg:mt-32 pb-24" aria-label="Product features">
