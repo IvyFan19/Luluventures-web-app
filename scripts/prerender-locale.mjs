@@ -11,8 +11,8 @@ import { JSDOM } from 'jsdom';
 /**
  * @param {string} html      built English index.html
  * @param {Record<string,string>} strings  the locale's i18n strings (public/locales/<locale>.json)
- * @param {{ locale: string, url: string, homeUrl: string, title: string, description: string,
- *           ogLocale: string, appDescription: string }} opts
+ * @param {{ locale: string, pageLocale?: string, dir?: 'ltr'|'rtl', url: string, homeUrl: string, title: string,
+ *           description: string, ogLocale: string, appDescription: string }} opts
  * @returns {string} the translated document
  */
 export function renderLocalePage(html, strings, opts) {
@@ -22,7 +22,8 @@ export function renderLocalePage(html, strings, opts) {
 
   // <html lang> and the marker /i18n.js reads: with no explicit pick this page stays in its own language
   root.setAttribute('lang', opts.locale);
-  root.setAttribute('data-page-locale', opts.locale);
+  root.setAttribute('data-page-locale', opts.pageLocale || opts.locale);
+  if (opts.dir === 'rtl') root.setAttribute('dir', 'rtl');
 
   // Visible text, exactly as /i18n.js would set it (keys missing from the locale keep the English text)
   doc.querySelectorAll('[data-i18n]').forEach((el) => {

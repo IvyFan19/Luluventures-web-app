@@ -200,5 +200,10 @@
   "bi.footer.privacy": "App 隐私政策",
   "film.eyebrow": "简介",
   "film.heading": "一分钟了解 DeepValues",
-  "film.playAria": "播放 DeepValues 影片"
+  "film.playAria": "播放 DeepValues 影片",
+  "seo.title": "DeepValues.AI — 价值投资应用：内在价值与股票估值",
+  "legal.englishGoverns": "本译文仅为方便阅读而提供。如与英文版本存在差异，以英文版本为准。",
+  "cookie.textHtml": "我们使用分析 Cookie 来了解网站的使用情况。必要 Cookie 始终启用。请参阅我们的<a href=\"/privacy.html#cookies\">Cookie 政策</a>。",
+  "cookie.reject": "拒绝",
+  "cookie.accept": "接受"
 }

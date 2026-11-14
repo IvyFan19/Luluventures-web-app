@@ -200,5 +200,10 @@
   "bi.footer.privacy": "Datenschutzerklärung der App",
   "film.eyebrow": "Das Intro",
   "film.heading": "DeepValues in einer Minute",
-  "film.playAria": "Den DeepValues-Film abspielen"
+  "film.playAria": "Den DeepValues-Film abspielen",
+  "seo.title": "DeepValues.AI — Value-Investing-App: Innerer Wert & Aktienbewertung",
+  "legal.englishGoverns": "Diese Übersetzung wird zur Erleichterung des Verständnisses bereitgestellt. Bei Abweichungen von der englischen Fassung ist die englische Fassung maßgeblich.",
+  "cookie.textHtml": "Wir verwenden Analyse-Cookies, um zu verstehen, wie die Website genutzt wird. Notwendige Cookies sind immer aktiv. Siehe unsere <a href=\"/privacy.html#cookies\">Cookie-Richtlinie</a>.",
+  "cookie.reject": "Ablehnen",
+  "cookie.accept": "Akzeptieren"
 }

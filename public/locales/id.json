@@ -200,5 +200,10 @@
   "bi.footer.privacy": "Kebijakan privasi aplikasi",
   "film.eyebrow": "Perkenalan",
   "film.heading": "DeepValues dalam satu menit",
-  "film.playAria": "Putar video DeepValues"
+  "film.playAria": "Putar video DeepValues",
+  "seo.title": "DeepValues.AI — Aplikasi Investasi Nilai: Nilai Intrinsik & Valuasi Saham",
+  "legal.englishGoverns": "Terjemahan ini disediakan untuk kemudahan. Jika terdapat perbedaan dengan versi bahasa Inggris, versi bahasa Inggris yang berlaku.",
+  "cookie.textHtml": "Kami menggunakan cookie analitik untuk memahami penggunaan situs ini. Cookie esensial selalu aktif. Lihat <a href=\"/privacy.html#cookies\">Kebijakan Cookie</a> kami.",
+  "cookie.reject": "Tolak",
+  "cookie.accept": "Terima"
 }

@@ -1,7 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-i18n-bundle="legal/bi-privacy">
   <head>
     <meta charset="UTF-8" />
+    <!-- A visitor whose language is not English never sees the English text flash before /i18n.js swaps it:
+         translatable text stays hidden until the swap (i18n.js lifts the class; at most 2.5 s regardless). -->
+    <script>
+      (function () {
+        try {
+          var m = /[?&](?:lang|hl)=([^&#]*)/i.exec(location.search), l = m ? decodeURIComponent(m[1]) : null;
+          if (!l) { try { l = sessionStorage.getItem('dv_locale_choice_visit') || localStorage.getItem('dv_locale_choice'); } catch (e) {} }
+          if (!l) l = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+          if (!/^en\b/i.test(l)) {
+            var d = document.documentElement;
+            d.classList.add('i18n-pending');
+            setTimeout(function () { d.classList.remove('i18n-pending'); }, 2500);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <style>.i18n-pending [data-i18n], .i18n-pending [data-i18n-html] { visibility: hidden; }</style>
     <link rel="icon" href="/brand/favicon.ico" sizes="16x16 32x32 48x48" />
     <link rel="icon" type="image/png" sizes="128x128" href="/brand/deepvalues-icon-128.png" />
     <link rel="apple-touch-icon" href="/brand/deepvalues-icon-180.png" />
@@ -176,7 +193,11 @@
         footer li a { display: inline-block; padding-top: 12px; padding-bottom: 12px; }
         footer a.w-10 { width: 44px; height: 44px; }
       }
+      /* "The English version governs": empty in English, filled by /i18n.js in every other language. */
+      .legal-governs { margin-top: 16px; font-size: 14px; line-height: 1.5; color: #6e6e73; }
+      .legal-governs:empty { display: none; }
     </style>
+    <script src="/i18n.js?v=27loc1" defer></script>
     <!-- Last in <head>: Tailwind's utilities override the styles above. -->
     <link rel="stylesheet" href="/src/legal.css" />
   </head>
@@ -196,6 +217,9 @@
             <span class="text-[22px] tracking-tight text-slate-700" style="font-family: 'Google Sans', sans-serif; font-weight: 700;">DeepValues.AI</span>
           </a>
         </div>
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div data-locale-switcher data-locale-placement="header"></div>
+        </div>
       </nav>
     </header>
 
@@ -205,6 +229,7 @@
       <h1 class="text-[40px] sm:text-[48px] font-extrabold leading-[1.05] tracking-tight text-slate-900" style="font-family: 'Google Sans', sans-serif;">
         Privacy Policy
       </h1>
+      <p class="legal-governs" data-i18n="legal.englishGoverns"></p>
       <p class="mt-5 text-[16px] text-slate-500">
         Effective <strong style="color:#1d1d1f;">November 14, 2026</strong> · Applies to the <strong style="color:#1d1d1f;">Buffett Indicator</strong> (iOS) and <strong style="color:#1d1d1f;">Buffett Indicator &amp; Shiller PE</strong> (Android) mobile apps.
       </p>

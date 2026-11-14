@@ -110,13 +110,15 @@
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-label', 'Cookie consent');
     box.innerHTML =
-      '<p>We use analytics cookies to understand how the site is used. Essential cookies are always on. ' +
+      '<p data-i18n-html="cookie.textHtml">We use analytics cookies to understand how the site is used. Essential cookies are always on. ' +
       'See our <a href="/privacy.html#cookies">Cookie Policy</a>.</p>' +
       '<div class="dv-cc-btns">' +
-      '<button type="button" class="dv-cc-reject">Reject</button>' +
-      '<button type="button" class="dv-cc-accept">Accept</button>' +
+      '<button type="button" class="dv-cc-reject" data-i18n="cookie.reject">Reject</button>' +
+      '<button type="button" class="dv-cc-accept" data-i18n="cookie.accept">Accept</button>' +
       '</div>';
     document.body.appendChild(box);
+    // In the reader's language: /i18n.js re-applies the current strings (it also covers the banner if it loads later).
+    if (window.__i18n && window.__i18n.refresh) window.__i18n.refresh();
     box.querySelector('.dv-cc-accept').addEventListener('click', function () { decide('granted'); });
     box.querySelector('.dv-cc-reject').addEventListener('click', function () { decide('denied'); });
   }

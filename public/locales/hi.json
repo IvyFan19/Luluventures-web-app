@@ -200,5 +200,10 @@
   "bi.footer.privacy": "ऐप गोपनीयता नीति",
   "film.eyebrow": "परिचय",
   "film.heading": "एक मिनट में DeepValues",
-  "film.playAria": "DeepValues फ़िल्म चलाएँ"
+  "film.playAria": "DeepValues फ़िल्म चलाएँ",
+  "seo.title": "DeepValues.AI — मूल्य निवेश ऐप: आंतरिक मूल्य और शेयर मूल्यांकन",
+  "legal.englishGoverns": "यह अनुवाद सुविधा के लिए प्रदान किया गया है। यदि यह अंग्रेज़ी संस्करण से भिन्न है, तो अंग्रेज़ी संस्करण मान्य होगा।",
+  "cookie.textHtml": "साइट का उपयोग कैसे होता है, यह समझने के लिए हम एनालिटिक्स कुकीज़ का उपयोग करते हैं। आवश्यक कुकीज़ हमेशा सक्रिय रहती हैं। हमारी <a href=\"/privacy.html#cookies\">कुकी नीति</a> देखें।",
+  "cookie.reject": "अस्वीकार करें",
+  "cookie.accept": "स्वीकार करें"
 }

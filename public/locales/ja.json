@@ -200,5 +200,10 @@
   "bi.footer.privacy": "アプリのプライバシーポリシー",
   "film.eyebrow": "イントロ",
   "film.heading": "1分でわかる DeepValues",
-  "film.playAria": "DeepValues のムービーを再生"
+  "film.playAria": "DeepValues のムービーを再生",
+  "seo.title": "DeepValues.AI — バリュー投資アプリ：本源的価値と株式評価",
+  "legal.englishGoverns": "この翻訳は便宜のために提供されています。英語版との間に相違がある場合は、英語版が優先されます。",
+  "cookie.textHtml": "当サイトの利用状況を把握するために、分析用Cookieを使用しています。必須Cookieは常に有効です。<a href=\"/privacy.html#cookies\">Cookieポリシー</a>をご確認ください。",
+  "cookie.reject": "拒否",
+  "cookie.accept": "同意"
 }

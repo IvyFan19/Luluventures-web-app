@@ -17,6 +17,8 @@
   // label = the language's own name (shown in the picker), code = short tag on the button.
   var LOCALES = {
     'en':     { label: 'English',          code: 'EN' },
+    'ar':     { label: 'العربية',           code: 'AR' },
+    'bn':     { label: 'বাংলা',             code: 'BN' },
     'de':     { label: 'Deutsch',          code: 'DE' },
     'es-419': { label: 'Español (LatAm)',  code: 'ES' },
     'es-ES':  { label: 'Español (España)', code: 'ES' },
@@ -26,13 +28,27 @@
     'it':     { label: 'Italiano',         code: 'IT' },
     'ja':     { label: '日本語',            code: 'JA' },
     'ko':     { label: '한국어',            code: 'KO' },
+    'mr':     { label: 'मराठी',             code: 'MR' },
+    'ms':     { label: 'Bahasa Melayu',    code: 'MS' },
+    'nl':     { label: 'Nederlands',       code: 'NL' },
+    'pl':     { label: 'Polski',           code: 'PL' },
     'pt-BR':  { label: 'Português (BR)',   code: 'PT' },
+    'ru':     { label: 'Русский',          code: 'RU' },
+    'sv':     { label: 'Svenska',          code: 'SV' },
+    'ta':     { label: 'தமிழ்',             code: 'TA' },
+    'te':     { label: 'తెలుగు',            code: 'TE' },
+    'th':     { label: 'ไทย',              code: 'TH' },
+    'tr':     { label: 'Türkçe',           code: 'TR' },
+    'ur':     { label: 'اردو',             code: 'UR' },
+    'vi':     { label: 'Tiếng Việt',       code: 'VI' },
     'zh':     { label: '简体中文',          code: 'ZH' },
     'zh-Hant': { label: '繁體中文',         code: '繁' }
   };
   // The switcher's first row: follow the device language (no pick remembered).
-  var AUTO_LABEL = { 'en': 'Automatic', 'de': 'Automatisch', 'es-419': 'Automático', 'es-ES': 'Automático', 'fr': 'Automatique',
-    'hi': 'स्वचालित', 'id': 'Otomatis', 'it': 'Automatico', 'ja': '自動', 'ko': '자동', 'pt-BR': 'Automático',
+  var AUTO_LABEL = { 'en': 'Automatic', 'ar': 'تلقائي', 'bn': 'স্বয়ংক্রিয়', 'de': 'Automatisch', 'es-419': 'Automático', 'es-ES': 'Automático',
+    'fr': 'Automatique', 'hi': 'स्वचालित', 'id': 'Otomatis', 'it': 'Automatico', 'ja': '自動', 'ko': '자동', 'mr': 'स्वयंचलित',
+    'ms': 'Automatik', 'nl': 'Automatisch', 'pl': 'Automatycznie', 'pt-BR': 'Automático', 'ru': 'Автоматически', 'sv': 'Automatiskt',
+    'ta': 'தானியங்கி', 'te': 'ఆటోమేటిక్', 'th': 'อัตโนมัติ', 'tr': 'Otomatik', 'ur': 'خودکار', 'vi': 'Tự động',
     'zh': '自动（跟随系统）', 'zh-Hant': '自動（跟隨系統）' };
   var RTL = { ar: 1, he: 1, fa: 1, ur: 1 };
   var DEFAULT_LOCALE = 'en';
@@ -116,12 +132,29 @@
     try { sessionStorage.removeItem(VISIT_KEY); } catch (e) {}
   }
 
+  // A page with a long body of its own (the legal pages) names an extra string bundle on <html data-i18n-bundle>:
+  // /locales/<bundle>/<locale>.json is loaded next to the shared /locales/<locale>.json and merged over it.
+  var BUNDLE = null;
+  try {
+    var rootEl = document.documentElement;
+    BUNDLE = rootEl && rootEl.getAttribute ? rootEl.getAttribute('data-i18n-bundle') : null;
+  } catch (e) {}
+
+  function fetchJson(url) {
+    return fetch(url, { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .catch(function () { return {}; });
+  }
+
   function loadTranslations(locale) {
     if (cache[locale]) return Promise.resolve(cache[locale]);
-    return fetch('/locales/' + locale + '.json', { cache: 'no-cache' })
-      .then(function (r) { return r.ok ? r.json() : {}; })
-      .then(function (json) { cache[locale] = json; return json; })
-      .catch(function () { cache[locale] = {}; return {}; });
+    var parts = [fetchJson('/locales/' + locale + '.json')];
+    if (BUNDLE) parts.push(fetchJson('/locales/' + BUNDLE + '/' + locale + '.json'));
+    return Promise.all(parts).then(function (r) {
+      var merged = Object.assign({}, r[0], r[1] || {});
+      cache[locale] = merged;
+      return merged;
+    });
   }
 
   function applyTranslations(translations, fallback) {
@@ -157,8 +190,8 @@
     '.locale-trigger:focus-visible,.locale-item:focus-visible{outline:2px solid var(--dv-ls-accent);outline-offset:2px}' +
     '.locale-switcher[data-locale-placement="footer"] .locale-trigger{border-color:transparent;padding:4px 0;font-weight:500;font-size:inherit;color:inherit}' +
     '.locale-switcher[data-locale-placement="footer"] .locale-trigger:hover{background:transparent;color:var(--dv-ls-fg)}' +
-    '.locale-menu{display:none;position:absolute;top:calc(100% + 8px);right:0;width:240px;max-width:calc(100vw - 32px);max-height:min(560px,80vh);overflow-y:auto;background:var(--dv-ls-bg);border:1px solid var(--dv-ls-menu-border);border-radius:16px;box-shadow:0 12px 36px -8px rgba(15,23,60,.28);padding:6px;z-index:60}' +
-    '.locale-switcher[data-locale-placement="footer"] .locale-menu{top:auto;right:auto;bottom:calc(100% + 8px);left:0}' +
+    '.locale-menu{display:none;position:absolute;top:calc(100% + 8px);inset-inline-end:0;width:240px;max-width:calc(100vw - 32px);max-height:min(560px,80vh);overflow-y:auto;background:var(--dv-ls-bg);border:1px solid var(--dv-ls-menu-border);border-radius:16px;box-shadow:0 12px 36px -8px rgba(15,23,60,.28);padding:6px;z-index:60}' +
+    '.locale-switcher[data-locale-placement="footer"] .locale-menu{top:auto;inset-inline-end:auto;bottom:calc(100% + 8px);inset-inline-start:0}' +
     '.locale-menu.open{display:block}' +
     '@media (max-width:767px){.locale-trigger{position:relative}.locale-trigger::after{content:"";position:absolute;inset:-4px}.locale-switcher[data-locale-placement="footer"] .locale-trigger{padding:13px 0}}' +
     '@media (max-width:480px){.locale-switcher[data-locale-placement="header"] .locale-trigger{padding:9px}.locale-switcher[data-locale-placement="header"] [data-locale-current],.locale-switcher[data-locale-placement="header"] .locale-caret{display:none}}' +
@@ -354,6 +387,8 @@
   // Expose for debugging / programmatic use
   window.__i18n = {
     setLocale: setLocale, detect: detectLocale, resolve: resolveTag, getLocales: function () { return LOCALES; },
+    // re-apply the current language to content added after load (the cookie banner)
+    refresh: function () { return switcherReady ? setLocale(currentLocale, false) : Promise.resolve(); },
     // forget an explicit pick and follow the browser again
     reset: function () { forgetPick(); return setLocale(detectLocale(), false); }
   };

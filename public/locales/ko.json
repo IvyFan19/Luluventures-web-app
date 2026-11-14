@@ -200,5 +200,10 @@
   "bi.footer.privacy": "앱 개인정보 처리방침",
   "film.eyebrow": "소개",
   "film.heading": "1분으로 보는 DeepValues",
-  "film.playAria": "DeepValues 소개 영상 재생"
+  "film.playAria": "DeepValues 소개 영상 재생",
+  "seo.title": "DeepValues.AI — 가치투자 앱: 내재가치 및 주식 가치평가",
+  "legal.englishGoverns": "이 번역은 편의를 위해 제공됩니다. 영어 버전과 차이가 있는 경우 영어 버전이 우선합니다.",
+  "cookie.textHtml": "사이트 이용 현황을 파악하기 위해 분석 쿠키를 사용합니다. 필수 쿠키는 항상 활성화되어 있습니다. <a href=\"/privacy.html#cookies\">쿠키 정책</a>을 확인하세요.",
+  "cookie.reject": "거부",
+  "cookie.accept": "동의"
 }

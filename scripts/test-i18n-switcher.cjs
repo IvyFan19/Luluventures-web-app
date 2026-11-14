@@ -3,8 +3,10 @@
 //     every page loads /i18n.js, no page declares hreflang alternates (one URL per page, translated client-side);
 //  2. data: every locale file has a native-name entry in LOCALES (and no stray entries);
 //  3. ?lang= / ?hl= URL override resolves, holds for the visit only (sessionStorage), and beats a stored pick;
-//  4. DOM (jsdom): header + footer switchers render 12 native names, stay in sync, open/close
-//     with the keyboard, update <html lang>, and persist the choice.
+//  4. DOM (jsdom): header + footer switchers render every native name, stay in sync, open/close
+//     with the keyboard, update <html lang>, and persist the choice;
+//  5. legal pages: every text block is keyed (scripts/legal-segments.mjs), every language has every block,
+//     translations keep the tags, links and numbers, and each carries the "English version governs" note.
 const fs = require('fs'), path = require('path'), vm = require('vm');
 const root = path.join(__dirname, '..');
 const read = (f) => fs.readFileSync(path.join(root, f), 'utf8');
@@ -36,7 +38,7 @@ function boot(opts) {
 }
 
 // ---- 1. static markup ----
-const pages = ['index.html', 'api.html', 'privacy.html', 'terms.html'];
+const pages = ['index.html', 'api.html', 'privacy.html', 'terms.html', 'privacy/buffett-indicator/index.html'];
 pages.forEach((f) => {
   const html = read(f);
   const header = (/<header[\s\S]*?<\/header>/.exec(html) || [''])[0];
@@ -53,20 +55,26 @@ const locales = boot().api.getLocales();
 const codes = Object.keys(locales).sort();
 const files = fs.readdirSync(path.join(root, 'public', 'locales')).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', '')).sort();
 check('LOCALES covers exactly the locale files', codes, files);
-const wantLabels = { en: 'English', de: 'Deutsch', 'es-419': 'Español (LatAm)', 'es-ES': 'Español (España)', fr: 'Français', hi: 'हिन्दी', id: 'Bahasa Indonesia', it: 'Italiano', ja: '日本語', ko: '한국어', 'pt-BR': 'Português (BR)', zh: '简体中文', 'zh-Hant': '繁體中文' };
+const wantLabels = { en: 'English', ar: 'العربية', bn: 'বাংলা', de: 'Deutsch', 'es-419': 'Español (LatAm)', 'es-ES': 'Español (España)', fr: 'Français', hi: 'हिन्दी', id: 'Bahasa Indonesia', it: 'Italiano', ja: '日本語', ko: '한국어', mr: 'मराठी', ms: 'Bahasa Melayu', nl: 'Nederlands', pl: 'Polski', 'pt-BR': 'Português (BR)', ru: 'Русский', sv: 'Svenska', ta: 'தமிழ்', te: 'తెలుగు', th: 'ไทย', tr: 'Türkçe', ur: 'اردو', vi: 'Tiếng Việt', zh: '简体中文', 'zh-Hant': '繁體中文' };
 check('native name for every locale', codes.map((c) => [c, locales[c].label]), Object.keys(wantLabels).sort().map((c) => [c, wantLabels[c]]));
 check('every locale has a short code', codes.every((c) => /^([A-Z]{2}|繁)$/.test(locales[c].code)), true);
+// scripts/site-locales.mjs (build, sitemap, hreflang) lists the same languages as i18n.js
+const { SITE_LOCALES, landingUrl, landingAlternates } = require('./site-locales.mjs');
+check('site-locales.mjs lists the same languages as i18n.js', SITE_LOCALES.map((l) => l.code).sort(), codes);
+check('Arabic and Urdu are right-to-left', SITE_LOCALES.filter((l) => l.rtl).map((l) => l.code), ['ar', 'ur']);
+check('every language names its landing keywords (seo.title)', files.filter((c) => !JSON.parse(read('public/locales/' + c + '.json'))['seo.title']), []);
 
 // ---- hreflang: ?lang=xx serves the same English HTML as the canonical URL, so only distinct URLs pair up.
-// The landing page and its prerendered Traditional Chinese copy (/zh-hant/) declare each other (+ x-default);
+// The landing page and its prerendered copy in every language (/de/, /zh-hant/, ...) declare each other (+ x-default);
 // every other page declares one canonical and no alternates.
-const LANDING_ALTS = ['en|https://deepvalues.ai/', 'zh-Hant|https://deepvalues.ai/zh-hant/', 'x-default|https://deepvalues.ai/'];
+const LANDING_ALTS = landingAlternates().map((a) => a.hreflang + '|' + a.href);
 const alts = (html) => [...html.matchAll(/hreflang="([^"]+)" href="([^"]+)"/g)].map((m) => m[1] + '|' + m[2]);
-check('index.html: en / zh-Hant / x-default alternates', alts(read('index.html')), LANDING_ALTS);
+check('index.html: an alternate for every language + x-default', alts(read('index.html')), LANDING_ALTS);
 check('index.html: exactly one canonical', (read('index.html').match(/<link rel="canonical"/g) || []).length, 1);
 check('buffett-indicator/index.html: no hreflang alternates', /hreflang=/.test(read('buffett-indicator/index.html')), false);
 check('buffett-indicator/index.html: exactly one canonical', (read('buffett-indicator/index.html').match(/<link rel="canonical"/g) || []).length, 1);
-check('sitemap.xml: both landing URLs with alternates', ['<loc>https://deepvalues.ai/</loc>', '<loc>https://deepvalues.ai/zh-hant/</loc>'].every((u) => read('public/sitemap.xml').includes(u)) && (read('public/sitemap.xml').match(/<xhtml:link /g) || []).length, 6);
+check('sitemap.xml: every landing URL, each with every alternate', SITE_LOCALES.every((l) => read('public/sitemap.xml').includes('<loc>' + landingUrl(l) + '</loc>')) && (read('public/sitemap.xml').match(/<xhtml:link /g) || []).length, SITE_LOCALES.length * LANDING_ALTS.length);
+check('llms.txt names every language', SITE_LOCALES.filter((l) => !read('public/llms.txt').includes(l.english)).map((l) => l.code), []);
 
 // ---- prerendered page (/zh-hant/): its own language unless the URL or an explicit pick says otherwise ----
 check('zh-Hant page, English browser -> zh-Hant', boot({ pageLocale: 'zh-Hant', langs: ['en-US'] }).api.detect(), 'zh-Hant');
@@ -107,6 +115,46 @@ check('no URL override, no pick: browser language', lang('', ['it-IT']).detected
   check('auto-detect alone stores nothing', b.store, {});
 }
 
+// ---- 5. legal pages ----
+{
+  const { segmentLegal, LEGAL_PAGES } = require('./legal-segments.mjs');
+  const { problems } = require('./translate-locales.mjs');
+  const en = JSON.parse(read('public/locales/en.json'));
+  check('en.json: the "English governs" note is empty in English', en['legal.englishGoverns'], '');
+  check('every other language carries the "English governs" note', files.filter((c) => c !== 'en' && !JSON.parse(read('public/locales/' + c + '.json'))['legal.englishGoverns']), []);
+  LEGAL_PAGES.forEach((p) => {
+    const html = read(p.file);
+    check(p.file + ': names its string bundle', html.includes('data-i18n-bundle="legal/' + p.bundle + '"'), true);
+    check(p.file + ': has the "English governs" note slot', /class="legal-governs" data-i18n="legal.englishGoverns"/.test(html), true);
+    check(p.file + ': switcher translates in place (no data-locale-target)', /data-locale-target/.test(html), false);
+    const { strings, html: marked } = segmentLegal(html, p.bundle);
+    const dir = 'public/locales/legal/' + p.bundle + '/';
+    // Edited the English page? Run `node scripts/translate-locales.mjs --only legal` to refresh the bundles.
+    check(p.file + ': en bundle matches the English page', JSON.stringify(JSON.parse(read(dir + 'en.json'))), JSON.stringify(strings));
+    check(p.file + ': every text block is keyed', (marked.match(/data-i18n-html="/g) || []).length >= Object.keys(strings).length, true);
+    const keys = Object.keys(strings).sort();
+    const bad = [], incomplete = [];
+    files.filter((c) => c !== 'en').forEach((c) => {
+      let t = {};
+      try { t = JSON.parse(read(dir + c + '.json')); } catch (e) { incomplete.push(c + ' (no file)'); return; }
+      if (JSON.stringify(Object.keys(t).sort()) !== JSON.stringify(keys)) incomplete.push(c);
+      problems(strings, t).forEach((i) => bad.push(c + ' ' + i));
+    });
+    check(p.file + ': every language has every block', incomplete, []);
+    check(p.file + ': translations keep tags, links and numbers', bad, []);
+  });
+}
+// ---- prerendered landing pages: language, direction, title, canonical ----
+{
+  const { renderLocalePage } = require('./prerender-locale.mjs');
+  const loc = SITE_LOCALES.find((l) => l.code === 'ar');
+  const strings = JSON.parse(read('public/locales/ar.json'));
+  const out = renderLocalePage(read('index.html'), strings, { locale: loc.hreflang, pageLocale: loc.code, dir: 'rtl', url: landingUrl(loc), homeUrl: 'https://deepvalues.ai/', title: strings['seo.title'], description: strings['hero.subtitle'], ogLocale: loc.og, appDescription: strings['hero.subtitle'] });
+  check('prerendered /ar/: lang, dir and page locale', [/<html[^>]* lang="ar"/.test(out), /<html[^>]* dir="rtl"/.test(out), /data-page-locale="ar"/.test(out)], [true, true, true]);
+  check('prerendered /ar/: canonical is its own URL', /<link rel="canonical" href="https:\/\/deepvalues.ai\/ar\/"/.test(out), true);
+  check('prerendered /ar/: keeps every alternate', alts(out), LANDING_ALTS);
+}
+
 // ---- 4. DOM behaviour with jsdom ----
 let JSDOM;
 try { ({ JSDOM } = require('jsdom')); } catch (e) { console.log('SKIP DOM tests (jsdom not installed: run npm ci)'); process.exit(); }
@@ -131,7 +179,7 @@ const key = (w, el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key:
   await tick();
   const d = w.document;
   check('DOM: two switchers rendered', d.querySelectorAll('.locale-trigger').length, 2);
-  check('DOM: Automatic + 13 native names in the header menu', [...d.querySelectorAll('#h .locale-name')].map((e) => e.textContent), ['Automatic'].concat(Object.values(wantLabels)));
+  check('DOM: Automatic + every native name in the header menu', [...d.querySelectorAll('#h .locale-name')].map((e) => e.textContent), ['Automatic'].concat(Object.values(wantLabels)));
   check('DOM: trigger starts as EN', d.querySelector('#h [data-locale-current]').textContent, 'EN');
   const trig = d.querySelector('#h .locale-trigger'), menu = d.querySelector('#h .locale-menu');
   check('DOM: trigger a11y attributes', [trig.getAttribute('aria-haspopup'), trig.getAttribute('aria-expanded')], ['listbox', 'false']);
@@ -175,4 +223,15 @@ const key = (w, el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key:
   await tick();
   check('DOM: Automatic forgets the pick', [w2.localStorage.getItem('dv_locale_choice'), w2.sessionStorage.getItem('dv_locale_choice_visit')], [null, null]);
   check('DOM: Automatic is ticked again', w2.document.querySelector('#h .active').dataset.localeOption, 'auto');
+
+  // A legal page loads its own bundle next to the shared strings
+  const d3 = new JSDOM('<!doctype html><html lang="en" data-i18n-bundle="legal/privacy"><head></head><body><header><div data-locale-switcher data-locale-placement="header"></div></header>' +
+    '<h1 data-i18n-html="privacy.abc">Privacy Policy</h1><p class="legal-governs" data-i18n="legal.englishGoverns"></p></body></html>', { url: 'https://deepvalues.ai/privacy.html', runScripts: 'outside-only' });
+  const w3 = d3.window, asked = [];
+  w3.navigator.__defineGetter__('languages', () => ['nl-NL']);
+  w3.fetch = (u) => { asked.push(u); return Promise.resolve({ ok: true, json: () => Promise.resolve(u.indexOf('/legal/privacy/nl.json') >= 0 ? { 'privacy.abc': 'Privacybeleid' } : u.indexOf('/nl.json') >= 0 ? { 'legal.englishGoverns': 'De Engelse versie is leidend.' } : {}) }); };
+  w3.eval(src);
+  await tick();
+  check('DOM: legal page fetches its bundle', asked.filter((u) => /\/locales\/legal\/privacy\/nl\.json$/.test(u)).length, 1);
+  check('DOM: legal page body and note translated', [w3.document.querySelector('h1').textContent, w3.document.querySelector('.legal-governs').textContent], ['Privacybeleid', 'De Engelse versie is leidend.']);
 })().catch((e) => { console.log('FAIL DOM tests crashed: ' + e.stack); process.exitCode = 1; });
