@@ -9,6 +9,7 @@ This folder holds the **versioned, living** documentation for the Lulu Ventures 
 | [`design.md`](#design) (current top-level [`../architect.md`](../architect.md)) | Onboarding: what's the architecture | After non-trivial architecture changes |
 | [`../architecture-diagram.md`](../architecture-diagram.md) | Future-state CDK design (proposed) | When the future plan changes |
 | [`runbook.md`](runbook.md) | "Site is down / page is broken" — incident response | After every real incident, add what you learned |
+| [`azure-swa-migration.md`](azure-swa-migration.md) | Moving deepvalues.ai from S3 + CloudFront to Azure Static Web Apps: inventory, parity, cutover, rollback | When the cutover or retirement of AWS happens |
 | [`decisions.md`](decisions.md) | "Why did we choose X over Y?" — design rationale | Append a new entry whenever you make a non-obvious architectural decision |
 
 ### Design

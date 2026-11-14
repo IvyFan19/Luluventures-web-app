@@ -23,6 +23,15 @@ Expected: `HTTP 200` in under 1s. Anything else, scroll down.
    ```
 3. **CDN propagation** — if you just deployed and old version is still showing, it's CloudFront caching. Either wait (default TTL) or trigger an invalidation in the AWS console.
 
+## Hosting move to Azure Static Web Apps (prepared 2026-11-14)
+
+Until the DNS cutover in [`azure-swa-migration.md`](azure-swa-migration.md) happens, production is still S3 + CloudFront and the sections above apply. After cutover:
+
+- Deploy: `scripts/deploy-azure-swa.sh` (preview), check, then `scripts/deploy-azure-swa.sh production`. No CloudFront invalidation; SWA purges its edge cache on deploy.
+- Compare two hosts route by route: `scripts/swa-parity-check.sh https://deepvalues.ai https://<host>`.
+- Status: `az staticwebapp show -n deepvalues-web -g deepvalues-web-rg -o table`; environments: `az staticwebapp environment list -n deepvalues-web -g deepvalues-web-rg -o table`.
+- Rollback: point `www` and the apex back to `d2pvfiiif8xd24.cloudfront.net` (see the migration doc).
+
 ## Symptom: contact form / newsletter signup not sending emails
 
 EmailJS handles email delivery. See `SETUP_EMAILJS.md` at the repo root for keys and template IDs.
@@ -54,7 +63,7 @@ If a single user reports stale content but everyone else is fine, it's their bro
 | Resource | URL |
 |----------|-----|
 | Production site | https://luluventures.com/ |
-| Deploy workflow | `.github/workflows/aws-s3-deploy.yml` |
+| Deploy workflow | `.github/workflows/aws-s3-deploy.yml` (manual); Azure SWA after cutover: `scripts/deploy-azure-swa.sh` |
 | GitHub Actions | https://github.com/IvyFan19/Luluventures-web-app/actions |
 | EmailJS dashboard | https://dashboard.emailjs.com/ |
 | AWS Console (acct ID & secrets in `access_deepvalues_servics` skill) | https://console.aws.amazon.com/ |
