@@ -23,7 +23,7 @@ The brand premise: Wall Street works for Wall Street, not for you. DeepValues.AI
 The source of truth is the pricing page: https://app.deepvalues.ai/en/pricing
 
 - **Free** — 9 credits at signup, enough for 3 fresh briefings, then 0.75 credits a week (about one fresh briefing a month). Unlimited watchlist, every guru with a weekly email digest, the Buffett Indicator and Shiller PE, Buffett Lens, filings and AI filing summaries.
-- **Plus — $9.99/month or $99.99/year** — 7-day free trial for first-time subscribers. About 6 fresh briefings a month (4 credits every week), a realtime email alert when a guru you follow moves, and every macro indicator with full history.
+- **Plus — $9.99/month or $79.99/year** — 7-day free trial for first-time subscribers. About 6 fresh briefings a month (4 credits every week), a realtime email alert when a guru you follow moves, and every macro indicator with full history.
 - **Credits** — a fresh briefing costs 3 credits; opening one someone already ran costs 0.25. Credit packs top up either plan.
 - **API and MCP server** — live, paid per call from the same credits, no subscription. Docs, per-call prices and keys: https://app.deepvalues.ai/developers. MCP server: https://app.deepvalues.ai/api/mcp
 
