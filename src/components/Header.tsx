@@ -57,13 +57,13 @@ export function Header({
       >
         <div className="container mx-auto flex items-center justify-between px-6">
           <div className="flex min-w-[160px] items-center">
-            <div className={`flex items-center justify-center rounded-full bg-black h-7 w-7 md:hidden transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
-              <img
-                src="/images/deepvalues-icon.png"
-                alt="DeepValues.ai"
-                className="h-4 w-auto"
-              />
-            </div>
+            <img
+              src="/brand/deepvalues-icon-rounded-64.png"
+              alt="DeepValues.ai"
+              width={28}
+              height={28}
+              className={`h-7 w-7 md:hidden transition-opacity duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}
+            />
           </div>
 
           {hasSceneNav && (
@@ -154,13 +154,13 @@ export function Header({
         }`}
       >
         <div className="flex items-center justify-between px-6 py-3">
-          <div className="flex items-center justify-center rounded-full bg-black border border-white/10 h-7 w-7">
-            <img
-              src="/images/deepvalues-icon.png"
-              alt="DeepValues.ai"
-              className="h-4 w-auto"
-            />
-          </div>
+          <img
+            src="/brand/deepvalues-icon-rounded-64.png"
+            alt="DeepValues.ai"
+            width={28}
+            height={28}
+            className="h-7 w-7"
+          />
           <button
             className="text-white/70"
             onClick={toggleMenu}
