@@ -58,7 +58,7 @@ export function Header({
         <div className="container mx-auto flex items-center justify-between px-6">
           <div className="flex min-w-[160px] items-center">
             <img
-              src="/brand/deepvalues-icon-rounded-64.png"
+              src="/brand/deepvalues-icon-black-rounded-64.png"
               alt="DeepValues.ai"
               width={28}
               height={28}
@@ -155,7 +155,7 @@ export function Header({
       >
         <div className="flex items-center justify-between px-6 py-3">
           <img
-            src="/brand/deepvalues-icon-rounded-64.png"
+            src="/brand/deepvalues-icon-black-rounded-64.png"
             alt="DeepValues.ai"
             width={28}
             height={28}

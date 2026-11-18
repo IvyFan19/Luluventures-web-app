@@ -538,7 +538,7 @@ function SceneCTA() {
       <div className="st relative text-center max-w-6xl mx-auto pt-36 md:pt-52">
         <div className="flex items-center justify-center gap-4 md:gap-6">
           <img
-            src="/brand/deepvalues-icon-rounded-128.png"
+            src="/brand/deepvalues-icon-black-rounded-128.png"
             alt="DeepValues.ai"
             width={64}
             height={64}
