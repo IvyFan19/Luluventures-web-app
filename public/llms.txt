@@ -2,6 +2,12 @@
 
 > AI-native financial assistant for individual investors — institutional-grade stock research that aligns only with your interest. Built by LuLu Ventures LLC.
 
+In one sentence: DeepValues is a value-investing research app that shows what a company is worth by three valuation models, what well-known investors and members of Congress bought and sold, and AI research briefings that show their sources.
+
+- Who it is for: individual investors who do their own fundamental research on US-listed companies.
+- What it costs: the Basic plan is $0 with no card; Plus is $9.99 a month or $79.99 a year, with a 7-day trial for first-time subscribers.
+- Where to get it: on the web at https://app.deepvalues.ai, on iPhone (https://apps.apple.com/us/app/deepvalues/id6775568608) and on Android (https://play.google.com/store/apps/details?id=app.deepvalues.android).
+
 DeepValues.AI brings the kind of deep, multi-analyst stock research traditionally locked behind expensive Wall Street terminals to individual retail investors. The product runs an AI research pipeline that reads every SEC filing, earnings transcript, and 13F holding for a company, then produces a structured briefing covering business moat, intrinsic value, financials, smart-money positioning, and recent filings.
 
 The brand premise: Wall Street works for Wall Street, not for you. DeepValues.AI is explicitly aligned with the individual investor — no advertiser kickbacks, no promoted stocks, no affiliate links inside research, no conflicts of interest. The credits you spend are the actual cost of running the multi-analyst AI pipeline on your behalf, because that's the only way the product makes money.
@@ -22,14 +28,14 @@ The brand premise: Wall Street works for Wall Street, not for you. DeepValues.AI
 
 The source of truth is the pricing page: https://app.deepvalues.ai/en/pricing
 
-- **Free** — 9 credits at signup, enough for 3 fresh briefings, then 0.75 credits a week (about one fresh briefing a month). Unlimited watchlist, every guru with a weekly email digest, the Buffett Indicator and Shiller PE, Buffett Lens, filings and AI filing summaries.
-- **Plus — $9.99/month or $79.99/year** — 7-day free trial for first-time subscribers. About 6 fresh briefings a month (4 credits every week), a realtime email alert when a guru you follow moves, and every macro indicator with full history.
+- **Basic ($0, no card)** — 9 credits at signup, enough for 3 fresh briefings, then 0.75 credits a week (about one fresh briefing a month). Unlimited watchlist, every guru with a weekly email digest, the Buffett Indicator and Shiller PE, Buffett Lens, filings and AI filing summaries.
+- **Plus — $9.99/month or $79.99/year** — 7-day trial for first-time subscribers. About 6 fresh briefings a month (4 credits every week), a realtime email alert when a guru you follow moves, and every macro indicator with full history.
 - **Credits** — a fresh briefing costs 3 credits; opening one someone already ran costs 0.25. Credit packs top up either plan.
 - **API and MCP server** — live, paid per call from the same credits, no subscription. Docs, per-call prices and keys: https://app.deepvalues.ai/developers. MCP server: https://app.deepvalues.ai/api/mcp
 
 ## Languages
 
-The app (iPhone, Android and web) is available in 20 languages. The marketing site is available in 27: English, Arabic, Bengali, German, Latin American Spanish, European Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Marathi, Malay, Dutch, Polish, Brazilian Portuguese, Russian, Swedish, Tamil, Telugu, Thai, Turkish, Urdu, Vietnamese, Simplified Chinese and Traditional Chinese. The language is detected from the browser and can be switched by hand. Every language has its own landing page: Arabic https://deepvalues.ai/ar/ · Bengali https://deepvalues.ai/bn/ · German https://deepvalues.ai/de/ · Latin American Spanish https://deepvalues.ai/es-419/ · European Spanish https://deepvalues.ai/es-es/ · French https://deepvalues.ai/fr/ · Hindi https://deepvalues.ai/hi/ · Indonesian https://deepvalues.ai/id/ · Italian https://deepvalues.ai/it/ · Japanese https://deepvalues.ai/ja/ · Korean https://deepvalues.ai/ko/ · Marathi https://deepvalues.ai/mr/ · Malay https://deepvalues.ai/ms/ · Dutch https://deepvalues.ai/nl/ · Polish https://deepvalues.ai/pl/ · Brazilian Portuguese https://deepvalues.ai/pt-br/ · Russian https://deepvalues.ai/ru/ · Swedish https://deepvalues.ai/sv/ · Tamil https://deepvalues.ai/ta/ · Telugu https://deepvalues.ai/te/ · Thai https://deepvalues.ai/th/ · Turkish https://deepvalues.ai/tr/ · Urdu https://deepvalues.ai/ur/ · Vietnamese https://deepvalues.ai/vi/ · Simplified Chinese https://deepvalues.ai/zh-hans/ · Traditional Chinese https://deepvalues.ai/zh-hant/. The privacy policy, the terms and the Buffett Indicator privacy policy are translated as well; the English version governs.
+The web app and the iPhone app are available in 26 languages. The marketing site is available in 27: English, Arabic, Bengali, German, Latin American Spanish, European Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Marathi, Malay, Dutch, Polish, Brazilian Portuguese, Russian, Swedish, Tamil, Telugu, Thai, Turkish, Urdu, Vietnamese, Simplified Chinese and Traditional Chinese. The language is detected from the browser and can be switched by hand. Every language has its own landing page: Arabic https://deepvalues.ai/ar/ · Bengali https://deepvalues.ai/bn/ · German https://deepvalues.ai/de/ · Latin American Spanish https://deepvalues.ai/es-419/ · European Spanish https://deepvalues.ai/es-es/ · French https://deepvalues.ai/fr/ · Hindi https://deepvalues.ai/hi/ · Indonesian https://deepvalues.ai/id/ · Italian https://deepvalues.ai/it/ · Japanese https://deepvalues.ai/ja/ · Korean https://deepvalues.ai/ko/ · Marathi https://deepvalues.ai/mr/ · Malay https://deepvalues.ai/ms/ · Dutch https://deepvalues.ai/nl/ · Polish https://deepvalues.ai/pl/ · Brazilian Portuguese https://deepvalues.ai/pt-br/ · Russian https://deepvalues.ai/ru/ · Swedish https://deepvalues.ai/sv/ · Tamil https://deepvalues.ai/ta/ · Telugu https://deepvalues.ai/te/ · Thai https://deepvalues.ai/th/ · Turkish https://deepvalues.ai/tr/ · Urdu https://deepvalues.ai/ur/ · Vietnamese https://deepvalues.ai/vi/ · Simplified Chinese https://deepvalues.ai/zh-hans/ · Traditional Chinese https://deepvalues.ai/zh-hant/. The privacy policy, the terms and the Buffett Indicator privacy policy are translated as well; the English version governs.
 
 ## Topics covered
 
@@ -39,7 +45,7 @@ Value investing; intrinsic value (discounted cash flow, owner earnings, two-stag
 
 - [Home](https://deepvalues.ai/) — Product overview and features
 - [Privacy Policy](https://deepvalues.ai/privacy.html) — Data handling, sub-processors (AWS, OpenAI, Anthropic, Microsoft Azure Speech, Cloudflare, Google Workspace), AI/automated-processing disclosures
-- [Pricing](https://app.deepvalues.ai/en/pricing) — Free, Plus and credit packs
+- [Pricing](https://app.deepvalues.ai/en/pricing) — Basic, Plus and credit packs
 - [Sample briefing](https://app.deepvalues.ai/en/company/KO/briefing) — A public Deep Value briefing (Coca-Cola)
 - [API and MCP server](https://app.deepvalues.ai/developers) — Docs, per-call prices, keys
 - [Web app](https://app.deepvalues.ai/login) — The product on the web
@@ -54,10 +60,16 @@ Value investing; intrinsic value (discounted cash flow, owner earnings, two-stag
 - [DeepValues for iPhone](https://apps.apple.com/us/app/deepvalues/id6775568608)
 - [DeepValues for Android](https://play.google.com/store/apps/details?id=app.deepvalues.android)
 - [Buffett Indicator app home page](https://deepvalues.ai/buffett-indicator/) — what the two gauges mean, features, FAQ and store links for both platforms
-- [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614) — market-valuation gauge
-- [Buffett Indicator & Shiller PE for Android](https://play.google.com/store/apps/details?id=com.luluventures.bubblewatch.android) — the Buffett Indicator on Android
+- [Buffett Indicator for iPhone](https://apps.apple.com/us/app/buffett-indicator/id6747404614) — market-valuation gauge, a one-time purchase ($5.99 in the US store)
+- [Buffett Indicator & Shiller PE for Android](https://play.google.com/store/apps/details?id=com.luluventures.bubblewatch.android) — the same app on Android, a one-time purchase ($5.99 in the US store)
 - [DeepValues Research](https://research.deepvalues.ai/) — open-source Buffett-style company reports, market memos and investor studies, CC BY 4.0. For agents: https://research.deepvalues.ai/for-agents/ and https://research.deepvalues.ai/llms.txt
 - [Developer API, MCP server and x402](https://app.deepvalues.ai/developers)
+- [Margin of Safety Weekly](https://app.deepvalues.ai/letter) — the DeepValues email, every Saturday; no account needed
+
+## Also from LuLu Ventures LLC
+
+- [FinancialMD](https://financial.md) — financial statements from SEC filings for AI agents and the people who direct them; every number links to the filing it came from. For agents: https://financial.md/llms.txt
+- [Intelligent Studio](https://studio.intelligent.md) — turns a document you own into a podcast episode and a narrated video with AI voices, published to your own feed and YouTube channel after you approve
 
 ## Podcasts
 
@@ -83,6 +95,6 @@ Value investing; intrinsic value (discounted cash flow, owner earnings, two-stag
 
 ## Important disclaimers
 
-DeepValues.AI is an AI research and education product, not a registered investment adviser. AI briefings are factual research, not personalized investment advice. Users are responsible for their own investment decisions. AI can be wrong or out of date — every output cites its source so users can verify.
+DeepValues.AI is an AI research and education product, not a registered investment adviser. AI briefings are factual research, not personalized investment advice. Users are responsible for their own investment decisions. AI can be wrong or out of date — every output cites its source so users can verify. DeepValues and the Buffett Indicator app are not affiliated with Warren Buffett or Berkshire Hathaway.
 
 The product does not store Buffett Lens voice audio on its servers; audio is streamed to Microsoft Azure Speech Services for real-time transcription only, and neither party retains it after transcription completes. Users' inputs and outputs are never used to train any foundation model (OpenAI and Anthropic are used under their API/enterprise no-training terms).
